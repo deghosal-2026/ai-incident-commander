@@ -66,7 +66,7 @@ def run_incident(  # noqa: ANN401
 
     # Writer imported lazily to avoid circular dependency at module level
     if output_dir:
-        from incident_commander.output.markdown_writer import MarkdownOutputWriter
+        from incident_commander.output.markdown_writer import MarkdownOutputWriter  # type: ignore[import-not-found]
         writer = MarkdownOutputWriter(output_dir)
         writer.write_all(incident_result)
 
