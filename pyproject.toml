@@ -83,7 +83,12 @@ ignore = ["D203", "D213"]
 [tool.mypy]
 strict = true
 python_version = "3.11"
+mypy_path = "src"
 disable_error_code = ["unused-ignore"]
+
+[[tool.mypy.overrides]]
+module = "numpy"
+ignore_errors = true
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
