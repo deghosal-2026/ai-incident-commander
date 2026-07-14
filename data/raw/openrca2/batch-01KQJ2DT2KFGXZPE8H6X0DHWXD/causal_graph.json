@@ -1,0 +1,122 @@
+{
+    "nodes": [
+        {
+            "timestamp": 1777649248,
+            "component": "service|rate",
+            "state": [
+                "degraded"
+            ]
+        },
+        {
+            "timestamp": 1777649248,
+            "component": "span|rate::rate.Rate/GetRates",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777649248,
+            "component": "span|search::rate.Rate/GetRates",
+            "state": [
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777649248,
+            "component": "span|search::search.Search/Nearby",
+            "state": [
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777649248,
+            "component": "span|frontend::search.Search/Nearby",
+            "state": [
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777649248,
+            "component": "span|frontend::HTTP /hotels",
+            "state": [
+                "missing",
+                "erroring"
+            ]
+        },
+        {
+            "timestamp": 1777649248,
+            "component": "span|rate::memcached_get_multi_rate",
+            "state": [
+                "missing"
+            ]
+        }
+    ],
+    "edges": [
+        {
+            "source": "span|rate::rate.Rate/GetRates",
+            "target": "span|search::rate.Rate/GetRates"
+        },
+        {
+            "source": "span|frontend::search.Search/Nearby",
+            "target": "span|frontend::HTTP /hotels"
+        },
+        {
+            "source": "service|rate",
+            "target": "span|rate::memcached_get_multi_rate"
+        },
+        {
+            "source": "service|rate",
+            "target": "span|rate::rate.Rate/GetRates"
+        },
+        {
+            "source": "span|search::rate.Rate/GetRates",
+            "target": "span|search::search.Search/Nearby"
+        },
+        {
+            "source": "span|rate::memcached_get_multi_rate",
+            "target": "span|rate::rate.Rate/GetRates"
+        },
+        {
+            "source": "span|search::search.Search/Nearby",
+            "target": "span|frontend::search.Search/Nearby"
+        }
+    ],
+    "root_causes": [
+        {
+            "timestamp": null,
+            "component": "service|rate",
+            "state": [
+                "unknown"
+            ]
+        }
+    ],
+    "alarm_nodes": [
+        {
+            "timestamp": 1777649248,
+            "component": "span|rate::rate.Rate/GetRates",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777649248,
+            "component": "span|frontend::HTTP /hotels",
+            "state": [
+                "missing",
+                "erroring"
+            ]
+        }
+    ],
+    "component_to_service": {
+        "service|rate": "rate",
+        "span|rate::rate.Rate/GetRates": "rate",
+        "span|search::rate.Rate/GetRates": "search",
+        "span|search::search.Search/Nearby": "search",
+        "span|frontend::search.Search/Nearby": "frontend",
+        "span|frontend::HTTP /hotels": "frontend",
+        "span|rate::memcached_get_multi_rate": "rate"
+    }
+}

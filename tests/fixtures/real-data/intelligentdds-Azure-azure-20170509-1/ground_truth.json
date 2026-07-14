@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170509-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 21:49 and 22:01 UTC on 08 May 2017, a subset of customers in West US 2 using Virtual Machines may have experienced Virtual Machine reboots as well as Storage customers may have lost connectivity to their premium storage resources. ",
+  "root_cause_key_terms": [
+    "Virtual machines",
+    "storage"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 21:49 and 22:01 UTC on 08 May 2017, a subset of customers in West US 2 using Virtual Machines may have experienced Virtual Machine reboots as well as Storage customers may have lost connectivi",
+  "severity": "SEV1",
+  "service": "Virtual machines"
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20161211-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 22:29 and 23:45 UTC on the 10 Dec 2016, customers in the West Europe region may have experienced intermittent periods of connectivity issues.",
+  "root_cause_key_terms": [
+    "network"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 22:29 and 23:45 UTC on the 10 Dec 2016, customers in the West Europe region may have experienced intermittent periods of connectivity issues.",
+  "severity": "SEV1",
+  "service": "network"
+}

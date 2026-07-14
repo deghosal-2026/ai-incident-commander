@@ -1,0 +1,107 @@
+{
+    "id": 2284,
+    "name": "batch-01KQJKBS9889WA9HFNQK8TJBWM",
+    "fault_type": "hybrid",
+    "category": "ts",
+    "pre_duration": 5,
+    "start_time": "2026-05-02T04:23:28+08:00",
+    "end_time": "2026-05-02T04:28:27+08:00",
+    "state": "inject_success",
+    "status": "enabled",
+    "benchmark_id": 108,
+    "benchmark_name": "clickhouse",
+    "pedestal_id": 149,
+    "pedestal_name": "ts",
+    "created_at": "2026-05-02T04:23:27.796+08:00",
+    "updated_at": "2026-05-02T04:28:28.452+08:00",
+    "engine_config_summary": [
+        {
+            "app": "ts-food-service",
+            "chaos_type": "JVMRuntimeMutator",
+            "class": "foodsearch.controller.FoodController",
+            "duration": 5,
+            "method": "getAllFood",
+            "mutator_config": "constant:\"/foods/{date}/{startStation}/{endStation}/{tripId}\":\"mutated_/foods/{date}/{startStation}/{endStation}/{tripId}\"",
+            "namespace": "ts10",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        },
+        {
+            "app": "ts-train-food-service",
+            "chaos_type": "JVMLatency",
+            "class": "trainFood.service.TrainFoodServiceImpl",
+            "duration": 5,
+            "latency_duration": 1430,
+            "method": "listTrainFoodByTripId",
+            "namespace": "ts10",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        }
+    ],
+    "task_id": "3852281f-73aa-4d72-9c6c-3768bfa6e1c3",
+    "trace_id": "1389f6f8-50a7-4092-8583-0cc969bc401b",
+    "source": "injection",
+    "description": "Fault batch for task 3852281f-73aa-4d72-9c6c-3768bfa6e1c3 (2 faults)",
+    "engine_config": [
+        {
+            "app": "ts-food-service",
+            "chaos_type": "JVMRuntimeMutator",
+            "class": "foodsearch.controller.FoodController",
+            "duration": 5,
+            "method": "getAllFood",
+            "mutator_config": "constant:\"/foods/{date}/{startStation}/{endStation}/{tripId}\":\"mutated_/foods/{date}/{startStation}/{endStation}/{tripId}\"",
+            "namespace": "ts10",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        },
+        {
+            "app": "ts-train-food-service",
+            "chaos_type": "JVMLatency",
+            "class": "trainFood.service.TrainFoodServiceImpl",
+            "duration": 5,
+            "latency_duration": 1430,
+            "method": "listTrainFoodByTripId",
+            "namespace": "ts10",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        }
+    ],
+    "ground_truth": [
+        {
+            "service": [
+                "ts-food-service"
+            ],
+            "pod": [
+                "ts-food-service-5bbdfd9cbd-66hhr"
+            ],
+            "container": [
+                "ts-food-service"
+            ],
+            "function": [
+                "foodsearch.controller.FoodController.getAllFood"
+            ]
+        },
+        {
+            "service": [
+                "ts-train-food-service"
+            ],
+            "pod": [
+                "ts-train-food-service-5d864b7dcf-dlfr5"
+            ],
+            "container": [
+                "ts-train-food-service"
+            ],
+            "metric": [
+                "network_latency"
+            ],
+            "function": [
+                "trainFood.service.TrainFoodServiceImpl.listTrainFoodByTripId"
+            ]
+        }
+    ],
+    "groundtruth_source": "auto"
+}

@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "EC2 instances",
+  "summary": "Summary of the Amazon EC2 and Amazon RDS Service Disruption in the US East Region",
+  "source": "intelligentdds/AWS",
+  "timestamp": "2014-08-07T00:00:00+00:00"
+}

@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "Express Route",
+  "summary": "Root Cause Analysis - ExpressRoute/ ExpressRoute Circuits Amsterdam",
+  "source": "intelligentdds/Azure",
+  "timestamp": "2017-06-03T00:00:00+00:00"
+}

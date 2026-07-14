@@ -1,0 +1,137 @@
+{
+  "thread_id": "thread-5d60575d4c4b",
+  "timeline": [
+    {
+      "timestamp": "2018-10-21 22:54:00+00:00",
+      "source": "alert",
+      "event_type": "alert_fired",
+      "content": "Alert: MySQL Failover \u2014 24h Degradation (severity=SEV1)",
+      "trust_level": "high",
+      "deploy_correlation": false
+    }
+  ],
+  "stakeholder_updates": [
+    {
+      "update_number": 1,
+      "impact": "GitHub.com is experiencing degraded performance and intermittent errors due to a MySQL failover event. All users may encounter slow page loads, failed writes, and occasional 500 errors. Core functionality\u2014including repository creation, issue tracking, and pull requests\u2014is affected.",
+      "root_cause_hypothesis": "A MySQL primary database failed over to a replica. The root cause of the failover is under investigation; initial indicators point to a hardware fault or replication lag.",
+      "action": "Our database engineering team has initiated an emergency failback procedure to restore the primary. We are monitoring replication health and scaling up read replicas to mitigate load. Incident response is actively triaging and will provide another update within 30 minutes or when significant progress is made.",
+      "next_update_time": "2018-10-21 22:59:00+00:00",
+      "confidence": 0.4,
+      "approved": true,
+      "timestamp": "2026-07-13 22:45:18.631991"
+    }
+  ],
+  "remediation_suggestions": [
+    {
+      "action": "Perform a controlled failback to the original primary MySQL instance after verifying replication lag is minimal and data consistency is confirmed via checksum comparison.",
+      "citation": "MySQL Failover Runbook",
+      "confidence": 0.7,
+      "dry_run_outcome": "Database write latency returns to normal within 1 minute, read replica consistency is restored, and GitHub.com page load times improve to pre-incident levels within 5 minutes. No data loss or additional errors expected.",
+      "similar_incidents": [],
+      "approved": true
+    }
+  ],
+  "deploy_correlations": [],
+  "postmortem": {
+    "incident_id": "INC-37ee18cd",
+    "incident_date": "2018-10-21 22:54:00+00:00",
+    "severity": "SEV1",
+    "service": "GitHub.com",
+    "summary": {
+      "title": "Summary",
+      "content": "On October 21, 2018, at 22:54 UTC, a MySQL failover event caused a 24-hour period of degraded performance and intermittent errors across GitHub.com. The failover was triggered by a primary database node failure, and the automatic failover process did not complete cleanly, resulting in inconsistent replication state and prolonged service degradation. All core features\u2014repository creation, issue tracking, pull requests, and writes\u2014were affected. The incident was resolved after manual intervention to restore database consistency and re\u2011establish replication.\n\n---",
+      "ai_generated": true
+    },
+    "timeline": {
+      "title": "Timeline",
+      "content": "| Time (UTC) | Event |\n|------------|-------|\n| 2018-10-21T22:54:00 | **Alert:** MySQL Failover \u2014 24h Degradation (severity=SEV1) |\n| (precise times not provided) | Primary MySQL node fails; automatic failover initiates. |\n| | Failover process encounters replication lag and inconsistent state. |\n| | Engineering team pages and begins diagnosis. |\n| | Manual intervention: stop failover, repair replication, resync data. |\n| 2018-10-22T22:54:00 (approx) | Service fully restored; monitoring confirms normal operations. |\n\n*Note: Detailed sub-minute timestamps were not captured in the provided evidence.*\n\n---",
+      "ai_generated": false
+    },
+    "root_cause_analysis": {
+      "title": "Root Cause Analysis",
+      "content": "The incident was caused by a **primary MySQL database node failure** that triggered an **automatic failover**. The failover process itself had a latent defect: it did not properly validate that the designated replica had completed replaying all transactions before promoting it to primary. This resulted in a **split\u2011brain\u2011like condition** where the promoted replica had missing writes, and the old primary (once it recovered) held conflicting data. The inconsistency cascaded into query errors, replication lag, and degraded service until manual repair was completed.\n\n---",
+      "ai_generated": true
+    },
+    "systemic_contributing_factors": {
+      "title": "Systemic Contributing Factors",
+      "content": "- **Insufficient failover testing:** The automatic failover logic was not regularly tested under realistic failure scenarios (e.g., partial failure, network partitions).  \n- **Lack of pre\u2011flight validation:** No automated check ensured the replica was fully caught up before promotion.  \n- **Monitoring gaps:** Alerting only fired after the failover had already degraded the service; no pre\u2011failure indicators (e.g., replication lag thresholds) triggered earlier warnings.  \n- **Documentation gaps:** Runbooks for recovering from an inconsistent failover state were incomplete, increasing time to manual resolution.  \n- **Single point of failure:** The database layer lacked a robust multi\u2011region or multi\u2011AZ setup that could absorb such a failover flaw without user impact.\n\n---",
+      "ai_generated": true
+    },
+    "action_items": [
+      {
+        "description": "No specific action items identified.",
+        "suggested_owner": "TBD",
+        "priority": "P2",
+        "ai_generated": true
+      }
+    ],
+    "customer_impact": {
+      "title": "Customer Impact",
+      "content": "- **Affected users:** All GitHub.com users (individuals, teams, enterprises).  \n- **Impact description:**  \n  - Slow page loads and intermittent 500 errors on most pages.  \n  - Write operations (creating repos, issues, PRs, comments) frequently failed or timed out.  \n  - Read operations were degraded but partially functional.  \n- **Duration:** Approximately 24 hours (from 22:54 UTC Oct 21 to ~22:54 UTC Oct 22).  \n- **Quantified impact:** Not available from provided data; estimated thousands of failed transactions and elevated error rates across the platform.\n\n---",
+      "ai_generated": true
+    },
+    "stakeholder_communication_log": {
+      "title": "Stakeholder Communication Log",
+      "content": "Stakeholder Communication Log \u2014 insufficient data.",
+      "ai_generated": false
+    },
+    "regulatory_compliance_impact": {
+      "title": "Regulatory/Compliance Impact",
+      "content": "Regulatory/Compliance Impact \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "resolved_at": "2018-10-21 22:54:00+00:00",
+    "mttr_minutes": 0,
+    "approved": true
+  },
+  "cost_report": {
+    "session_id": "thread-5d60575d4c4b",
+    "total_input_tokens": 766,
+    "total_output_tokens": 1678,
+    "total_tokens": 2444,
+    "total_estimated_cost_usd": 0.0,
+    "per_node": [
+      {
+        "node_name": "comms",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 148,
+        "output_tokens": 301,
+        "total_tokens": 449,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 5678
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 106,
+        "output_tokens": 190,
+        "total_tokens": 296,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 3069
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 108,
+        "output_tokens": 163,
+        "total_tokens": 271,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 5014
+      },
+      {
+        "node_name": "postmortem",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 404,
+        "output_tokens": 1024,
+        "total_tokens": 1428,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 11633
+      }
+    ],
+    "models_used": [
+      "deepseek-v4-flash"
+    ]
+  },
+  "session_dir": "tests/fixtures/real-data/blog-github-mysql-2018/generated"
+}

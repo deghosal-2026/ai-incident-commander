@@ -1,0 +1,108 @@
+{
+    "id": 2155,
+    "name": "batch-01KQJDFQPS156QN45WD911VPEA",
+    "fault_type": "hybrid",
+    "category": "otel-demo",
+    "pre_duration": 5,
+    "start_time": "2026-05-02T02:40:45+08:00",
+    "end_time": "2026-05-02T02:45:45+08:00",
+    "state": "inject_success",
+    "status": "enabled",
+    "benchmark_id": 108,
+    "benchmark_name": "clickhouse",
+    "pedestal_id": 147,
+    "pedestal_name": "otel-demo",
+    "created_at": "2026-05-02T02:40:45.795+08:00",
+    "updated_at": "2026-05-02T02:45:45.951+08:00",
+    "engine_config_summary": [
+        {
+            "app": "checkout",
+            "chaos_type": "NetworkCorrupt",
+            "correlation": 100,
+            "corrupt": 100,
+            "direction": "to",
+            "duration": 5,
+            "namespace": "otel-demo12",
+            "system": "otel-demo0",
+            "system_type": "otel-demo",
+            "target_service": "currency",
+            "time_offset": 0
+        },
+        {
+            "app": "accounting",
+            "chaos_type": "DNSError",
+            "domain": "postgresql",
+            "duration": 5,
+            "namespace": "otel-demo12",
+            "system": "otel-demo0",
+            "system_type": "otel-demo",
+            "time_offset": 0
+        }
+    ],
+    "task_id": "bf523dcd-6b0f-41b7-9993-2d1dabc69a2a",
+    "trace_id": "0f04280a-bda8-4afa-8316-380a9c9fceea",
+    "source": "injection",
+    "description": "Fault batch for task bf523dcd-6b0f-41b7-9993-2d1dabc69a2a (2 faults)",
+    "engine_config": [
+        {
+            "app": "checkout",
+            "chaos_type": "NetworkCorrupt",
+            "correlation": 100,
+            "corrupt": 100,
+            "direction": "to",
+            "duration": 5,
+            "namespace": "otel-demo12",
+            "system": "otel-demo0",
+            "system_type": "otel-demo",
+            "target_service": "currency",
+            "time_offset": 0
+        },
+        {
+            "app": "accounting",
+            "chaos_type": "DNSError",
+            "domain": "postgresql",
+            "duration": 5,
+            "namespace": "otel-demo12",
+            "system": "otel-demo0",
+            "system_type": "otel-demo",
+            "time_offset": 0
+        }
+    ],
+    "ground_truth": [
+        {
+            "service": [
+                "checkout",
+                "currency"
+            ],
+            "pod": [
+                "checkout-67999bb449-gmls2",
+                "currency-6688564cbc-kgrr4"
+            ],
+            "container": [
+                "checkout",
+                "currency"
+            ],
+            "span": [
+                "oteldemo.CurrencyService/Convert"
+            ]
+        },
+        {
+            "service": [
+                "accounting",
+                "postgresql"
+            ],
+            "pod": [
+                "accounting-697875999f-ck9zc",
+                "postgresql-77f64b87dc-jgzj8"
+            ],
+            "container": [
+                "accounting",
+                "postgresql"
+            ],
+            "span": [
+                "DB Access"
+            ]
+        }
+    ],
+    "groundtruth_source": "auto"
+}

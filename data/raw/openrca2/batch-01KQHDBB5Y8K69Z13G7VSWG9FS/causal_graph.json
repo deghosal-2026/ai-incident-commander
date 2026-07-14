@@ -1,0 +1,117 @@
+{
+    "nodes": [
+        {
+            "timestamp": 1777627147,
+            "component": "service|profile",
+            "state": [
+                "degraded"
+            ]
+        },
+        {
+            "timestamp": 1777627147,
+            "component": "span|profile::profile.Profile/GetProfiles",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777627147,
+            "component": "span|frontend::profile.Profile/GetProfiles",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777627147,
+            "component": "span|frontend::HTTP /hotels",
+            "state": [
+                "erroring",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777627147,
+            "component": "span|frontend::HTTP /recommendations",
+            "state": [
+                "erroring",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777627147,
+            "component": "span|profile::memcached_get_profile",
+            "state": [
+                "missing"
+            ]
+        }
+    ],
+    "edges": [
+        {
+            "source": "span|profile::memcached_get_profile",
+            "target": "span|profile::profile.Profile/GetProfiles"
+        },
+        {
+            "source": "span|frontend::profile.Profile/GetProfiles",
+            "target": "span|frontend::HTTP /hotels"
+        },
+        {
+            "source": "service|profile",
+            "target": "span|profile::profile.Profile/GetProfiles"
+        },
+        {
+            "source": "span|frontend::profile.Profile/GetProfiles",
+            "target": "span|frontend::HTTP /recommendations"
+        },
+        {
+            "source": "service|profile",
+            "target": "span|profile::memcached_get_profile"
+        },
+        {
+            "source": "span|profile::profile.Profile/GetProfiles",
+            "target": "span|frontend::profile.Profile/GetProfiles"
+        }
+    ],
+    "root_causes": [
+        {
+            "timestamp": null,
+            "component": "service|profile",
+            "state": [
+                "unknown"
+            ]
+        }
+    ],
+    "alarm_nodes": [
+        {
+            "timestamp": 1777627147,
+            "component": "span|profile::profile.Profile/GetProfiles",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777627147,
+            "component": "span|frontend::HTTP /hotels",
+            "state": [
+                "erroring",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777627147,
+            "component": "span|frontend::HTTP /recommendations",
+            "state": [
+                "erroring",
+                "missing"
+            ]
+        }
+    ],
+    "component_to_service": {
+        "service|profile": "profile",
+        "span|profile::profile.Profile/GetProfiles": "profile",
+        "span|frontend::profile.Profile/GetProfiles": "frontend",
+        "span|frontend::HTTP /hotels": "frontend",
+        "span|frontend::HTTP /recommendations": "frontend",
+        "span|profile::memcached_get_profile": "profile"
+    }
+}

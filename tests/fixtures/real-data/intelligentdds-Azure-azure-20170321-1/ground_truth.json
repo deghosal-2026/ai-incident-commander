@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170321-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "A line card failure on an Azure Networking optical system caused a loss of network capacity to the West Europe Region. During this event, customers experienced increased latency accessing their services and also sporadic packet loss. Azure Networking Engineers replaced the failed optical card to restore service. ",
+  "root_cause_key_terms": [
+    "Storage and Virtual Machines"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "A line card failure on an Azure Networking optical system caused a loss of network capacity to the West Europe Region. During this event, customers experienced increased latency accessing their servic",
+  "severity": "SEV1",
+  "service": "Storage and Virtual Machines"
+}

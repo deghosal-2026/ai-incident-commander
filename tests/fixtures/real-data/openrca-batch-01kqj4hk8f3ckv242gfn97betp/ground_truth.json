@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "OPENRCA-242GFN97BETP",
+  "source_type": "openrca2",
+  "source_url": "https://huggingface.co/datasets/lincyaw/openrca2-v1-500",
+  "company": "OpenRCA2 (ts)",
+  "root_cause": [
+    {
+      "service": [
+        "ts-admin-order-service"
+      ],
+      "pod": [
+        "ts-admin-order-service-54585b7cbc-vhrh7"
+      ],
+      "container": [
+        "ts-admin-order-service"
+      ],
+      "function": [
+        "adminorder.service.AdminOrderServiceImpl.getAllOrders"
+      ]
+    },
+    {
+      "service": [
+        "ts-order-other-service",
+        "mysql"
+      ],
+      "pod": [
+        "mysql-0",
+        "ts-order-other-service-6756d668c6-d7kzc"
+      ],
+      "container": [
+        "mysql",
+        "ts-order-other-service"
+      ],
+      "span": [
+        "CREATE table ts",
+        "DELETE orders_other",
+        "DELETE ts.orders_other",
+        "INSERT ts.orders_other",
+        "SELECT ts",
+        "SELECT ts.orders_other",
+        "SELECT ts.ts",
+        "UPDATE ts.orders_other"
+      ]
+    }
+  ],
+  "root_cause_key_terms": [
+    "ts-admin-order-service",
+    "JVMRuntimeMutator",
+    "ts-order-other-service",
+    "NetworkCorrupt"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "hybrid failure in ts for Duration unknown",
+  "severity": "SEV1",
+  "service": "ts-admin-order-service"
+}

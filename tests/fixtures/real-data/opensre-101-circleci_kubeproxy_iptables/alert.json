@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "circleci",
+  "summary": "Incident at CircleCI: Now I have the complete picture. Let me document the root cause:\n\n---\n\n## INVESTIGATION SUMMARY\n\n**T",
+  "source": "opensre/circleci",
+  "timestamp": ""
+}

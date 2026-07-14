@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20161130-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 19:45 and 20:05 UTC on 30 Nov 2016, customers located primarily in the Asia-Pacific geographic region may have experienced failures attempting to connect to a subset of Azure customer resources and platform services.",
+  "root_cause_key_terms": [
+    "Azure customer resources and platform services"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 19:45 and 20:05 UTC on 30 Nov 2016, customers located primarily in the Asia-Pacific geographic region may have experienced failures attempting to connect to a subset of Azure customer resource",
+  "severity": "SEV1",
+  "service": "Azure customer resources and platform services"
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "OPENRCA-ZBA2ZKXKYNA6",
+  "source_type": "openrca2",
+  "source_url": "https://huggingface.co/datasets/lincyaw/openrca2-v1-500",
+  "company": "OpenRCA2 (otel-demo)",
+  "root_cause": [
+    {
+      "service": [
+        "recommendation"
+      ],
+      "pod": [
+        "recommendation-8cc76d976-jh6c5"
+      ],
+      "container": [
+        "recommendation"
+      ],
+      "metric": [
+        "cpu"
+      ]
+    },
+    {
+      "service": [
+        "ad"
+      ],
+      "pod": [
+        "ad-5c9968df48-jrdbc"
+      ],
+      "container": [
+        "ad"
+      ],
+      "function": [
+        "oteldemo.AdService.AdServiceImpl.getAds"
+      ]
+    }
+  ],
+  "root_cause_key_terms": [
+    "recommendation",
+    "CPUStress",
+    "ad",
+    "JVMException"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "hybrid failure in otel-demo for Duration unknown",
+  "severity": "SEV1",
+  "service": "ad"
+}

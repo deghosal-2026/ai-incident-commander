@@ -1,0 +1,15 @@
+{
+  "severity": "SEV1",
+  "service": "profile",
+  "summary": "*Stress anomaly in hs affecting profile, reservation",
+  "source": "openrca2/hs",
+  "timestamp": "2026-05-01T19:05:46+08:00",
+  "metadata": {
+    "system": "hs",
+    "chaos_family": "*Stress",
+    "affected_services": [
+      "profile",
+      "reservation"
+    ]
+  }
+}

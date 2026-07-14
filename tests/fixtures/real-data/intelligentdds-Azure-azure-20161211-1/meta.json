@@ -1,0 +1,8 @@
+{
+  "incident_id": "azure-20161211-1",
+  "source_type": "intelligentdds",
+  "service": "network",
+  "severity": "SEV1",
+  "start_time": "2016-12-11T00:00:00+00:00",
+  "provider": "Azure"
+}

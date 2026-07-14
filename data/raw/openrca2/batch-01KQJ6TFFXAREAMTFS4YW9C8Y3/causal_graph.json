@@ -1,0 +1,459 @@
+{
+    "nodes": [
+        {
+            "timestamp": 1777653858,
+            "component": "service|ts-travel-service",
+            "state": [
+                "unavailable",
+                "degraded"
+            ]
+        },
+        {
+            "timestamp": 1777653858,
+            "component": "span|ts-travel-service::POST /api/v1/travelservice/trip_detail",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653858,
+            "component": "span|ts-preserve-service::PreserveController.preserve",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653858,
+            "component": "span|ts-preserve-service::POST /api/v1/preserveservice/preserve",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653858,
+            "component": "span|ts-ui-dashboard::POST /api/v1/preserveservice/preserve",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653867,
+            "component": "span|ts-route-plan-service::RoutePlanController.getMinStopStations",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653873,
+            "component": "span|ts-travel-service::SELECT travel.entity.Trip",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653873,
+            "component": "span|ts-travel-service::TripRepository.findAll",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653858,
+            "component": "span|ts-travel-service::TravelController.adminQueryAll",
+            "state": [
+                "missing",
+                "slow"
+            ]
+        },
+        {
+            "timestamp": 1777653864,
+            "component": "span|ts-travel-service::GET /api/v1/travelservice/admin_trip",
+            "state": [
+                "missing",
+                "slow"
+            ]
+        },
+        {
+            "timestamp": 1777653903,
+            "component": "span|ts-admin-travel-service::AdminTravelController.getAllTravels",
+            "state": [
+                "missing",
+                "slow"
+            ]
+        },
+        {
+            "timestamp": 1777653903,
+            "component": "span|ts-admin-travel-service::GET /api/v1/admintravelservice/admintravel",
+            "state": [
+                "missing",
+                "slow"
+            ]
+        },
+        {
+            "timestamp": 1777653897,
+            "component": "span|ts-ui-dashboard::GET /api/v1/admintravelservice/admintravel",
+            "state": [
+                "missing",
+                "slow"
+            ]
+        },
+        {
+            "timestamp": 1777653858,
+            "component": "span|ts-travel-service::TripRepository.findByTripId",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653858,
+            "component": "span|ts-travel-service::TravelController.getTripAllDetailInfo",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653858,
+            "component": "span|ts-travel-service::TravelController.getRouteByTripId",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653858,
+            "component": "span|ts-travel-service::GET /api/v1/travelservice/routes/{tripId}",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653858,
+            "component": "span|ts-food-service::FoodController.getAllFood",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653858,
+            "component": "span|ts-food-service::GET /api/v1/foodservice/foods/{date}/{startStation}/{endStation}/{tripId}",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653858,
+            "component": "span|ts-ui-dashboard::GET /api/v1/foodservice/foods/{date}/{startStation}/{endStation}/{tripId}",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653867,
+            "component": "span|ts-travel-service::TripRepository.findByRouteId",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653867,
+            "component": "span|ts-travel-service::TravelController.getTripsByRouteId",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653867,
+            "component": "span|ts-travel-service::POST /api/v1/travelservice/trips/routes",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653873,
+            "component": "span|ts-travel-service::Transaction.commit",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653873,
+            "component": "span|ts-travel-service::SELECT ts.trip",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        }
+    ],
+    "edges": [
+        {
+            "source": "span|ts-travel-service::TripRepository.findByRouteId",
+            "target": "span|ts-travel-service::TravelController.getTripsByRouteId"
+        },
+        {
+            "source": "span|ts-travel-service::Transaction.commit",
+            "target": "span|ts-travel-service::TripRepository.findAll"
+        },
+        {
+            "source": "span|ts-travel-service::TripRepository.findAll",
+            "target": "span|ts-travel-service::TravelController.adminQueryAll"
+        },
+        {
+            "source": "service|ts-travel-service",
+            "target": "span|ts-travel-service::TravelController.getRouteByTripId"
+        },
+        {
+            "source": "span|ts-travel-service::POST /api/v1/travelservice/trip_detail",
+            "target": "span|ts-route-plan-service::RoutePlanController.getMinStopStations"
+        },
+        {
+            "source": "span|ts-travel-service::TravelController.getRouteByTripId",
+            "target": "span|ts-travel-service::GET /api/v1/travelservice/routes/{tripId}"
+        },
+        {
+            "source": "service|ts-travel-service",
+            "target": "span|ts-travel-service::GET /api/v1/travelservice/routes/{tripId}"
+        },
+        {
+            "source": "service|ts-travel-service",
+            "target": "span|ts-travel-service::TripRepository.findByTripId"
+        },
+        {
+            "source": "span|ts-preserve-service::POST /api/v1/preserveservice/preserve",
+            "target": "span|ts-ui-dashboard::POST /api/v1/preserveservice/preserve"
+        },
+        {
+            "source": "span|ts-travel-service::POST /api/v1/travelservice/trip_detail",
+            "target": "span|ts-preserve-service::PreserveController.preserve"
+        },
+        {
+            "source": "span|ts-admin-travel-service::AdminTravelController.getAllTravels",
+            "target": "span|ts-admin-travel-service::GET /api/v1/admintravelservice/admintravel"
+        },
+        {
+            "source": "span|ts-travel-service::SELECT travel.entity.Trip",
+            "target": "span|ts-travel-service::TripRepository.findByTripId"
+        },
+        {
+            "source": "span|ts-travel-service::GET /api/v1/travelservice/admin_trip",
+            "target": "span|ts-admin-travel-service::AdminTravelController.getAllTravels"
+        },
+        {
+            "source": "span|ts-travel-service::TravelController.getTripAllDetailInfo",
+            "target": "span|ts-travel-service::POST /api/v1/travelservice/trip_detail"
+        },
+        {
+            "source": "service|ts-travel-service",
+            "target": "span|ts-travel-service::TripRepository.findAll"
+        },
+        {
+            "source": "span|ts-admin-travel-service::GET /api/v1/admintravelservice/admintravel",
+            "target": "span|ts-ui-dashboard::GET /api/v1/admintravelservice/admintravel"
+        },
+        {
+            "source": "service|ts-travel-service",
+            "target": "span|ts-travel-service::TravelController.getTripAllDetailInfo"
+        },
+        {
+            "source": "service|ts-travel-service",
+            "target": "span|ts-travel-service::SELECT ts.trip"
+        },
+        {
+            "source": "service|ts-travel-service",
+            "target": "span|ts-travel-service::GET /api/v1/travelservice/admin_trip"
+        },
+        {
+            "source": "span|ts-travel-service::SELECT travel.entity.Trip",
+            "target": "span|ts-travel-service::TripRepository.findAll"
+        },
+        {
+            "source": "service|ts-travel-service",
+            "target": "span|ts-travel-service::TravelController.adminQueryAll"
+        },
+        {
+            "source": "span|ts-travel-service::TripRepository.findByTripId",
+            "target": "span|ts-travel-service::TravelController.getRouteByTripId"
+        },
+        {
+            "source": "span|ts-travel-service::TravelController.adminQueryAll",
+            "target": "span|ts-travel-service::GET /api/v1/travelservice/admin_trip"
+        },
+        {
+            "source": "span|ts-food-service::FoodController.getAllFood",
+            "target": "span|ts-food-service::GET /api/v1/foodservice/foods/{date}/{startStation}/{endStation}/{tripId}"
+        },
+        {
+            "source": "span|ts-travel-service::POST /api/v1/travelservice/trips/routes",
+            "target": "span|ts-route-plan-service::RoutePlanController.getMinStopStations"
+        },
+        {
+            "source": "service|ts-travel-service",
+            "target": "span|ts-travel-service::POST /api/v1/travelservice/trip_detail"
+        },
+        {
+            "source": "span|ts-preserve-service::PreserveController.preserve",
+            "target": "span|ts-preserve-service::POST /api/v1/preserveservice/preserve"
+        },
+        {
+            "source": "service|ts-travel-service",
+            "target": "span|ts-travel-service::POST /api/v1/travelservice/trips/routes"
+        },
+        {
+            "source": "service|ts-travel-service",
+            "target": "span|ts-travel-service::SELECT travel.entity.Trip"
+        },
+        {
+            "source": "span|ts-travel-service::TripRepository.findByTripId",
+            "target": "span|ts-travel-service::TravelController.getTripAllDetailInfo"
+        },
+        {
+            "source": "span|ts-travel-service::SELECT travel.entity.Trip",
+            "target": "span|ts-travel-service::TripRepository.findByRouteId"
+        },
+        {
+            "source": "service|ts-travel-service",
+            "target": "span|ts-travel-service::TravelController.getTripsByRouteId"
+        },
+        {
+            "source": "service|ts-travel-service",
+            "target": "span|ts-travel-service::TripRepository.findByRouteId"
+        },
+        {
+            "source": "span|ts-travel-service::GET /api/v1/travelservice/routes/{tripId}",
+            "target": "span|ts-food-service::FoodController.getAllFood"
+        },
+        {
+            "source": "span|ts-travel-service::TravelController.getTripsByRouteId",
+            "target": "span|ts-travel-service::POST /api/v1/travelservice/trips/routes"
+        },
+        {
+            "source": "span|ts-food-service::GET /api/v1/foodservice/foods/{date}/{startStation}/{endStation}/{tripId}",
+            "target": "span|ts-ui-dashboard::GET /api/v1/foodservice/foods/{date}/{startStation}/{endStation}/{tripId}"
+        },
+        {
+            "source": "service|ts-travel-service",
+            "target": "span|ts-travel-service::Transaction.commit"
+        },
+        {
+            "source": "span|ts-travel-service::SELECT ts.trip",
+            "target": "span|ts-travel-service::SELECT travel.entity.Trip"
+        }
+    ],
+    "root_causes": [
+        {
+            "timestamp": null,
+            "component": "service|ts-travel-service",
+            "state": [
+                "unknown"
+            ]
+        }
+    ],
+    "alarm_nodes": [
+        {
+            "timestamp": 1777653858,
+            "component": "span|ts-travel-service::POST /api/v1/travelservice/trip_detail",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653858,
+            "component": "span|ts-preserve-service::POST /api/v1/preserveservice/preserve",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653858,
+            "component": "span|ts-ui-dashboard::POST /api/v1/preserveservice/preserve",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653867,
+            "component": "span|ts-route-plan-service::RoutePlanController.getMinStopStations",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653864,
+            "component": "span|ts-travel-service::GET /api/v1/travelservice/admin_trip",
+            "state": [
+                "missing",
+                "slow"
+            ]
+        },
+        {
+            "timestamp": 1777653903,
+            "component": "span|ts-admin-travel-service::GET /api/v1/admintravelservice/admintravel",
+            "state": [
+                "missing",
+                "slow"
+            ]
+        },
+        {
+            "timestamp": 1777653897,
+            "component": "span|ts-ui-dashboard::GET /api/v1/admintravelservice/admintravel",
+            "state": [
+                "missing",
+                "slow"
+            ]
+        },
+        {
+            "timestamp": 1777653858,
+            "component": "span|ts-travel-service::GET /api/v1/travelservice/routes/{tripId}",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653858,
+            "component": "span|ts-food-service::GET /api/v1/foodservice/foods/{date}/{startStation}/{endStation}/{tripId}",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777653858,
+            "component": "span|ts-ui-dashboard::GET /api/v1/foodservice/foods/{date}/{startStation}/{endStation}/{tripId}",
+            "state": [
+                "missing"
+            ]
+        }
+    ],
+    "component_to_service": {
+        "service|ts-travel-service": "ts-travel-service",
+        "span|ts-travel-service::POST /api/v1/travelservice/trip_detail": "ts-travel-service",
+        "span|ts-preserve-service::PreserveController.preserve": "ts-preserve-service",
+        "span|ts-preserve-service::POST /api/v1/preserveservice/preserve": "ts-preserve-service",
+        "span|ts-ui-dashboard::POST /api/v1/preserveservice/preserve": "ts-ui-dashboard",
+        "span|ts-route-plan-service::RoutePlanController.getMinStopStations": "ts-route-plan-service",
+        "span|ts-travel-service::SELECT travel.entity.Trip": "ts-travel-service",
+        "span|ts-travel-service::TripRepository.findAll": "ts-travel-service",
+        "span|ts-travel-service::TravelController.adminQueryAll": "ts-travel-service",
+        "span|ts-travel-service::GET /api/v1/travelservice/admin_trip": "ts-travel-service",
+        "span|ts-admin-travel-service::AdminTravelController.getAllTravels": "ts-admin-travel-service",
+        "span|ts-admin-travel-service::GET /api/v1/admintravelservice/admintravel": "ts-admin-travel-service",
+        "span|ts-ui-dashboard::GET /api/v1/admintravelservice/admintravel": "ts-ui-dashboard",
+        "span|ts-travel-service::TripRepository.findByTripId": "ts-travel-service",
+        "span|ts-travel-service::TravelController.getTripAllDetailInfo": "ts-travel-service",
+        "span|ts-travel-service::TravelController.getRouteByTripId": "ts-travel-service",
+        "span|ts-travel-service::GET /api/v1/travelservice/routes/{tripId}": "ts-travel-service",
+        "span|ts-food-service::FoodController.getAllFood": "ts-food-service",
+        "span|ts-food-service::GET /api/v1/foodservice/foods/{date}/{startStation}/{endStation}/{tripId}": "ts-food-service",
+        "span|ts-ui-dashboard::GET /api/v1/foodservice/foods/{date}/{startStation}/{endStation}/{tripId}": "ts-ui-dashboard",
+        "span|ts-travel-service::TripRepository.findByRouteId": "ts-travel-service",
+        "span|ts-travel-service::TravelController.getTripsByRouteId": "ts-travel-service",
+        "span|ts-travel-service::POST /api/v1/travelservice/trips/routes": "ts-travel-service",
+        "span|ts-travel-service::Transaction.commit": "ts-travel-service",
+        "span|ts-travel-service::SELECT ts.trip": "ts-travel-service"
+    }
+}

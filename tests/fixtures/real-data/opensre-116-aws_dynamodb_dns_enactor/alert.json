@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "aws",
+  "summary": "Incident at AWS: I have conclusive evidence. The investigation is complete \u2014 all sources corroborate the same chain.\n",
+  "source": "opensre/aws",
+  "timestamp": ""
+}

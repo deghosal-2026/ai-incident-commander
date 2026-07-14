@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "Azure Management Portal",
+  "summary": "Issue with accessing Azure services through Mozilla Firefox ",
+  "source": "intelligentdds/Azure",
+  "timestamp": "2017-05-31T00:00:00+00:00"
+}

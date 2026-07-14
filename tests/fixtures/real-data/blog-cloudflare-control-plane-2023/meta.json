@@ -1,0 +1,8 @@
+{
+  "incident_id": "blog-cloudflare-control-plane-2023",
+  "source_type": "blog",
+  "service": "Cloudflare Control Plane",
+  "severity": "SEV1",
+  "start_time": "2023-11-02T11:44:00Z",
+  "company": "Cloudflare"
+}

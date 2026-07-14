@@ -1,0 +1,109 @@
+{
+    "id": 2117,
+    "name": "batch-01KQJB4R9S2B53Q9DS7ABBJHM6",
+    "fault_type": "hybrid",
+    "category": "ts",
+    "pre_duration": 5,
+    "start_time": "2026-05-02T01:59:49+08:00",
+    "end_time": "2026-05-02T02:04:48+08:00",
+    "state": "inject_success",
+    "status": "enabled",
+    "benchmark_id": 108,
+    "benchmark_name": "clickhouse",
+    "pedestal_id": 149,
+    "pedestal_name": "ts",
+    "created_at": "2026-05-02T01:59:48.807+08:00",
+    "updated_at": "2026-05-02T02:04:49.223+08:00",
+    "engine_config_summary": [
+        {
+            "app": "ts-preserve-service",
+            "chaos_type": "JVMRuntimeMutator",
+            "class": "preserve.service.PreserveServiceImpl",
+            "duration": 5,
+            "method": "checkSecurity",
+            "mutator_config": "constant:\"/api/v1/securityservice/securityConfigs/\":\"mutated_/api/v1/securityservice/securityConfigs/\"",
+            "namespace": "ts12",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        },
+        {
+            "app": "ts-seat-service",
+            "chaos_type": "NetworkDuplicate",
+            "correlation": 19,
+            "direction": "to",
+            "duplicate": 41,
+            "duration": 5,
+            "namespace": "ts12",
+            "system": "ts",
+            "system_type": "ts",
+            "target_service": "ts-config-service",
+            "time_offset": 0
+        }
+    ],
+    "task_id": "76d505ed-c8cb-4e59-b583-98dbb6ef7edc",
+    "trace_id": "407e90ac-688c-4f8f-9f55-8a7bb536ac70",
+    "source": "injection",
+    "description": "Fault batch for task 76d505ed-c8cb-4e59-b583-98dbb6ef7edc (2 faults)",
+    "engine_config": [
+        {
+            "app": "ts-preserve-service",
+            "chaos_type": "JVMRuntimeMutator",
+            "class": "preserve.service.PreserveServiceImpl",
+            "duration": 5,
+            "method": "checkSecurity",
+            "mutator_config": "constant:\"/api/v1/securityservice/securityConfigs/\":\"mutated_/api/v1/securityservice/securityConfigs/\"",
+            "namespace": "ts12",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        },
+        {
+            "app": "ts-seat-service",
+            "chaos_type": "NetworkDuplicate",
+            "correlation": 19,
+            "direction": "to",
+            "duplicate": 41,
+            "duration": 5,
+            "namespace": "ts12",
+            "system": "ts",
+            "system_type": "ts",
+            "target_service": "ts-config-service",
+            "time_offset": 0
+        }
+    ],
+    "ground_truth": [
+        {
+            "service": [
+                "ts-preserve-service"
+            ],
+            "pod": [
+                "ts-preserve-service-85bf55b698-9w4gf"
+            ],
+            "container": [
+                "ts-preserve-service"
+            ],
+            "function": [
+                "preserve.service.PreserveServiceImpl.checkSecurity"
+            ]
+        },
+        {
+            "service": [
+                "ts-seat-service",
+                "ts-config-service"
+            ],
+            "pod": [
+                "ts-config-service-666fd6876d-s2bvt",
+                "ts-seat-service-77bcb8f6df-d69sm"
+            ],
+            "container": [
+                "ts-config-service",
+                "ts-seat-service"
+            ],
+            "span": [
+                "GET"
+            ]
+        }
+    ],
+    "groundtruth_source": "auto"
+}

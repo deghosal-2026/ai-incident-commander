@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "aws-12",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AWS",
+  "root_cause": "We wanted to share what we've learned from our investigation of the June 13 SimpleDB disruption in the US East Region. The service was unavailable to all API calls (except a fraction of the eventually consistent read calls) from 9:16 PM to 11:16 PM (PDT). From 11:16 PM to 1:30 AM, we continued to have elevated error rates for CreateDomain and DeleteDomain API calls.",
+  "root_cause_key_terms": [
+    "Simple DB",
+    "data center"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "We wanted to share what we've learned from our investigation of the June 13 SimpleDB disruption in the US East Region. The service was unavailable to all API calls (except a fraction of the eventually",
+  "severity": "SEV1",
+  "service": "Simple DB"
+}

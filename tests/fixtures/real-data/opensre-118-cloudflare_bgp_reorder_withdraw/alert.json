@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "cloudflare",
+  "summary": "Incident at Cloudflare: ---\n\n## **ROOT CAUSE ANALYSIS COMPLETE**\n\nI have traced the full causal chain. This is **not** an LB",
+  "source": "opensre/cloudflare",
+  "timestamp": ""
+}

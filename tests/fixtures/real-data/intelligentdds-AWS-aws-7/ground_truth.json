@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "aws-7",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AWS",
+  "root_cause": "An unknown event caused a transformer to fail. One of the PLCs that checks that generator power is in phase failed for an unknown reason, which prevented a set of backup generators from coming online. This affected EC2, EBS, and RDS in EU West.",
+  "root_cause_key_terms": [
+    "EC2 instances",
+    "EBS volumes",
+    "RDS instances",
+    "electricity supply"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "An unknown event caused a transformer to fail. One of the PLCs that checks that generator power is in phase failed for an unknown reason, which prevented a set of backup generators from coming online.",
+  "severity": "SEV1",
+  "service": "EC2 instances"
+}

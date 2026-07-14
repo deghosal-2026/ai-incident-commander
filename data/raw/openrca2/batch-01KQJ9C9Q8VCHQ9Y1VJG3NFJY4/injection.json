@@ -1,0 +1,111 @@
+{
+    "id": 2086,
+    "name": "batch-01KQJ9C9Q8VCHQ9Y1VJG3NFJY4",
+    "fault_type": "hybrid",
+    "category": "ts",
+    "pre_duration": 5,
+    "start_time": "2026-05-02T01:28:59+08:00",
+    "end_time": "2026-05-02T01:33:58+08:00",
+    "state": "inject_success",
+    "status": "enabled",
+    "benchmark_id": 108,
+    "benchmark_name": "clickhouse",
+    "pedestal_id": 149,
+    "pedestal_name": "ts",
+    "created_at": "2026-05-02T01:28:58.869+08:00",
+    "updated_at": "2026-05-02T01:34:00.502+08:00",
+    "engine_config_summary": [
+        {
+            "app": "ts-basic-service",
+            "chaos_type": "JVMRuntimeMutator",
+            "class": "fdse.microservice.controller.BasicController",
+            "duration": 5,
+            "method": "queryForTravels",
+            "mutator_config": "constant:\"/basic/travels\":\"mutated_/basic/travels\"",
+            "namespace": "ts8",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        },
+        {
+            "app": "ts-station-service",
+            "chaos_type": "NetworkPartition",
+            "direction": "to",
+            "duration": 5,
+            "namespace": "ts8",
+            "system": "ts",
+            "system_type": "ts",
+            "target_service": "mysql",
+            "time_offset": 0
+        }
+    ],
+    "task_id": "34bb3ba9-730f-4eb1-90e3-8815f5513529",
+    "trace_id": "61111ecf-25b9-499d-bca5-d6266186c151",
+    "source": "injection",
+    "description": "Fault batch for task 34bb3ba9-730f-4eb1-90e3-8815f5513529 (2 faults)",
+    "engine_config": [
+        {
+            "app": "ts-basic-service",
+            "chaos_type": "JVMRuntimeMutator",
+            "class": "fdse.microservice.controller.BasicController",
+            "duration": 5,
+            "method": "queryForTravels",
+            "mutator_config": "constant:\"/basic/travels\":\"mutated_/basic/travels\"",
+            "namespace": "ts8",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        },
+        {
+            "app": "ts-station-service",
+            "chaos_type": "NetworkPartition",
+            "direction": "to",
+            "duration": 5,
+            "namespace": "ts8",
+            "system": "ts",
+            "system_type": "ts",
+            "target_service": "mysql",
+            "time_offset": 0
+        }
+    ],
+    "ground_truth": [
+        {
+            "service": [
+                "ts-basic-service"
+            ],
+            "pod": [
+                "ts-basic-service-6545dfbb47-9rvd8"
+            ],
+            "container": [
+                "ts-basic-service"
+            ],
+            "function": [
+                "fdse.microservice.controller.BasicController.queryForTravels"
+            ]
+        },
+        {
+            "service": [
+                "ts-station-service",
+                "mysql"
+            ],
+            "pod": [
+                "mysql-0",
+                "ts-station-service-6fd97ffdf-kzpbl"
+            ],
+            "container": [
+                "mysql",
+                "ts-station-service"
+            ],
+            "span": [
+                "ALTER table ts",
+                "CREATE table ts",
+                "INSERT station",
+                "INSERT ts.station",
+                "SELECT ts",
+                "SELECT ts.station",
+                "SELECT ts.ts"
+            ]
+        }
+    ],
+    "groundtruth_source": "auto"
+}

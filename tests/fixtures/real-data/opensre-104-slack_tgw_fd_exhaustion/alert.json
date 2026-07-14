@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "slack",
+  "summary": "Incident at Slack: All evidence converges. I have enough to confirm the root cause and rule out the look-alikes.\n\n**Evi",
+  "source": "opensre/slack",
+  "timestamp": ""
+}

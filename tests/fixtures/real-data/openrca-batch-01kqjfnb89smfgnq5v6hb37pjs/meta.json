@@ -1,0 +1,9 @@
+{
+  "incident_id": "OPENRCA-NQ5V6HB37PJS",
+  "source_type": "openrca2",
+  "service": "profile",
+  "severity": "SEV1",
+  "start_time": "2026-05-02T03:18:46+08:00",
+  "system": "hs",
+  "chaos_family": "hybrid"
+}

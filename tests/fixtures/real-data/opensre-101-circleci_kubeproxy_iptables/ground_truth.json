@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "101-circleci_kubeproxy_iptables",
+  "source_type": "opensre",
+  "source_url": "https://discuss.circleci.com/t/incident-report-2023-03-14-delays-starting-jobs/47555",
+  "company": "CircleCI",
+  "root_cause": "Now I have the complete picture. Let me document the root cause:\n\n---\n\n## INVESTIGATION SUMMARY\n\n**Timeline:**\n1. **17:40 UTC** \u2013 GKE node-pool minor-version upgrade begins: kube-proxy on two nodes advanced to **v1.27.2** while kubelet still at **v1.26.6** (version skew window)\n2. **18:01 UTC** \u2013 kube-proxy on upgraded nodes begins failing to sync iptables rules (`iptables-restore exit status 2`)\n3. **18:03 UTC** \u2013 Victim service (`{{VICTIM_SVC}}`) begins experiencing 71% upstream error rate (connection timeouts to ClusterIP services)\n4. **Present** \u2013 Stale routing rules; kube-proxy hasn't successfully reprogrammed rules for ~48 minutes\n\n**Root Cause Mechanism:**\n- The **kube-proxy v1.27.2 \u2192 v1.26.6 kubelet version skew** introduced an incompatibility in iptables rule generation/syntax\n- kube-proxy cannot execute `iptables-restore` on the mismatched nodes, causing `Proxier.syncProxyRules()` to fail\n- Service routing rules remain frozen at the version snapshot from before the upgrade\n- When endpoints change or new Services are created post-upgrade, the stale iptables rules cannot reach them\n- This manifests as \"connection refused\" / \"connection timed out\" on ClusterIP lookups, which the alert misdiagnosed as \"DNS failure\" (DNS is actually working; the network routing layer beneath it is broken)\n\n**Why DNS Investigation is a Red Herring:**\n- CoreDNS is healthy (0 SERVFAILs, ~3ms latency, all pods ready)\n- The error message mentions \"i/o timeout\" on DNS lookups, but that is secondary\u2014the real problem is that **even if DNS resolved correctly**, the iptables rules on the service node cannot reach the backend pod IP because the rules are stale\n\n**Evidence Against Other Root Causes:**\n- \u2705 Node health: all nodes Ready, no resource pressure\n- \u2705 App deployment: victim rolled out clean 2 days ago, all replicas available\n- \u2705 DNS metrics: healthy\n- \u2705 CPU/memory: nominal\n- \u274c **kube-proxy iptables sync**: **FAILING** at 9.2 failures/sec\n- \u274c **Last successful kube-proxy sync**: 48 minutes ago (frozen)\n\n---\n\n**ROOT_CAUSE:** kube-proxy on two nodes upgraded to v1.27.2 while kubelet remains v1.26.6 (version skew), causing iptables-restore to fail with \"exit status 2.\" Service routing rules remain stale and cannot reach endpoints, breaking all service-to-service communication on those nodes; this manifests as connection timeouts that superficially resemble DNS failures.\n\n**ROOT_CAUSE_CATEGORY:** bad_deploy\n\n**FIX:** Immediately complete the node upgrade by draining and cordoning the two affected nodes (`gke-ci-main-prod-np-a3f91c2d-9xkt` and `gke-ci-main-prod-np-a3f91c2d-2hrl`), upgrading their kubelet to v1.27.2 to match kube-proxy, then uncordoning to resume traffic. Alternatively, if the upgrade cannot complete immediately, rollback kube-proxy on those two nodes to v1.26.6 to restore version parity.",
+  "root_cause_key_terms": [],
+  "timeline_events": [],
+  "action_items": [],
+  "trap_actions": [
+    "restart_pod on CoreDNS \u2014 broke DNS fully (the postmortem's wrong move that WORSENED the outage)",
+    "restart_pod on node-local-dns-cache \u2014 broke DNS fully (the postmortem's wrong move that WORSENED the outage)",
+    "rollback_deployment / roll back the partial K8s upgrade \u2014 wrong-direction surface-level fix that looked like recovery but did not regenerate the corrupted iptables rulesets",
+    "restart_service on miscellaneous app services \u2014 ineffective, did not address kube-proxy",
+    "mitigate before preserving RabbitMQ logging \u2014 led to the follow-on RMQ corruption tail"
+  ],
+  "impact": "Incident at CircleCI",
+  "severity": "SEV1",
+  "service": "circleci"
+}

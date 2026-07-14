@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "App service",
+  "summary": "App Service Web Apps - West Europe",
+  "source": "intelligentdds/Azure",
+  "timestamp": "2017-05-31T00:00:00+00:00"
+}

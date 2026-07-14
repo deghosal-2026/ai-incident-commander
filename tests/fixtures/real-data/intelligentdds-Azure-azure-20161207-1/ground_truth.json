@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20161207-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 13:22 and 16:10 UTC on 07 December 2016, a subset of customers using Storage services in North Europe may have experienced difficulties whilst attempting to connect to their resources. In addition, customers using Virtual Machines (VMs) hosted in the affected region may have experienced VM restarts. App Service \\ Web App and Azure Search customers that have a dependency on Storage services may also have experienced availability issues in this region. ",
+  "root_cause_key_terms": [
+    "Storage services",
+    "Virtual Machines",
+    "App Service Web App",
+    "Azure Search"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 13:22 and 16:10 UTC on 07 December 2016, a subset of customers using Storage services in North Europe may have experienced difficulties whilst attempting to connect to their resources. In addi",
+  "severity": "SEV1",
+  "service": "Storage services"
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "OPENRCA-W6JE5HB9XFJX",
+  "source_type": "openrca2",
+  "source_url": "https://huggingface.co/datasets/lincyaw/openrca2-v1-500",
+  "company": "OpenRCA2 (hs)",
+  "root_cause": [
+    {
+      "service": [
+        "reservation"
+      ],
+      "pod": [
+        "reservation-5c4587956b-hpktk"
+      ],
+      "container": [
+        "hotel-reserv-reservation"
+      ],
+      "metric": [
+        "memory"
+      ]
+    },
+    {
+      "service": [
+        "profile"
+      ],
+      "pod": [
+        "profile-568bd87978-4qxv4"
+      ],
+      "container": [
+        "hotel-reserv-profile"
+      ],
+      "metric": [
+        "memory"
+      ]
+    }
+  ],
+  "root_cause_key_terms": [
+    "reservation",
+    "MemoryStress",
+    "profile",
+    "MemoryStress"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "*Stress failure in hs for Duration unknown",
+  "severity": "SEV1",
+  "service": "profile"
+}

@@ -1,0 +1,8 @@
+{
+  "incident_id": "blog-github-mysql-2018",
+  "source_type": "blog",
+  "service": "GitHub.com",
+  "severity": "SEV1",
+  "start_time": "2018-10-21T22:54:00Z",
+  "company": "GitHub"
+}

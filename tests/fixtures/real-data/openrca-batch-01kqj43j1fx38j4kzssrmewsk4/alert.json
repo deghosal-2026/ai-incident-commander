@@ -1,0 +1,15 @@
+{
+  "severity": "SEV1",
+  "service": "ts-route-plan-service",
+  "summary": "hybrid anomaly in ts affecting ts-route-plan-service, ts-route-service",
+  "source": "openrca2/ts",
+  "timestamp": "2026-05-01T23:56:49+08:00",
+  "metadata": {
+    "system": "ts",
+    "chaos_family": "hybrid",
+    "affected_services": [
+      "ts-route-plan-service",
+      "ts-route-service"
+    ]
+  }
+}

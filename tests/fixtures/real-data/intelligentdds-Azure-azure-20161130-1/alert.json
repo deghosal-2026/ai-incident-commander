@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "Azure customer resources and platform services",
+  "summary": "Traffic Manager impacting Multiple Services",
+  "source": "intelligentdds/Azure",
+  "timestamp": "2016-11-30T00:00:00+00:00"
+}

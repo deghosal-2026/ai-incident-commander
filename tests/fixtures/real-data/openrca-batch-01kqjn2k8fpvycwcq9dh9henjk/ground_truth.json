@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "OPENRCA-WCQ9DH9HENJK",
+  "source_type": "openrca2",
+  "source_url": "https://huggingface.co/datasets/lincyaw/openrca2-v1-500",
+  "company": "OpenRCA2 (ts)",
+  "root_cause": [
+    {
+      "service": [
+        "ts-route-plan-service"
+      ],
+      "pod": [
+        "ts-route-plan-service-5ddc7db86-mmm7v"
+      ],
+      "container": [
+        "ts-route-plan-service"
+      ],
+      "function": [
+        "plan.service.RoutePlanServiceImpl.getTripFromNormalTrainTravelService"
+      ]
+    },
+    {
+      "service": [
+        "ts-travel2-service",
+        "mysql"
+      ],
+      "pod": [
+        "mysql-0",
+        "ts-travel2-service-7b59d6fb87-m2w8l"
+      ],
+      "container": [
+        "mysql",
+        "ts-travel2-service"
+      ],
+      "span": [
+        "CREATE table ts",
+        "INSERT trip2",
+        "INSERT ts.trip2",
+        "SELECT ts",
+        "SELECT ts.trip2",
+        "SELECT ts.ts"
+      ]
+    }
+  ],
+  "root_cause_key_terms": [
+    "ts-route-plan-service",
+    "JVMRuntimeMutator",
+    "ts-travel2-service",
+    "NetworkLoss"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "hybrid failure in ts for Duration unknown",
+  "severity": "SEV1",
+  "service": "ts-route-plan-service"
+}

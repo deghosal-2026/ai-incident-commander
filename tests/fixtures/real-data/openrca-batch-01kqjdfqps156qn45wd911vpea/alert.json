@@ -1,0 +1,15 @@
+{
+  "severity": "SEV1",
+  "service": "accounting",
+  "summary": "hybrid anomaly in otel-demo affecting accounting, checkout",
+  "source": "openrca2/otel-demo",
+  "timestamp": "2026-05-02T02:40:45+08:00",
+  "metadata": {
+    "system": "otel-demo",
+    "chaos_family": "hybrid",
+    "affected_services": [
+      "accounting",
+      "checkout"
+    ]
+  }
+}

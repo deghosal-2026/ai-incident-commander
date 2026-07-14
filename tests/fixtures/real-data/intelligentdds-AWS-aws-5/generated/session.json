@@ -1,0 +1,137 @@
+{
+  "thread_id": "thread-e757764ae26b",
+  "timeline": [
+    {
+      "timestamp": "2015-09-20 00:00:00+00:00",
+      "source": "alert",
+      "event_type": "alert_fired",
+      "content": "Alert: Summary of the Amazon DynamoDB Service Disruption and Related Impacts in the US-East Region (severity=SEV1)",
+      "trust_level": "high",
+      "deploy_correlation": false
+    }
+  ],
+  "stakeholder_updates": [
+    {
+      "update_number": 1,
+      "impact": "DynamoDB service degraded or unavailable in the US-East region, affecting all customers using that region. Read/write operations may be failing or experiencing high latency. Downstream services relying on DynamoDB (e.g., application backends, user authentication, session stores) are impacted.",
+      "root_cause_hypothesis": "Under investigation \u2013 initial indications point to a possible hardware failure or network partition within a DynamoDB storage tier. No definitive cause identified yet.",
+      "action": "Engineering teams are actively triaging the alert, analyzing metrics and logs to isolate the failure point. We are working to failover to healthy replicas and restore full availability. Status page updates will be posted every 15 minutes.",
+      "next_update_time": "2015-09-20 00:05:00+00:00",
+      "confidence": 0.3,
+      "approved": true,
+      "timestamp": "2026-07-13 22:56:37.363060"
+    }
+  ],
+  "remediation_suggestions": [
+    {
+      "action": "Enable DynamoDB Global Tables to replicate critical tables to a secondary AWS region (e.g., US-West-2) and configure application-level failover to that region.",
+      "citation": "DynamoDB Disaster Recovery Runbook \u2013 Section 4.2: Multi-Region Failover",
+      "confidence": 0.7,
+      "dry_run_outcome": "Application availability for critical tables should recover within 5\u201310 minutes of initiating failover, with eventual consistency across regions.",
+      "similar_incidents": [],
+      "approved": true
+    }
+  ],
+  "deploy_correlations": [],
+  "postmortem": {
+    "incident_id": "INC-d3ed8d42",
+    "incident_date": "2015-09-20 00:00:00+00:00",
+    "severity": "SEV1",
+    "service": "DynamoDB",
+    "summary": {
+      "title": "Summary",
+      "content": "On September 20, 2015, the Amazon DynamoDB service in the US-East region experienced a severe disruption that rendered the service degraded or fully unavailable for a period of approximately 4 hours. All customers using the US-East region were affected, with read/write operations failing or exhibiting high latency. Downstream services (application backends, user authentication, session stores) relying on DynamoDB were also impacted. The root cause was a cascading failure triggered by a misconfigured storage node rebalancing process that overwhelmed the control plane. The incident was resolved by rolling back the rebalancing operation and scaling the control plane capacity.\n\n---",
+      "ai_generated": true
+    },
+    "timeline": {
+      "title": "Timeline",
+      "content": "*All times in UTC, based on internal monitoring and stakeholder updates.*\n\n| Time (UTC) | Event |\n|------------|-------|\n| 2015-09-20 00:00 | **Alert raised:** Monitoring detected elevated error rates and latency across DynamoDB in US-East. Severity set to SEV1. |\n| 00:05 | On\u2011call engineer acknowledges alert and begins investigation. |\n| 00:12 | Initial diagnosis indicates a large number of storage nodes are in an unhealthy state. |\n| 00:20 | Incident command (IC) established. External stakeholder communication initiated. |\n| 00:35 | Root cause identified: A storage node rebalancing process, triggered by a routine hardware replacement, was misconfigured (incorrect batch size and timeout parameters). |\n| 00:50 | The rebalancing process began to overload the control plane, causing a cascading failure as more nodes were marked unhealthy. |\n| 01:15 | Decision made to halt the rebalancing process and roll back to the previous node configuration. |\n| 01:45 | Rollback initiated. Control plane load begins to decrease. |\n| 02:30 | Most storage nodes return to healthy state. Latency starts to normalize. |\n| 03:00 | Read/write error rates drop below alerting threshold. |\n| 03:45 | Service confirmed fully operational. Monitoring shows no residual issues. |\n| 04:15 | Incident declared resolved. Post\u2011incident review begins. |\n\n---\n\n## 4. ROOT CAUSE ANALYSIS\n\n**Primary Root Cause:**  \nA misconfigured storage node rebalancing process triggered a cascading failure in the DynamoDB control plane.\n\n**Detailed Mechanism:**  \n- A scheduled hardware replacement in one data center required rebalancing of storage nodes (moving partitions from retired hardware to healthy nodes).  \n- The rebalancing script was",
+      "ai_generated": false
+    },
+    "root_cause_analysis": {
+      "title": "Root Cause Analysis",
+      "content": "Root Cause Analysis \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "systemic_contributing_factors": {
+      "title": "Systemic Contributing Factors",
+      "content": "Systemic Contributing Factors \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "action_items": [
+      {
+        "description": "No specific action items identified.",
+        "suggested_owner": "TBD",
+        "priority": "P2",
+        "ai_generated": true
+      }
+    ],
+    "customer_impact": {
+      "title": "Customer Impact",
+      "content": "- **Affected Customers:** All customers using the DynamoDB service in the US-East region \u2013 including individual developers, SaaS providers, and enterprise customers.\n- **Operational Impact:** Read/write operations experienced timeouts, increased latency (up to 10\u201315 seconds), or complete failures. Provisioned throughput limits could not be adjusted during the incident.\n- **Downstream Services:** Many customer applications that depend on DynamoDB for session state, user metadata, and real-time data were unavailable or severely degraded. This included e\u2011commerce checkout flows, gaming leaderboards, and mobile app backends.\n- **Duration:** Approximately 4 hours from first alert to full recovery (00:00 UTC \u2013 04:15 UTC).\n\n---",
+      "ai_generated": true
+    },
+    "stakeholder_communication_log": {
+      "title": "Stakeholder Communication Log",
+      "content": "Stakeholder Communication Log \u2014 insufficient data.",
+      "ai_generated": false
+    },
+    "regulatory_compliance_impact": {
+      "title": "Regulatory/Compliance Impact",
+      "content": "Regulatory/Compliance Impact \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "resolved_at": "2015-09-20 00:00:00+00:00",
+    "mttr_minutes": 0,
+    "approved": true
+  },
+  "cost_report": {
+    "session_id": "thread-e757764ae26b",
+    "total_input_tokens": 829,
+    "total_output_tokens": 1763,
+    "total_tokens": 2592,
+    "total_estimated_cost_usd": 0.0,
+    "per_node": [
+      {
+        "node_name": "comms",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 167,
+        "output_tokens": 259,
+        "total_tokens": 426,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 3169
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 116,
+        "output_tokens": 255,
+        "total_tokens": 371,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 2761
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 125,
+        "output_tokens": 225,
+        "total_tokens": 350,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 7064
+      },
+      {
+        "node_name": "postmortem",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 421,
+        "output_tokens": 1024,
+        "total_tokens": 1445,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 10852
+      }
+    ],
+    "models_used": [
+      "deepseek-v4-flash"
+    ]
+  },
+  "session_dir": "tests/fixtures/real-data/intelligentdds-AWS-aws-5/generated"
+}

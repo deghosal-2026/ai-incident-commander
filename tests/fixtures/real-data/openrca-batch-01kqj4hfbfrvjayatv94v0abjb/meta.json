@@ -1,0 +1,9 @@
+{
+  "incident_id": "OPENRCA-YATV94V0ABJB",
+  "source_type": "openrca2",
+  "service": "ts-basic-service",
+  "severity": "SEV1",
+  "start_time": "2026-05-02T00:04:25+08:00",
+  "system": "ts",
+  "chaos_family": "hybrid"
+}

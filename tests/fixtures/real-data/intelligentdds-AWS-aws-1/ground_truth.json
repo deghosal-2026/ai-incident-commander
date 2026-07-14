@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "aws-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AWS",
+  "root_cause": "We\u2019d like to share more detail about the AWS service disruption that occurred this past weekend in the AWS Sydney Region.  The service disruption primarily affected EC2 instances and their associated Elastic Block Store (\u201cEBS\u201d) volumes running in a single Availability Zone. ",
+  "root_cause_key_terms": [
+    "diesel rotary uninterruptable power supply",
+    "EC2 instances",
+    "EBS volumes",
+    "instance management software",
+    "utility provider",
+    "storage server"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "We\u2019d like to share more detail about the AWS service disruption that occurred this past weekend in the AWS Sydney Region.  The service disruption primarily affected EC2 instances and their associated ",
+  "severity": "SEV1",
+  "service": "diesel rotary uninterruptable power supply"
+}

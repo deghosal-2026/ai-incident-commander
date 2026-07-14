@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "aws",
+  "summary": "Incident at AWS: I have a complete, consistent causal chain. All evidence corroborates and the look-alikes are ruled ",
+  "source": "opensre/aws",
+  "timestamp": ""
+}

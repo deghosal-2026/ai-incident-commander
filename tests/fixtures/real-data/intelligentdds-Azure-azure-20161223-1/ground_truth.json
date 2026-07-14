@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20161223-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 00:35 UTC on 22 Dec 2016 to 02:30 UTC on 23 Dec 2016, customers using Azure Functions may not have been able to select regions in the Management Portal and the Functions dashboard when creating applications. Customers provisioning new App Service \\ Web Apps in Visual Studio may also have experienced the inability to select regions",
+  "root_cause_key_terms": [
+    "Azure Functions"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 00:35 UTC on 22 Dec 2016 to 02:30 UTC on 23 Dec 2016, customers using Azure Functions may not have been able to select regions in the Management Portal and the Functions dashboard when creatin",
+  "severity": "SEV1",
+  "service": "Azure Functions"
+}

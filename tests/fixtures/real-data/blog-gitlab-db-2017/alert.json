@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "GitLab.com",
+  "summary": "Database Outage \u2014 6h Data Loss",
+  "source": "blog/gitlab",
+  "timestamp": "2017-01-31T23:00:00Z"
+}

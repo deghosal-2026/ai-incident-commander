@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170528-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 16:47 and 17:20 UTC on 28 May 2017, a subset of customers in Canada Central may have intermittently experienced degraded performance, network drops or time outs when accessing their Azure resources hosted in this region. Engineers have determined that this is caused by an underlying Network Infrastructure Event in this region. ",
+  "root_cause_key_terms": [
+    "Azure multiple services"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 16:47 and 17:20 UTC on 28 May 2017, a subset of customers in Canada Central may have intermittently experienced degraded performance, network drops or time outs when accessing their Azure reso",
+  "severity": "SEV1",
+  "service": "Azure multiple services"
+}

@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "AWS Service",
+  "summary": "Summary of the AWS Service Event in the Northern Virginia (US-EAST-1) Region",
+  "source": "intelligentdds/AWS",
+  "timestamp": "2021-12-10T00:00:00+00:00"
+}

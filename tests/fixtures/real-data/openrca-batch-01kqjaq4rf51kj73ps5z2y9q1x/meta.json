@@ -1,0 +1,9 @@
+{
+  "incident_id": "OPENRCA-73PS5Z2Y9Q1X",
+  "source_type": "openrca2",
+  "service": "profile",
+  "severity": "SEV1",
+  "start_time": "2026-05-02T01:52:22+08:00",
+  "system": "hs",
+  "chaos_family": "Pod*"
+}

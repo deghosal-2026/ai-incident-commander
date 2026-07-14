@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "118-cloudflare_bgp_reorder_withdraw",
+  "source_type": "opensre",
+  "source_url": "https://blog.cloudflare.com/cloudflare-outage-on-june-21-2022/",
+  "company": "Cloudflare",
+  "root_cause": "---\n\n## **ROOT CAUSE ANALYSIS COMPLETE**\n\nI have traced the full causal chain. This is **not** an LB overload, network failure, or node failure. It is a **config error in the BGP export policy**:\n\n**The Mechanism:**\n1. **Policy revision 482** (AGGREGATES-OUT) was intended to add communities to site-local prefixes\n2. **The terms were reordered** such that `REJECT-THE-REST` now comes **before** the `match-site-locals->advertise(+community)` term\n3. **Site-local prefixes (10.SITE.0.0/16 ranges)** now match the REJECT term and are **implicitly withdrawn** from iBGP before the advertise term can run\n4. **38 site-local metal-to-metal prefixes** disappeared from the routing table across 19 MCP sites at 06:27Z\n5. **Multimog load balancer**, unable to route between metals inside MCP sites, starts **dropping connections and saturating** the few still-reachable clusters\n6. **Global traffic drops 50%** because the 19 affected MCP sites (4% of fleet by count, **50% by traffic volume**) go dark\n\n**Why This Looks Like LB Overload:**\n- Multimog error rate is 62% (connection failures, \"network unreachable\")\n- Remaining small clusters are overloaded\n- But **Multimog CPU/memory are nominal** (1.1 cores, 41% mem)\u2014it's route-starved, not resource-starved\n- Core sites are unaffected, making it seem like only MCP LB capacity is exhausted (false)\n\n**Why This is a Config Error:**\n- Pod statuses are all green (ADVERSARIAL\u2014they hide the policy error)\n- The BGP route agent logs explicitly show the term reorder and REJECT match on site-locals\n- `bgp_site_local_prefixes_advertised` metric fell from 38 to 0\n- `bgp_aggregates_out_reject_match_rate_1m` shows site-locals matching REJECT (never before)\n- Concurrent revert collisions (rev 482\u2192481\u2192482) indicate hasty, unlocked edits\n\n---\n\n**ROOT_CAUSE:** BGP AGGREGATES-OUT policy revision 482 reordered export terms, placing the `REJECT-THE-REST` clause before the `match-site-locals->advertise(+community)` term, causing all 38 site-local metal-to-metal prefixes to be implicitly withdrawn from iBGP on 19 MCP data centers. With no intra-site routes, Multimog cannot forward between metals, cascading into a 50% global traffic loss.\n\n**ROOT_CAUSE_CATEGORY:** config_error\n\n**FIX:** `revert AGGREGATES-OUT export policy to revision 481 and commit-confirm the rollback to prevent concurrent edits`",
+  "root_cause_key_terms": [],
+  "timeline_events": [],
+  "action_items": [],
+  "trap_actions": [
+    "Multiple engineers reverting AGGREGATES-OUT concurrently without a lock or commit-confirm \u2014 they walked over each other's changes, reverted previous reverts, and the bad state reappeared sporadically (the postmortem's wrong move that PROLONGED the outage)",
+    "rollback_deployment / standard uncoordinated rollback that re-introduced the bad state because it raced other in-flight reverts",
+    "scale_deployment on multimog-lb \u2014 treating the loud LB overload as a capacity problem; adds replicas with still no route to forward over",
+    "restart_service / restart_pod on multimog-lb \u2014 restarting the route-starved victim does nothing because the site-local prefixes are still withdrawn upstream"
+  ],
+  "impact": "Incident at Cloudflare",
+  "severity": "SEV1",
+  "service": "cloudflare"
+}

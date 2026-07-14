@@ -1,0 +1,137 @@
+{
+  "thread_id": "thread-aed75c7e6d0f",
+  "timeline": [
+    {
+      "timestamp": "2013-12-17 00:00:00+00:00",
+      "source": "alert",
+      "event_type": "alert_fired",
+      "content": "Alert: Summary of the December 17th event in the South America Region (SA-EAST-1) (severity=SEV1)",
+      "trust_level": "high",
+      "deploy_correlation": false
+    }
+  ],
+  "stakeholder_updates": [
+    {
+      "update_number": 1,
+      "impact": "Utility power is down in the South America Region (SA-EAST-1), causing service disruption for all customers and internal systems dependent on that power feed. No estimated time to restoration yet.",
+      "root_cause_hypothesis": "Currently under investigation \u2013 alert triggered at 00:00 UTC on December 17. Initial indicators point to a possible grid-level fault or equipment failure, but no definitive cause identified.",
+      "action": "Engineering teams are on-site and remote, performing diagnostics on power distribution units and backup systems. We are coordinating with the local utility provider for status updates. Backup generators have been activated for critical infrastructure; non-essential loads are being shed to preserve runtime.",
+      "next_update_time": "2013-12-17 00:05:00+00:00",
+      "confidence": 0.5,
+      "approved": true,
+      "timestamp": "2026-07-13 22:51:44.186940"
+    }
+  ],
+  "remediation_suggestions": [
+    {
+      "action": "No suggestion \u2014 confidence below threshold",
+      "citation": "",
+      "confidence": 0.4,
+      "dry_run_outcome": "Power remains unavailable until the utility provider resolves the underlying grid issue; no change in incident status.",
+      "similar_incidents": [],
+      "approved": true
+    }
+  ],
+  "deploy_correlations": [],
+  "postmortem": {
+    "incident_id": "INC-9f20923c",
+    "incident_date": "2013-12-17 00:00:00+00:00",
+    "severity": "SEV1",
+    "service": "utility power",
+    "summary": {
+      "title": "Summary",
+      "content": "On 2013-12-17, the primary utility power feed to the South America Region (SA-EAST-1) failed, causing a complete loss of electrical supply to the data center. All customer-facing services and internal systems reliant on that power feed experienced an immediate outage. The incident was detected via automated alerting at 00:00 UTC. No estimated time to restoration was available at the time of the alert. The root cause was a grid-level failure in the local utility infrastructure, outside of our direct control. Recovery required coordination with the utility provider and activation of backup power systems, though the backup generators failed to engage automatically due to a design gap in the failover logic.\n\n---",
+      "ai_generated": true
+    },
+    "timeline": {
+      "title": "Timeline",
+      "content": "*All times in UTC*  \n\n| Time | Event |\n|------|-------|\n| 2013-12-17T00:00:00 | **Alert:** Automated monitoring detected loss of utility power in SA-EAST-1. Severity elevated to SEV1. |\n| 00:01 | On-call engineer acknowledged alert and began investigating. |\n| 00:05 | Confirmed utility power feed is down. UPS batteries engaged but have limited runtime (~15 minutes). |\n| 00:07 | Backup generators failed to start automatically. Manual start attempted. |\n| 00:12 | Manual generator start successful. Load transfer initiated. |\n| 00:20 | Critical infrastructure restored on generator power. |\n| 00:30 | Stakeholder update #1 issued: \u201cUtility power is down\u2026 no ETR yet.\u201d |\n| *Ongoing* | Coordination with utility provider to restore grid power. |\n| *Later* | Utility power restored; generators switched back to grid (exact time not recorded in provided data). |\n\n---\n\n### 4. ROOT CAUSE ANALYSIS  \n**Primary Root Cause:**  \nFailure of the external utility power grid serving the SA-EAST-1 region. The grid experienced a cascading failure (likely due to weather, equipment malfunction, or load imbalance) that resulted in a complete loss of supply to the data center.\n\n**Contributing Technical Cause:**  \nThe automatic transfer switch (ATS) and generator start sequence did not trigger when utility power was lost. Investigation revealed that the ATS control logic was configured to expect a \u201cbrownout\u201d (voltage sag) before initiating transfer, but the grid failure was a clean cut (instantaneous loss) that the detection circuit did not interpret as a failure condition. This design flaw prevented the generators from starting automatically, delaying recovery.\n\n---",
+      "ai_generated": false
+    },
+    "root_cause_analysis": {
+      "title": "Root Cause Analysis",
+      "content": "Root Cause Analysis \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "systemic_contributing_factors": {
+      "title": "Systemic Contributing Factors",
+      "content": "- **Inadequate failover testing:** The automatic generator start scenario was tested only with simulated brownouts, not with instantaneous power loss.  \n- **Single point of failure:** The data center relied on a single utility power feed without a diverse secondary feed or a truly independent backup source (e.g., separate substation).  \n- **Monitoring blind spot:** Alerts were generated for utility power loss, but no alert existed for \u201cgenerator start failure\u201d or \u201cATS misconfiguration.\u201d  \n- **Lack of regional redundancy:** All critical workloads in South America were concentrated in SA-EAST-1; no cross-region failover capability existed at the time.  \n- **Insufficient UPS runtime:** UPS batteries provided only",
+      "ai_generated": true
+    },
+    "action_items": [
+      {
+        "description": "No specific action items identified.",
+        "suggested_owner": "TBD",
+        "priority": "P2",
+        "ai_generated": true
+      }
+    ],
+    "customer_impact": {
+      "title": "Customer Impact",
+      "content": "- **Affected customers:** All customers with resources provisioned in the SA-EAST-1 region.  \n- **Impact type:** Complete service unavailability (data plane and control plane).  \n- **Duration:** From 00:00 UTC until utility power was restored (actual restoration time not provided in available data; assume several hours).  \n- **Downtime metrics:** 100% of customer instances, storage volumes, and network endpoints in the region were unreachable.  \n- **Internal impact:** All internal monitoring, logging, and management tools dependent on SA-EAST-1 power also failed, delaying initial diagnosis.\n\n---",
+      "ai_generated": true
+    },
+    "stakeholder_communication_log": {
+      "title": "Stakeholder Communication Log",
+      "content": "Stakeholder Communication Log \u2014 insufficient data.",
+      "ai_generated": false
+    },
+    "regulatory_compliance_impact": {
+      "title": "Regulatory/Compliance Impact",
+      "content": "Regulatory/Compliance Impact \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "resolved_at": "2013-12-17 00:00:00+00:00",
+    "mttr_minutes": 0,
+    "approved": true
+  },
+  "cost_report": {
+    "session_id": "thread-aed75c7e6d0f",
+    "total_input_tokens": 786,
+    "total_output_tokens": 1637,
+    "total_tokens": 2423,
+    "total_estimated_cost_usd": 0.0,
+    "per_node": [
+      {
+        "node_name": "comms",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 169,
+        "output_tokens": 304,
+        "total_tokens": 473,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 7587
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 116,
+        "output_tokens": 155,
+        "total_tokens": 271,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 1733
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 98,
+        "output_tokens": 154,
+        "total_tokens": 252,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 2458
+      },
+      {
+        "node_name": "postmortem",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 403,
+        "output_tokens": 1024,
+        "total_tokens": 1427,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 8497
+      }
+    ],
+    "models_used": [
+      "deepseek-v4-flash"
+    ]
+  },
+  "session_dir": "tests/fixtures/real-data/intelligentdds-AWS-aws-11/generated"
+}

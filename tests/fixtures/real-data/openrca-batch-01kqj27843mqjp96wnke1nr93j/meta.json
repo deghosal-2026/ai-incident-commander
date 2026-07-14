@@ -1,0 +1,9 @@
+{
+  "incident_id": "OPENRCA-96WNKE1NR93J",
+  "source_type": "openrca2",
+  "service": "ts-basic-service",
+  "severity": "SEV1",
+  "start_time": "2026-05-01T23:23:53+08:00",
+  "system": "ts",
+  "chaos_family": "hybrid"
+}

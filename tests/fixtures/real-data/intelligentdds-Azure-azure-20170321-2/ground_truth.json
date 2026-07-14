@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170321-2",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 17:30 and 18:55 UTC on 21 Mar 2017, a subset of Azure customers may have experienced intermittent login failures while authenticating with their Microsoft Accounts. This would have impacted the ability for customers to authenticate to their Azure management portal (https://portal.azure.com), PowerShell, or other workflows requiring Microsoft Account authentication. Customers authenticating with Azure Active Directory or organizational accounts were unaffected. Customers who had an active session already authenticated with a Microsoft Account before the impact started would also have been unaffected.",
+  "root_cause_key_terms": [
+    "Microsoft Account authentication service"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 17:30 and 18:55 UTC on 21 Mar 2017, a subset of Azure customers may have experienced intermittent login failures while authenticating with their Microsoft Accounts. This would have impacted th",
+  "severity": "SEV1",
+  "service": "Microsoft Account authentication service"
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "aws-10",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AWS",
+  "root_cause": "We\u2019d like to share more about the service event that occurred on Monday, October 22nd in the US- East Region. We have now completed the analysis of the events that affected AWS customers, and we want to describe what happened, our understanding of how customers were affected, and what we are doing to prevent a similar issue from occurring in the future. (The Primary Event and the Impact to Amazon Elastic Block Store (EBS) and Amazon Elastic Compute Cloud (EC2)) At 10:00AM PDT Monday, a small number of Amazon Elastic Block Store (EBS) volumes in one of our five Availability Zones in the US-East Region began seeing degraded performance, and in some cases, became \u201cstuck\u201d (i.e. unable to process further I/O requests).",
+  "root_cause_key_terms": [
+    "EBS volumes",
+    "EC2 instances",
+    "RDS",
+    "ELB"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "We\u2019d like to share more about the service event that occurred on Monday, October 22nd in the US- East Region. We have now completed the analysis of the events that affected AWS customers, and we want ",
+  "severity": "SEV1",
+  "service": "EBS volumes"
+}

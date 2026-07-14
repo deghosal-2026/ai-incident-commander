@@ -1,0 +1,8 @@
+{
+  "incident_id": "115-circleci_waf_manual_edit",
+  "source_type": "opensre",
+  "service": "circleci",
+  "severity": "SEV1",
+  "start_time": "",
+  "company": "CircleCI"
+}

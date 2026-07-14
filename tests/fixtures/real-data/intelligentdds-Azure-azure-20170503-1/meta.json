@@ -1,0 +1,8 @@
+{
+  "incident_id": "azure-20170503-1",
+  "source_type": "intelligentdds",
+  "service": "Backup service",
+  "severity": "SEV1",
+  "start_time": "2017-05-03T00:00:00+00:00",
+  "provider": "Azure"
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170601-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "From approximately 20:18 UTC on 28 May 2017 to 03:00 UTC on 1 June 2017, customers leveraging Mozilla Firefox may have been unable to access Azure services, including Azure Management Portal (https://portal.azure.com), Web Apps, Azure Data Lake Analytics, Azure Data Lake Store, Visual Studio Team Services, Azure Service Fabric, Service Bus, and Storage. As a workaround, Firefox users had to use an alternative browser such as Internet Explorer, Safari, Edge, or Chrome.  ",
+  "root_cause_key_terms": [
+    "Azure Management Portal",
+    "Web Apps",
+    "Azure Data Lake Analytics",
+    "Azure Data Lake Store",
+    "Visual Studio Team Services",
+    "Azure Service Fabric",
+    "Service Bus",
+    "Storage"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "From approximately 20:18 UTC on 28 May 2017 to 03:00 UTC on 1 June 2017, customers leveraging Mozilla Firefox may have been unable to access Azure services, including Azure Management Portal (https://",
+  "severity": "SEV1",
+  "service": "Azure Management Portal"
+}

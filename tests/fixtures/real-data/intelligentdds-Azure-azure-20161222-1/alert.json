@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "Visual Studio Team Services",
+  "summary": "Visual Studio Team Services",
+  "source": "intelligentdds/Azure",
+  "timestamp": "2016-12-22T00:00:00+00:00"
+}

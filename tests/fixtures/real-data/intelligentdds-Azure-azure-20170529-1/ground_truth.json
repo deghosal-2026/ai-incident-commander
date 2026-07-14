@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170529-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 00:00 UTC on 26 May 2017 and 16:30 UTC on 29 May 2017, a subset of customers using Azure IoT Hub may have received the error message 'Cannot read property 'value' of undefined or null reference' when trying to deploy IoT Hub resources. This issue only affected new subscriptions attempting to deploy their first IoT Hub - existing IoT Hubs were not affected. Customers could deploy IoT Hubs using Azure Resource Manager (ARM) templates as a workaround.",
+  "root_cause_key_terms": [
+    "Azure IoT hub"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 00:00 UTC on 26 May 2017 and 16:30 UTC on 29 May 2017, a subset of customers using Azure IoT Hub may have received the error message 'Cannot read property 'value' of undefined or null referenc",
+  "severity": "SEV1",
+  "service": "Azure IoT hub"
+}

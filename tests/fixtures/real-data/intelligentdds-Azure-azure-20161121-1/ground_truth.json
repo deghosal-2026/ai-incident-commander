@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20161121-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 16:15 UTC and 22:20 UTC on 21 Nov 2016, customers attempting to use Azure Resource Manager (ARM) to create Virtual Machines (VMs) from the Microsoft Azure portal may have been unable to create ARM VMs with errors.",
+  "root_cause_key_terms": [
+    "Azure Resource Manager",
+    "Virtual Machines"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 16:15 UTC and 22:20 UTC on 21 Nov 2016, customers attempting to use Azure Resource Manager (ARM) to create Virtual Machines (VMs) from the Microsoft Azure portal may have been unable to create",
+  "severity": "SEV1",
+  "service": "Azure Resource Manager"
+}

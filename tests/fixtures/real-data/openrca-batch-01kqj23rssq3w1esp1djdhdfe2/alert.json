@@ -1,0 +1,15 @@
+{
+  "severity": "SEV1",
+  "service": "ts-admin-order-service",
+  "summary": "hybrid anomaly in ts affecting ts-admin-order-service, ts-order-other-service",
+  "source": "openrca2/ts",
+  "timestamp": "2026-05-01T23:21:59+08:00",
+  "metadata": {
+    "system": "ts",
+    "chaos_family": "hybrid",
+    "affected_services": [
+      "ts-admin-order-service",
+      "ts-order-other-service"
+    ]
+  }
+}

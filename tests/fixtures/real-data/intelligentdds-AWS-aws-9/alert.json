@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "EC2 instances",
+  "summary": "Summary of the Amazon EC2 DNS Resolution Issues in the Asia Pacific (Seoul) Region (AP-NORTHEAST-2)",
+  "source": "intelligentdds/AWS",
+  "timestamp": "2018-11-24T00:00:00+00:00"
+}

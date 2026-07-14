@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "github",
+  "summary": "Incident at GitHub: All evidence converges on a single causal chain. Investigation complete.\n\n**Evidence chain (corrobor",
+  "source": "opensre/github",
+  "timestamp": ""
+}

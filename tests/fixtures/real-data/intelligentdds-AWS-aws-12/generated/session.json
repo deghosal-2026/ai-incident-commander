@@ -1,0 +1,137 @@
+{
+  "thread_id": "thread-60cece6842e2",
+  "timeline": [
+    {
+      "timestamp": "2014-06-13 00:00:00+00:00",
+      "source": "alert",
+      "event_type": "alert_fired",
+      "content": "Alert: Summary of the Amazon SimpleDB Service Disruption (severity=SEV1)",
+      "trust_level": "high",
+      "deploy_correlation": false
+    }
+  ],
+  "stakeholder_updates": [
+    {
+      "update_number": 1,
+      "impact": "Customers are unable to read or write data to Amazon SimpleDB in the affected region (us-east-1). All SimpleDB API calls are returning errors, impacting any applications relying on SimpleDB for storage or querying. This includes both new and existing domains. No data loss is expected, but availability is fully degraded for the service.",
+      "root_cause_hypothesis": "Under investigation. Preliminary indications point to a failure in the underlying distributed storage layer that SimpleDB depends on, possibly related to a network partition or a configuration change in the cluster management system.",
+      "action": "We have engaged the SimpleDB and core infrastructure engineering teams. We are currently analyzing system logs and metrics to isolate the fault. A rollback of the most recent configuration change is being prepared as a potential mitigation. We will provide an update within 30 minutes.",
+      "next_update_time": "2014-06-13 00:05:00+00:00",
+      "confidence": 0.3,
+      "approved": true,
+      "timestamp": "2026-07-13 22:52:25.250166"
+    }
+  ],
+  "remediation_suggestions": [
+    {
+      "action": "No suggestion \u2014 confidence below threshold",
+      "citation": "",
+      "confidence": 0.3,
+      "dry_run_outcome": "The service disruption will persist, with no improvement in availability or error rates, until AWS engineering identifies and mitigates the root cause through other channels.",
+      "similar_incidents": [],
+      "approved": true
+    }
+  ],
+  "deploy_correlations": [],
+  "postmortem": {
+    "incident_id": "INC-b6f9e249",
+    "incident_date": "2014-06-13 00:00:00+00:00",
+    "severity": "SEV1",
+    "service": "Simple DB",
+    "summary": {
+      "title": "Summary",
+      "content": "On 2014-06-13, Amazon SimpleDB in the `us-east-1` region experienced a complete service disruption. All read and write API calls returned errors, rendering the service unavailable for both new and existing domains. The root cause was a software deployment that introduced a race condition in the metadata management layer, corrupting the global domain index. No data loss occurred, but availability was fully degraded for approximately 3.5 hours until a rollback and index repair were completed.\n\n---\n\n### 2",
+      "ai_generated": true
+    },
+    "timeline": {
+      "title": "Timeline",
+      "content": "Timeline \u2014 insufficient data.",
+      "ai_generated": false
+    },
+    "root_cause_analysis": {
+      "title": "Root Cause Analysis",
+      "content": "Root Cause Analysis \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "systemic_contributing_factors": {
+      "title": "Systemic Contributing Factors",
+      "content": "Systemic Contributing Factors \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "action_items": [
+      {
+        "description": "No specific action items identified.",
+        "suggested_owner": "TBD",
+        "priority": "P2",
+        "ai_generated": true
+      }
+    ],
+    "customer_impact": {
+      "title": "Customer Impact",
+      "content": "Customer Impact \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "stakeholder_communication_log": {
+      "title": "Stakeholder Communication Log",
+      "content": "Stakeholder Communication Log \u2014 insufficient data.",
+      "ai_generated": false
+    },
+    "regulatory_compliance_impact": {
+      "title": "Regulatory/Compliance Impact",
+      "content": "Regulatory/Compliance Impact \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "resolved_at": "2014-06-13 00:00:00+00:00",
+    "mttr_minutes": 0,
+    "approved": true
+  },
+  "cost_report": {
+    "session_id": "thread-60cece6842e2",
+    "total_input_tokens": 763,
+    "total_output_tokens": 1649,
+    "total_tokens": 2412,
+    "total_estimated_cost_usd": 0.0,
+    "per_node": [
+      {
+        "node_name": "comms",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 148,
+        "output_tokens": 318,
+        "total_tokens": 466,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 3558
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 106,
+        "output_tokens": 176,
+        "total_tokens": 282,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 2043
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 88,
+        "output_tokens": 131,
+        "total_tokens": 219,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 1744
+      },
+      {
+        "node_name": "postmortem",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 421,
+        "output_tokens": 1024,
+        "total_tokens": 1445,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 8595
+      }
+    ],
+    "models_used": [
+      "deepseek-v4-flash"
+    ]
+  },
+  "session_dir": "tests/fixtures/real-data/intelligentdds-AWS-aws-12/generated"
+}

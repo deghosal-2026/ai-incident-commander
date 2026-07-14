@@ -1,0 +1,8 @@
+{
+  "incident_id": "111-github_git_failover_rollback",
+  "source_type": "opensre",
+  "service": "github",
+  "severity": "SEV1",
+  "start_time": "",
+  "company": "GitHub"
+}

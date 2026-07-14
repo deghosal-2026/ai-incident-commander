@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "cloudflare",
+  "summary": "Incident at Cloudflare: Excellent. I now have a complete picture. Let me summarize the evidence:\n\n---\n\n## **Analysis Summary",
+  "source": "opensre/cloudflare",
+  "timestamp": ""
+}

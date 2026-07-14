@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170607-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 11:00 and 16:15 UTC on 07 Jun 2017, a limited subset of customers using Automation in East US 2 may have experienced intermittent issues viewing accounts, schedules, assets or starting jobs in the Azure Portal (https://portal.azure.com). Any clients using APIs would have also been impacted, such as PowerShell or SDKs. Jobs which were already submitted would have seen a delayed execution and would have eventually been processed. These start operations should not have been resubmitted. This issue could have impacted up to 3% of customers in the region. ",
+  "root_cause_key_terms": [
+    "Automation"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 11:00 and 16:15 UTC on 07 Jun 2017, a limited subset of customers using Automation in East US 2 may have experienced intermittent issues viewing accounts, schedules, assets or starting jobs in",
+  "severity": "SEV1",
+  "service": "Automation"
+}

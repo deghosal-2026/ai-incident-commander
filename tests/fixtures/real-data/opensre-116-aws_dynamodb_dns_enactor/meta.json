@@ -1,0 +1,8 @@
+{
+  "incident_id": "116-aws_dynamodb_dns_enactor",
+  "source_type": "opensre",
+  "service": "aws",
+  "severity": "SEV1",
+  "start_time": "",
+  "company": "AWS"
+}

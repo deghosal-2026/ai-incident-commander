@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "Azure IoT hub",
+  "summary": "IoT Hub \u2013 Error message when deploying",
+  "source": "intelligentdds/Azure",
+  "timestamp": "2017-05-28T00:00:00+00:00"
+}

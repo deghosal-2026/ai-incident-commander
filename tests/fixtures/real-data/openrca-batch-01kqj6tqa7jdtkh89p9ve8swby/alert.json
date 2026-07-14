@@ -1,0 +1,15 @@
+{
+  "severity": "SEV1",
+  "service": "ts-admin-user-service",
+  "summary": "hybrid anomaly in ts affecting ts-admin-user-service, ts-user-service",
+  "source": "openrca2/ts",
+  "timestamp": "2026-05-02T00:44:26+08:00",
+  "metadata": {
+    "system": "ts",
+    "chaos_family": "hybrid",
+    "affected_services": [
+      "ts-admin-user-service",
+      "ts-user-service"
+    ]
+  }
+}

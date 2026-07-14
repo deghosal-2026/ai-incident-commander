@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "S3 service",
+  "summary": "Summary of the Amazon S3 Service Disruption in the Northern Virginia (US-EAST-1) Region",
+  "source": "intelligentdds/AWS",
+  "timestamp": "2017-02-28T00:00:00+00:00"
+}

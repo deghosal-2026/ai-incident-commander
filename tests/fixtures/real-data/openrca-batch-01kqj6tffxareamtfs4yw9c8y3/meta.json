@@ -1,0 +1,9 @@
+{
+  "incident_id": "OPENRCA-MTFS4YW9C8Y3",
+  "source_type": "openrca2",
+  "service": "ts-route-service",
+  "severity": "SEV1",
+  "start_time": "2026-05-02T00:44:18+08:00",
+  "system": "ts",
+  "chaos_family": "hybrid"
+}

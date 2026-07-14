@@ -1,0 +1,326 @@
+{
+    "nodes": [
+        {
+            "timestamp": 1777651469,
+            "component": "service|ts-admin-order-service",
+            "state": [
+                "degraded",
+                "unavailable"
+            ]
+        },
+        {
+            "timestamp": 1777651469,
+            "component": "span|ts-admin-order-service::AdminOrderController.deleteOrder",
+            "state": [
+                "slow",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651478,
+            "component": "span|ts-admin-order-service::DELETE /api/v1/adminorderservice/adminorder/{orderId}/{trainNumber}",
+            "state": [
+                "slow",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651478,
+            "component": "span|ts-ui-dashboard::DELETE /api/v1/adminorderservice/adminorder/{orderId}/{trainNumber}",
+            "state": [
+                "slow",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651469,
+            "component": "span|ts-admin-order-service::OnCommittedResponseWrapper.sendError",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651469,
+            "component": "span|ts-admin-order-service::POST /api/v1/adminorderservice/adminorder",
+            "state": [
+                "slow",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651583,
+            "component": "span|ts-ui-dashboard::POST /api/v1/adminorderservice/adminorder",
+            "state": [
+                "slow",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651469,
+            "component": "span|ts-admin-order-service::AdminOrderController.addOrder",
+            "state": [
+                "slow",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651469,
+            "component": "span|ts-admin-order-service::AdminOrderController.updateOrder",
+            "state": [
+                "slow",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651586,
+            "component": "span|ts-admin-order-service::PUT /api/v1/adminorderservice/adminorder",
+            "state": [
+                "slow",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651586,
+            "component": "span|ts-ui-dashboard::PUT /api/v1/adminorderservice/adminorder",
+            "state": [
+                "slow",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651469,
+            "component": "span|ts-admin-order-service::HttpServletResponseWrapper.sendError",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651469,
+            "component": "span|ts-admin-order-service::GET /api/v1/adminorderservice/adminorder",
+            "state": [
+                "slow",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651475,
+            "component": "span|ts-ui-dashboard::GET /api/v1/adminorderservice/adminorder",
+            "state": [
+                "slow",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651469,
+            "component": "span|ts-admin-order-service::AdminOrderController.getAllOrders",
+            "state": [
+                "slow",
+                "missing",
+                "healthy"
+            ]
+        }
+    ],
+    "edges": [
+        {
+            "source": "span|ts-admin-order-service::AdminOrderController.addOrder",
+            "target": "span|ts-admin-order-service::POST /api/v1/adminorderservice/adminorder"
+        },
+        {
+            "source": "service|ts-admin-order-service",
+            "target": "span|ts-admin-order-service::AdminOrderController.getAllOrders"
+        },
+        {
+            "source": "span|ts-admin-order-service::GET /api/v1/adminorderservice/adminorder",
+            "target": "span|ts-ui-dashboard::GET /api/v1/adminorderservice/adminorder"
+        },
+        {
+            "source": "span|ts-admin-order-service::AdminOrderController.deleteOrder",
+            "target": "span|ts-admin-order-service::DELETE /api/v1/adminorderservice/adminorder/{orderId}/{trainNumber}"
+        },
+        {
+            "source": "service|ts-admin-order-service",
+            "target": "span|ts-admin-order-service::AdminOrderController.deleteOrder"
+        },
+        {
+            "source": "span|ts-admin-order-service::AdminOrderController.getAllOrders",
+            "target": "span|ts-admin-order-service::GET /api/v1/adminorderservice/adminorder"
+        },
+        {
+            "source": "service|ts-admin-order-service",
+            "target": "span|ts-admin-order-service::OnCommittedResponseWrapper.sendError"
+        },
+        {
+            "source": "span|ts-admin-order-service::POST /api/v1/adminorderservice/adminorder",
+            "target": "span|ts-ui-dashboard::POST /api/v1/adminorderservice/adminorder"
+        },
+        {
+            "source": "service|ts-admin-order-service",
+            "target": "span|ts-admin-order-service::POST /api/v1/adminorderservice/adminorder"
+        },
+        {
+            "source": "span|ts-admin-order-service::HttpServletResponseWrapper.sendError",
+            "target": "span|ts-admin-order-service::POST /api/v1/adminorderservice/adminorder"
+        },
+        {
+            "source": "service|ts-admin-order-service",
+            "target": "span|ts-admin-order-service::HttpServletResponseWrapper.sendError"
+        },
+        {
+            "source": "span|ts-admin-order-service::PUT /api/v1/adminorderservice/adminorder",
+            "target": "span|ts-ui-dashboard::PUT /api/v1/adminorderservice/adminorder"
+        },
+        {
+            "source": "span|ts-admin-order-service::OnCommittedResponseWrapper.sendError",
+            "target": "span|ts-admin-order-service::POST /api/v1/adminorderservice/adminorder"
+        },
+        {
+            "source": "span|ts-admin-order-service::AdminOrderController.updateOrder",
+            "target": "span|ts-admin-order-service::PUT /api/v1/adminorderservice/adminorder"
+        },
+        {
+            "source": "service|ts-admin-order-service",
+            "target": "span|ts-admin-order-service::PUT /api/v1/adminorderservice/adminorder"
+        },
+        {
+            "source": "service|ts-admin-order-service",
+            "target": "span|ts-admin-order-service::AdminOrderController.updateOrder"
+        },
+        {
+            "source": "span|ts-admin-order-service::DELETE /api/v1/adminorderservice/adminorder/{orderId}/{trainNumber}",
+            "target": "span|ts-ui-dashboard::DELETE /api/v1/adminorderservice/adminorder/{orderId}/{trainNumber}"
+        },
+        {
+            "source": "service|ts-admin-order-service",
+            "target": "span|ts-admin-order-service::GET /api/v1/adminorderservice/adminorder"
+        },
+        {
+            "source": "service|ts-admin-order-service",
+            "target": "span|ts-admin-order-service::AdminOrderController.addOrder"
+        },
+        {
+            "source": "service|ts-admin-order-service",
+            "target": "span|ts-admin-order-service::DELETE /api/v1/adminorderservice/adminorder/{orderId}/{trainNumber}"
+        },
+        {
+            "source": "span|ts-admin-order-service::HttpServletResponseWrapper.sendError",
+            "target": "span|ts-admin-order-service::DELETE /api/v1/adminorderservice/adminorder/{orderId}/{trainNumber}"
+        },
+        {
+            "source": "span|ts-admin-order-service::OnCommittedResponseWrapper.sendError",
+            "target": "span|ts-admin-order-service::DELETE /api/v1/adminorderservice/adminorder/{orderId}/{trainNumber}"
+        }
+    ],
+    "root_causes": [
+        {
+            "timestamp": null,
+            "component": "service|ts-admin-order-service",
+            "state": [
+                "unknown"
+            ]
+        }
+    ],
+    "alarm_nodes": [
+        {
+            "timestamp": 1777651478,
+            "component": "span|ts-admin-order-service::DELETE /api/v1/adminorderservice/adminorder/{orderId}/{trainNumber}",
+            "state": [
+                "slow",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651478,
+            "component": "span|ts-ui-dashboard::DELETE /api/v1/adminorderservice/adminorder/{orderId}/{trainNumber}",
+            "state": [
+                "slow",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651469,
+            "component": "span|ts-admin-order-service::POST /api/v1/adminorderservice/adminorder",
+            "state": [
+                "slow",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651583,
+            "component": "span|ts-ui-dashboard::POST /api/v1/adminorderservice/adminorder",
+            "state": [
+                "slow",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651586,
+            "component": "span|ts-admin-order-service::PUT /api/v1/adminorderservice/adminorder",
+            "state": [
+                "slow",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651586,
+            "component": "span|ts-ui-dashboard::PUT /api/v1/adminorderservice/adminorder",
+            "state": [
+                "slow",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651469,
+            "component": "span|ts-admin-order-service::GET /api/v1/adminorderservice/adminorder",
+            "state": [
+                "slow",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651475,
+            "component": "span|ts-ui-dashboard::GET /api/v1/adminorderservice/adminorder",
+            "state": [
+                "slow",
+                "missing",
+                "healthy"
+            ]
+        }
+    ],
+    "component_to_service": {
+        "service|ts-admin-order-service": "ts-admin-order-service",
+        "span|ts-admin-order-service::AdminOrderController.deleteOrder": "ts-admin-order-service",
+        "span|ts-admin-order-service::DELETE /api/v1/adminorderservice/adminorder/{orderId}/{trainNumber}": "ts-admin-order-service",
+        "span|ts-ui-dashboard::DELETE /api/v1/adminorderservice/adminorder/{orderId}/{trainNumber}": "ts-ui-dashboard",
+        "span|ts-admin-order-service::OnCommittedResponseWrapper.sendError": "ts-admin-order-service",
+        "span|ts-admin-order-service::POST /api/v1/adminorderservice/adminorder": "ts-admin-order-service",
+        "span|ts-ui-dashboard::POST /api/v1/adminorderservice/adminorder": "ts-ui-dashboard",
+        "span|ts-admin-order-service::AdminOrderController.addOrder": "ts-admin-order-service",
+        "span|ts-admin-order-service::AdminOrderController.updateOrder": "ts-admin-order-service",
+        "span|ts-admin-order-service::PUT /api/v1/adminorderservice/adminorder": "ts-admin-order-service",
+        "span|ts-ui-dashboard::PUT /api/v1/adminorderservice/adminorder": "ts-ui-dashboard",
+        "span|ts-admin-order-service::HttpServletResponseWrapper.sendError": "ts-admin-order-service",
+        "span|ts-admin-order-service::GET /api/v1/adminorderservice/adminorder": "ts-admin-order-service",
+        "span|ts-ui-dashboard::GET /api/v1/adminorderservice/adminorder": "ts-ui-dashboard",
+        "span|ts-admin-order-service::AdminOrderController.getAllOrders": "ts-admin-order-service"
+    }
+}

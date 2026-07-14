@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "diesel rotary uninterruptable power supply",
+  "summary": "Summary of the AWS Service Event in the Sydney Region",
+  "source": "intelligentdds/AWS",
+  "timestamp": "2011-06-04T00:00:00+00:00"
+}

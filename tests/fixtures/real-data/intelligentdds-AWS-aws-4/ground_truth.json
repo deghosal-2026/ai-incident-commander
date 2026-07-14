@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "aws-4",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AWS",
+  "root_cause": "While the service disruption only affected applications using the ELB service (and only a fraction of the ELB load balancers were affected), the impacted load balancers saw significant impact for a prolonged period of time.",
+  "root_cause_key_terms": [
+    "ELB load balancers"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "While the service disruption only affected applications using the ELB service (and only a fraction of the ELB load balancers were affected), the impacted load balancers saw significant impact for a pr",
+  "severity": "SEV1",
+  "service": "ELB load balancers"
+}

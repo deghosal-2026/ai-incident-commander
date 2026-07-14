@@ -1,0 +1,441 @@
+# Output Format
+
+After an incident session completes, `MarkdownOutputWriter` writes 10 files to
+the output directory. Seven are Markdown documents, two are JSON snapshots, and
+one is a JSONL log of every LLM call made during the session.
+
+---
+
+## Output Directory Structure
+
+```
+output/
+├── incident-summary.md      # one-page incident overview
+├── timeline.md              # chronological event table
+├── stakeholder-updates.md   # consequence-first updates
+├── comms-blocks.md          # pasteable Slack/email blocks
+├── remediation.md           # remediation suggestions with citations
+├── postmortem.md            # COE-format postmortem
+├── cost-report.md           # token usage and cost breakdown
+├── llm-calls.jsonl          # per-call LLM audit log (JSON Lines)
+├── session.json             # full IncidentResult snapshot
+└── meta.json                # output metadata (thread ID, version, timestamp)
+```
+
+All files are written by `MarkdownOutputWriter.write_all()`, which creates the
+output directory (with parents) if it doesn't exist.
+
+---
+
+## incident-summary.md
+
+A one-page overview with key metadata, cost, deploy correlation, and a summary
+of stakeholder updates.
+
+### Example
+
+```markdown
+# Incident Summary
+
+- **Incident ID:** INC-2026-001
+- **Service:** payment-service
+- **Severity:** SEV1
+- **Resolved:** Yes
+- **MTTR:** 45 min
+- **Total Cost:** $0.0234
+- **Models Used:** ollama/qwen2.5-coder:7b, gpt-4o-mini
+- **Deploy Correlation:** PR #4521 (strong)
+- **Session:** thread-abc-123
+
+## Key Events
+- **Update 1:** Payment success rate dropped below 50%, affecting all checkout flows
+- **Update 2:** Root cause identified as DB connection pool exhaustion
+- **Update 3:** Rollback deployed, error rate recovering
+```
+
+---
+
+## timeline.md
+
+A chronological table of all merged timeline events from every source (alert,
+chat, log, github, manual). Each row includes a deploy-correlation marker.
+
+### Example
+
+```markdown
+# Timeline
+
+| Time | Source | Event | Trust | Deploy Correlation |
+|------|--------|-------|-------|--------------------|
+| 2026-07-13T14:05:00 | alert | Payment success rate dropped below 50% | high |  |
+| 2026-07-13T14:05:00 | log | Connection pool exhausted | high |  |
+| 2026-07-13T14:06:00 | chat | Seeing a huge spike in payment errors | medium |  |
+| 2026-07-13T13:45:00 | github | PR #4521 merged: Increase DB connection pool size | high | Yes |
+| 2026-07-13T14:10:00 | manual | IC declared | low |  |
+| 2026-07-13T14:20:00 | manual | Rollback started | low |  |
+```
+
+If no timeline events were recorded, the file contains:
+
+```markdown
+# Timeline
+
+No timeline events recorded.
+```
+
+---
+
+## stakeholder-updates.md
+
+Stakeholder updates in consequence-first format. Each update includes impact,
+root cause hypothesis, action taken, next update time, and confidence score.
+Approved updates are marked.
+
+### Example
+
+```markdown
+# Stakeholder Updates
+
+## Update 1
+- **Impact:** Payment success rate dropped below 50%, affecting all checkout flows globally
+- **Root Cause:** Suspected DB connection pool exhaustion following recent deploy
+- **Action:** Investigating connection pool metrics and preparing rollback
+- **Next Update:** 2026-07-13T14:10:00
+- **Confidence:** 0.65
+- **Status:** Approved
+
+## Update 2
+- **Impact:** Payments still failing; error rate at 52%
+- **Root Cause:** Confirmed DB connection pool exhaustion from PR #4521
+- **Action:** Initiating rollback of PR #4521
+- **Next Update:** 2026-07-13T14:15:00
+- **Confidence:** 0.85
+```
+
+---
+
+## comms-blocks.md
+
+Copy-paste-ready communication blocks formatted for Slack and email. Includes an
+incident notes block (for PagerDuty/tickets), a timeline summary (last 5
+events), remediation summary, and a block per stakeholder update.
+
+### Example
+
+```markdown
+# Communication Blocks
+
+---
+
+## Incident Notes (for PagerDuty/ticket)
+
+**Incident:** thread-abc-123
+**Deploy Correlation:** PR #4521 (strong)
+**Total Cost:** $0.0234
+
+**Timeline:**
+- [2026-07-13T14:05:00] Payment success rate dropped below 50%
+- [2026-07-13T14:05:00] Connection pool exhausted
+- [2026-07-13T14:06:00] Seeing a huge spike in payment errors
+- [2026-07-13T14:10:00] IC declared
+- [2026-07-13T14:20:00] Rollback started [DEPLOY]
+
+**Remediation:**
+- Rollback PR #4521 to previous version (confidence: 0.92)
+- Increase DB connection pool size to 50 (confidence: 0.80)
+
+---
+
+### Stakeholder Update #1
+**Impact:** Payment success rate dropped below 50%, affecting all checkout flows globally
+**Root Cause Hypothesis:** Suspected DB connection pool exhaustion following recent deploy
+**Action Taken:** Investigating connection pool metrics and preparing rollback
+**Next Update:** 2026-07-13T14:10:00
+**Confidence:** 65%
+
+---
+
+### Stakeholder Update #2
+**Impact:** Payments still failing; error rate at 52%
+**Root Cause Hypothesis:** Confirmed DB connection pool exhaustion from PR #4521
+**Action Taken:** Initiating rollback of PR #4521
+**Next Update:** 2026-07-13T14:15:00
+**Confidence:** 85%
+
+---
+
+*Generated by ai-incident-commander v0.1.0*
+```
+
+Only the last 5 timeline events are included in comms blocks for brevity. The
+`---` separators make multi-update output scannable and pasteable into separate
+Slack messages or email threads.
+
+---
+
+## remediation.md
+
+Remediation suggestions with citations, confidence scores, dry-run outcomes,
+similar incident references, and approval status.
+
+### Example
+
+```markdown
+# Remediation
+
+## Rollback PR #4521 to previous version
+- **Citation:** rb-001: DB Connection Pool Exhaustion runbook
+- **Confidence:** 0.92
+- **Expected Outcome:** Error rate should return to baseline within 2 minutes of rollback
+- **Similar Incidents:** INC-2025-088, INC-2025-112
+- **Approved:** Yes
+
+## Increase DB connection pool size to 50
+- **Citation:** rb-002: Connection Pool Tuning guide
+- **Confidence:** 0.80
+- **Approved:** No
+```
+
+If no suggestions were generated:
+
+```markdown
+# Remediation
+
+No remediation suggestions.
+```
+
+---
+
+## postmortem.md
+
+A COE-format (Correction of Errors) postmortem with AI section labels. See
+[`coe-format.md`](coe-format.md) for the full format specification.
+
+### Example (excerpt)
+
+```markdown
+# Postmortem: INC-2026-001
+- **Service:** payment-service
+- **Severity:** SEV1
+- **Date:** 2026-07-13T14:05:00
+
+## Summary *[AI-GENERATED — review carefully]*
+At 14:05 UTC, the payment-service began experiencing connection pool
+exhaustion, causing payment success rates to drop below 50%...
+
+## Customer Impact *[AI-GENERATED — review carefully]*
+Approximately 12,000 checkout attempts failed during the 45-minute
+incident window, affecting all global regions...
+
+## Timeline *[From session data]*
+- [2026-07-13T13:45:00] PR #4521 merged: Increase DB connection pool size
+- [2026-07-13T14:05:00] Alert triggered: payment success rate < 50%
+...
+
+## Root Cause Analysis *[AI-GENERATED — review carefully]*
+PR #4521 reduced the DB connection pool size from 50 to 10...
+
+## Systemic Contributing Factors *[AI-GENERATED — review carefully]*
+- No staged rollout for configuration changes to critical services
+- Connection pool size changes were not covered by automated tests
+...
+
+## Action Items
+- **Add integration test for pool size changes** — owner: Platform Team, priority: P0 *[AI-generated]*
+- **Require staged rollout for config changes** — owner: SRE Team, priority: P1 *[AI-generated]*
+
+## Stakeholder Communication Log *[From session data]*
+- Update 1 sent at 14:06 — impact: payment failures
+- Update 2 sent at 14:12 — impact: root cause identified
+...
+
+## Regulatory/Compliance Impact *[AI-GENERATED — review carefully]*
+PCI-DSS compliance was not directly affected, but 12,000 failed
+transactions may require customer notification per section 12.10...
+
+- **MTTR:** 45 minutes
+
+---
+
+### AI Section Labels
+| Section | Source |
+|---------|--------|
+| Summary | AI-generated |
+| Timeline | Session data |
+| Root Cause Analysis | AI-generated |
+| Systemic Factors | AI-generated |
+| Customer Impact | AI-generated |
+| Stakeholder Comm Log | Session data |
+| Regulatory Impact | AI-generated |
+```
+
+---
+
+## cost-report.md
+
+Aggregate token usage and cost breakdown with a per-node table showing each
+LLM call's model, token counts, cost, and latency.
+
+### Example
+
+```markdown
+# Cost Report
+
+### Summary
+- **Total Input Tokens:** 45,230
+- **Total Output Tokens:** 12,180
+- **Total Tokens:** 57,410
+- **Total Estimated Cost:** $0.023400
+- **Models Used:** ollama/qwen2.5-coder:7b, gpt-4o-mini
+
+### Per-Node Breakdown
+| Node | Model | Input | Output | Total | Cost (USD) | Latency (ms) |
+|------|-------|-------|--------|-------|------------|--------------|
+| analyze_root_cause | ollama/qwen2.5-coder:7b | 8,200 | 3,100 | 11,300 | $0.000000 | 1,450 |
+| draft_stakeholder_update | gpt-4o-mini | 5,400 | 1,800 | 7,200 | $0.001950 | 820 |
+| generate_postmortem | gpt-4o-mini | 12,000 | 4,200 | 16,200 | $0.004380 | 1,100 |
+| retrieve_runbooks | ollama/qwen2.5-coder:7b | 3,500 | 800 | 4,300 | $0.000000 | 320 |
+| rank_remediations | ollama/qwen2.5-coder:7b | 1,600 | 280 | 1,880 | $0.000000 | 210 |
+```
+
+If no cost data is available:
+
+```markdown
+# Cost Report
+
+No cost data available.
+```
+
+---
+
+## llm-calls.jsonl
+
+A JSON Lines audit log of every LLM API call made during the session. Each line
+is a complete JSON object matching the `LLMCall` schema. This file is the
+machine-readable companion to the human-readable `cost-report.md`.
+
+### `LLMCall` fields
+
+| Field                | Type        | Default | Description                                          |
+|----------------------|-------------|---------|------------------------------------------------------|
+| `call_id`            | `str`       | —       | Unique call identifier                               |
+| `timestamp`          | `datetime`  | —       | When the call was made                               |
+| `node_name`          | `str`       | —       | Graph node that made the call                        |
+| `model`              | `str`       | —       | Model ID (e.g. `"gpt-4o-mini"`)                      |
+| `input_tokens`       | `int`       | —       | Prompt token count                                   |
+| `output_tokens`      | `int`       | —       | Completion token count                               |
+| `total_tokens`       | `int`       | —       | Sum of input + output                                |
+| `estimated_cost_usd` | `float`     | `0.0`   | Estimated cost from model pricing lookup             |
+| `latency_ms`         | `int`       | —       | Wall-clock round-trip time                           |
+| `prompt_hash`        | `str`       | `""`    | SHA-256 of the rendered prompt (for dedup/debugging) |
+| `response_truncated` | `bool`      | `False` | True if response hit max_tokens limit                |
+| `error`              | `str \| null`| `null` | Populated when the API call failed                   |
+
+### Example (one line per call, formatted for readability)
+
+```jsonl
+{"call_id": "call-001", "timestamp": "2026-07-13T14:05:02", "node_name": "analyze_root_cause", "model": "ollama/qwen2.5-coder:7b", "input_tokens": 8200, "output_tokens": 3100, "total_tokens": 11300, "estimated_cost_usd": 0.0, "latency_ms": 1450, "prompt_hash": "a1b2c3...", "response_truncated": false, "error": null}
+{"call_id": "call-002", "timestamp": "2026-07-13T14:07:15", "node_name": "draft_stakeholder_update", "model": "gpt-4o-mini", "input_tokens": 5400, "output_tokens": 1800, "total_tokens": 7200, "estimated_cost_usd": 0.00195, "latency_ms": 820, "prompt_hash": "d4e5f6...", "response_truncated": false, "error": null}
+```
+
+---
+
+## session.json
+
+A full JSON snapshot of the `IncidentResult` — the serialization boundary
+between the in-memory graph state and the on-disk output. Contains all timeline
+events, stakeholder updates, remediation suggestions, deploy correlations,
+postmortem, and cost report.
+
+### `IncidentResult` fields
+
+| Field                    | Type                           | Default | Description                              |
+|--------------------------|--------------------------------|---------|------------------------------------------|
+| `thread_id`              | `str`                          | —       | LangGraph thread / session ID            |
+| `timeline`               | `list[TimelineEvent]`         | `[]`    | Merged chronological events              |
+| `stakeholder_updates`    | `list[StakeholderUpdate]`     | `[]`    | Drafted/approved updates                 |
+| `remediation_suggestions`| `list[RemediationSuggestion]` | `[]`    | Remediation suggestions                  |
+| `deploy_correlations`    | `list[DeployCorrelation]`     | `[]`    | Correlated PRs/commits                   |
+| `postmortem`             | `Postmortem \| null`          | `null`  | COE-format postmortem                    |
+| `cost_report`            | `CostReport \| null`          | `null`  | Aggregate cost report                    |
+| `session_dir`            | `str`                          | `""`    | Output directory path                    |
+
+### Example (truncated)
+
+```json
+{
+  "thread_id": "thread-abc-123",
+  "timeline": [
+    {
+      "timestamp": "2026-07-13T14:05:00",
+      "source": "alert",
+      "event_type": "alert-triggered",
+      "content": "Payment success rate dropped below 50%",
+      "trust_level": "high",
+      "deploy_correlation": false
+    }
+  ],
+  "stakeholder_updates": [
+    {
+      "update_number": 1,
+      "impact": "Payment success rate dropped below 50%",
+      "root_cause_hypothesis": "Suspected DB connection pool exhaustion",
+      "action": "Investigating connection pool metrics",
+      "next_update_time": "2026-07-13T14:10:00",
+      "confidence": 0.65,
+      "approved": true,
+      "timestamp": "2026-07-13T14:06:00"
+    }
+  ],
+  "remediation_suggestions": [
+    {
+      "action": "Rollback PR #4521",
+      "citation": "rb-001: DB Connection Pool Exhaustion",
+      "confidence": 0.92,
+      "dry_run_outcome": "Error rate should return to baseline",
+      "similar_incidents": ["INC-2025-088"],
+      "approved": true
+    }
+  ],
+  "deploy_correlations": [
+    {
+      "pr_number": 4521,
+      "pr_title": "Increase DB connection pool size",
+      "author": "carol",
+      "merge_time": "2026-07-13T13:45:00",
+      "files_changed": ["config/db-pool.yaml"],
+      "minutes_before_alert": 20,
+      "correlation_strength": "strong"
+    }
+  ],
+  "postmortem": null,
+  "cost_report": null,
+  "session_dir": "./output"
+}
+```
+
+---
+
+## meta.json
+
+Output metadata recording the thread ID, generation timestamp, and software
+version. This is the smallest output file and serves as a manifest for the
+output directory.
+
+### Fields
+
+| Field          | Type     | Description                              |
+|----------------|----------|------------------------------------------|
+| `thread_id`    | `str`    | Session thread ID                        |
+| `generated_at` | `str`    | ISO 8601 timestamp of output generation  |
+| `version`      | `str`    | ai-incident-commander version (`"0.1.0"`)|
+
+### Example
+
+```json
+{
+  "thread_id": "thread-abc-123",
+  "generated_at": "2026-07-13T14:50:00",
+  "version": "0.1.0"
+}
+```

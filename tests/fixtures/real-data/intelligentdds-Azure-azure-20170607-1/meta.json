@@ -1,0 +1,8 @@
+{
+  "incident_id": "azure-20170607-1",
+  "source_type": "intelligentdds",
+  "service": "Automation",
+  "severity": "SEV1",
+  "start_time": "2017-06-07T00:00:00+00:00",
+  "provider": "Azure"
+}

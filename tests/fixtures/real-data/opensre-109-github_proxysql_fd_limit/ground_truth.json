@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "109-github_proxysql_fd_limit",
+  "source_type": "opensre",
+  "source_url": "https://github.blog/2020-03-26-february-service-disruptions-post-incident-analysis/",
+  "company": "GitHub",
+  "root_cause": "Perfect. The alert timeline is explicit:\n1. **14:48:02** \u2014 `ProxySQLTooManyOpenFiles` fired first (open_fds=65536)\n2. **14:49:10** \u2014 `Mysql1WriteStallDependentsFailing` fired 68 seconds later (symptom)\n3. **14:49:40** \u2014 Dependent services began failing (consequence)\n\nThis sequence proves the FD exhaustion is the root cause, not the downstream symptoms.\n\n---\n\n## Analysis Summary\n\n**The smoking gun:** ProxySQL's per-process file descriptor limit is pinned at **65,536** (the host kernel's `fs.nr_open` ceiling), even though the systemd unit requested `LimitNOFILE=1,073,741,824`. When application query load pushed live connections past 61,020, ProxySQL exhausted its FD table and `accept()` began returning **errno 24 (\"Too many open files\")**, causing it to reject new connections.\n\n**Why this looked like DB capacity on prior incidents:**\n- MySQL1 primary is healthy (query p99=6ms, no lock waits, CPU/disk in band); writes only *appear* stalled because ProxySQL upstream cannot forward connections.\n- The 1.4x query-rate increase only triggered the incident because it pushed connections over the hidden ceiling\u2014the queries themselves are fine.\n- The recent primary promotion is unrelated (failure recurs at the same FD threshold regardless of which backend).\n\n**Why prior fixes didn't stick:**\n- Previous triages blamed DB capacity, bad queries, or the promotion, missing the actual wall (per-process FD limit).\n- Restarting/redeploying ProxySQL re-applies the same ulimit clamp due to a race condition between the process manager and the service config.\n\n---\n\n## ROOT_CAUSE\nProxySQL's per-process file descriptor limit is silently clamped to the kernel's `fs.nr_open` ceiling of 65,536 instead of the requested 1,073,741,824. When application connections exceeded this hidden ceiling (~61,020), ProxySQL's `accept()` began failing with errno 24, causing it to refuse all new connections to MySQL1 and breaking downstream services.\n\n## ROOT_CAUSE_CATEGORY\nconfig_error\n\n## FIX\nIncrease the kernel's `fs.nr_open` sysctl on the ProxySQL host node to \u22651,048,576 (or raise to match the requested LimitNOFILE), then restart ProxySQL to re-apply the higher per-process FD ceiling. Alternatively, immediately lower the per-connection overhead in ProxySQL or rate-limit client connections below 65,000 to unblock the incident while a permanent fix is staged.",
+  "root_cause_key_terms": [],
+  "timeline_events": [],
+  "action_items": [],
+  "trap_actions": [
+    "restart_service: restart / redeploy ProxySQL \u2014 this RE-APPLIES the same silent LimitNOFILE clamp on startup, so the effective ceiling returns to 65,536 and the failure recurs; restarting does not change the requested-vs-effective FD gap",
+    "restart_pod: restart the proxysql-mysql1 pod for the same reason \u2014 the process manager clamps LimitNOFILE down to host fs.nr_open again on every start",
+    "rollback_deployment: roll back the planned mysql1 primary promotion \u2014 the promotion is unrelated; the failure recurs at the same 65,536 FD threshold regardless of which node is primary",
+    "scale_deployment: add mysql1 DB capacity / treat it as connection-pool exhaustion on the primary \u2014 the primary is healthy (6ms exec, 0 lock waits); more capacity does not move the ProxySQL FD ceiling"
+  ],
+  "impact": "Incident at GitHub",
+  "severity": "SEV1",
+  "service": "github"
+}

@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "Log analytics",
+  "summary": "Log Analytics - East US",
+  "source": "intelligentdds/Azure",
+  "timestamp": "2017-03-18T00:00:00+00:00"
+}

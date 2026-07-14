@@ -1,0 +1,9 @@
+{
+  "incident_id": "OPENRCA-Z13G7VSWG9FS",
+  "source_type": "openrca2",
+  "service": "geo",
+  "severity": "SEV1",
+  "start_time": "2026-05-01T17:19:07.467000+08:00",
+  "system": "hs",
+  "chaos_family": "Pod*"
+}

@@ -1,0 +1,104 @@
+{
+    "nodes": [
+        {
+            "timestamp": 1777645951,
+            "component": "service|geo",
+            "state": [
+                "silent",
+                "degraded"
+            ]
+        },
+        {
+            "timestamp": 1777645993,
+            "component": "span|geo::geo.Geo/Nearby",
+            "state": [
+                "silent",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777645990,
+            "component": "span|search::geo.Geo/Nearby",
+            "state": [
+                "silent",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777645990,
+            "component": "span|search::search.Search/Nearby",
+            "state": [
+                "silent",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777645990,
+            "component": "span|frontend::search.Search/Nearby",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777645990,
+            "component": "span|frontend::HTTP /hotels",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        }
+    ],
+    "edges": [
+        {
+            "source": "span|frontend::search.Search/Nearby",
+            "target": "span|frontend::HTTP /hotels"
+        },
+        {
+            "source": "span|geo::geo.Geo/Nearby",
+            "target": "span|search::geo.Geo/Nearby"
+        },
+        {
+            "source": "service|geo",
+            "target": "span|geo::geo.Geo/Nearby"
+        },
+        {
+            "source": "span|search::search.Search/Nearby",
+            "target": "span|frontend::search.Search/Nearby"
+        },
+        {
+            "source": "span|search::geo.Geo/Nearby",
+            "target": "span|search::search.Search/Nearby"
+        }
+    ],
+    "root_causes": [
+        {
+            "timestamp": null,
+            "component": "service|geo",
+            "state": [
+                "unknown"
+            ]
+        }
+    ],
+    "alarm_nodes": [
+        {
+            "timestamp": 1777645990,
+            "component": "span|frontend::HTTP /hotels",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        }
+    ],
+    "component_to_service": {
+        "service|geo": "geo",
+        "span|geo::geo.Geo/Nearby": "geo",
+        "span|search::geo.Geo/Nearby": "search",
+        "span|search::search.Search/Nearby": "search",
+        "span|frontend::search.Search/Nearby": "frontend",
+        "span|frontend::HTTP /hotels": "frontend"
+    }
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "aws-5",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AWS",
+  "root_cause": "Early Sunday morning, September 20, we had a DynamoDB service event in the US-East Region that impacted DynamoDB customers in US-East, as well as some other services in the region. On Sunday, at 2:19am PDT, there was a brief network disruption that impacted a portion of DynamoDB\u2019s storage servers. Normally, this type of networking disruption is handled seamlessly and without change to the performance of DynamoDB, as affected storage servers query the metadata service for their membership, process any updates, and reconfirm their availability to accept requests. If the storage servers aren\u2019t able to retrieve this membership data back within a specific time period, they will retry the membership request and temporarily disqualify themselves from accepting requests.",
+  "root_cause_key_terms": [
+    "DynamoDB",
+    "SQS",
+    "EC2 Auto Scaling Service",
+    "CloudWatch"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Early Sunday morning, September 20, we had a DynamoDB service event in the US-East Region that impacted DynamoDB customers in US-East, as well as some other services in the region. On Sunday, at 2:19a",
+  "severity": "SEV1",
+  "service": "DynamoDB"
+}

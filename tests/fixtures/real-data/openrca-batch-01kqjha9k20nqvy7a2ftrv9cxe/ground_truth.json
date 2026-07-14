@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "OPENRCA-Y7A2FTRV9CXE",
+  "source_type": "openrca2",
+  "source_url": "https://huggingface.co/datasets/lincyaw/openrca2-v1-500",
+  "company": "OpenRCA2 (ts)",
+  "root_cause": [
+    {
+      "service": [
+        "ts-travel-plan-service"
+      ],
+      "pod": [
+        "ts-travel-plan-service-7fb6599f4b-c6ps8"
+      ],
+      "container": [
+        "ts-travel-plan-service"
+      ],
+      "function": [
+        "travelplan.service.TravelPlanServiceImpl.getRestTicketNumber"
+      ]
+    },
+    {
+      "service": [
+        "ts-seat-service",
+        "ts-config-service"
+      ],
+      "pod": [
+        "ts-config-service-9f97b8668-55jvq",
+        "ts-seat-service-66bfd68447-ttrrr"
+      ],
+      "container": [
+        "ts-config-service",
+        "ts-seat-service"
+      ],
+      "span": [
+        "GET"
+      ]
+    }
+  ],
+  "root_cause_key_terms": [
+    "ts-travel-plan-service",
+    "JVMRuntimeMutator",
+    "ts-seat-service",
+    "NetworkCorrupt"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "hybrid failure in ts for Duration unknown",
+  "severity": "SEV1",
+  "service": "ts-seat-service"
+}

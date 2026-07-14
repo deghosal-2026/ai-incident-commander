@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "OPENRCA-NJV624R7GPT3",
+  "source_type": "openrca2",
+  "source_url": "https://huggingface.co/datasets/lincyaw/openrca2-v1-500",
+  "company": "OpenRCA2 (hs)",
+  "root_cause": [
+    {
+      "service": [
+        "profile"
+      ],
+      "container": [
+        "hotel-reserv-profile"
+      ]
+    },
+    {
+      "service": [
+        "recommendation"
+      ],
+      "container": [
+        "hotel-reserv-recommendation"
+      ]
+    }
+  ],
+  "root_cause_key_terms": [
+    "profile",
+    "PodFailure",
+    "recommendation",
+    "PodFailure"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Pod* failure in hs for Duration unknown",
+  "severity": "SEV1",
+  "service": "profile"
+}

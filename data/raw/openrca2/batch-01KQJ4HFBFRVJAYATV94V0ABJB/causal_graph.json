@@ -1,0 +1,621 @@
+{
+    "nodes": [
+        {
+            "timestamp": 1777651465,
+            "component": "service|ts-basic-service",
+            "state": [
+                "degraded",
+                "unavailable"
+            ]
+        },
+        {
+            "timestamp": 1777651465,
+            "component": "span|ts-basic-service::POST /api/v1/basicservice/basic/travels",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651546,
+            "component": "span|ts-travel2-service::Travel2Controller.queryInfo",
+            "state": [
+                "slow",
+                "missing",
+                "silent"
+            ]
+        },
+        {
+            "timestamp": 1777651546,
+            "component": "span|ts-travel2-service::POST /api/v1/travel2service/trips/left",
+            "state": [
+                "slow",
+                "missing",
+                "silent"
+            ]
+        },
+        {
+            "timestamp": 1777651588,
+            "component": "span|ts-route-plan-service::RoutePlanController.getQuickestRoutes",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651588,
+            "component": "span|ts-route-plan-service::POST /api/v1/routeplanservice/routePlan/quickestRoute",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651630,
+            "component": "span|ts-travel-plan-service::TravelPlanController.getByQuickest",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651630,
+            "component": "span|ts-travel-plan-service::POST /api/v1/travelplanservice/travelPlan/quickest",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651630,
+            "component": "span|ts-ui-dashboard::POST /api/v1/travelplanservice/travelPlan/quickest",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651630,
+            "component": "span|ts-route-plan-service::RoutePlanController.getCheapestRoutes",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651630,
+            "component": "span|ts-route-plan-service::POST /api/v1/routeplanservice/routePlan/cheapestRoute",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651630,
+            "component": "span|ts-travel-plan-service::TravelPlanController.getByCheapest",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651630,
+            "component": "span|ts-travel-plan-service::POST /api/v1/travelplanservice/travelPlan/cheapest",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651630,
+            "component": "span|ts-ui-dashboard::POST /api/v1/travelplanservice/travelPlan/cheapest",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651609,
+            "component": "span|ts-ui-dashboard::POST /api/v1/travel2service/trips/left",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651546,
+            "component": "span|ts-travel2-service::TripRepository.findAll",
+            "state": [
+                "missing",
+                "healthy",
+                "silent"
+            ]
+        },
+        {
+            "timestamp": 1777651546,
+            "component": "span|ts-travel2-service::SELECT travel2.entity.Trip",
+            "state": [
+                "missing",
+                "healthy",
+                "silent"
+            ]
+        },
+        {
+            "timestamp": 1777651546,
+            "component": "span|ts-travel2-service::TripRepository.findByTripId",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651546,
+            "component": "span|ts-travel2-service::Travel2Controller.getRouteByTripId",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651546,
+            "component": "span|ts-travel2-service::GET /api/v1/travel2service/routes/{tripId}",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651570,
+            "component": "span|ts-travel2-service::TripRepository.findByRouteId",
+            "state": [
+                "missing",
+                "healthy",
+                "silent"
+            ]
+        },
+        {
+            "timestamp": 1777651570,
+            "component": "span|ts-travel2-service::Travel2Controller.getTripsByRouteId",
+            "state": [
+                "missing",
+                "healthy",
+                "silent"
+            ]
+        },
+        {
+            "timestamp": 1777651570,
+            "component": "span|ts-travel2-service::POST /api/v1/travel2service/trips/routes",
+            "state": [
+                "missing",
+                "healthy",
+                "silent"
+            ]
+        },
+        {
+            "timestamp": 1777651570,
+            "component": "span|ts-route-plan-service::RoutePlanController.getMinStopStations",
+            "state": [
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651570,
+            "component": "span|ts-route-plan-service::POST /api/v1/routeplanservice/routePlan/minStopStations",
+            "state": [
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651570,
+            "component": "span|ts-travel-plan-service::TravelPlanController.getByMinStation",
+            "state": [
+                "missing",
+                "healthy",
+                "silent"
+            ]
+        },
+        {
+            "timestamp": 1777651570,
+            "component": "span|ts-seat-service::POST /api/v1/seatservice/seats/left_tickets",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651756,
+            "component": "span|ts-travel2-service::Travel2Controller.adminQueryAll",
+            "state": [
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651756,
+            "component": "span|ts-travel2-service::GET /api/v1/travel2service/admin_trip",
+            "state": [
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651756,
+            "component": "span|ts-admin-travel-service::AdminTravelController.getAllTravels",
+            "state": [
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651756,
+            "component": "span|ts-admin-travel-service::GET /api/v1/admintravelservice/admintravel",
+            "state": [
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651504,
+            "component": "span|ts-travel-service::TravelController.queryInfo",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651504,
+            "component": "span|ts-travel-service::POST /api/v1/travelservice/trips/left",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651507,
+            "component": "span|ts-ui-dashboard::POST /api/v1/travelservice/trips/left",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651510,
+            "component": "span|ts-basic-service::HttpServletResponseWrapper.sendError",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651465,
+            "component": "span|ts-basic-service::BasicController.queryForTravels",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        }
+    ],
+    "edges": [
+        {
+            "source": "span|ts-travel2-service::POST /api/v1/travel2service/trips/left",
+            "target": "span|ts-ui-dashboard::POST /api/v1/travel2service/trips/left"
+        },
+        {
+            "source": "span|ts-admin-travel-service::AdminTravelController.getAllTravels",
+            "target": "span|ts-admin-travel-service::GET /api/v1/admintravelservice/admintravel"
+        },
+        {
+            "source": "service|ts-basic-service",
+            "target": "span|ts-basic-service::BasicController.queryForTravels"
+        },
+        {
+            "source": "span|ts-basic-service::POST /api/v1/basicservice/basic/travels",
+            "target": "span|ts-travel-service::TravelController.queryInfo"
+        },
+        {
+            "source": "span|ts-travel2-service::SELECT travel2.entity.Trip",
+            "target": "span|ts-travel2-service::TripRepository.findByTripId"
+        },
+        {
+            "source": "span|ts-travel2-service::TripRepository.findAll",
+            "target": "span|ts-travel2-service::SELECT travel2.entity.Trip"
+        },
+        {
+            "source": "span|ts-route-plan-service::POST /api/v1/routeplanservice/routePlan/quickestRoute",
+            "target": "span|ts-travel-plan-service::TravelPlanController.getByQuickest"
+        },
+        {
+            "source": "span|ts-travel2-service::POST /api/v1/travel2service/trips/routes",
+            "target": "span|ts-route-plan-service::RoutePlanController.getMinStopStations"
+        },
+        {
+            "source": "span|ts-travel2-service::Travel2Controller.queryInfo",
+            "target": "span|ts-travel2-service::TripRepository.findAll"
+        },
+        {
+            "source": "span|ts-travel2-service::Travel2Controller.getTripsByRouteId",
+            "target": "span|ts-travel2-service::POST /api/v1/travel2service/trips/routes"
+        },
+        {
+            "source": "service|ts-basic-service",
+            "target": "span|ts-basic-service::HttpServletResponseWrapper.sendError"
+        },
+        {
+            "source": "span|ts-travel-service::TravelController.queryInfo",
+            "target": "span|ts-travel-service::POST /api/v1/travelservice/trips/left"
+        },
+        {
+            "source": "span|ts-travel2-service::TripRepository.findAll",
+            "target": "span|ts-travel2-service::Travel2Controller.adminQueryAll"
+        },
+        {
+            "source": "span|ts-travel-service::POST /api/v1/travelservice/trips/left",
+            "target": "span|ts-route-plan-service::RoutePlanController.getCheapestRoutes"
+        },
+        {
+            "source": "span|ts-travel-plan-service::POST /api/v1/travelplanservice/travelPlan/quickest",
+            "target": "span|ts-ui-dashboard::POST /api/v1/travelplanservice/travelPlan/quickest"
+        },
+        {
+            "source": "span|ts-travel-service::POST /api/v1/travelservice/trips/left",
+            "target": "span|ts-route-plan-service::RoutePlanController.getQuickestRoutes"
+        },
+        {
+            "source": "service|ts-basic-service",
+            "target": "span|ts-basic-service::POST /api/v1/basicservice/basic/travels"
+        },
+        {
+            "source": "span|ts-basic-service::HttpServletResponseWrapper.sendError",
+            "target": "span|ts-basic-service::POST /api/v1/basicservice/basic/travels"
+        },
+        {
+            "source": "span|ts-travel2-service::TripRepository.findByRouteId",
+            "target": "span|ts-travel2-service::Travel2Controller.getTripsByRouteId"
+        },
+        {
+            "source": "span|ts-route-plan-service::POST /api/v1/routeplanservice/routePlan/minStopStations",
+            "target": "span|ts-travel-plan-service::TravelPlanController.getByMinStation"
+        },
+        {
+            "source": "span|ts-travel2-service::Travel2Controller.getRouteByTripId",
+            "target": "span|ts-travel2-service::GET /api/v1/travel2service/routes/{tripId}"
+        },
+        {
+            "source": "span|ts-travel2-service::TripRepository.findByTripId",
+            "target": "span|ts-travel2-service::Travel2Controller.getRouteByTripId"
+        },
+        {
+            "source": "span|ts-travel-plan-service::TravelPlanController.getByMinStation",
+            "target": "span|ts-seat-service::POST /api/v1/seatservice/seats/left_tickets"
+        },
+        {
+            "source": "span|ts-basic-service::POST /api/v1/basicservice/basic/travels",
+            "target": "span|ts-travel2-service::Travel2Controller.queryInfo"
+        },
+        {
+            "source": "span|ts-route-plan-service::RoutePlanController.getMinStopStations",
+            "target": "span|ts-route-plan-service::POST /api/v1/routeplanservice/routePlan/minStopStations"
+        },
+        {
+            "source": "span|ts-route-plan-service::POST /api/v1/routeplanservice/routePlan/cheapestRoute",
+            "target": "span|ts-travel-plan-service::TravelPlanController.getByCheapest"
+        },
+        {
+            "source": "span|ts-basic-service::BasicController.queryForTravels",
+            "target": "span|ts-basic-service::POST /api/v1/basicservice/basic/travels"
+        },
+        {
+            "source": "span|ts-route-plan-service::RoutePlanController.getQuickestRoutes",
+            "target": "span|ts-route-plan-service::POST /api/v1/routeplanservice/routePlan/quickestRoute"
+        },
+        {
+            "source": "span|ts-travel-service::POST /api/v1/travelservice/trips/left",
+            "target": "span|ts-ui-dashboard::POST /api/v1/travelservice/trips/left"
+        },
+        {
+            "source": "span|ts-travel-plan-service::TravelPlanController.getByQuickest",
+            "target": "span|ts-travel-plan-service::POST /api/v1/travelplanservice/travelPlan/quickest"
+        },
+        {
+            "source": "span|ts-travel2-service::POST /api/v1/travel2service/trips/left",
+            "target": "span|ts-route-plan-service::RoutePlanController.getCheapestRoutes"
+        },
+        {
+            "source": "span|ts-travel2-service::POST /api/v1/travel2service/trips/left",
+            "target": "span|ts-route-plan-service::RoutePlanController.getQuickestRoutes"
+        },
+        {
+            "source": "span|ts-travel-plan-service::TravelPlanController.getByCheapest",
+            "target": "span|ts-travel-plan-service::POST /api/v1/travelplanservice/travelPlan/cheapest"
+        },
+        {
+            "source": "span|ts-travel2-service::SELECT travel2.entity.Trip",
+            "target": "span|ts-travel2-service::TripRepository.findByRouteId"
+        },
+        {
+            "source": "span|ts-travel-plan-service::POST /api/v1/travelplanservice/travelPlan/cheapest",
+            "target": "span|ts-ui-dashboard::POST /api/v1/travelplanservice/travelPlan/cheapest"
+        },
+        {
+            "source": "span|ts-travel2-service::Travel2Controller.queryInfo",
+            "target": "span|ts-travel2-service::POST /api/v1/travel2service/trips/left"
+        },
+        {
+            "source": "span|ts-travel2-service::GET /api/v1/travel2service/admin_trip",
+            "target": "span|ts-admin-travel-service::AdminTravelController.getAllTravels"
+        },
+        {
+            "source": "span|ts-route-plan-service::RoutePlanController.getCheapestRoutes",
+            "target": "span|ts-route-plan-service::POST /api/v1/routeplanservice/routePlan/cheapestRoute"
+        },
+        {
+            "source": "span|ts-travel2-service::Travel2Controller.adminQueryAll",
+            "target": "span|ts-travel2-service::GET /api/v1/travel2service/admin_trip"
+        }
+    ],
+    "root_causes": [
+        {
+            "timestamp": null,
+            "component": "service|ts-basic-service",
+            "state": [
+                "unknown"
+            ]
+        }
+    ],
+    "alarm_nodes": [
+        {
+            "timestamp": 1777651465,
+            "component": "span|ts-basic-service::POST /api/v1/basicservice/basic/travels",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651546,
+            "component": "span|ts-travel2-service::POST /api/v1/travel2service/trips/left",
+            "state": [
+                "slow",
+                "missing",
+                "silent"
+            ]
+        },
+        {
+            "timestamp": 1777651588,
+            "component": "span|ts-route-plan-service::POST /api/v1/routeplanservice/routePlan/quickestRoute",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651630,
+            "component": "span|ts-travel-plan-service::POST /api/v1/travelplanservice/travelPlan/quickest",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651630,
+            "component": "span|ts-ui-dashboard::POST /api/v1/travelplanservice/travelPlan/quickest",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651630,
+            "component": "span|ts-route-plan-service::POST /api/v1/routeplanservice/routePlan/cheapestRoute",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651630,
+            "component": "span|ts-travel-plan-service::POST /api/v1/travelplanservice/travelPlan/cheapest",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651630,
+            "component": "span|ts-ui-dashboard::POST /api/v1/travelplanservice/travelPlan/cheapest",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651609,
+            "component": "span|ts-ui-dashboard::POST /api/v1/travel2service/trips/left",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651546,
+            "component": "span|ts-travel2-service::GET /api/v1/travel2service/routes/{tripId}",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651570,
+            "component": "span|ts-seat-service::POST /api/v1/seatservice/seats/left_tickets",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651756,
+            "component": "span|ts-travel2-service::GET /api/v1/travel2service/admin_trip",
+            "state": [
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651756,
+            "component": "span|ts-admin-travel-service::GET /api/v1/admintravelservice/admintravel",
+            "state": [
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777651504,
+            "component": "span|ts-travel-service::POST /api/v1/travelservice/trips/left",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777651507,
+            "component": "span|ts-ui-dashboard::POST /api/v1/travelservice/trips/left",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        }
+    ],
+    "component_to_service": {
+        "service|ts-basic-service": "ts-basic-service",
+        "span|ts-basic-service::POST /api/v1/basicservice/basic/travels": "ts-basic-service",
+        "span|ts-travel2-service::Travel2Controller.queryInfo": "ts-travel2-service",
+        "span|ts-travel2-service::POST /api/v1/travel2service/trips/left": "ts-travel2-service",
+        "span|ts-route-plan-service::RoutePlanController.getQuickestRoutes": "ts-route-plan-service",
+        "span|ts-route-plan-service::POST /api/v1/routeplanservice/routePlan/quickestRoute": "ts-route-plan-service",
+        "span|ts-travel-plan-service::TravelPlanController.getByQuickest": "ts-travel-plan-service",
+        "span|ts-travel-plan-service::POST /api/v1/travelplanservice/travelPlan/quickest": "ts-travel-plan-service",
+        "span|ts-ui-dashboard::POST /api/v1/travelplanservice/travelPlan/quickest": "ts-ui-dashboard",
+        "span|ts-route-plan-service::RoutePlanController.getCheapestRoutes": "ts-route-plan-service",
+        "span|ts-route-plan-service::POST /api/v1/routeplanservice/routePlan/cheapestRoute": "ts-route-plan-service",
+        "span|ts-travel-plan-service::TravelPlanController.getByCheapest": "ts-travel-plan-service",
+        "span|ts-travel-plan-service::POST /api/v1/travelplanservice/travelPlan/cheapest": "ts-travel-plan-service",
+        "span|ts-ui-dashboard::POST /api/v1/travelplanservice/travelPlan/cheapest": "ts-ui-dashboard",
+        "span|ts-ui-dashboard::POST /api/v1/travel2service/trips/left": "ts-ui-dashboard",
+        "span|ts-travel2-service::TripRepository.findAll": "ts-travel2-service",
+        "span|ts-travel2-service::SELECT travel2.entity.Trip": "ts-travel2-service",
+        "span|ts-travel2-service::TripRepository.findByTripId": "ts-travel2-service",
+        "span|ts-travel2-service::Travel2Controller.getRouteByTripId": "ts-travel2-service",
+        "span|ts-travel2-service::GET /api/v1/travel2service/routes/{tripId}": "ts-travel2-service",
+        "span|ts-travel2-service::TripRepository.findByRouteId": "ts-travel2-service",
+        "span|ts-travel2-service::Travel2Controller.getTripsByRouteId": "ts-travel2-service",
+        "span|ts-travel2-service::POST /api/v1/travel2service/trips/routes": "ts-travel2-service",
+        "span|ts-route-plan-service::RoutePlanController.getMinStopStations": "ts-route-plan-service",
+        "span|ts-route-plan-service::POST /api/v1/routeplanservice/routePlan/minStopStations": "ts-route-plan-service",
+        "span|ts-travel-plan-service::TravelPlanController.getByMinStation": "ts-travel-plan-service",
+        "span|ts-seat-service::POST /api/v1/seatservice/seats/left_tickets": "ts-seat-service",
+        "span|ts-travel2-service::Travel2Controller.adminQueryAll": "ts-travel2-service",
+        "span|ts-travel2-service::GET /api/v1/travel2service/admin_trip": "ts-travel2-service",
+        "span|ts-admin-travel-service::AdminTravelController.getAllTravels": "ts-admin-travel-service",
+        "span|ts-admin-travel-service::GET /api/v1/admintravelservice/admintravel": "ts-admin-travel-service",
+        "span|ts-travel-service::TravelController.queryInfo": "ts-travel-service",
+        "span|ts-travel-service::POST /api/v1/travelservice/trips/left": "ts-travel-service",
+        "span|ts-ui-dashboard::POST /api/v1/travelservice/trips/left": "ts-ui-dashboard",
+        "span|ts-basic-service::HttpServletResponseWrapper.sendError": "ts-basic-service",
+        "span|ts-basic-service::BasicController.queryForTravels": "ts-basic-service"
+    }
+}

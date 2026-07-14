@@ -1,0 +1,106 @@
+{
+    "id": 2045,
+    "name": "batch-01KQJ5SPWG0Z5VJDPPKKT3QRR0",
+    "fault_type": "hybrid",
+    "category": "hs",
+    "pre_duration": 5,
+    "start_time": "2026-05-02T00:26:24+08:00",
+    "end_time": "2026-05-02T00:31:24+08:00",
+    "state": "inject_success",
+    "status": "enabled",
+    "benchmark_id": 108,
+    "benchmark_name": "clickhouse",
+    "pedestal_id": 140,
+    "pedestal_name": "hs",
+    "created_at": "2026-05-02T00:26:24.026+08:00",
+    "updated_at": "2026-05-02T00:31:24.366+08:00",
+    "engine_config_summary": [
+        {
+            "app": "geo",
+            "chaos_type": "CPUStress",
+            "container": "hotel-reserv-geo",
+            "cpu_load": 98,
+            "cpu_worker": 3,
+            "duration": 5,
+            "namespace": "hs10",
+            "system": "hs0",
+            "system_type": "hs",
+            "time_offset": 0
+        },
+        {
+            "app": "reservation",
+            "chaos_type": "MemoryStress",
+            "container": "hotel-reserv-reservation",
+            "duration": 5,
+            "mem_type": "heap",
+            "mem_worker": 4,
+            "memory_size": 832,
+            "namespace": "hs10",
+            "system": "hs0",
+            "system_type": "hs",
+            "time_offset": 0
+        }
+    ],
+    "task_id": "98aaac76-2c0a-48b1-ac1e-c7719dcd8fae",
+    "trace_id": "5bf85a3e-b5bb-4de9-b4bf-c8c04948c015",
+    "source": "injection",
+    "description": "Fault batch for task 98aaac76-2c0a-48b1-ac1e-c7719dcd8fae (2 faults)",
+    "engine_config": [
+        {
+            "app": "geo",
+            "chaos_type": "CPUStress",
+            "container": "hotel-reserv-geo",
+            "cpu_load": 98,
+            "cpu_worker": 3,
+            "duration": 5,
+            "namespace": "hs10",
+            "system": "hs0",
+            "system_type": "hs",
+            "time_offset": 0
+        },
+        {
+            "app": "reservation",
+            "chaos_type": "MemoryStress",
+            "container": "hotel-reserv-reservation",
+            "duration": 5,
+            "mem_type": "heap",
+            "mem_worker": 4,
+            "memory_size": 832,
+            "namespace": "hs10",
+            "system": "hs0",
+            "system_type": "hs",
+            "time_offset": 0
+        }
+    ],
+    "ground_truth": [
+        {
+            "service": [
+                "geo"
+            ],
+            "pod": [
+                "geo-758c66754f-lzphg"
+            ],
+            "container": [
+                "hotel-reserv-geo"
+            ],
+            "metric": [
+                "cpu"
+            ]
+        },
+        {
+            "service": [
+                "reservation"
+            ],
+            "pod": [
+                "reservation-7558454dd7-vbdrl"
+            ],
+            "container": [
+                "hotel-reserv-reservation"
+            ],
+            "metric": [
+                "memory"
+            ]
+        }
+    ],
+    "groundtruth_source": "auto"
+}

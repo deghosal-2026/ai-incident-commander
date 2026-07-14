@@ -1,0 +1,15 @@
+{
+  "severity": "SEV1",
+  "service": "profile",
+  "summary": "Pod* anomaly in hs affecting profile, recommendation",
+  "source": "openrca2/hs",
+  "timestamp": "2026-05-01T17:19:07.767000+08:00",
+  "metadata": {
+    "system": "hs",
+    "chaos_family": "Pod*",
+    "affected_services": [
+      "profile",
+      "recommendation"
+    ]
+  }
+}

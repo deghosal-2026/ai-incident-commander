@@ -1,0 +1,15 @@
+{
+  "severity": "SEV1",
+  "service": "geo",
+  "summary": "hybrid anomaly in hs affecting geo, reservation",
+  "source": "openrca2/hs",
+  "timestamp": "2026-05-01T22:32:31+08:00",
+  "metadata": {
+    "system": "hs",
+    "chaos_family": "hybrid",
+    "affected_services": [
+      "geo",
+      "reservation"
+    ]
+  }
+}

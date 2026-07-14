@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "105-slack_consul_cache_db_metastable",
+  "source_type": "opensre",
+  "source_url": "https://slack.engineering/slacks-incident-on-2-22-22/",
+  "company": "Slack",
+  "root_cause": "I have conclusive, corroborated evidence. The investigation is complete.\n\n## Investigation Summary\n\n**The causal chain (confirmed across 4 evidence sources):**\n\n1. **Trigger** (events): A percentage-based rollout (PBR) is upgrading `consul-agent` on 25% of the fleet. As each agent restarts, its co-located `memcached-gdm` host cleanly **deregisters** from the Consul catalog \u2014 *not* a crash (16 events).\n2. **Amplifier** (events + pod): `mcrib` (cache control plane) reacts by **promoting cold spare nodes** and **flushing** nodes that left/rejoined the ring. Confirmed by `memcached-gdm-spare-3` running only 41m, started cold.\n3. **Effect** (metrics): GDM cache hit ratio collapses `0.992 \u2192 0.55`. Read QPS to the channels keyspace rises to **6.1x baseline** while *client traffic is only 1.15x* \u2014 the load is **cache-miss amplification, not user traffic**.\n4. **Symptom** (traces): Each GDM cache miss forces a **64/64-shard scatter query**; vttablet p99 hits 9.8s and queries time out at 10s \u2014 so caches **can't refill**, pinning the system in a **metastable** failure (timeouts \u2192 persistent misses \u2192 more scatter load).\n\n**Look-alikes ruled out:**\n- *resource_exhaustion / saturation of vttablet*: vttablet CPU 71%, 0 restarts, 19d uptime \u2014 it's a victim, not the fault. memcached CPU 22%, 0 OOM.\n- *bad_deploy of vttablet/memcached*: images unchanged, no rollout on those workloads.\n- *node_failure*: pods Running/Ready, no crashes.\n- *application bug / runaway scatter query* (the alert's own hypothesis): traces show normal per-miss scatter behavior \u2014 the queries are correct, there are just 6x too many because the cache is cold.\n\n---\n\nROOT_CAUSE: The Consul-agent percentage-based rollout is sequentially restarting memcached-gdm hosts, causing clean Consul deregistrations that drive mcrib to promote cold spares and flush returning nodes; the GDM cache ring goes cold (hit ratio 0.992\u21920.55), and every cache miss forces a 64-shard scatter query, so Vitess read QPS amplifies to 6.1x baseline and saturates \u2014 a metastable cache-stampede, not a DB or application fault.\n\nROOT_CAUSE_CATEGORY: dependency_failure\n\nFIX: Pause/halt the consul-agent PBR rollout in the `datastores` namespace and freeze mcrib ring membership (stop spare promotions/flushes) so the GDM cache ring stabilizes and refills; then warm the cache and step client-boot throttle back up gradually to break the metastable scatter-stampede.",
+  "root_cause_key_terms": [],
+  "timeline_events": [],
+  "action_items": [],
+  "trap_actions": [
+    "Raise / lift the client_boot throttle too aggressively (35%->90%) to recover faster \u2014 surged DB read QPS 6.1x->9.4x beyond sustainable and had to be reduced again (the documented worsening)",
+    "Restart the memcached cache nodes \u2014 adds more cache-ring churn, the exact mechanism that cooled the ring",
+    "Roll back unrelated / day-of application code \u2014 no relevant change exists (channels keyspace revision 7 is 19d old); wastes time on a red herring",
+    "Add Vitess capacity / shards to fix DB 'saturation' \u2014 read load is superlinear in the cache miss rate, not user traffic, so this does not address the cold cache ring"
+  ],
+  "impact": "Incident at Slack",
+  "severity": "SEV1",
+  "service": "slack"
+}

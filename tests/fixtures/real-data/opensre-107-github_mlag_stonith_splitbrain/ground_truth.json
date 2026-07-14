@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "107-github_mlag_stonith_splitbrain",
+  "source_type": "opensre",
+  "source_url": "https://github.blog/news-insights/downtime-last-saturday/",
+  "company": "GitHub",
+  "root_cause": "Excellent. I now have a complete picture. Let me summarize the root cause and remediation:\n\n---\n\n## Investigation Summary\n\nThe alert fired at 20:16:50Z when all fileserver pairs went down simultaneously. Here's what happened:\n\n1. **20:15:00Z** \u2014 Aggregation switch maintenance: vendor terminated the agent process on agg-switch-a (state dump). Links remained up.\n\n2. **20:15:05Z** \u2014 MLAG failover: agg-switch-b lost heartbeat to agg-switch-a but detected peer links still up, triggering the **disruptive failover path** (not the gentle stateful failover).\n\n3. **20:15:06\u201320:16:36Z** \u2014 L2 reconvergence: spanning-tree re-election and leader re-election blocked inter-rack traffic for ~90 seconds. This created a **network partition** between rack1 and rack2.\n\n4. **20:15:40\u201320:16:40Z** \u2014 Heartbeat timeout: Pacemaker/Corosync heartbeat between paired fileservers (pair1-a in rack1 and pair1-b in rack2) runs over the **same production fabric**. During the 90s L2 blackout, both peers exceeded the heartbeat timeout and declared each other dead.\n\n5. **20:16:43\u201320:16:44Z** \u2014 **Mutual STONITH**: When the network healed and links came back up, both members of each pair believed they were the active Primary for the same DRBD resource. Both issued STONITH (power-fencing) to each other **simultaneously**. Both nodes powered off.\n\n6. **20:16:45Z onwards** \u2014 **DRBD No Primary**: All fileserver pairs now have DRBD resources with no Primary member. Data is unmounted on both sides. Volumes are inaccessible fleet-wide.\n\n**Root Cause**: The fileserver heartbeat and DRBD replication network shared the same production fabric. When the aggregation switch maintenance triggered a disruptive failover \u2192 spanning-tree reconvergence \u2192 inter-rack L2 blackout, the Pacemaker heartbeat was severed. Both peers timed out, each believing itself was the survivor when the network recovered, and both issued STONITH simultaneously, resulting in mutual fencing. The architectural failure: **Pacemaker heartbeat is not isolated from data/production traffic**; it was congested and lost during the L2 event.\n\n---\n\n**ROOT_CAUSE:** During aggregation switch maintenance, an MLAG disruptive failover triggered spanning-tree reconvergence and a 90-second inter-rack network partition. The Pacemaker heartbeat (used for cluster consensus) shares the production fabric and timed out, causing both fileserver peers to believe they were the survivor. When the network recovered, both nodes issued simultaneous STONITH power-fencing to each other, resulting in mutual kill and DRBD resources with no Primary.\n\n**ROOT_CAUSE_CATEGORY:** network_fault\n\n**FIX:** Boot fileserver-pair1-a-0 first (it holds the most recent DRBD generation per the Pacemaker logs: \"I (pair1-a) hold the most recent DRBD generation\"). Confirm it becomes Primary on drbd_data, mount /data, and verify Git/Pages I/O. Repeat for pair2. Once the primary nodes are healthy and serving, the secondaries will auto-sync and the pairs will resynchronize. Then: isolate Pacemaker heartbeat to a dedicated out-of-band network (not the production fabric) to prevent future mutual fencing during transient partitions.",
+  "root_cause_key_terms": [],
+  "timeline_events": [],
+  "action_items": [],
+  "trap_actions": [
+    "restart_pod",
+    "restart_service",
+    "drain_node"
+  ],
+  "impact": "Incident at GitHub",
+  "severity": "SEV1",
+  "service": "github"
+}

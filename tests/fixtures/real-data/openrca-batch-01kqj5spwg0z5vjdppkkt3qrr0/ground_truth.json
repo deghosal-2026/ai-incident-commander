@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "OPENRCA-JDPPKKT3QRR0",
+  "source_type": "openrca2",
+  "source_url": "https://huggingface.co/datasets/lincyaw/openrca2-v1-500",
+  "company": "OpenRCA2 (hs)",
+  "root_cause": [
+    {
+      "service": [
+        "geo"
+      ],
+      "pod": [
+        "geo-758c66754f-lzphg"
+      ],
+      "container": [
+        "hotel-reserv-geo"
+      ],
+      "metric": [
+        "cpu"
+      ]
+    },
+    {
+      "service": [
+        "reservation"
+      ],
+      "pod": [
+        "reservation-7558454dd7-vbdrl"
+      ],
+      "container": [
+        "hotel-reserv-reservation"
+      ],
+      "metric": [
+        "memory"
+      ]
+    }
+  ],
+  "root_cause_key_terms": [
+    "geo",
+    "CPUStress",
+    "reservation",
+    "MemoryStress"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "hybrid failure in hs for Duration unknown",
+  "severity": "SEV1",
+  "service": "geo"
+}

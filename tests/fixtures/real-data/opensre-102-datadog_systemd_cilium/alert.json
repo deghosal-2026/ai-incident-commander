@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "datadog",
+  "summary": "Incident at Datadog: Perfect. I have all the evidence. Let me consolidate the findings:\n\n**Evidence chain:**\n1. **Trigger",
+  "source": "opensre/datadog",
+  "timestamp": ""
+}

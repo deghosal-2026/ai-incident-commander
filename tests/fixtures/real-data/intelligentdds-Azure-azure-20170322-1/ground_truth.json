@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170322-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 23:52 UTC on 21 Mar 2017 and 01:14 UTC on 22 Mar 2017, a subset of customers around the South East US may have seen latency and failures accessing Microsoft services including Azure resources. This was due to an infrastructure event impacted by a facilities issue at a 3rd party regional routing site located in South East US. Azure Engineering teams executed standard procedures to redirect traffic and isolate the impacted facility restoring expected routing availability. ",
+  "root_cause_key_terms": [
+    "Multiple services"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 23:52 UTC on 21 Mar 2017 and 01:14 UTC on 22 Mar 2017, a subset of customers around the South East US may have seen latency and failures accessing Microsoft services including Azure resources.",
+  "severity": "SEV1",
+  "service": "Multiple services"
+}

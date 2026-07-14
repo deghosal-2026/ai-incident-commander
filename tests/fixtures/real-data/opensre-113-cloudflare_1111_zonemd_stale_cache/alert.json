@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "cloudflare",
+  "summary": "Incident at Cloudflare: The evidence is conclusive. The metrics directly contradict the alert's \"upstream root expiry\" hypot",
+  "source": "opensre/cloudflare",
+  "timestamp": ""
+}

@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "Azure Active Directory",
+  "summary": "RCA - Intermittent Authentication Failures due to Underlying Azure Active Directory Issue",
+  "source": "intelligentdds/Azure",
+  "timestamp": "2017-03-25T00:00:00+00:00"
+}

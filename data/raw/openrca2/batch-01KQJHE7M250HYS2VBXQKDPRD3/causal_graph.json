@@ -1,0 +1,122 @@
+{
+    "nodes": [
+        {
+            "timestamp": 1777664991,
+            "component": "service|ts-cancel-service",
+            "state": [
+                "unavailable",
+                "degraded"
+            ]
+        },
+        {
+            "timestamp": 1777664991,
+            "component": "span|ts-cancel-service::CancelController.cancelTicket",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777664991,
+            "component": "span|ts-cancel-service::GET /api/v1/cancelservice/cancel/{orderId}/{loginId}",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777664991,
+            "component": "span|ts-ui-dashboard::GET /api/v1/cancelservice/cancel/{orderId}/{loginId}",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777664991,
+            "component": "span|ts-cancel-service::CancelController.calculate",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777664991,
+            "component": "span|ts-cancel-service::GET /api/v1/cancelservice/cancel/refound/{orderId}",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777664991,
+            "component": "span|ts-ui-dashboard::GET /api/v1/cancelservice/cancel/refound/{orderId}",
+            "state": [
+                "missing"
+            ]
+        }
+    ],
+    "edges": [
+        {
+            "source": "service|ts-cancel-service",
+            "target": "span|ts-cancel-service::GET /api/v1/cancelservice/cancel/{orderId}/{loginId}"
+        },
+        {
+            "source": "span|ts-cancel-service::CancelController.calculate",
+            "target": "span|ts-cancel-service::GET /api/v1/cancelservice/cancel/refound/{orderId}"
+        },
+        {
+            "source": "service|ts-cancel-service",
+            "target": "span|ts-cancel-service::GET /api/v1/cancelservice/cancel/refound/{orderId}"
+        },
+        {
+            "source": "span|ts-cancel-service::GET /api/v1/cancelservice/cancel/refound/{orderId}",
+            "target": "span|ts-ui-dashboard::GET /api/v1/cancelservice/cancel/refound/{orderId}"
+        },
+        {
+            "source": "span|ts-cancel-service::GET /api/v1/cancelservice/cancel/{orderId}/{loginId}",
+            "target": "span|ts-ui-dashboard::GET /api/v1/cancelservice/cancel/{orderId}/{loginId}"
+        },
+        {
+            "source": "span|ts-cancel-service::CancelController.cancelTicket",
+            "target": "span|ts-cancel-service::GET /api/v1/cancelservice/cancel/{orderId}/{loginId}"
+        },
+        {
+            "source": "service|ts-cancel-service",
+            "target": "span|ts-cancel-service::CancelController.calculate"
+        },
+        {
+            "source": "service|ts-cancel-service",
+            "target": "span|ts-cancel-service::CancelController.cancelTicket"
+        }
+    ],
+    "root_causes": [
+        {
+            "timestamp": null,
+            "component": "service|ts-cancel-service",
+            "state": [
+                "unknown"
+            ]
+        }
+    ],
+    "alarm_nodes": [
+        {
+            "timestamp": 1777664991,
+            "component": "span|ts-ui-dashboard::GET /api/v1/cancelservice/cancel/{orderId}/{loginId}",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777664991,
+            "component": "span|ts-ui-dashboard::GET /api/v1/cancelservice/cancel/refound/{orderId}",
+            "state": [
+                "missing"
+            ]
+        }
+    ],
+    "component_to_service": {
+        "service|ts-cancel-service": "ts-cancel-service",
+        "span|ts-cancel-service::CancelController.cancelTicket": "ts-cancel-service",
+        "span|ts-cancel-service::GET /api/v1/cancelservice/cancel/{orderId}/{loginId}": "ts-cancel-service",
+        "span|ts-ui-dashboard::GET /api/v1/cancelservice/cancel/{orderId}/{loginId}": "ts-ui-dashboard",
+        "span|ts-cancel-service::CancelController.calculate": "ts-cancel-service",
+        "span|ts-cancel-service::GET /api/v1/cancelservice/cancel/refound/{orderId}": "ts-cancel-service",
+        "span|ts-ui-dashboard::GET /api/v1/cancelservice/cancel/refound/{orderId}": "ts-ui-dashboard"
+    }
+}

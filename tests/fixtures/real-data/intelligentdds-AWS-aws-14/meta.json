@@ -1,0 +1,8 @@
+{
+  "incident_id": "aws-14",
+  "source_type": "intelligentdds",
+  "service": "AWS Service",
+  "severity": "SEV1",
+  "start_time": "2021-12-10T00:00:00+00:00",
+  "provider": "AWS"
+}

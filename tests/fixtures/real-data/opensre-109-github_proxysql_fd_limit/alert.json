@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "github",
+  "summary": "Incident at GitHub: Perfect. The alert timeline is explicit:\n1. **14:48:02** \u2014 `ProxySQLTooManyOpenFiles` fired first (o",
+  "source": "opensre/github",
+  "timestamp": ""
+}

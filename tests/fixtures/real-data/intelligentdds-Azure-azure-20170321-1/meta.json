@@ -1,0 +1,8 @@
+{
+  "incident_id": "azure-20170321-1",
+  "source_type": "intelligentdds",
+  "service": "Storage and Virtual Machines",
+  "severity": "SEV1",
+  "start_time": "2017-03-21T00:00:00+00:00",
+  "provider": "Azure"
+}

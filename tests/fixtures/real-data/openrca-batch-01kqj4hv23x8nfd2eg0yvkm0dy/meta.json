@@ -1,0 +1,9 @@
+{
+  "incident_id": "OPENRCA-D2EG0YVKM0DY",
+  "source_type": "openrca2",
+  "service": "ts-consign-price-service",
+  "severity": "SEV1",
+  "start_time": "2026-05-02T00:04:38+08:00",
+  "system": "ts",
+  "chaos_family": "hybrid"
+}

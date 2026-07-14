@@ -1,0 +1,294 @@
+{
+    "nodes": [
+        {
+            "timestamp": 1777663095,
+            "component": "service|ts-consign-service",
+            "state": [
+                "degraded",
+                "unavailable"
+            ]
+        },
+        {
+            "timestamp": 1777663095,
+            "component": "span|ts-consign-service::ConsignController.findByOrderId",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777663095,
+            "component": "span|ts-consign-service::GET /api/v1/consignservice/consigns/order/{id}",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777663095,
+            "component": "span|ts-ui-dashboard::GET /api/v1/consignservice/consigns/order/{id}",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777663095,
+            "component": "span|ts-consign-service::ConsignRepository.findById",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777663095,
+            "component": "span|ts-consign-service::ConsignController.updateConsign",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777663095,
+            "component": "span|ts-consign-service::PUT /api/v1/consignservice/consigns",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777663095,
+            "component": "span|ts-ui-dashboard::PUT /api/v1/consignservice/consigns",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777663095,
+            "component": "span|ts-consign-service::Session.find consign.entity.ConsignRecord",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777663095,
+            "component": "span|ts-consign-service::ConsignRepository.save",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777663104,
+            "component": "span|ts-consign-service::SELECT ts.consign_record",
+            "state": [
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777663104,
+            "component": "span|ts-consign-service::SELECT consign.entity.ConsignRecord",
+            "state": [
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777663095,
+            "component": "span|ts-consign-service::ConsignRepository.findByOrderId",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777663095,
+            "component": "span|ts-consign-service::Session.merge consign.entity.ConsignRecord",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777663095,
+            "component": "span|ts-consign-service::INSERT ts.consign_record",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777663095,
+            "component": "span|ts-consign-service::Transaction.commit",
+            "state": [
+                "missing"
+            ]
+        }
+    ],
+    "edges": [
+        {
+            "source": "service|ts-consign-service",
+            "target": "span|ts-consign-service::SELECT consign.entity.ConsignRecord"
+        },
+        {
+            "source": "span|ts-consign-service::Session.find consign.entity.ConsignRecord",
+            "target": "span|ts-consign-service::ConsignRepository.findById"
+        },
+        {
+            "source": "span|ts-consign-service::SELECT ts.consign_record",
+            "target": "span|ts-consign-service::Session.find consign.entity.ConsignRecord"
+        },
+        {
+            "source": "service|ts-consign-service",
+            "target": "span|ts-consign-service::Transaction.commit"
+        },
+        {
+            "source": "service|ts-consign-service",
+            "target": "span|ts-consign-service::Session.find consign.entity.ConsignRecord"
+        },
+        {
+            "source": "service|ts-consign-service",
+            "target": "span|ts-consign-service::ConsignRepository.save"
+        },
+        {
+            "source": "service|ts-consign-service",
+            "target": "span|ts-consign-service::ConsignController.updateConsign"
+        },
+        {
+            "source": "service|ts-consign-service",
+            "target": "span|ts-consign-service::ConsignController.findByOrderId"
+        },
+        {
+            "source": "service|ts-consign-service",
+            "target": "span|ts-consign-service::ConsignRepository.findByOrderId"
+        },
+        {
+            "source": "service|ts-consign-service",
+            "target": "span|ts-consign-service::SELECT ts.consign_record"
+        },
+        {
+            "source": "span|ts-consign-service::Transaction.commit",
+            "target": "span|ts-consign-service::ConsignRepository.save"
+        },
+        {
+            "source": "service|ts-consign-service",
+            "target": "span|ts-consign-service::ConsignRepository.findById"
+        },
+        {
+            "source": "service|ts-consign-service",
+            "target": "span|ts-consign-service::INSERT ts.consign_record"
+        },
+        {
+            "source": "span|ts-consign-service::SELECT ts.consign_record",
+            "target": "span|ts-consign-service::Session.merge consign.entity.ConsignRecord"
+        },
+        {
+            "source": "service|ts-consign-service",
+            "target": "span|ts-consign-service::PUT /api/v1/consignservice/consigns"
+        },
+        {
+            "source": "span|ts-consign-service::ConsignController.updateConsign",
+            "target": "span|ts-consign-service::PUT /api/v1/consignservice/consigns"
+        },
+        {
+            "source": "span|ts-consign-service::ConsignController.findByOrderId",
+            "target": "span|ts-consign-service::GET /api/v1/consignservice/consigns/order/{id}"
+        },
+        {
+            "source": "span|ts-consign-service::ConsignRepository.save",
+            "target": "span|ts-consign-service::ConsignController.updateConsign"
+        },
+        {
+            "source": "span|ts-consign-service::INSERT ts.consign_record",
+            "target": "span|ts-consign-service::Transaction.commit"
+        },
+        {
+            "source": "service|ts-consign-service",
+            "target": "span|ts-consign-service::GET /api/v1/consignservice/consigns/order/{id}"
+        },
+        {
+            "source": "service|ts-consign-service",
+            "target": "span|ts-consign-service::Session.merge consign.entity.ConsignRecord"
+        },
+        {
+            "source": "span|ts-consign-service::PUT /api/v1/consignservice/consigns",
+            "target": "span|ts-ui-dashboard::PUT /api/v1/consignservice/consigns"
+        },
+        {
+            "source": "span|ts-consign-service::Transaction.commit",
+            "target": "span|ts-consign-service::ConsignRepository.findById"
+        },
+        {
+            "source": "span|ts-consign-service::Session.merge consign.entity.ConsignRecord",
+            "target": "span|ts-consign-service::ConsignRepository.save"
+        },
+        {
+            "source": "span|ts-consign-service::SELECT consign.entity.ConsignRecord",
+            "target": "span|ts-consign-service::ConsignRepository.findByOrderId"
+        },
+        {
+            "source": "span|ts-consign-service::GET /api/v1/consignservice/consigns/order/{id}",
+            "target": "span|ts-ui-dashboard::GET /api/v1/consignservice/consigns/order/{id}"
+        },
+        {
+            "source": "span|ts-consign-service::ConsignRepository.findById",
+            "target": "span|ts-consign-service::ConsignController.updateConsign"
+        },
+        {
+            "source": "span|ts-consign-service::ConsignRepository.findByOrderId",
+            "target": "span|ts-consign-service::ConsignController.findByOrderId"
+        },
+        {
+            "source": "span|ts-consign-service::SELECT ts.consign_record",
+            "target": "span|ts-consign-service::SELECT consign.entity.ConsignRecord"
+        }
+    ],
+    "root_causes": [
+        {
+            "timestamp": null,
+            "component": "service|ts-consign-service",
+            "state": [
+                "unknown"
+            ]
+        }
+    ],
+    "alarm_nodes": [
+        {
+            "timestamp": 1777663095,
+            "component": "span|ts-consign-service::GET /api/v1/consignservice/consigns/order/{id}",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777663095,
+            "component": "span|ts-ui-dashboard::GET /api/v1/consignservice/consigns/order/{id}",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777663095,
+            "component": "span|ts-consign-service::PUT /api/v1/consignservice/consigns",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777663095,
+            "component": "span|ts-ui-dashboard::PUT /api/v1/consignservice/consigns",
+            "state": [
+                "missing"
+            ]
+        }
+    ],
+    "component_to_service": {
+        "service|ts-consign-service": "ts-consign-service",
+        "span|ts-consign-service::ConsignController.findByOrderId": "ts-consign-service",
+        "span|ts-consign-service::GET /api/v1/consignservice/consigns/order/{id}": "ts-consign-service",
+        "span|ts-ui-dashboard::GET /api/v1/consignservice/consigns/order/{id}": "ts-ui-dashboard",
+        "span|ts-consign-service::ConsignRepository.findById": "ts-consign-service",
+        "span|ts-consign-service::ConsignController.updateConsign": "ts-consign-service",
+        "span|ts-consign-service::PUT /api/v1/consignservice/consigns": "ts-consign-service",
+        "span|ts-ui-dashboard::PUT /api/v1/consignservice/consigns": "ts-ui-dashboard",
+        "span|ts-consign-service::Session.find consign.entity.ConsignRecord": "ts-consign-service",
+        "span|ts-consign-service::ConsignRepository.save": "ts-consign-service",
+        "span|ts-consign-service::SELECT ts.consign_record": "ts-consign-service",
+        "span|ts-consign-service::SELECT consign.entity.ConsignRecord": "ts-consign-service",
+        "span|ts-consign-service::ConsignRepository.findByOrderId": "ts-consign-service",
+        "span|ts-consign-service::Session.merge consign.entity.ConsignRecord": "ts-consign-service",
+        "span|ts-consign-service::INSERT ts.consign_record": "ts-consign-service",
+        "span|ts-consign-service::Transaction.commit": "ts-consign-service"
+    }
+}

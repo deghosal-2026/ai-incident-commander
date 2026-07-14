@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "blog-gitlab-db-2017",
+  "source_type": "blog",
+  "source_url": "https://about.gitlab.com/2017/02/10/postmortem-of-database-outage-of-january-31/",
+  "company": "GitLab",
+  "root_cause": "Human error during secondary resync: engineer ran rm -rf on primary instead of secondary; backups unavailable due to pg_dump version mismatch",
+  "root_cause_key_terms": [],
+  "timeline_events": [
+    {
+      "time": "2017-01-31T23:00:00Z",
+      "event": "Secondary replication lag detected; engineer began manual resync"
+    },
+    {
+      "time": "2017-01-31T23:36:00Z",
+      "event": "Engineer ran rm -rf on primary database directory instead of secondary"
+    },
+    {
+      "time": "2017-01-31T23:40:00Z",
+      "event": "Data loss confirmed; backups unavailable"
+    },
+    {
+      "time": "2017-02-01T06:00:00Z",
+      "event": "Service restored from partial backups"
+    }
+  ],
+  "action_items": [
+    "Implement point-in-time recovery for all production databases",
+    "Add safety confirmation prompts for destructive operations"
+  ],
+  "impact": "Database Outage \u2014 6h Data Loss",
+  "severity": "SEV1",
+  "service": "GitLab.com"
+}

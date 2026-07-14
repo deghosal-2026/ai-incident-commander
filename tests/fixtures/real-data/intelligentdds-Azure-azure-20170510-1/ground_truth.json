@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170510-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between approximately 19:32 and 20:12 UTC on 10 May 2017, a subset of customers may have experienced difficulties or received failure notifications when attempting to authenticate into their resources that are dependent on Azure Active Directory Service. The issue was caused by a configuration change that was incorrectly deployed to Azure Active Directory production. The change was rolled back promptly, which mitigated the incident at 20:12 UTC.",
+  "root_cause_key_terms": [
+    "Azure Active Directory",
+    "Azure Management Portal",
+    "Visual Studio Team Services",
+    "Azure Log analytics",
+    "App Service (Web Apps)",
+    "Azure Machine Learning",
+    "Application Insights",
+    "Azure Stream Analytics",
+    "Azure Scheduler"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between approximately 19:32 and 20:12 UTC on 10 May 2017, a subset of customers may have experienced difficulties or received failure notifications when attempting to authenticate into their resources",
+  "severity": "SEV1",
+  "service": "Azure Active Directory"
+}

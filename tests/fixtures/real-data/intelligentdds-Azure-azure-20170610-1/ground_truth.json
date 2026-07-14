@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170610-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 22:50 UTC on 09 Jun 2017 and 01:20 UTC on 10 Jun 2017, customers using Log Analytics in West Europe may have experienced difficulties when trying to login to the OMS Portal (https://mms.microsoft.com) or when connecting to resources hosted in this region. The OMS Solutions within West Europe workspaces may have failed to properly load and display data. This includes OMS Solutions for Service Map, Insight & Analytics, Security & Compliance, Protection & Recovery, and Automation & Control offerings for OMS. ",
+  "root_cause_key_terms": [
+    "Log Analytics",
+    "OMS portal"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 22:50 UTC on 09 Jun 2017 and 01:20 UTC on 10 Jun 2017, customers using Log Analytics in West Europe may have experienced difficulties when trying to login to the OMS Portal (https://mms.micros",
+  "severity": "SEV1",
+  "service": "Log Analytics"
+}

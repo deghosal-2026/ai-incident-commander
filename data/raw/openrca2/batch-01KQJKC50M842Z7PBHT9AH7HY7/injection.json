@@ -1,0 +1,124 @@
+{
+    "id": 2287,
+    "name": "batch-01KQJKC50M842Z7PBHT9AH7HY7",
+    "fault_type": "hybrid",
+    "category": "ts",
+    "pre_duration": 5,
+    "start_time": "2026-05-02T04:23:40+08:00",
+    "end_time": "2026-05-02T04:28:39+08:00",
+    "state": "inject_success",
+    "status": "enabled",
+    "benchmark_id": 108,
+    "benchmark_name": "clickhouse",
+    "pedestal_id": 149,
+    "pedestal_name": "ts",
+    "created_at": "2026-05-02T04:23:39.843+08:00",
+    "updated_at": "2026-05-02T04:28:40.229+08:00",
+    "engine_config_summary": [
+        {
+            "app": "ts-route-plan-service",
+            "chaos_type": "JVMRuntimeMutator",
+            "class": "plan.service.RoutePlanServiceImpl",
+            "duration": 5,
+            "method": "getRouteByRouteId",
+            "mutator_config": "constant:\"/api/v1/routeservice/routes/\":\"mutated_/api/v1/routeservice/routes/\"",
+            "namespace": "ts12",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        },
+        {
+            "app": "ts-route-service",
+            "chaos_type": "NetworkCorrupt",
+            "correlation": 22,
+            "corrupt": 36,
+            "direction": "to",
+            "duration": 5,
+            "namespace": "ts12",
+            "system": "ts",
+            "system_type": "ts",
+            "target_service": "mysql",
+            "time_offset": 0
+        }
+    ],
+    "task_id": "51fdd512-216e-43b5-9e19-12cf41caf8de",
+    "trace_id": "c9017665-814b-4512-9b1c-a97fe461472d",
+    "source": "injection",
+    "description": "Fault batch for task 51fdd512-216e-43b5-9e19-12cf41caf8de (2 faults)",
+    "engine_config": [
+        {
+            "app": "ts-route-plan-service",
+            "chaos_type": "JVMRuntimeMutator",
+            "class": "plan.service.RoutePlanServiceImpl",
+            "duration": 5,
+            "method": "getRouteByRouteId",
+            "mutator_config": "constant:\"/api/v1/routeservice/routes/\":\"mutated_/api/v1/routeservice/routes/\"",
+            "namespace": "ts12",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        },
+        {
+            "app": "ts-route-service",
+            "chaos_type": "NetworkCorrupt",
+            "correlation": 22,
+            "corrupt": 36,
+            "direction": "to",
+            "duration": 5,
+            "namespace": "ts12",
+            "system": "ts",
+            "system_type": "ts",
+            "target_service": "mysql",
+            "time_offset": 0
+        }
+    ],
+    "ground_truth": [
+        {
+            "service": [
+                "ts-route-plan-service"
+            ],
+            "pod": [
+                "ts-route-plan-service-7ccd788875-4jzh9"
+            ],
+            "container": [
+                "ts-route-plan-service"
+            ],
+            "function": [
+                "plan.service.RoutePlanServiceImpl.getRouteByRouteId"
+            ]
+        },
+        {
+            "service": [
+                "ts-route-service",
+                "mysql"
+            ],
+            "pod": [
+                "mysql-0",
+                "ts-route-service-5b769949fc-52dnx"
+            ],
+            "container": [
+                "mysql",
+                "ts-route-service"
+            ],
+            "span": [
+                "ALTER table ts",
+                "CREATE TABLE `ts`.`route_distances`",
+                "CREATE TABLE `ts`.`route_stations`",
+                "CREATE table ts",
+                "DELETE ts.route",
+                "DELETE ts.route_distances",
+                "DELETE ts.route_stations",
+                "INSERT ts.route",
+                "INSERT ts.route_distances",
+                "INSERT ts.route_stations",
+                "SELECT `ts`.`route`",
+                "SELECT ts",
+                "SELECT ts.route",
+                "SELECT ts.route_distances",
+                "SELECT ts.route_stations",
+                "SELECT ts.ts"
+            ]
+        }
+    ],
+    "groundtruth_source": "auto"
+}

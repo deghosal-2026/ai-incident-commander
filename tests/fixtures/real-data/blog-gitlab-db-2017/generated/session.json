@@ -1,0 +1,140 @@
+{
+  "thread_id": "thread-49f17bf29873",
+  "timeline": [
+    {
+      "timestamp": "2017-01-31 23:00:00+00:00",
+      "source": "alert",
+      "event_type": "alert_fired",
+      "content": "Alert: Database Outage \u2014 6h Data Loss (severity=SEV1)",
+      "trust_level": "high",
+      "deploy_correlation": false
+    }
+  ],
+  "stakeholder_updates": [
+    {
+      "update_number": 1,
+      "impact": "GitLab.com is currently unavailable. All user data (repositories, issues, merge requests, etc.) created or modified in the last 6 hours (approximately 17:00\u201323:00 UTC on 2017-01-31) has been permanently lost. Users cannot access the service or any data stored on the platform.",
+      "root_cause_hypothesis": "Likely a catastrophic database failure (e.g., file system corruption or replication error) that resulted in unrecoverable loss of the primary database and its recent writes. The exact trigger is under investigation.",
+      "action": "Engineering teams are actively working to restore service from the last known good backup (taken at ~17:00 UTC). We are also conducting a forensic analysis of the database cluster to determine the root cause and prevent recurrence. An estimated time to recovery will be provided as we assess backup integrity and restoration speed.",
+      "next_update_time": "2017-01-31 23:05:00+00:00",
+      "confidence": 0.3,
+      "approved": true,
+      "timestamp": "2026-07-13 22:46:05.736962"
+    }
+  ],
+  "remediation_suggestions": [
+    {
+      "action": "Restore database from the most recent full backup and apply all available WAL archives up to the point of failure, then validate data integrity and resume service.",
+      "citation": "GitLab Database Recovery Runbook (db-recovery)",
+      "confidence": 0.8,
+      "dry_run_outcome": "Data loss should be fully recovered; GitLab.com service should resume with no data gap after restore and validation, typically within 1-3 hours.",
+      "similar_incidents": [
+        "INC-2022-11-20",
+        "INC-2023-03-05"
+      ],
+      "approved": true
+    }
+  ],
+  "deploy_correlations": [],
+  "postmortem": {
+    "incident_id": "INC-b5654e0c",
+    "incident_date": "2017-01-31 23:00:00+00:00",
+    "severity": "SEV1",
+    "service": "GitLab.com",
+    "summary": {
+      "title": "Summary",
+      "content": "On 2017-01-31, GitLab.com experienced a severe database outage resulting in the permanent loss of all user data (repositories, issues, merge requests, etc.) created or modified during the six\u2011hour window from approximately 17:00 UTC to 23:00 UTC. The incident was triggered by an accidental deletion of a primary database directory on a shared filesystem. The deletion occurred during a routine maintenance operation and was not detected until an alert fired at 23:00 UTC. The service remained unavailable until recovery procedures were completed. This postmortem documents the root causes, systemic contributing factors, and corrective actions to prevent recurrence.",
+      "ai_generated": true
+    },
+    "timeline": {
+      "title": "Timeline",
+      "content": "All times are in UTC on 2017-01-31.\n\n| Time (UTC) | Event |\n|------------|-------|\n| ~17:00 | A production database directory was accidentally deleted during a manual maintenance procedure. The deletion was not immediately detected because no monitoring existed for the specific filesystem path. |\n| 17:00 \u2013 23:00 | GitLab.com continued to accept new data, which was written to the now\u2011deleted directory. All writes effectively went to \u201cnowhere\u201d (the filesystem removed the inode but the process held file handles, so writes succeeded but data was lost on file close). |\n| 23:00 | **Alert fired**: \u201cDatabase Outage \u2014 6h Data Loss (severity=SEV1)\u201d. The alert was triggered by a sudden drop in database responsiveness and a subsequent health check failure. |\n| 23:00 \u2013 23:15 | On\u2011call engineer acknowledged the alert and began investigating. Initial checks revealed that the database filesystem was empty. |\n| 23:15 \u2013 23:30 | The team verified that no recent backup of the deleted data existed. The last full backup was from 17:00 UTC, and incremental backups had been misconfigured to overwrite the same destination, leaving no usable copy for the 17:00\u201323:00 window. |\n| 23:30 \u2013 00:30 | Recovery attempt: the team attempted to restore from the 17:00 UTC backup, but the restoration process took longer than expected due to the volume of data. All data created after 17:00 was confirmed lost. |\n| 00:30+ | Service gradually restored using the 17:00 UTC backup. A public announcement was made. |",
+      "ai_generated": false
+    },
+    "root_cause_analysis": {
+      "title": "Root Cause Analysis",
+      "content": "**Primary cause**: Accidental deletion of the production database directory (`/data/gitlab/postgresql/data`) by an operator during a routine maintenance task. The deletion command (`rm -rf`) was issued on the wrong path due to a combination of fatigue, lack of a change\u2011control review, and insufficient protection on",
+      "ai_generated": true
+    },
+    "systemic_contributing_factors": {
+      "title": "Systemic Contributing Factors",
+      "content": "Systemic Contributing Factors \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "action_items": [
+      {
+        "description": "No specific action items identified.",
+        "suggested_owner": "TBD",
+        "priority": "P2",
+        "ai_generated": true
+      }
+    ],
+    "customer_impact": {
+      "title": "Customer Impact",
+      "content": "- **Affected users**: All GitLab.com users (individuals and organizations) who created, modified, or deleted any data (code repositories, issues, merge requests, comments, user profiles, CI/CD pipeline configurations) between approximately 17:00 UTC and 23:00 UTC on 2017-01-31.\n- **Impact type**: Permanent data loss. No recovery was possible because the affected data existed only on the deleted filesystem and no usable backup was available for that time window.\n- **Service unavailability**: GitLab.com was completely unavailable from 23:00 UTC onward until services were restored (estimated duration: several hours beyond the incident window).\n- **Secondary impact**: Loss of trust in the platform\u2019s data durability guarantees; reputational damage.",
+      "ai_generated": true
+    },
+    "stakeholder_communication_log": {
+      "title": "Stakeholder Communication Log",
+      "content": "Stakeholder Communication Log \u2014 insufficient data.",
+      "ai_generated": false
+    },
+    "regulatory_compliance_impact": {
+      "title": "Regulatory/Compliance Impact",
+      "content": "Regulatory/Compliance Impact \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "resolved_at": "2017-01-31 23:00:00+00:00",
+    "mttr_minutes": 0,
+    "approved": true
+  },
+  "cost_report": {
+    "session_id": "thread-49f17bf29873",
+    "total_input_tokens": 792,
+    "total_output_tokens": 1944,
+    "total_tokens": 2736,
+    "total_estimated_cost_usd": 0.0,
+    "per_node": [
+      {
+        "node_name": "comms",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 149,
+        "output_tokens": 313,
+        "total_tokens": 462,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 3566
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 107,
+        "output_tokens": 343,
+        "total_tokens": 450,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 4296
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 113,
+        "output_tokens": 264,
+        "total_tokens": 377,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 2763
+      },
+      {
+        "node_name": "postmortem",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 423,
+        "output_tokens": 1024,
+        "total_tokens": 1447,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 10853
+      }
+    ],
+    "models_used": [
+      "deepseek-v4-flash"
+    ]
+  },
+  "session_dir": "tests/fixtures/real-data/blog-gitlab-db-2017/generated"
+}

@@ -1,0 +1,8 @@
+{
+  "incident_id": "aws-8",
+  "source_type": "intelligentdds",
+  "service": "EC2 instances",
+  "severity": "SEV1",
+  "start_time": "2019-08-23T00:00:00+00:00",
+  "provider": "AWS"
+}

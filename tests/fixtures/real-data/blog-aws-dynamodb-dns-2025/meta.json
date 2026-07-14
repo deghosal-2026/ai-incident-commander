@@ -1,0 +1,8 @@
+{
+  "incident_id": "blog-aws-dynamodb-dns-2025",
+  "source_type": "blog",
+  "service": "AWS DynamoDB",
+  "severity": "SEV1",
+  "start_time": "2025-10-19T23:48:00Z",
+  "company": "AWS"
+}

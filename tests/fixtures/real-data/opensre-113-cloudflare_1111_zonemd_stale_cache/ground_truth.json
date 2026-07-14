@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "113-cloudflare_1111_zonemd_stale_cache",
+  "source_type": "opensre",
+  "source_url": "https://blog.cloudflare.com/1-1-1-1-lookup-failures-on-october-4th-2023/",
+  "company": "Cloudflare",
+  "root_cause": "The evidence is conclusive. The metrics directly contradict the alert's \"upstream root expiry\" hypothesis:\n\n- `upstream_root_fetch_success_rate = 1.0` and `upstream_root_rrsig_valid = 1` \u2192 the **live root zone is healthy and validly signed**.\n- The failure is concentrated entirely on pods with >13d uptime (`rec_servfail_rate_by_pod_uptime_gt_13d = 0.42`), while freshly-restarted pods SERVFAIL ~0.\n- `static_zone_parse_failures_total = 13` and `static_zone_root_serial_age_seconds = 1123200` (13 days) \u2192 the preloader has been silently failing to parse every daily root update since 2023-09-21.\n- Root cause mechanism: on 2023-09-21 IANA added the **ZONEMD (RR type 63)** record to the root zone. The `static-zone-preload` parser doesn't recognize type 63, rejects the entire update, and keeps serving the last-good frozen snapshot (serial 2023092101). The RRSIG signatures on that frozen snapshot expired at exactly 07:00 UTC on 2023-10-04, so DNSSEC validation against the stale root began returning SERVFAIL.\n\nThis is a local config/parser defect, not an upstream IANA problem. The deploy was clean (9 days before onset, image unchanged at onset). I have enough to report.\n\nROOT_CAUSE: The `static-zone-preload` component cannot parse the ZONEMD record (RR type 63, added to the root zone on 2023-09-21), so it rejected 13 consecutive daily root updates and kept serving a frozen 13-day-old root snapshot (serial 2023092101). At 07:00 UTC the RRSIG signatures on that stale snapshot hard-expired, breaking DNSSEC chain-of-trust to '.' and causing SERVFAIL on valid queries. The live upstream root is healthy and validly signed \u2014 only pods holding the stale in-memory snapshot fail.\n\nROOT_CAUSE_CATEGORY: config_error\n\nFIX: Patch/upgrade the `static-zone-preload` parser to accept RR type 63 (ZONEMD) \u2014 or as immediate mitigation, restart the stale (>13d uptime) resolver pods to drop the frozen snapshot and force a fresh live root fetch (which validates successfully), then fix the parser to prevent recurrence.",
+  "root_cause_key_terms": [],
+  "timeline_events": [],
+  "action_items": [],
+  "trap_actions": [
+    "Apply the rec_disable_static override-rule tag to disable static_zone per-request \u2014 DID NOT WORK: the tag is not carried on internally-forwarded cache-miss queries, so those queries keep validating against the stale static root and SERVFAILs persist; sampled-query 'recovery' was misleading",
+    "Escalate to / wait on the upstream root operator or DNSSEC signer to 're-sign the root' \u2014 wrong target: the live root is already validly signed (upstream_root_rrsig_valid=1), only the internal stale snapshot expired",
+    "renew_certificate / treat this as a TLS-or-key expiry to rotate \u2014 wrong: the expiry is the cached root zone's DNSSEC RRSIG on a frozen snapshot, fixed by dropping the stale snapshot, not by rotating any credential"
+  ],
+  "impact": "Incident at Cloudflare",
+  "severity": "SEV1",
+  "service": "cloudflare"
+}

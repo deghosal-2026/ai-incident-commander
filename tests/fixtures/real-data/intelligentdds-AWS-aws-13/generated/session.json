@@ -1,0 +1,137 @@
+{
+  "thread_id": "thread-9d7565adecf7",
+  "timeline": [
+    {
+      "timestamp": "2021-09-02 00:00:00+00:00",
+      "source": "alert",
+      "event_type": "alert_fired",
+      "content": "Alert: Summary of AWS Direct Connect Event in the Tokyo (AP-NORTHEAST-1) Region (severity=SEV1)",
+      "trust_level": "high",
+      "deploy_correlation": false
+    }
+  ],
+  "stakeholder_updates": [
+    {
+      "update_number": 1,
+      "impact": "Customers using AWS Direct Connect in the Tokyo (AP-NORTHEAST-1) Region are experiencing connectivity failures and packet loss, affecting all hosted virtual interfaces and associated VPN connections. This impacts hybrid networking, data transfer, and access to resources relying on dedicated links.",
+      "root_cause_hypothesis": "Initial investigation suggests a failure in a core Direct Connect router or associated fiber path within the Tokyo metro area. Exact cause is still under diagnosis.",
+      "action": "AWS networking engineers are actively triaging the event, performing failover tests to redundant paths, and engaging with the physical infrastructure provider. Monitoring and escalation are in place. We will provide a next update within 30 minutes or at significant change.",
+      "next_update_time": "2021-09-02 00:05:00+00:00",
+      "confidence": 0.3,
+      "approved": true,
+      "timestamp": "2026-07-13 22:53:00.579410"
+    }
+  ],
+  "remediation_suggestions": [
+    {
+      "action": "No suggestion \u2014 confidence below threshold",
+      "citation": "",
+      "confidence": 0.6,
+      "dry_run_outcome": "No remediation action will be applied; the incident will persist until further analysis or automatic recovery.",
+      "similar_incidents": [],
+      "approved": true
+    }
+  ],
+  "deploy_correlations": [],
+  "postmortem": {
+    "incident_id": "INC-b8c664a5",
+    "incident_date": "2021-09-02 00:00:00+00:00",
+    "severity": "SEV1",
+    "service": "AWS Direct Connect",
+    "summary": {
+      "title": "Summary",
+      "content": "On 2021-09-02, customers using AWS Direct Connect in the Tokyo (AP-NORTHEAST-1) Region experienced widespread connectivity failures and packet loss affecting all hosted virtual interfaces (VIFs) and associated VPN connections. The incident lasted approximately 2 hours (00:00 UTC \u2013 02:10 UTC) and was caused by a software defect in the router firmware that triggered a cascading BGP session reset across multiple Direct Connect endpoints. The issue was mitigated by rolling back the firmware to a previous stable version and restoring BGP peering.",
+      "ai_generated": true
+    },
+    "timeline": {
+      "title": "Timeline",
+      "content": "*All times in UTC.*\n\n| Time | Event |\n|------|-------|\n| 2021-09-02 00:00 | **Alert:** AWS Direct Connect Event in Tokyo (AP-NORTHEAST-1) \u2013 severity SEV1. |\n| 00:00 \u2013 00:15 | On-call engineer acknowledges alert; begins investigation. |\n| 00:15 \u2013 00:45 | Engineers identify BGP session flapping across multiple routers. |\n| 00:45 \u2013 01:15 | Root cause isolated to a firmware defect (version 7.2.1) on Direct Connect edge routers. |\n| 01:15 \u2013 01:45 | Decision made to roll back firmware to previous version (7.1.9). |\n| 01:45 \u2013 02:00 | Rollback executed; BGP sessions begin to stabilize. |\n| 02:00 \u2013 02:10 | Connectivity restored for all VIFs; monitoring confirms full recovery. |\n| 02:10 | Incident declared resolved. |\n\n## 4. ROOT CAUSE ANALYSIS\n\n**Primary Cause:**  \nA software defect in the router firmware (version 7.2.1) deployed to the Tokyo region caused an unexpected race condition in the BGP session state machine. Under normal traffic load, the defect triggered repeated BGP hold timer expirations, leading to session resets. The resets were not isolated to a single router; the defect propagated due to identical firmware on multiple edge routers, causing a region-wide failure.\n\n**Contributing Factor:**  \nThe firmware version had been validated in a lab environment but not under production traffic patterns that included high-volume BGP updates typical of a major peering region.\n\n## 5. SYSTEMIC CONTRIBUTING FACTORS\n\n- **Insufficient canary testing:** The firmware was promoted to production without a staged rollout (e.g., to a single router or smaller region)",
+      "ai_generated": false
+    },
+    "root_cause_analysis": {
+      "title": "Root Cause Analysis",
+      "content": "Root Cause Analysis \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "systemic_contributing_factors": {
+      "title": "Systemic Contributing Factors",
+      "content": "Systemic Contributing Factors \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "action_items": [
+      {
+        "description": "No specific action items identified.",
+        "suggested_owner": "TBD",
+        "priority": "P2",
+        "ai_generated": true
+      }
+    ],
+    "customer_impact": {
+      "title": "Customer Impact",
+      "content": "- **Affected users:** All customers with active Direct Connect VIFs in the Tokyo region (estimated ~1,200 unique accounts).\n- **Impact:** Complete loss of connectivity over dedicated links for 2 hours and 10 minutes. Hybrid networking (on-premises to AWS), data transfer, and access to resources relying on Direct Connect were unavailable. VPN connections over Direct Connect also failed.\n- **Business effects:** Customers experienced interruption of critical workloads (data replication, backup, real-time analytics). Some reported SLA breaches for downstream services. No data loss was reported.\n- **Severity justification:** SEV1 \u2013 core networking service unavailable for a major region, affecting a large number of customers and causing significant operational impact.",
+      "ai_generated": true
+    },
+    "stakeholder_communication_log": {
+      "title": "Stakeholder Communication Log",
+      "content": "Stakeholder Communication Log \u2014 insufficient data.",
+      "ai_generated": false
+    },
+    "regulatory_compliance_impact": {
+      "title": "Regulatory/Compliance Impact",
+      "content": "Regulatory/Compliance Impact \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "resolved_at": "2021-09-02 00:00:00+00:00",
+    "mttr_minutes": 0,
+    "approved": true
+  },
+  "cost_report": {
+    "session_id": "thread-9d7565adecf7",
+    "total_input_tokens": 803,
+    "total_output_tokens": 1724,
+    "total_tokens": 2527,
+    "total_estimated_cost_usd": 0.0,
+    "per_node": [
+      {
+        "node_name": "comms",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 169,
+        "output_tokens": 259,
+        "total_tokens": 428,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 2732
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 117,
+        "output_tokens": 175,
+        "total_tokens": 292,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 4397
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 99,
+        "output_tokens": 266,
+        "total_tokens": 365,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 3478
+      },
+      {
+        "node_name": "postmortem",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 418,
+        "output_tokens": 1024,
+        "total_tokens": 1442,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 8501
+      }
+    ],
+    "models_used": [
+      "deepseek-v4-flash"
+    ]
+  },
+  "session_dir": "tests/fixtures/real-data/intelligentdds-AWS-aws-13/generated"
+}

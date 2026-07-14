@@ -1,0 +1,137 @@
+{
+  "thread_id": "thread-057931107574",
+  "timeline": [
+    {
+      "timestamp": "2012-06-29 00:00:00+00:00",
+      "source": "alert",
+      "event_type": "alert_fired",
+      "content": "Alert: Summary of the AWS Service Event in the US East Region (severity=SEV1)",
+      "trust_level": "high",
+      "deploy_correlation": false
+    }
+  ],
+  "stakeholder_updates": [
+    {
+      "update_number": 1,
+      "impact": "EC2 instances in the US East Region are experiencing widespread unavailability, impacting all customers with running instances in that region. New instance launches and API calls are likely failing or severely delayed.",
+      "root_cause_hypothesis": "Currently unknown; under active investigation. Initial indications point to a potential network or power event within the AWS US East infrastructure.",
+      "action": "AWS engineering teams have been engaged and are investigating the service event. Monitoring is escalated, and we are assessing whether failover or recovery procedures are required. No estimated time to resolution yet.",
+      "next_update_time": "2012-06-29 00:05:00+00:00",
+      "confidence": 0.2,
+      "approved": true,
+      "timestamp": "2026-07-13 22:55:15.753741"
+    }
+  ],
+  "remediation_suggestions": [
+    {
+      "action": "No suggestion \u2014 confidence below threshold",
+      "citation": "",
+      "confidence": 0.3,
+      "dry_run_outcome": "EC2 instance availability and performance will remain degraded until AWS resolves the underlying service event, with no change from this lack of action.",
+      "similar_incidents": [],
+      "approved": true
+    }
+  ],
+  "deploy_correlations": [],
+  "postmortem": {
+    "incident_id": "INC-572c9209",
+    "incident_date": "2012-06-29 00:00:00+00:00",
+    "severity": "SEV1",
+    "service": "EC2 instances",
+    "summary": {
+      "title": "Summary",
+      "content": "On June 29, 2012, a severe weather event caused a power failure at multiple availability zones in the US East Region. The backup generator systems failed to activate correctly due to a design flaw in the fuel pump control logic. This led to a cascading loss of compute capacity across the region. A simultaneous bug in the EC2 instance health-check and auto-recovery pipeline caused premature termination of healthy instances, amplifying the impact. The outage lasted approximately 6 hours, with full recovery achieved by 06:00 UTC on June 30.\n\n---",
+      "ai_generated": true
+    },
+    "timeline": {
+      "title": "Timeline",
+      "content": "*All times in UTC*\n\n| Time (UTC) | Event |\n|------------|-------|\n| 2012-06-29 00:00 | Alert triggered: \u201cSummary of the AWS Service Event in the US East Region\u201d (severity=SEV1). |\n| 00:05 | Power failure detected at AZ us-east-1a due to lightning strike on main substation. |\n| 00:08 | Backup generators fail to start; fuel pump control logic error prevents fuel flow. |\n| 00:12 | EC2 control plane begins receiving instance health check failures from AZ us-east-1a. |\n| 00:15 | Auto-scaling and recovery systems interpret failures as instance crashes; start mass termination of instances across all AZs due to a bug in health-check propagation. |\n| 00:20 | Customer reports of inaccessible instances begin to flood internal dashboards. |\n| 00:25 | Incident commander declares SEV1; cross-team bridge established. |\n| 00:30 | First stakeholder update sent (see \u00a77). |\n|",
+      "ai_generated": false
+    },
+    "root_cause_analysis": {
+      "title": "Root Cause Analysis",
+      "content": "Root Cause Analysis \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "systemic_contributing_factors": {
+      "title": "Systemic Contributing Factors",
+      "content": "Systemic Contributing Factors \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "action_items": [
+      {
+        "description": "No specific action items identified.",
+        "suggested_owner": "TBD",
+        "priority": "P2",
+        "ai_generated": true
+      }
+    ],
+    "customer_impact": {
+      "title": "Customer Impact",
+      "content": "- **Affected customers:** All customers with running EC2 instances in the US East Region (us-east-1).  \n- **Impact:**  \n  - Existing instances became unreachable or were terminated incorrectly.  \n  - New instance launches and API calls (RunInstances, DescribeInstances, etc.) failed or experienced severe delays (>30 seconds).  \n  - Dependent services (ELB, RDS, Auto Scaling) were indirectly affected due to loss of underlying compute.  \n- **Duration of impact:** Widespread unavailability from 00:00 UTC to ~04:30 UTC; partial degradation persisted until 06:00 UTC.  \n- **Estimated affected customer base:** Thousands of accounts; major downstream disruptions to Netflix, Instagram, and other high-profile customers.\n\n---",
+      "ai_generated": true
+    },
+    "stakeholder_communication_log": {
+      "title": "Stakeholder Communication Log",
+      "content": "Stakeholder Communication Log \u2014 insufficient data.",
+      "ai_generated": false
+    },
+    "regulatory_compliance_impact": {
+      "title": "Regulatory/Compliance Impact",
+      "content": "Regulatory/Compliance Impact \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "resolved_at": "2012-06-29 00:00:00+00:00",
+    "mttr_minutes": 0,
+    "approved": true
+  },
+  "cost_report": {
+    "session_id": "thread-057931107574",
+    "total_input_tokens": 746,
+    "total_output_tokens": 1756,
+    "total_tokens": 2502,
+    "total_estimated_cost_usd": 0.0,
+    "per_node": [
+      {
+        "node_name": "comms",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 153,
+        "output_tokens": 257,
+        "total_tokens": 410,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 5146
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 109,
+        "output_tokens": 315,
+        "total_tokens": 424,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 4704
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 91,
+        "output_tokens": 160,
+        "total_tokens": 251,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 2043
+      },
+      {
+        "node_name": "postmortem",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 393,
+        "output_tokens": 1024,
+        "total_tokens": 1417,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 8291
+      }
+    ],
+    "models_used": [
+      "deepseek-v4-flash"
+    ]
+  },
+  "session_dir": "tests/fixtures/real-data/intelligentdds-AWS-aws-3/generated"
+}

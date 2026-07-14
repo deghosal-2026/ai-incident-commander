@@ -1,0 +1,8 @@
+{
+  "incident_id": "aws-11",
+  "source_type": "intelligentdds",
+  "service": "utility power",
+  "severity": "SEV1",
+  "start_time": "2013-12-17T00:00:00+00:00",
+  "provider": "AWS"
+}

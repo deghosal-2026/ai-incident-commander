@@ -1,0 +1,8 @@
+{
+  "incident_id": "aws-1",
+  "source_type": "intelligentdds",
+  "service": "diesel rotary uninterruptable power supply",
+  "severity": "SEV1",
+  "start_time": "2011-06-04T00:00:00+00:00",
+  "provider": "AWS"
+}

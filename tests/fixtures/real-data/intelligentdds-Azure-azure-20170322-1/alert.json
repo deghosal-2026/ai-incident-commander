@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "Multiple services",
+  "summary": "RCA - Increased latency accessing Azure resources",
+  "source": "intelligentdds/Azure",
+  "timestamp": "2017-03-21T00:00:00+00:00"
+}

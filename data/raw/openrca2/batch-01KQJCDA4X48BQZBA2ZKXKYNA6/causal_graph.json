@@ -1,0 +1,176 @@
+{
+    "nodes": [
+        {
+            "timestamp": 1777659719,
+            "component": "service|recommendation",
+            "state": [
+                "degraded"
+            ]
+        },
+        {
+            "timestamp": 1777659722,
+            "component": "span|recommendation::get_product_list",
+            "state": [
+                "slow",
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777659824,
+            "component": "span|recommendation::/oteldemo.RecommendationService/ListRecommendations",
+            "state": [
+                "slow",
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777659824,
+            "component": "span|frontend::grpc.oteldemo.RecommendationService/ListRecommendations",
+            "state": [
+                "slow",
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777659851,
+            "component": "span|frontend::executing api route (pages) /api/recommendations",
+            "state": [
+                "slow",
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777659851,
+            "component": "span|frontend::GET /api/recommendations",
+            "state": [
+                "slow",
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777659845,
+            "component": "span|frontend-proxy::router frontend egress",
+            "state": [
+                "slow",
+                "erroring",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777659845,
+            "component": "span|frontend-proxy::ingress",
+            "state": [
+                "slow",
+                "erroring",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777659722,
+            "component": "span|recommendation::/flagd.evaluation.v1.Service/ResolveBoolean",
+            "state": [
+                "slow",
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777659719,
+            "component": "span|recommendation::/oteldemo.ProductCatalogService/ListProducts",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        }
+    ],
+    "edges": [
+        {
+            "source": "service|recommendation",
+            "target": "span|recommendation::/flagd.evaluation.v1.Service/ResolveBoolean"
+        },
+        {
+            "source": "span|frontend::grpc.oteldemo.RecommendationService/ListRecommendations",
+            "target": "span|frontend::executing api route (pages) /api/recommendations"
+        },
+        {
+            "source": "service|recommendation",
+            "target": "span|recommendation::/oteldemo.ProductCatalogService/ListProducts"
+        },
+        {
+            "source": "span|recommendation::/oteldemo.ProductCatalogService/ListProducts",
+            "target": "span|recommendation::get_product_list"
+        },
+        {
+            "source": "span|frontend::GET /api/recommendations",
+            "target": "span|frontend-proxy::router frontend egress"
+        },
+        {
+            "source": "span|recommendation::/flagd.evaluation.v1.Service/ResolveBoolean",
+            "target": "span|recommendation::get_product_list"
+        },
+        {
+            "source": "span|recommendation::/oteldemo.RecommendationService/ListRecommendations",
+            "target": "span|frontend::grpc.oteldemo.RecommendationService/ListRecommendations"
+        },
+        {
+            "source": "span|frontend-proxy::router frontend egress",
+            "target": "span|frontend-proxy::ingress"
+        },
+        {
+            "source": "service|recommendation",
+            "target": "span|recommendation::/oteldemo.RecommendationService/ListRecommendations"
+        },
+        {
+            "source": "span|recommendation::get_product_list",
+            "target": "span|recommendation::/oteldemo.RecommendationService/ListRecommendations"
+        },
+        {
+            "source": "span|frontend::executing api route (pages) /api/recommendations",
+            "target": "span|frontend::GET /api/recommendations"
+        },
+        {
+            "source": "service|recommendation",
+            "target": "span|recommendation::get_product_list"
+        }
+    ],
+    "root_causes": [
+        {
+            "timestamp": null,
+            "component": "service|recommendation",
+            "state": [
+                "unknown"
+            ]
+        }
+    ],
+    "alarm_nodes": [
+        {
+            "timestamp": 1777659845,
+            "component": "span|frontend-proxy::ingress",
+            "state": [
+                "slow",
+                "erroring",
+                "missing",
+                "healthy"
+            ]
+        }
+    ],
+    "component_to_service": {
+        "service|recommendation": "recommendation",
+        "span|recommendation::get_product_list": "recommendation",
+        "span|recommendation::/oteldemo.RecommendationService/ListRecommendations": "recommendation",
+        "span|frontend::grpc.oteldemo.RecommendationService/ListRecommendations": "frontend",
+        "span|frontend::executing api route (pages) /api/recommendations": "frontend",
+        "span|frontend::GET /api/recommendations": "frontend",
+        "span|frontend-proxy::router frontend egress": "frontend-proxy",
+        "span|frontend-proxy::ingress": "frontend-proxy",
+        "span|recommendation::/flagd.evaluation.v1.Service/ResolveBoolean": "recommendation",
+        "span|recommendation::/oteldemo.ProductCatalogService/ListProducts": "recommendation"
+    }
+}

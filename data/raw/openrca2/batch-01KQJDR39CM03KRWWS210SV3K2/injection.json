@@ -1,0 +1,107 @@
+{
+    "id": 2168,
+    "name": "batch-01KQJDR39CM03KRWWS210SV3K2",
+    "fault_type": "hybrid",
+    "category": "ts",
+    "pre_duration": 5,
+    "start_time": "2026-05-02T02:45:20+08:00",
+    "end_time": "2026-05-02T02:50:19+08:00",
+    "state": "inject_success",
+    "status": "enabled",
+    "benchmark_id": 108,
+    "benchmark_name": "clickhouse",
+    "pedestal_id": 149,
+    "pedestal_name": "ts",
+    "created_at": "2026-05-02T02:45:19.8+08:00",
+    "updated_at": "2026-05-02T02:50:20.5+08:00",
+    "engine_config_summary": [
+        {
+            "app": "ts-consign-service",
+            "chaos_type": "JVMRuntimeMutator",
+            "class": "consign.controller.ConsignController",
+            "duration": 5,
+            "method": "insertConsign",
+            "mutator_config": "constant:\"/consigns\":\"mutated_/consigns\"",
+            "namespace": "ts9",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        },
+        {
+            "app": "ts-consign-price-service",
+            "chaos_type": "JVMLatency",
+            "class": "consignprice.service.ConsignPriceServiceImpl",
+            "duration": 5,
+            "latency_duration": 1490,
+            "method": "getPriceByWeightAndRegion",
+            "namespace": "ts9",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        }
+    ],
+    "task_id": "57a3b007-803c-4a51-a2a6-2cc1cf4083ef",
+    "trace_id": "4c028a3d-441c-4c95-a091-74dc1b42f107",
+    "source": "injection",
+    "description": "Fault batch for task 57a3b007-803c-4a51-a2a6-2cc1cf4083ef (2 faults)",
+    "engine_config": [
+        {
+            "app": "ts-consign-service",
+            "chaos_type": "JVMRuntimeMutator",
+            "class": "consign.controller.ConsignController",
+            "duration": 5,
+            "method": "insertConsign",
+            "mutator_config": "constant:\"/consigns\":\"mutated_/consigns\"",
+            "namespace": "ts9",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        },
+        {
+            "app": "ts-consign-price-service",
+            "chaos_type": "JVMLatency",
+            "class": "consignprice.service.ConsignPriceServiceImpl",
+            "duration": 5,
+            "latency_duration": 1490,
+            "method": "getPriceByWeightAndRegion",
+            "namespace": "ts9",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        }
+    ],
+    "ground_truth": [
+        {
+            "service": [
+                "ts-consign-service"
+            ],
+            "pod": [
+                "ts-consign-service-6b6f847779-nqrzc"
+            ],
+            "container": [
+                "ts-consign-service"
+            ],
+            "function": [
+                "consign.controller.ConsignController.insertConsign"
+            ]
+        },
+        {
+            "service": [
+                "ts-consign-price-service"
+            ],
+            "pod": [
+                "ts-consign-price-service-6c8c59fcf5-l65sm"
+            ],
+            "container": [
+                "ts-consign-price-service"
+            ],
+            "metric": [
+                "network_latency"
+            ],
+            "function": [
+                "consignprice.service.ConsignPriceServiceImpl.getPriceByWeightAndRegion"
+            ]
+        }
+    ],
+    "groundtruth_source": "auto"
+}

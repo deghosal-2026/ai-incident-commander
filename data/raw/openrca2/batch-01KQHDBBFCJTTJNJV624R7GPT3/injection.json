@@ -1,0 +1,80 @@
+{
+    "id": 1911,
+    "name": "batch-01KQHDBBFCJTTJNJV624R7GPT3",
+    "fault_type": "hybrid",
+    "category": "hs",
+    "pre_duration": 5,
+    "start_time": "2026-05-01T17:19:07.767+08:00",
+    "end_time": "2026-05-01T17:24:07.767+08:00",
+    "state": "inject_success",
+    "status": "enabled",
+    "benchmark_id": 108,
+    "benchmark_name": "clickhouse",
+    "pedestal_id": 140,
+    "pedestal_name": "hs",
+    "created_at": "2026-05-01T17:19:07.767+08:00",
+    "updated_at": "2026-05-01T17:29:37.709+08:00",
+    "engine_config_summary": [
+        {
+            "app": "profile",
+            "chaos_type": "PodFailure",
+            "duration": 5,
+            "namespace": "hs35",
+            "system": "hs0",
+            "system_type": "hs",
+            "time_offset": 0
+        },
+        {
+            "app": "recommendation",
+            "chaos_type": "PodFailure",
+            "duration": 5,
+            "namespace": "hs35",
+            "system": "hs0",
+            "system_type": "hs",
+            "time_offset": 0
+        }
+    ],
+    "task_id": "6e575f2f-7aa2-4cc5-8923-df38c2a0751a",
+    "trace_id": "3e2ae79e-825a-4167-b967-ca7ee37dd88f",
+    "source": "injection",
+    "description": "Fault batch for task 6e575f2f-7aa2-4cc5-8923-df38c2a0751a (2 faults)",
+    "engine_config": [
+        {
+            "app": "profile",
+            "chaos_type": "PodFailure",
+            "duration": 5,
+            "namespace": "hs35",
+            "system": "hs0",
+            "system_type": "hs",
+            "time_offset": 0
+        },
+        {
+            "app": "recommendation",
+            "chaos_type": "PodFailure",
+            "duration": 5,
+            "namespace": "hs35",
+            "system": "hs0",
+            "system_type": "hs",
+            "time_offset": 0
+        }
+    ],
+    "ground_truth": [
+        {
+            "service": [
+                "profile"
+            ],
+            "container": [
+                "hotel-reserv-profile"
+            ]
+        },
+        {
+            "service": [
+                "recommendation"
+            ],
+            "container": [
+                "hotel-reserv-recommendation"
+            ]
+        }
+    ],
+    "groundtruth_source": "auto"
+}

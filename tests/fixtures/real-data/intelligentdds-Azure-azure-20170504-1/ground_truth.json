@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170504-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 20:55 and 21:35 UTC on 04 May 2017, a subset of customers using Virtual Machines in Japan East may have experienced intermittent connection failures when trying to access Virtual Machines in the region. Some Virtual Machines may have also restarted unexpectedly. Engineers detected alerts and engaged promptly. The issue was self-healed by the Azure platform self-heal mechanism, Engineers continued to investigate to establish the full root cause and implemented preventive measures to avoid future occurrences. ",
+  "root_cause_key_terms": [
+    "Virtual machines"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 20:55 and 21:35 UTC on 04 May 2017, a subset of customers using Virtual Machines in Japan East may have experienced intermittent connection failures when trying to access Virtual Machines in t",
+  "severity": "SEV1",
+  "service": "Virtual machines"
+}

@@ -1,0 +1,8 @@
+{
+  "incident_id": "azure-20170504-1",
+  "source_type": "intelligentdds",
+  "service": "Virtual machines",
+  "severity": "SEV1",
+  "start_time": "2017-05-04T00:00:00+00:00",
+  "provider": "Azure"
+}

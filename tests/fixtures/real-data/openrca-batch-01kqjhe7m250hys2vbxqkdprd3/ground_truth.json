@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "OPENRCA-S2VBXQKDPRD3",
+  "source_type": "openrca2",
+  "source_url": "https://huggingface.co/datasets/lincyaw/openrca2-v1-500",
+  "company": "OpenRCA2 (ts)",
+  "root_cause": [
+    {
+      "service": [
+        "ts-cancel-service"
+      ],
+      "pod": [
+        "ts-cancel-service-f4fdc9cff-l4m8d"
+      ],
+      "container": [
+        "ts-cancel-service"
+      ],
+      "function": [
+        "cancel.service.CancelServiceImpl.getOrderByIdFromOrder"
+      ]
+    },
+    {
+      "service": [
+        "ts-inside-payment-service",
+        "ts-payment-service"
+      ],
+      "pod": [
+        "ts-inside-payment-service-86896dbc8-fv8kk",
+        "ts-payment-service-7477687b6c-g77cq"
+      ],
+      "container": [
+        "ts-inside-payment-service",
+        "ts-payment-service"
+      ],
+      "span": [
+        "POST"
+      ]
+    }
+  ],
+  "root_cause_key_terms": [
+    "ts-cancel-service",
+    "JVMRuntimeMutator",
+    "ts-inside-payment-service",
+    "DNSError"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "hybrid failure in ts for Duration unknown",
+  "severity": "SEV1",
+  "service": "ts-cancel-service"
+}

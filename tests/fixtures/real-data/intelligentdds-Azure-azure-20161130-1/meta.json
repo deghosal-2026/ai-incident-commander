@@ -1,0 +1,8 @@
+{
+  "incident_id": "azure-20161130-1",
+  "source_type": "intelligentdds",
+  "service": "Azure customer resources and platform services",
+  "severity": "SEV1",
+  "start_time": "2016-11-30T00:00:00+00:00",
+  "provider": "Azure"
+}

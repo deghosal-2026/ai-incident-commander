@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "SQL Database",
+  "summary": "SQL Database - North Central US",
+  "source": "intelligentdds/Azure",
+  "timestamp": "2016-12-09T00:00:00+00:00"
+}

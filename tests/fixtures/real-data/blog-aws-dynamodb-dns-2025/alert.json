@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "AWS DynamoDB",
+  "summary": "DynamoDB DNS Outage \u2014 70 Services Affected",
+  "source": "blog/aws",
+  "timestamp": "2025-10-19T23:48:00Z"
+}

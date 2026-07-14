@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "Microsoft Account authentication service",
+  "summary": "Microsoft Accounts Experiencing Login Failures",
+  "source": "intelligentdds/Azure",
+  "timestamp": "2017-03-21T00:00:00+00:00"
+}

@@ -1,0 +1,9 @@
+{
+  "incident_id": "OPENRCA-7PBHT9AH7HY7",
+  "source_type": "openrca2",
+  "service": "ts-route-plan-service",
+  "severity": "SEV1",
+  "start_time": "2026-05-02T04:23:40+08:00",
+  "system": "ts",
+  "chaos_family": "hybrid"
+}

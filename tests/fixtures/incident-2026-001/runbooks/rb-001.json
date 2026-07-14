@@ -1,0 +1,8 @@
+{
+  "id": "rb-001",
+  "title": "Database Connection Pool Tuning",
+  "content": "## Diagnostics\n1. Check pool utilization: `SHOW POOL_STATUS`\n2. Check active connections: `SELECT count(*) FROM pg_stat_activity`\n3. Check wait events: `SELECT * FROM pg_stat_activity WHERE wait_event IS NOT NULL`\n\n## Resolution\n1. Increase pool size: `ALTER SYSTEM SET max_connections = 200`\n2. Restart pool: `systemctl restart pgbouncer`\n3. Verify: `SHOW POOL_STATUS` should show < 80% utilization\n\n## Prevention\n1. Add circuit breaker for DB connections\n2. Implement connection leak detection\n3. Set up alert at 85% pool utilization",
+  "keywords": ["database", "connection", "pool", "pgbouncer"],
+  "service": "payment-service",
+  "section": "Triage"
+}

@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "1.1.1.1 DNS Resolver",
+  "summary": "1.1.1.1 DNS Resolver Outage",
+  "source": "blog/cloudflare",
+  "timestamp": "2025-07-14T21:48:00Z"
+}

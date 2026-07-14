@@ -1,0 +1,109 @@
+{
+    "id": 2278,
+    "name": "batch-01KQJKB0WEPZ8ZFKSSE831FRQ0",
+    "fault_type": "hybrid",
+    "category": "ts",
+    "pre_duration": 5,
+    "start_time": "2026-05-02T04:23:03+08:00",
+    "end_time": "2026-05-02T04:28:02+08:00",
+    "state": "inject_success",
+    "status": "enabled",
+    "benchmark_id": 108,
+    "benchmark_name": "clickhouse",
+    "pedestal_id": 149,
+    "pedestal_name": "ts",
+    "created_at": "2026-05-02T04:23:02.816+08:00",
+    "updated_at": "2026-05-02T04:28:03.222+08:00",
+    "engine_config_summary": [
+        {
+            "app": "ts-travel-plan-service",
+            "chaos_type": "JVMRuntimeMutator",
+            "class": "travelplan.service.TravelPlanServiceImpl",
+            "duration": 5,
+            "method": "getRestTicketNumber",
+            "mutator_config": "constant:\"/api/v1/seatservice/seats/left_tickets\":\"mutated_/api/v1/seatservice/seats/left_tickets\"",
+            "namespace": "ts1",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        },
+        {
+            "app": "ts-seat-service",
+            "chaos_type": "NetworkLoss",
+            "correlation": 21,
+            "direction": "to",
+            "duration": 5,
+            "loss": 33,
+            "namespace": "ts1",
+            "system": "ts",
+            "system_type": "ts",
+            "target_service": "ts-config-service",
+            "time_offset": 0
+        }
+    ],
+    "task_id": "e34c5ce2-5a5b-4d69-b5b1-da2b12cb4ec0",
+    "trace_id": "19833ae8-e5db-41c1-bbba-c391f732ec6a",
+    "source": "injection",
+    "description": "Fault batch for task e34c5ce2-5a5b-4d69-b5b1-da2b12cb4ec0 (2 faults)",
+    "engine_config": [
+        {
+            "app": "ts-travel-plan-service",
+            "chaos_type": "JVMRuntimeMutator",
+            "class": "travelplan.service.TravelPlanServiceImpl",
+            "duration": 5,
+            "method": "getRestTicketNumber",
+            "mutator_config": "constant:\"/api/v1/seatservice/seats/left_tickets\":\"mutated_/api/v1/seatservice/seats/left_tickets\"",
+            "namespace": "ts1",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        },
+        {
+            "app": "ts-seat-service",
+            "chaos_type": "NetworkLoss",
+            "correlation": 21,
+            "direction": "to",
+            "duration": 5,
+            "loss": 33,
+            "namespace": "ts1",
+            "system": "ts",
+            "system_type": "ts",
+            "target_service": "ts-config-service",
+            "time_offset": 0
+        }
+    ],
+    "ground_truth": [
+        {
+            "service": [
+                "ts-travel-plan-service"
+            ],
+            "pod": [
+                "ts-travel-plan-service-7fb6599f4b-c6ps8"
+            ],
+            "container": [
+                "ts-travel-plan-service"
+            ],
+            "function": [
+                "travelplan.service.TravelPlanServiceImpl.getRestTicketNumber"
+            ]
+        },
+        {
+            "service": [
+                "ts-seat-service",
+                "ts-config-service"
+            ],
+            "pod": [
+                "ts-config-service-9f97b8668-55jvq",
+                "ts-seat-service-66bfd68447-ttrrr"
+            ],
+            "container": [
+                "ts-config-service",
+                "ts-seat-service"
+            ],
+            "span": [
+                "GET"
+            ]
+        }
+    ],
+    "groundtruth_source": "auto"
+}

@@ -1,0 +1,107 @@
+{
+    "id": 2210,
+    "name": "batch-01KQJFMGW8BHEJBYK0YGCEESZW",
+    "fault_type": "hybrid",
+    "category": "ts",
+    "pre_duration": 5,
+    "start_time": "2026-05-02T03:18:20+08:00",
+    "end_time": "2026-05-02T03:23:19+08:00",
+    "state": "inject_success",
+    "status": "enabled",
+    "benchmark_id": 108,
+    "benchmark_name": "clickhouse",
+    "pedestal_id": 149,
+    "pedestal_name": "ts",
+    "created_at": "2026-05-02T03:18:19.796+08:00",
+    "updated_at": "2026-05-02T03:23:20.434+08:00",
+    "engine_config_summary": [
+        {
+            "app": "ts-admin-user-service",
+            "chaos_type": "JVMRuntimeMutator",
+            "class": "adminuser.service.AdminUserServiceImpl",
+            "duration": 5,
+            "method": "getAllUsers",
+            "mutator_config": "constant:\"/api/v1/userservice/users\":\"mutated_/api/v1/userservice/users\"",
+            "namespace": "ts6",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        },
+        {
+            "app": "ts-user-service",
+            "chaos_type": "JVMLatency",
+            "class": "user.service.impl.UserServiceImpl",
+            "duration": 5,
+            "latency_duration": 1170,
+            "method": "getAllUsers",
+            "namespace": "ts6",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        }
+    ],
+    "task_id": "8ce34d9a-837c-4e6f-b52d-493919a1a156",
+    "trace_id": "b99bd754-068d-4917-8906-2341db4407e5",
+    "source": "injection",
+    "description": "Fault batch for task 8ce34d9a-837c-4e6f-b52d-493919a1a156 (2 faults)",
+    "engine_config": [
+        {
+            "app": "ts-admin-user-service",
+            "chaos_type": "JVMRuntimeMutator",
+            "class": "adminuser.service.AdminUserServiceImpl",
+            "duration": 5,
+            "method": "getAllUsers",
+            "mutator_config": "constant:\"/api/v1/userservice/users\":\"mutated_/api/v1/userservice/users\"",
+            "namespace": "ts6",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        },
+        {
+            "app": "ts-user-service",
+            "chaos_type": "JVMLatency",
+            "class": "user.service.impl.UserServiceImpl",
+            "duration": 5,
+            "latency_duration": 1170,
+            "method": "getAllUsers",
+            "namespace": "ts6",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        }
+    ],
+    "ground_truth": [
+        {
+            "service": [
+                "ts-admin-user-service"
+            ],
+            "pod": [
+                "ts-admin-user-service-7dd5b78674-k69xz"
+            ],
+            "container": [
+                "ts-admin-user-service"
+            ],
+            "function": [
+                "adminuser.service.AdminUserServiceImpl.getAllUsers"
+            ]
+        },
+        {
+            "service": [
+                "ts-user-service"
+            ],
+            "pod": [
+                "ts-user-service-76875c7b4d-s8nv7"
+            ],
+            "container": [
+                "ts-user-service"
+            ],
+            "metric": [
+                "network_latency"
+            ],
+            "function": [
+                "user.service.impl.UserServiceImpl.getAllUsers"
+            ]
+        }
+    ],
+    "groundtruth_source": "auto"
+}

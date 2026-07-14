@@ -1,0 +1,8 @@
+{
+  "incident_id": "azure-20161121-1",
+  "source_type": "intelligentdds",
+  "service": "Azure Resource Manager",
+  "severity": "SEV1",
+  "start_time": "2016-11-21T00:00:00+00:00",
+  "provider": "Azure"
+}

@@ -1,0 +1,5264 @@
+[
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[query][Query train]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Query all routes]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[query][Query TripResponse]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[today date][y: 2026][m:4][d: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[departrue date][y: 2026][m:4][d: 21]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTicketsByBatch][before get basic][trips: [Trip(id=64a9b497-6a28-411c-8a5d-fc7e937a8b57, tripId=D1345, trainTypeName=DongCheOne, routeId=f3d4d4ef-693b-4456-8eed-59c0d717dd08, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 07:00:00, endTime=2013-05-04 19:59:52), Trip(id=7566911e-125f-4a6c-b97f-49492281c9a9, tripId=G1237, trainTypeName=GaoTieTwo, routeId=084837bb-53c8-4438-87c8-0321a4d09917, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 08:00:00, endTime=2013-05-04 17:21:52), Trip(id=75d9aafc-249e-4610-8fcc-966483cc91d3, tripId=G1235, trainTypeName=GaoTieOne, routeId=aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 12:00:00, endTime=2013-05-04 17:51:52), Trip(id=b019e239-db5b-4fdd-9f9e-a22a0dbc14a6, tripId=G1234, trainTypeName=GaoTieOne, routeId=92708982-77af-4318-be25-57ccb0ff69ad, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 09:00:00, endTime=2013-05-04 15:51:52), Trip(id=c0fef95e-e75f-4185-892a-fb11de63152d, tripId=G1236, trainTypeName=GaoTieOne, routeId=a3f256c1-0e43-4f7d-9c21-121bf258101f, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 14:00:00, endTime=2013-05-04 20:51:52)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[retrieveByNames][Retrieve train][TrainTypeNames: [DongCheOne, GaoTieOne, GaoTieTwo]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getRouteById][Query route by id][RouteId: [aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, 92708982-77af-4318-be25-57ccb0ff69ad, a3f256c1-0e43-4f7d-9c21-121bf258101f, f3d4d4ef-693b-4456-8eed-59c0d717dd08, 084837bb-53c8-4438-87c8-0321a4d09917]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "[getRouteById][Find route error][Route not found][RouteIds: [aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, 92708982-77af-4318-be25-57ccb0ff69ad, a3f256c1-0e43-4f7d-9c21-121bf258101f, f3d4d4ef-693b-4456-8eed-59c0d717dd08, 084837bb-53c8-4438-87c8-0321a4d09917]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTicketsByBatch][Ts-basic-service response status is 0][response is: Response(status=0, msg=all routes don't exist, data=null)]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[query][Query train]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Query all routes]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[query][Query TripResponse]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[today date][y: 2026][m:4][d: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[departrue date][y: 2026][m:4][d: 24]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTicketsByBatch][before get basic][trips: [Trip(id=64a9b497-6a28-411c-8a5d-fc7e937a8b57, tripId=D1345, trainTypeName=DongCheOne, routeId=f3d4d4ef-693b-4456-8eed-59c0d717dd08, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 07:00:00, endTime=2013-05-04 19:59:52), Trip(id=7566911e-125f-4a6c-b97f-49492281c9a9, tripId=G1237, trainTypeName=GaoTieTwo, routeId=084837bb-53c8-4438-87c8-0321a4d09917, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 08:00:00, endTime=2013-05-04 17:21:52), Trip(id=75d9aafc-249e-4610-8fcc-966483cc91d3, tripId=G1235, trainTypeName=GaoTieOne, routeId=aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 12:00:00, endTime=2013-05-04 17:51:52), Trip(id=b019e239-db5b-4fdd-9f9e-a22a0dbc14a6, tripId=G1234, trainTypeName=GaoTieOne, routeId=92708982-77af-4318-be25-57ccb0ff69ad, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 09:00:00, endTime=2013-05-04 15:51:52), Trip(id=c0fef95e-e75f-4185-892a-fb11de63152d, tripId=G1236, trainTypeName=GaoTieOne, routeId=a3f256c1-0e43-4f7d-9c21-121bf258101f, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 14:00:00, endTime=2013-05-04 20:51:52)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[retrieveByNames][Retrieve train][TrainTypeNames: [DongCheOne, GaoTieOne, GaoTieTwo]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getRouteById][Query route by id][RouteId: [aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, 92708982-77af-4318-be25-57ccb0ff69ad, a3f256c1-0e43-4f7d-9c21-121bf258101f, f3d4d4ef-693b-4456-8eed-59c0d717dd08, 084837bb-53c8-4438-87c8-0321a4d09917]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "[getRouteById][Find route error][Route not found][RouteIds: [aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, 92708982-77af-4318-be25-57ccb0ff69ad, a3f256c1-0e43-4f7d-9c21-121bf258101f, f3d4d4ef-693b-4456-8eed-59c0d717dd08, 084837bb-53c8-4438-87c8-0321a4d09917]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTicketsByBatch][Ts-basic-service response status is 0][response is: Response(status=0, msg=all routes don't exist, data=null)]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Query all routes]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getRouteById][Query route by id][RouteId: [d693a2c5-ef87-4a3c-bef8-600b43f62c68, 1367db1f-461e-4ab7-87ad-2bcc05fd9cb7, 9fc9c261-3263-4bfa-82f8-bb44e06b2f52, 20eb7122-3a11-423f-b10a-be0dc5bce7db, 0b23bd3e-876a-4af3-b920-c50a90c90b04]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getSoldTickets][Get Sold Ticket][Travel Date: 2026-05-13]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[getSoldTickets][Seat][No content][seat from date: 2026-05-13, train number: Z1235",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getSoldTickets][Get Sold Ticket][Travel Date: 2026-05-13]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[getSoldTickets][Seat][No content][seat from date: 2026-05-13, train number: Z1235",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[query][Query TripResponse]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[today date][y: 2026][m:4][d: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[departrue date][y: 2026][m:4][d: 20]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTicketsByBatch][before get basic][trips: [Trip(id=64a9b497-6a28-411c-8a5d-fc7e937a8b57, tripId=D1345, trainTypeName=DongCheOne, routeId=f3d4d4ef-693b-4456-8eed-59c0d717dd08, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 07:00:00, endTime=2013-05-04 19:59:52), Trip(id=7566911e-125f-4a6c-b97f-49492281c9a9, tripId=G1237, trainTypeName=GaoTieTwo, routeId=084837bb-53c8-4438-87c8-0321a4d09917, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 08:00:00, endTime=2013-05-04 17:21:52), Trip(id=75d9aafc-249e-4610-8fcc-966483cc91d3, tripId=G1235, trainTypeName=GaoTieOne, routeId=aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 12:00:00, endTime=2013-05-04 17:51:52), Trip(id=b019e239-db5b-4fdd-9f9e-a22a0dbc14a6, tripId=G1234, trainTypeName=GaoTieOne, routeId=92708982-77af-4318-be25-57ccb0ff69ad, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 09:00:00, endTime=2013-05-04 15:51:52), Trip(id=c0fef95e-e75f-4185-892a-fb11de63152d, tripId=G1236, trainTypeName=GaoTieOne, routeId=a3f256c1-0e43-4f7d-9c21-121bf258101f, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 14:00:00, endTime=2013-05-04 20:51:52)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTicketsByBatch][Ts-basic-service response status is 0][response is: Response(status=0, msg=all routes don't exist, data=null)]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrdersForRefresh][Query Orders][for LoginId:4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 1][Get Orders Number of Account][size: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Status Fits End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Travel Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Bought Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check All Requirement End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Get order num][size:0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWQiOiI1NDUwYzY4YS01ZmIzLTRjMmItYThjNi02M2VhM2JjNDkwNjMiLCJpYXQiOjE3Nzc2NDkwMzMsImV4cCI6MTc3NzY1MjYzM30.Wzf8WV-ZzqR3zSfe171Hw46Bhp12y3-0mYVVXirRxiY USER ID: 5450c68a-5fb3-4c2b-a8c6-63ea3bc49063]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTAzMywiZXhwIjoxNzc3NjUyNjMzfQ.x1dcxrZTTYlkPyJFQie58Mq6-MKxuAWVQBGtVcyVeQU USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrdersForRefresh][Query Orders][for LoginId:4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Get filtered orders][size:0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTAzNCwiZXhwIjoxNzc3NjUyNjM0fQ.NudsXPoPMUccjVR5pEQTrNGDLhs9pZNFG2Ca3PUyzUI USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrdersForRefresh][Query Orders][for LoginId:4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Get filtered orders][size:0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTAzNCwiZXhwIjoxNzc3NjUyNjM0fQ.NudsXPoPMUccjVR5pEQTrNGDLhs9pZNFG2Ca3PUyzUI USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrdersForRefresh][Query Orders][for LoginId:4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Get filtered orders][size:0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTAzNCwiZXhwIjoxNzc3NjUyNjM0fQ.NudsXPoPMUccjVR5pEQTrNGDLhs9pZNFG2Ca3PUyzUI USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getCheapest][Search Cheapest][start: zhenjiang,end: nanjing,time: 2026-05-24]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[searchCheapestResult][Get Cheapest Routes][From: zhenjiang, To: nanjing, Num: 5, Date: 2026-05-24]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTripFromHighSpeedTravelServive][trip info: TripInfo(startPlace=zhenjiang, endPlace=nanjing, departureTime=2026-05-24)]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: admin",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: admin]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWQiOiI1NDUwYzY4YS01ZmIzLTRjMmItYThjNi02M2VhM2JjNDkwNjMiLCJpYXQiOjE3Nzc2NDkwMzQsImV4cCI6MTc3NzY1MjYzNH0.qFvJaj8e5ro-wQIq8rVHvJ1Xr_oYlT67WN166uo2i7k USER ID: 5450c68a-5fb3-4c2b-a8c6-63ea3bc49063]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllOrders][Find All Order]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllOrders][Find orders with pagination][page size:10, total:93]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[addNewOrder][Admin Add Order][Ready to Add Order]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[addNewOrder][Admin Add Order Success][OrderId: 319698a4-9ed6-45a2-8e18-c4aaa981750c , Price: 0.2]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[updateOrder][Update Order][OrderId: 319698a4-9ed6-45a2-8e18-c4aaa981750c]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[updateOrder][Admin Update Order][Order Info:Order(id=319698a4-9ed6-45a2-8e18-c4aaa981750c, boughtDate=1995-01-25, travelDate=2026-05-10 15:23:54, travelTime=18:01:41, accountId=7107aae6-11a0-4ed4-953e-0b040a3a4546, contactsName=Miss Rachelle Oberbrunner, documentType=0, contactsDocumentNumber=DocumentNumber_One, trainNumber=G762, coachNumber=7, seatClass=2, seatNumber=18, from=jinan, to=taiyuan, status=1, price=0.1)] ",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[updateOrder][Admin Update Order Success][OrderId: 319698a4-9ed6-45a2-8e18-c4aaa981750c]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTAzNCwiZXhwIjoxNzc3NjUyNjM0fQ.NudsXPoPMUccjVR5pEQTrNGDLhs9pZNFG2Ca3PUyzUI USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Query all routes]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getMinStation][Search Min Station][start: shanghaihongqiao,end: shanghai,time: 2026-05-27]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[searchMinStopStations][Get Min Stop Stations][From: shanghaihongqiao, To: shanghai, Num: 5, Date: 2026-05-27]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[searchMinStopStations][Start and Finish][From Id: shanghaihongqiao To: shanghai]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getRouteByStartAndEnd][Query routes][start: shanghaihongqiao, end: shanghai]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getRouteByStartAndEnd][Find All][size:26]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[searchMinStopStations][Get the route][Candidate Route Number: 3]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTripByRoute][Get trips by Route id][RouteIdNumber: 3]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[searchMinStopStations][Get train Information][Trips Num: 3]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[searchMinStopStations][Trips Response Unit Num: 0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[getMinStation][Get min stations trip warn][Route Plan Result Units: No Content]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTAzNCwiZXhwIjoxNzc3NjUyNjM0fQ.NudsXPoPMUccjVR5pEQTrNGDLhs9pZNFG2Ca3PUyzUI USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrdersForRefresh][Query Orders][for LoginId:4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Get filtered orders][size:0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrdersForRefresh][Query Orders][for LoginId:4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 1][Get Orders Number of Account][size: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Status Fits End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Travel Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Bought Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check All Requirement End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Get order num][size:0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[query][Query train]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Query all routes]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[query][Query TripResponse]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[today date][y: 2026][m:4][d: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[departrue date][y: 2026][m:4][d: 13]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTicketsByBatch][before get basic][trips: [Trip(id=64a9b497-6a28-411c-8a5d-fc7e937a8b57, tripId=D1345, trainTypeName=DongCheOne, routeId=f3d4d4ef-693b-4456-8eed-59c0d717dd08, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 07:00:00, endTime=2013-05-04 19:59:52), Trip(id=7566911e-125f-4a6c-b97f-49492281c9a9, tripId=G1237, trainTypeName=GaoTieTwo, routeId=084837bb-53c8-4438-87c8-0321a4d09917, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 08:00:00, endTime=2013-05-04 17:21:52), Trip(id=75d9aafc-249e-4610-8fcc-966483cc91d3, tripId=G1235, trainTypeName=GaoTieOne, routeId=aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 12:00:00, endTime=2013-05-04 17:51:52), Trip(id=b019e239-db5b-4fdd-9f9e-a22a0dbc14a6, tripId=G1234, trainTypeName=GaoTieOne, routeId=92708982-77af-4318-be25-57ccb0ff69ad, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 09:00:00, endTime=2013-05-04 15:51:52), Trip(id=c0fef95e-e75f-4185-892a-fb11de63152d, tripId=G1236, trainTypeName=GaoTieOne, routeId=a3f256c1-0e43-4f7d-9c21-121bf258101f, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 14:00:00, endTime=2013-05-04 20:51:52)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5b933786 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7ecb756e (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@237e16de (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[query][Query train]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Query all routes]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6055c298 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: IYOe01]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: D5F593C53AC549148B0D925EB88D4F0E]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 2BDA8AA8273846B8B98B353E525DE3EA]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTA1NSwiZXhwIjoxNzc3NjUyNjU1fQ.ExhEv_ma4rtEbjTNvI0GGGgeomg4JTIcEYbT7hlAxXA USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrdersForRefresh][Query Orders][for LoginId:4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 1][Get Orders Number of Account][size: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Status Fits End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Travel Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Bought Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check All Requirement End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Get order num][size:0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: gqDYJ7]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 39E214CD389343F88796934AB9800438]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 6BEA6C6074744FE9ABC66D687C4DD653]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTA1NSwiZXhwIjoxNzc3NjUyNjU1fQ.ExhEv_ma4rtEbjTNvI0GGGgeomg4JTIcEYbT7hlAxXA USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrdersForRefresh][Query Orders][for LoginId:4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 1][Get Orders Number of Account][size: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Status Fits End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Travel Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Bought Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check All Requirement End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Get order num][size:0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: PV0ppA]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 746F5E17A77E4294A2F553A2D5242812]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: EF750609BDDC4A319C20F0630A7BEE94]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTA1NSwiZXhwIjoxNzc3NjUyNjU1fQ.ExhEv_ma4rtEbjTNvI0GGGgeomg4JTIcEYbT7hlAxXA USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: O91RvS]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: A198AFA286324218A2839B6A24E74732]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 109EDABD06A445C6B235A51AF29C5A30]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTA1NSwiZXhwIjoxNzc3NjUyNjU1fQ.ExhEv_ma4rtEbjTNvI0GGGgeomg4JTIcEYbT7hlAxXA USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Query all routes]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[searchMinStopStations][Get Min Stop Stations][From: wuxi, To: taiyuan, Num: 5, Date: 2026-05-25]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[searchMinStopStations][Start and Finish][From Id: wuxi To: taiyuan]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getRouteByStartAndEnd][Query routes][start: wuxi, end: taiyuan]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getRouteByStartAndEnd][Find All][size:26]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[searchMinStopStations][Get the route][Candidate Route Number: 2]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTripByRoute][Get Trips by Route ids][RouteIds: 2]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[searchMinStopStations][Get train Information][Trips Num: 2]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[searchMinStopStations][Trips Response Unit Num: 0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: g04UQm]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 03625FE63053431EA1959D59236603A7]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: A0A146361C3447B0AC1B16EAB6F6D339]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrdersForRefresh][Query Orders][for LoginId:4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 1][Get Orders Number of Account][size: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Status Fits End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Travel Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Bought Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check All Requirement End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Get order num][size:0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 49DE4D73852048E5BD8F5179C4FF2A29]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Get all routes request]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Query all routes]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "[getAllRoutes][receive response][Get routes error][response code: 200]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[deleteRoute][Delete route][route id: 67e700cb-e378-414f-8b73-37e87d10fc9b]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[deleteRoute][Delete route][RouteId: 67e700cb-e378-414f-8b73-37e87d10fc9b]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "[deleteRoute][response response][Delete error][response code: 200]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: DEAFE34BBF314D9A9B27B88E282375EE]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Get all routes request]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Query all routes]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "[getAllRoutes][receive response][Get routes error][response code: 200]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[addRoute][Create and modify route][route id: 18ae0637-dcf5-4f2a-87d8-53d7b3de967c, from station shanghai to station xuzhou]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[checkStationsExists][Check Stations Exists][stationNames: [shanghai, jiaxingnan, hangzhou, zhenjiang, taiyuan, xuzhou]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryForIdBatch][Query stations for id batch][StationNameNumbers: 6]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@23b87702 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@52638f53 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "SQL Error: 0, SQLState: 08003",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "HikariPool-1 - Connection is not available, request timed out after 30001ms.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "No operations allowed after connection closed.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataAccessResourceFailureException: Unable to acquire JDBC Connection [HikariPool-1 - Connection is not available, request timed out after 30001ms.] [n/a]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Query all routes]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getQuickest][Search Quickest][start: jinan,end: xuzhou,time: 2026-05-25]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[searchQuickestResult][Get Quickest Routes][From: jinan, To: xuzhou, Num: 5, Date: 2026-05-25]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTripFromHighSpeedTravelServive][trip info: TripInfo(startPlace=jinan, endPlace=xuzhou, departureTime=2026-05-25)]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: onjzUd]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: E038047F032649558FDD1A41D86D688E]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: EF9E25F0D45E4FE0B5BCA8F01ED49015]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTA3NywiZXhwIjoxNzc3NjUyNjc3fQ.Uh2nUYTQDwWYkyOp9PbM25ovwgg_8wWM2c8dpA3n3vk USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrdersForRefresh][Query Orders][for LoginId:4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 1][Get Orders Number of Account][size: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Status Fits End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Travel Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Bought Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check All Requirement End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Get order num][size:0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: admin",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 0A17078444964D06ACC629FC3FD964DD]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: admin]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWQiOiI1NDUwYzY4YS01ZmIzLTRjMmItYThjNi02M2VhM2JjNDkwNjMiLCJpYXQiOjE3Nzc2NDkwNzcsImV4cCI6MTc3NzY1MjY3N30.XKOlilZbhwhXaWIRGFQ6mA1Kzst4CTsWKUS5FJuzlGs USER ID: 5450c68a-5fb3-4c2b-a8c6-63ea3bc49063]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[createDefaultUser][Create default auth user with authDto][AuthDto: AuthDto(userId=7d29f97d-0442-4b73-8f9a-51f55eb60cea, userName=QMGDKgA, password=yfHBdpJkWBTtfyyMOTejLBwBsvYIqZOkoyLcVVAsKMhmXbRQIM)]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[createDefaultAuthUser][Register User Info][AuthDto name: QMGDKgA]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[checkUserCreateInfo][Check user create info][userId: 7d29f97d-0442-4b73-8f9a-51f55eb60cea, userName: QMGDKgA]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[query][Query train]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Query all routes]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 447DCFE461084A41959A1FB1B7CBFCE7]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Get all routes request]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Query all routes]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "[getAllRoutes][receive response][Get routes error][response code: 200]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[deleteRoute][Delete route][route id: 5a509d3c-cf59-47bf-9fb7-2876790d6b83]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[deleteRoute][Delete route][RouteId: 5a509d3c-cf59-47bf-9fb7-2876790d6b83]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "[deleteRoute][response response][Delete error][response code: 200]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: ec2Yuq]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 2F2989D506574640A58A8D5B518EC77D]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: B9E6A98F42D844D787D5C219F8A54DBE]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTA5NSwiZXhwIjoxNzc3NjUyNjk1fQ.1W84ckUg09aa_ocnjAS4KW8Gbwq23IkskX9oZ978t_Y USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrdersForRefresh][Query Orders][for LoginId:4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Get filtered orders][size:0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrdersForRefresh][Query Orders][for LoginId:4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 1][Get Orders Number of Account][size: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Status Fits End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Travel Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Bought Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check All Requirement End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Get order num][size:0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: DClIo8]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: CD935223A60A42FC8FBCD7B300A8774A]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 144DB140BEB348A6A424B0C9927C3CD6]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTA5NSwiZXhwIjoxNzc3NjUyNjk1fQ.1W84ckUg09aa_ocnjAS4KW8Gbwq23IkskX9oZ978t_Y USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrdersForRefresh][Query Orders][for LoginId:4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Get filtered orders][size:0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrdersForRefresh][Query Orders][for LoginId:4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 1][Get Orders Number of Account][size: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Status Fits End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Travel Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Bought Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check All Requirement End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Get order num][size:0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: ADSy2O]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 7FD331EE138148AFA071C0172B16F3B8]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: C373E8C2699D43198CAE4849A704FE16]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTA5NSwiZXhwIjoxNzc3NjUyNjk1fQ.1W84ckUg09aa_ocnjAS4KW8Gbwq23IkskX9oZ978t_Y USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrdersForRefresh][Query Orders][for LoginId:4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Get filtered orders][size:0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrdersForRefresh][Query Orders][for LoginId:4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 1][Get Orders Number of Account][size: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Status Fits End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Travel Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Bought Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check All Requirement End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Get order num][size:0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: admin",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 0034B81952014E638363678CA47B3A62]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: admin]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWQiOiI1NDUwYzY4YS01ZmIzLTRjMmItYThjNi02M2VhM2JjNDkwNjMiLCJpYXQiOjE3Nzc2NDkwOTUsImV4cCI6MTc3NzY1MjY5NX0.y1sXhvughpPX6rCarAywYF4553GOs0Kwg_XjUVZt4b4 USER ID: 5450c68a-5fb3-4c2b-a8c6-63ea3bc49063]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllTravels][Get all travels]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllTravels][Get All Travels]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[adminQueryAll][Admin query all trips]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getRouteByRouteId][Get Route By Id][Route ID\uff1af3d4d4ef-693b-4456-8eed-59c0d717dd08]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getRouteByRouteId][Get Route By Id][Routes Response is : Response(status=0, msg=No content with the routeId, data=null)]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getRouteByRouteId][Get Route By Id][Route ID\uff1a084837bb-53c8-4438-87c8-0321a4d09917]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getRouteByRouteId][Get Route By Id][Routes Response is : Response(status=0, msg=No content with the routeId, data=null)]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getRouteByRouteId][Get Route By Id][Route ID\uff1aaefcef3f-3f42-46e8-afd7-6cb2a928bd3d]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getRouteByRouteId][Get Route By Id][Routes Response is : Response(status=0, msg=No content with the routeId, data=null)]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getRouteByRouteId][Get Route By Id][Route ID\uff1a92708982-77af-4318-be25-57ccb0ff69ad]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getRouteByRouteId][Get Route By Id][Routes Response is : Response(status=0, msg=No content with the routeId, data=null)]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getRouteByRouteId][Get Route By Id][Route ID\uff1aa3f256c1-0e43-4f7d-9c21-121bf258101f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getRouteByRouteId][Get Route By Id][Routes Response is : Response(status=0, msg=No content with the routeId, data=null)]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllTravels][Get Travel From ts-travel-service successfully!]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[adminQueryAll][Admin query all trips]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getRouteByRouteId][Get Route By Id Success]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "[getRouteByRouteId][Get Route By Id Fail][Route not found][RouteId: 0b23bd3e-876a-4af3-b920-c50a90c90b04]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getRouteByRouteId][Get Route By Id Success]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "[getRouteByRouteId][Get Route By Id Fail][Route not found][RouteId: 20eb7122-3a11-423f-b10a-be0dc5bce7db]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "[getRouteByRouteId][Get Route By Id Fail][Route not found][RouteId: d693a2c5-ef87-4a3c-bef8-600b43f62c68]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllTravels][Get Travel From ts-travel2-service successfully!]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[addTravel][Add travel][trip id: K709, train type name: GaoTieTwo, form station taiyuan to station taiyuan,jinan,hangzhou,zhenjiang,jiaxingnan,wuxi, login id: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWQiOiI1NDUwYzY4YS01ZmIzLTRjMmItYThjNi02M2VhM2JjNDkwNjMiLCJpYXQiOjE3Nzc2NDkwOTUsImV4cCI6MTc3NzY1MjY5NX0.y1sXhvughpPX6rCarAywYF4553GOs0Kwg_XjUVZt4b4]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[checkStationsExists][Check Stations Exists][stationNames: [taiyuan, wuxi]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryForIdBatch][Query stations for id batch][StationNameNumbers: 2]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: kCSMBt]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 367DD799892544EF9376A4F9B81B4522]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 3C8B9B47DC2C4FA985CA1C463C353FF4]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTExOCwiZXhwIjoxNzc3NjUyNzE4fQ.HOrcqCKWER5PdwskYgSwlmLeGrE-IubivfVlbZbpWz8 USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: admin",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 6954D7F75CC544158422B51EE009C317]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: admin]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWQiOiI1NDUwYzY4YS01ZmIzLTRjMmItYThjNi02M2VhM2JjNDkwNjMiLCJpYXQiOjE3Nzc2NDkxMTksImV4cCI6MTc3NzY1MjcxOX0.fov0gRlA9nacVDpGSNzWjUoDLWwcuOyATVi_iDsgsSc USER ID: 5450c68a-5fb3-4c2b-a8c6-63ea3bc49063]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllOrders][Get all orders][getAllOrders]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllOrders][Get All Orders: Generate Reponse Begin]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllOrders][Find All Order]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllOrders][Find orders with pagination][page size:10, total:94]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllOrders][Get Orders From ts-order-service successfully!]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllOrders][Find All Order]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllOrders][Find all orders Success][size:8]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllOrders][Get Orders From ts-order-other-service successfully!]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[deleteOrder][Delete order][OrderId: 2f0e69d8-bef1-4326-ac46-47100483b87b, TrainNumber: G1237]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[deleteOrder][Delete Order][orderId: 2f0e69d8-bef1-4326-ac46-47100483b87b, trainNumber: G1237]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[deleteOrder][Delete Order][OrderId: 2f0e69d8-bef1-4326-ac46-47100483b87b]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[deleteOrder][Delete order Success][OrderId: 2f0e69d8-bef1-4326-ac46-47100483b87b]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: RyW1zq]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: D5E265CFFED748DF9062C56604BFBD05]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: F33167EF56494B8B943B2C70B2CC1E93]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTExOSwiZXhwIjoxNzc3NjUyNzE5fQ.yi-8gJXGUpRGFzhGU3zSUf4At9jXp-vuxftYaOoFRJI USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Query all routes]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[query][Query TripResponse]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[today date][y: 2026][m:4][d: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[departrue date][y: 2026][m:4][d: 11]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTicketsByBatch][before get basic][trips: [Trip(id=64a9b497-6a28-411c-8a5d-fc7e937a8b57, tripId=D1345, trainTypeName=DongCheOne, routeId=f3d4d4ef-693b-4456-8eed-59c0d717dd08, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 07:00:00, endTime=2013-05-04 19:59:52), Trip(id=7566911e-125f-4a6c-b97f-49492281c9a9, tripId=G1237, trainTypeName=GaoTieTwo, routeId=084837bb-53c8-4438-87c8-0321a4d09917, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 08:00:00, endTime=2013-05-04 17:21:52), Trip(id=75d9aafc-249e-4610-8fcc-966483cc91d3, tripId=G1235, trainTypeName=GaoTieOne, routeId=aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 12:00:00, endTime=2013-05-04 17:51:52), Trip(id=b019e239-db5b-4fdd-9f9e-a22a0dbc14a6, tripId=G1234, trainTypeName=GaoTieOne, routeId=92708982-77af-4318-be25-57ccb0ff69ad, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 09:00:00, endTime=2013-05-04 15:51:52), Trip(id=c0fef95e-e75f-4185-892a-fb11de63152d, tripId=G1236, trainTypeName=GaoTieOne, routeId=a3f256c1-0e43-4f7d-9c21-121bf258101f, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 14:00:00, endTime=2013-05-04 20:51:52)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryForTravels][Query for travels][Travels: [Travel(trip=Trip(id=64a9b497-6a28-411c-8a5d-fc7e937a8b57, tripId=D1345, trainTypeName=DongCheOne, routeId=f3d4d4ef-693b-4456-8eed-59c0d717dd08, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 07:00:00, endTime=2013-05-04 19:59:52), startPlace=nanjing, endPlace=suzhou, departureTime=2026-05-11), Travel(trip=Trip(id=7566911e-125f-4a6c-b97f-49492281c9a9, tripId=G1237, trainTypeName=GaoTieTwo, routeId=084837bb-53c8-4438-87c8-0321a4d09917, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 08:00:00, endTime=2013-05-04 17:21:52), startPlace=nanjing, endPlace=suzhou, departureTime=2026-05-11), Travel(trip=Trip(id=75d9aafc-249e-4610-8fcc-966483cc91d3, tripId=G1235, trainTypeName=GaoTieOne, routeId=aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 12:00:00, endTime=2013-05-04 17:51:52), startPlace=nanjing, endPlace=suzhou, departureTime=2026-05-11), Travel(trip=Trip(id=b019e239-db5b-4fdd-9f9e-a22a0dbc14a6, tripId=G1234, trainTypeName=GaoTieOne, routeId=92708982-77af-4318-be25-57ccb0ff69ad, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 09:00:00, endTime=2013-05-04 15:51:52), startPlace=nanjing, endPlace=suzhou, departureTime=2026-05-11), Travel(trip=Trip(id=c0fef95e-e75f-4185-892a-fb11de63152d, tripId=G1236, trainTypeName=GaoTieOne, routeId=a3f256c1-0e43-4f7d-9c21-121bf258101f, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 14:00:00, endTime=2013-05-04 20:51:52), startPlace=nanjing, endPlace=suzhou, departureTime=2026-05-11)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[checkStationsExists][Check Stations Exists][stationNames: [nanjing, suzhou]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryForIdBatch][Query stations for id batch][StationNameNumbers: 2]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "SQL Error: 0, SQLState: 08S01",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "HikariPool-1 - Connection is not available, request timed out after 30000ms.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "Communications link failure\n\nThe last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: WbhJF8]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 71FA37A32BAA4E7ABF23CFB5A25432C6]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: B1AD5F6862B8473789B655AA2D9C3A99]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTEzOSwiZXhwIjoxNzc3NjUyNzM5fQ.pKBW4CI-oTCIGEJDuRPeIqW86Y1PIM2Dq6Y2x6VJagc USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[findByAccountId][Find consign by account id][id: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "DEBUG",
+    "message": "\n    /* <criteria> */ select\n        cr1_0.consign_record_id,\n        cr1_0.user_id,\n        cr1_0.consignee,\n        cr1_0.from_place,\n        cr1_0.handle_date,\n        cr1_0.order_id,\n        cr1_0.consign_record_phone,\n        cr1_0.consign_record_price,\n        cr1_0.target_date,\n        cr1_0.to_place,\n        cr1_0.weight \n    from\n        consign_record cr1_0 \n    where\n        cr1_0.user_id=?",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: AqlYva]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 827A44E4ED404F5C815BD98228727120]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: BC5E0023161F402AA85785A29FDC1320]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTEzOSwiZXhwIjoxNzc3NjUyNzM5fQ.pKBW4CI-oTCIGEJDuRPeIqW86Y1PIM2Dq6Y2x6VJagc USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[query][Query train]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Query all routes]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[query][Query TripResponse]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[today date][y: 2026][m:4][d: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[departrue date][y: 2026][m:4][d: 19]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTicketsByBatch][before get basic][trips: [Trip(id=64a9b497-6a28-411c-8a5d-fc7e937a8b57, tripId=D1345, trainTypeName=DongCheOne, routeId=f3d4d4ef-693b-4456-8eed-59c0d717dd08, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 07:00:00, endTime=2013-05-04 19:59:52), Trip(id=7566911e-125f-4a6c-b97f-49492281c9a9, tripId=G1237, trainTypeName=GaoTieTwo, routeId=084837bb-53c8-4438-87c8-0321a4d09917, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 08:00:00, endTime=2013-05-04 17:21:52), Trip(id=75d9aafc-249e-4610-8fcc-966483cc91d3, tripId=G1235, trainTypeName=GaoTieOne, routeId=aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 12:00:00, endTime=2013-05-04 17:51:52), Trip(id=b019e239-db5b-4fdd-9f9e-a22a0dbc14a6, tripId=G1234, trainTypeName=GaoTieOne, routeId=92708982-77af-4318-be25-57ccb0ff69ad, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 09:00:00, endTime=2013-05-04 15:51:52), Trip(id=c0fef95e-e75f-4185-892a-fb11de63152d, tripId=G1236, trainTypeName=GaoTieOne, routeId=a3f256c1-0e43-4f7d-9c21-121bf258101f, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 14:00:00, endTime=2013-05-04 20:51:52)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryForTravels][Query for travels][Travels: [Travel(trip=Trip(id=64a9b497-6a28-411c-8a5d-fc7e937a8b57, tripId=D1345, trainTypeName=DongCheOne, routeId=f3d4d4ef-693b-4456-8eed-59c0d717dd08, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 07:00:00, endTime=2013-05-04 19:59:52), startPlace=zhenjiang, endPlace=jiaxingnan, departureTime=2026-05-19), Travel(trip=Trip(id=7566911e-125f-4a6c-b97f-49492281c9a9, tripId=G1237, trainTypeName=GaoTieTwo, routeId=084837bb-53c8-4438-87c8-0321a4d09917, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 08:00:00, endTime=2013-05-04 17:21:52), startPlace=zhenjiang, endPlace=jiaxingnan, departureTime=2026-05-19), Travel(trip=Trip(id=75d9aafc-249e-4610-8fcc-966483cc91d3, tripId=G1235, trainTypeName=GaoTieOne, routeId=aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 12:00:00, endTime=2013-05-04 17:51:52), startPlace=zhenjiang, endPlace=jiaxingnan, departureTime=2026-05-19), Travel(trip=Trip(id=b019e239-db5b-4fdd-9f9e-a22a0dbc14a6, tripId=G1234, trainTypeName=GaoTieOne, routeId=92708982-77af-4318-be25-57ccb0ff69ad, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 09:00:00, endTime=2013-05-04 15:51:52), startPlace=zhenjiang, endPlace=jiaxingnan, departureTime=2026-05-19), Travel(trip=Trip(id=c0fef95e-e75f-4185-892a-fb11de63152d, tripId=G1236, trainTypeName=GaoTieOne, routeId=a3f256c1-0e43-4f7d-9c21-121bf258101f, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 14:00:00, endTime=2013-05-04 20:51:52), startPlace=zhenjiang, endPlace=jiaxingnan, departureTime=2026-05-19)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[checkStationsExists][Check Stations Exists][stationNames: [zhenjiang, jiaxingnan]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryForIdBatch][Query stations for id batch][StationNameNumbers: 2]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "SQL Error: 0, SQLState: 08S01",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "HikariPool-1 - Connection is not available, request timed out after 30000ms.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "Communications link failure\n\nThe last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataAccessResourceFailureException: Unable to acquire JDBC Connection [HikariPool-1 - Connection is not available, request timed out after 30000ms.] [n/a]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[retrieveByName][Retrieve train][TrainTypeName: DongCheOne]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[retrieveByName][Retrieve train][TrainTypeName: GaoTieTwo]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[retrieveByName][Retrieve train][TrainTypeName: GaoTieOne]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[retrieveByName][Retrieve train][TrainTypeName: GaoTieOne]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: aNkzFD]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 94523B9DA1BA4A888842D3627B1BFCAA]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: A1C7467BA29C46BBADD807950DCDECD0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrdersForRefresh][Query Orders][for LoginId:4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 1][Get Orders Number of Account][size: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Status Fits End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Travel Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Bought Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check All Requirement End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Get order num][size:0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: nySaLE]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: E9668E41988D4D1A8A8D7489D452E725]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: E118C57F39A542299EF5484C95C63FF5]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTE2MCwiZXhwIjoxNzc3NjUyNzYwfQ.r_E3GLnZw6tKuIQh61I3SfDd6PFd4zmtdaDRcAolem0 USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Query all routes]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[query][Query TripResponse]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[today date][y: 2026][m:4][d: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[departrue date][y: 2026][m:4][d: 13]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTicketsByBatch][before get basic][trips: [Trip(id=64a9b497-6a28-411c-8a5d-fc7e937a8b57, tripId=D1345, trainTypeName=DongCheOne, routeId=f3d4d4ef-693b-4456-8eed-59c0d717dd08, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 07:00:00, endTime=2013-05-04 19:59:52), Trip(id=7566911e-125f-4a6c-b97f-49492281c9a9, tripId=G1237, trainTypeName=GaoTieTwo, routeId=084837bb-53c8-4438-87c8-0321a4d09917, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 08:00:00, endTime=2013-05-04 17:21:52), Trip(id=75d9aafc-249e-4610-8fcc-966483cc91d3, tripId=G1235, trainTypeName=GaoTieOne, routeId=aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 12:00:00, endTime=2013-05-04 17:51:52), Trip(id=b019e239-db5b-4fdd-9f9e-a22a0dbc14a6, tripId=G1234, trainTypeName=GaoTieOne, routeId=92708982-77af-4318-be25-57ccb0ff69ad, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 09:00:00, endTime=2013-05-04 15:51:52), Trip(id=c0fef95e-e75f-4185-892a-fb11de63152d, tripId=G1236, trainTypeName=GaoTieOne, routeId=a3f256c1-0e43-4f7d-9c21-121bf258101f, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 14:00:00, endTime=2013-05-04 20:51:52)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryForTravels][Query for travels][Travels: [Travel(trip=Trip(id=64a9b497-6a28-411c-8a5d-fc7e937a8b57, tripId=D1345, trainTypeName=DongCheOne, routeId=f3d4d4ef-693b-4456-8eed-59c0d717dd08, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 07:00:00, endTime=2013-05-04 19:59:52), startPlace=wuxi, endPlace=taiyuan, departureTime=2026-05-13), Travel(trip=Trip(id=7566911e-125f-4a6c-b97f-49492281c9a9, tripId=G1237, trainTypeName=GaoTieTwo, routeId=084837bb-53c8-4438-87c8-0321a4d09917, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 08:00:00, endTime=2013-05-04 17:21:52), startPlace=wuxi, endPlace=taiyuan, departureTime=2026-05-13), Travel(trip=Trip(id=75d9aafc-249e-4610-8fcc-966483cc91d3, tripId=G1235, trainTypeName=GaoTieOne, routeId=aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 12:00:00, endTime=2013-05-04 17:51:52), startPlace=wuxi, endPlace=taiyuan, departureTime=2026-05-13), Travel(trip=Trip(id=b019e239-db5b-4fdd-9f9e-a22a0dbc14a6, tripId=G1234, trainTypeName=GaoTieOne, routeId=92708982-77af-4318-be25-57ccb0ff69ad, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 09:00:00, endTime=2013-05-04 15:51:52), startPlace=wuxi, endPlace=taiyuan, departureTime=2026-05-13), Travel(trip=Trip(id=c0fef95e-e75f-4185-892a-fb11de63152d, tripId=G1236, trainTypeName=GaoTieOne, routeId=a3f256c1-0e43-4f7d-9c21-121bf258101f, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 14:00:00, endTime=2013-05-04 20:51:52), startPlace=wuxi, endPlace=taiyuan, departureTime=2026-05-13)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[checkStationsExists][Check Stations Exists][stationNames: [wuxi, taiyuan]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryForIdBatch][Query stations for id batch][StationNameNumbers: 2]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "SQL Error: 0, SQLState: 08S01",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "HikariPool-1 - Connection is not available, request timed out after 30000ms.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "Communications link failure\n\nThe last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataAccessResourceFailureException: Unable to acquire JDBC Connection [HikariPool-1 - Connection is not available, request timed out after 30000ms.] [n/a]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[query][Query train]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Query all routes]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "SQL Error: 0, SQLState: 08S01",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "HikariPool-1 - Connection is not available, request timed out after 30000ms.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "Communications link failure\n\nThe last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataAccessResourceFailureException: Unable to acquire JDBC Connection [HikariPool-1 - Connection is not available, request timed out after 30000ms.] [n/a]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: TPTW6o]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: F293D636F12D4FED9FB5F7BFEEEF1CED]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: AE7D78ED251E406499F45FF4D18851C2]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTIwMCwiZXhwIjoxNzc3NjUyODAwfQ.R9mR13SJ9fhEjAuWyEAbx4Oh4eFwRs7e9pxNYFyF_YM USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Query all routes]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getCheapest][Search Cheapest][start: shanghaihongqiao,end: shanghai,time: 2026-05-10]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[searchCheapestResult][Get Cheapest Routes][From: shanghaihongqiao, To: shanghai, Num: 5, Date: 2026-05-10]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTripFromHighSpeedTravelServive][trip info: TripInfo(startPlace=shanghaihongqiao, endPlace=shanghai, departureTime=2026-05-10)]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[query][Query TripResponse]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[today date][y: 2026][m:4][d: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[departrue date][y: 2026][m:4][d: 10]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTicketsByBatch][before get basic][trips: [Trip(id=64a9b497-6a28-411c-8a5d-fc7e937a8b57, tripId=D1345, trainTypeName=DongCheOne, routeId=f3d4d4ef-693b-4456-8eed-59c0d717dd08, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 07:00:00, endTime=2013-05-04 19:59:52), Trip(id=7566911e-125f-4a6c-b97f-49492281c9a9, tripId=G1237, trainTypeName=GaoTieTwo, routeId=084837bb-53c8-4438-87c8-0321a4d09917, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 08:00:00, endTime=2013-05-04 17:21:52), Trip(id=75d9aafc-249e-4610-8fcc-966483cc91d3, tripId=G1235, trainTypeName=GaoTieOne, routeId=aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 12:00:00, endTime=2013-05-04 17:51:52), Trip(id=b019e239-db5b-4fdd-9f9e-a22a0dbc14a6, tripId=G1234, trainTypeName=GaoTieOne, routeId=92708982-77af-4318-be25-57ccb0ff69ad, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 09:00:00, endTime=2013-05-04 15:51:52), Trip(id=c0fef95e-e75f-4185-892a-fb11de63152d, tripId=G1236, trainTypeName=GaoTieOne, routeId=a3f256c1-0e43-4f7d-9c21-121bf258101f, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 14:00:00, endTime=2013-05-04 20:51:52)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryForTravels][Query for travels][Travels: [Travel(trip=Trip(id=64a9b497-6a28-411c-8a5d-fc7e937a8b57, tripId=D1345, trainTypeName=DongCheOne, routeId=f3d4d4ef-693b-4456-8eed-59c0d717dd08, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 07:00:00, endTime=2013-05-04 19:59:52), startPlace=shanghaihongqiao, endPlace=shanghai, departureTime=2026-05-10), Travel(trip=Trip(id=7566911e-125f-4a6c-b97f-49492281c9a9, tripId=G1237, trainTypeName=GaoTieTwo, routeId=084837bb-53c8-4438-87c8-0321a4d09917, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 08:00:00, endTime=2013-05-04 17:21:52), startPlace=shanghaihongqiao, endPlace=shanghai, departureTime=2026-05-10), Travel(trip=Trip(id=75d9aafc-249e-4610-8fcc-966483cc91d3, tripId=G1235, trainTypeName=GaoTieOne, routeId=aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 12:00:00, endTime=2013-05-04 17:51:52), startPlace=shanghaihongqiao, endPlace=shanghai, departureTime=2026-05-10), Travel(trip=Trip(id=b019e239-db5b-4fdd-9f9e-a22a0dbc14a6, tripId=G1234, trainTypeName=GaoTieOne, routeId=92708982-77af-4318-be25-57ccb0ff69ad, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 09:00:00, endTime=2013-05-04 15:51:52), startPlace=shanghaihongqiao, endPlace=shanghai, departureTime=2026-05-10), Travel(trip=Trip(id=c0fef95e-e75f-4185-892a-fb11de63152d, tripId=G1236, trainTypeName=GaoTieOne, routeId=a3f256c1-0e43-4f7d-9c21-121bf258101f, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 14:00:00, endTime=2013-05-04 20:51:52), startPlace=shanghaihongqiao, endPlace=shanghai, departureTime=2026-05-10)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[checkStationsExists][Check Stations Exists][stationNames: [shanghai, shanghaihongqiao]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryForIdBatch][Query stations for id batch][StationNameNumbers: 2]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "SQL Error: 0, SQLState: 08S01",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "HikariPool-1 - Connection is not available, request timed out after 30000ms.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "Communications link failure\n\nThe last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataAccessResourceFailureException: Unable to acquire JDBC Connection [HikariPool-1 - Connection is not available, request timed out after 30000ms.] [n/a]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: IcTS1Y]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 809CB81961F04009BBC6682A5BFF147F]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 13C67967A363429E88D0E5358687427F]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTIxNywiZXhwIjoxNzc3NjUyODE3fQ.R-ZhJGrkNZtdY-Gg5xJQl-k-ESp4oU0lMJRr_BTJULI USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrdersForRefresh][Query Orders][for LoginId:4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Get filtered orders][size:0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 5eIXqZ]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 11B72D782BAC4C3E9E8FD8F260DA8D4E]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: F9BFFA1A903D451AB68D5EE9D431F55B]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTIxNywiZXhwIjoxNzc3NjUyODE3fQ.R-ZhJGrkNZtdY-Gg5xJQl-k-ESp4oU0lMJRr_BTJULI USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[query][Query train]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Query all routes]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[query][Query TripResponse]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[today date][y: 2026][m:4][d: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[departrue date][y: 2026][m:4][d: 11]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTicketsByBatch][before get basic][trips: [Trip(id=64a9b497-6a28-411c-8a5d-fc7e937a8b57, tripId=D1345, trainTypeName=DongCheOne, routeId=f3d4d4ef-693b-4456-8eed-59c0d717dd08, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 07:00:00, endTime=2013-05-04 19:59:52), Trip(id=7566911e-125f-4a6c-b97f-49492281c9a9, tripId=G1237, trainTypeName=GaoTieTwo, routeId=084837bb-53c8-4438-87c8-0321a4d09917, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 08:00:00, endTime=2013-05-04 17:21:52), Trip(id=75d9aafc-249e-4610-8fcc-966483cc91d3, tripId=G1235, trainTypeName=GaoTieOne, routeId=aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 12:00:00, endTime=2013-05-04 17:51:52), Trip(id=b019e239-db5b-4fdd-9f9e-a22a0dbc14a6, tripId=G1234, trainTypeName=GaoTieOne, routeId=92708982-77af-4318-be25-57ccb0ff69ad, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 09:00:00, endTime=2013-05-04 15:51:52), Trip(id=c0fef95e-e75f-4185-892a-fb11de63152d, tripId=G1236, trainTypeName=GaoTieOne, routeId=a3f256c1-0e43-4f7d-9c21-121bf258101f, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 14:00:00, endTime=2013-05-04 20:51:52)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryForTravels][Query for travels][Travels: [Travel(trip=Trip(id=64a9b497-6a28-411c-8a5d-fc7e937a8b57, tripId=D1345, trainTypeName=DongCheOne, routeId=f3d4d4ef-693b-4456-8eed-59c0d717dd08, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 07:00:00, endTime=2013-05-04 19:59:52), startPlace=shanghaihongqiao, endPlace=hangzhou, departureTime=2026-05-11), Travel(trip=Trip(id=7566911e-125f-4a6c-b97f-49492281c9a9, tripId=G1237, trainTypeName=GaoTieTwo, routeId=084837bb-53c8-4438-87c8-0321a4d09917, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 08:00:00, endTime=2013-05-04 17:21:52), startPlace=shanghaihongqiao, endPlace=hangzhou, departureTime=2026-05-11), Travel(trip=Trip(id=75d9aafc-249e-4610-8fcc-966483cc91d3, tripId=G1235, trainTypeName=GaoTieOne, routeId=aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 12:00:00, endTime=2013-05-04 17:51:52), startPlace=shanghaihongqiao, endPlace=hangzhou, departureTime=2026-05-11), Travel(trip=Trip(id=b019e239-db5b-4fdd-9f9e-a22a0dbc14a6, tripId=G1234, trainTypeName=GaoTieOne, routeId=92708982-77af-4318-be25-57ccb0ff69ad, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 09:00:00, endTime=2013-05-04 15:51:52), startPlace=shanghaihongqiao, endPlace=hangzhou, departureTime=2026-05-11), Travel(trip=Trip(id=c0fef95e-e75f-4185-892a-fb11de63152d, tripId=G1236, trainTypeName=GaoTieOne, routeId=a3f256c1-0e43-4f7d-9c21-121bf258101f, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 14:00:00, endTime=2013-05-04 20:51:52), startPlace=shanghaihongqiao, endPlace=hangzhou, departureTime=2026-05-11)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[checkStationsExists][Check Stations Exists][stationNames: [hangzhou, shanghaihongqiao]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryForIdBatch][Query stations for id batch][StationNameNumbers: 2]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: admin",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 7F47CD43906945B0AE08E1210AF16A6A]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: admin]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWQiOiI1NDUwYzY4YS01ZmIzLTRjMmItYThjNi02M2VhM2JjNDkwNjMiLCJpYXQiOjE3Nzc2NDkyMjAsImV4cCI6MTc3NzY1MjgyMH0.14cQyCZmQ7nk9AJiyQac8QDGWiEL9ydbOy18Xkd2ZTE USER ID: 5450c68a-5fb3-4c2b-a8c6-63ea3bc49063]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: admin",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 7F7A148C243D427F9B259908891F4D89]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: admin]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWQiOiI1NDUwYzY4YS01ZmIzLTRjMmItYThjNi02M2VhM2JjNDkwNjMiLCJpYXQiOjE3Nzc2NDkyMjAsImV4cCI6MTc3NzY1MjgyMH0.14cQyCZmQ7nk9AJiyQac8QDGWiEL9ydbOy18Xkd2ZTE USER ID: 5450c68a-5fb3-4c2b-a8c6-63ea3bc49063]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllUser][Get all user]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[registerUser][Register user][UserName: AoJRaDq]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[saveUser][Save User Name][user name: AoJRaDq]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[createDefaultAuthUser][CALL TO AUTH][AuthDto: AuthDto(userId=86752c9b-4f40-4a18-b22b-e21f02f62ee8, userName=AoJRaDq, password=HFGUcGOTyMTyREFycdvmWDHXMGgvexfASvAsXZvHFiwcpnHFHS)]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[createDefaultUser][Create default auth user with authDto][AuthDto: AuthDto(userId=86752c9b-4f40-4a18-b22b-e21f02f62ee8, userName=AoJRaDq, password=HFGUcGOTyMTyREFycdvmWDHXMGgvexfASvAsXZvHFiwcpnHFHS)]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[createDefaultAuthUser][Register User Info][AuthDto name: AoJRaDq]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[saveUser][Send authorization message to ts-auth-service....]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[updateUser][Update user][UserId: 86752c9b-4f40-4a18-b22b-e21f02f62ee8]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[updateUser][UPDATE USER: UserDto(userId=86752c9b-4f40-4a18-b22b-e21f02f62ee8, userName=AoJRaDq, password=JoXJkEHSRRjehlBSAkddNgvvxxHWUkpnrBThmNtpiaJynrHWyO, gender=1, documentType=1, documentNum=36486550453418, email=OWfRlfl@viTQgcq.com)]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "SQL Error: 0, SQLState: 08S01",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "HikariPool-1 - Connection is not available, request timed out after 30000ms.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "Communications link failure\n\nThe last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataAccessResourceFailureException: Unable to acquire JDBC Connection [HikariPool-1 - Connection is not available, request timed out after 30000ms.] [n/a]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTIzOCwiZXhwIjoxNzc3NjUyODM4fQ.SbMJFgS5wSxiHc7MLUSvs8-NeLBUb2SYn0eyhMYqlKk USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryForTravels][Query for travels][Travels: [Travel(trip=Trip(id=64a9b497-6a28-411c-8a5d-fc7e937a8b57, tripId=D1345, trainTypeName=DongCheOne, routeId=f3d4d4ef-693b-4456-8eed-59c0d717dd08, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 07:00:00, endTime=2013-05-04 19:59:52), startPlace=shanghaihongqiao, endPlace=jiaxingnan, departureTime=2026-05-10), Travel(trip=Trip(id=7566911e-125f-4a6c-b97f-49492281c9a9, tripId=G1237, trainTypeName=GaoTieTwo, routeId=084837bb-53c8-4438-87c8-0321a4d09917, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 08:00:00, endTime=2013-05-04 17:21:52), startPlace=shanghaihongqiao, endPlace=jiaxingnan, departureTime=2026-05-10), Travel(trip=Trip(id=75d9aafc-249e-4610-8fcc-966483cc91d3, tripId=G1235, trainTypeName=GaoTieOne, routeId=aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 12:00:00, endTime=2013-05-04 17:51:52), startPlace=shanghaihongqiao, endPlace=jiaxingnan, departureTime=2026-05-10), Travel(trip=Trip(id=b019e239-db5b-4fdd-9f9e-a22a0dbc14a6, tripId=G1234, trainTypeName=GaoTieOne, routeId=92708982-77af-4318-be25-57ccb0ff69ad, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 09:00:00, endTime=2013-05-04 15:51:52), startPlace=shanghaihongqiao, endPlace=jiaxingnan, departureTime=2026-05-10), Travel(trip=Trip(id=c0fef95e-e75f-4185-892a-fb11de63152d, tripId=G1236, trainTypeName=GaoTieOne, routeId=a3f256c1-0e43-4f7d-9c21-121bf258101f, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 14:00:00, endTime=2013-05-04 20:51:52), startPlace=shanghaihongqiao, endPlace=jiaxingnan, departureTime=2026-05-10)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[checkStationsExists][Check Stations Exists][stationNames: [shanghaihongqiao, jiaxingnan]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 79BFEC6F32254151B7FA330D2E0DCE8C]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWQiOiI1NDUwYzY4YS01ZmIzLTRjMmItYThjNi02M2VhM2JjNDkwNjMiLCJpYXQiOjE3Nzc2NDkyNDEsImV4cCI6MTc3NzY1Mjg0MX0.SA41skimFjbpUEqO1Dd7fTcROVbUJITFlgBRV065HZQ USER ID: 5450c68a-5fb3-4c2b-a8c6-63ea3bc49063]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: admin",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: BCA58C13442B43A3806F93080E7DF709]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: admin]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWQiOiI1NDUwYzY4YS01ZmIzLTRjMmItYThjNi02M2VhM2JjNDkwNjMiLCJpYXQiOjE3Nzc2NDkyNDIsImV4cCI6MTc3NzY1Mjg0Mn0.1dK5mtZvN3QedO2IQRztW45BGL8JNciKriJfg3pD-2Q USER ID: 5450c68a-5fb3-4c2b-a8c6-63ea3bc49063]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllContacts][Get All Contacts]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 8LvNrI]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: F7C58A77376C4D77959AE44551E631E6]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 303CB5A7163245339FA4C5AC8BBDD18B]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTI1OCwiZXhwIjoxNzc3NjUyODU4fQ.vV_4gufgi0TcyKUEGqzYmYOjxKJ6UQF0y2MQOghO29k USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[query][Query TripResponse]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[today date][y: 2026][m:4][d: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[departrue date][y: 2026][m:4][d: 23]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTicketsByBatch][before get basic][trips: [Trip(id=64a9b497-6a28-411c-8a5d-fc7e937a8b57, tripId=D1345, trainTypeName=DongCheOne, routeId=f3d4d4ef-693b-4456-8eed-59c0d717dd08, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 07:00:00, endTime=2013-05-04 19:59:52), Trip(id=7566911e-125f-4a6c-b97f-49492281c9a9, tripId=G1237, trainTypeName=GaoTieTwo, routeId=084837bb-53c8-4438-87c8-0321a4d09917, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 08:00:00, endTime=2013-05-04 17:21:52), Trip(id=75d9aafc-249e-4610-8fcc-966483cc91d3, tripId=G1235, trainTypeName=GaoTieOne, routeId=aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 12:00:00, endTime=2013-05-04 17:51:52), Trip(id=b019e239-db5b-4fdd-9f9e-a22a0dbc14a6, tripId=G1234, trainTypeName=GaoTieOne, routeId=92708982-77af-4318-be25-57ccb0ff69ad, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 09:00:00, endTime=2013-05-04 15:51:52), Trip(id=c0fef95e-e75f-4185-892a-fb11de63152d, tripId=G1236, trainTypeName=GaoTieOne, routeId=a3f256c1-0e43-4f7d-9c21-121bf258101f, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 14:00:00, endTime=2013-05-04 20:51:52)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryForTravels][Query for travels][Travels: [Travel(trip=Trip(id=64a9b497-6a28-411c-8a5d-fc7e937a8b57, tripId=D1345, trainTypeName=DongCheOne, routeId=f3d4d4ef-693b-4456-8eed-59c0d717dd08, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 07:00:00, endTime=2013-05-04 19:59:52), startPlace=zhenjiang, endPlace=jiaxingnan, departureTime=2026-05-23), Travel(trip=Trip(id=7566911e-125f-4a6c-b97f-49492281c9a9, tripId=G1237, trainTypeName=GaoTieTwo, routeId=084837bb-53c8-4438-87c8-0321a4d09917, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 08:00:00, endTime=2013-05-04 17:21:52), startPlace=zhenjiang, endPlace=jiaxingnan, departureTime=2026-05-23), Travel(trip=Trip(id=75d9aafc-249e-4610-8fcc-966483cc91d3, tripId=G1235, trainTypeName=GaoTieOne, routeId=aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 12:00:00, endTime=2013-05-04 17:51:52), startPlace=zhenjiang, endPlace=jiaxingnan, departureTime=2026-05-23), Travel(trip=Trip(id=b019e239-db5b-4fdd-9f9e-a22a0dbc14a6, tripId=G1234, trainTypeName=GaoTieOne, routeId=92708982-77af-4318-be25-57ccb0ff69ad, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 09:00:00, endTime=2013-05-04 15:51:52), startPlace=zhenjiang, endPlace=jiaxingnan, departureTime=2026-05-23), Travel(trip=Trip(id=c0fef95e-e75f-4185-892a-fb11de63152d, tripId=G1236, trainTypeName=GaoTieOne, routeId=a3f256c1-0e43-4f7d-9c21-121bf258101f, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 14:00:00, endTime=2013-05-04 20:51:52), startPlace=zhenjiang, endPlace=jiaxingnan, departureTime=2026-05-23)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[checkStationsExists][Check Stations Exists][stationNames: [zhenjiang, jiaxingnan]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryForIdBatch][Query stations for id batch][StationNameNumbers: 2]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTI2MiwiZXhwIjoxNzc3NjUyODYyfQ.xt2cAr_iz9XwywW_aqL2j0MxegPi0qXp6GbuDmWIfHo USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getCheapest][Search Cheapest][start: zhenjiang,end: jiaxingnan,time: 2026-05-05]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[searchCheapestResult][Get Cheapest Routes][From: zhenjiang, To: jiaxingnan, Num: 5, Date: 2026-05-05]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTripFromHighSpeedTravelServive][trip info: TripInfo(startPlace=zhenjiang, endPlace=jiaxingnan, departureTime=2026-05-05)]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryForTravels][Query for travels][Travels: [Travel(trip=Trip(id=64a9b497-6a28-411c-8a5d-fc7e937a8b57, tripId=D1345, trainTypeName=DongCheOne, routeId=f3d4d4ef-693b-4456-8eed-59c0d717dd08, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 07:00:00, endTime=2013-05-04 19:59:52), startPlace=zhenjiang, endPlace=jiaxingnan, departureTime=2026-05-05), Travel(trip=Trip(id=7566911e-125f-4a6c-b97f-49492281c9a9, tripId=G1237, trainTypeName=GaoTieTwo, routeId=084837bb-53c8-4438-87c8-0321a4d09917, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 08:00:00, endTime=2013-05-04 17:21:52), startPlace=zhenjiang, endPlace=jiaxingnan, departureTime=2026-05-05), Travel(trip=Trip(id=75d9aafc-249e-4610-8fcc-966483cc91d3, tripId=G1235, trainTypeName=GaoTieOne, routeId=aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 12:00:00, endTime=2013-05-04 17:51:52), startPlace=zhenjiang, endPlace=jiaxingnan, departureTime=2026-05-05), Travel(trip=Trip(id=b019e239-db5b-4fdd-9f9e-a22a0dbc14a6, tripId=G1234, trainTypeName=GaoTieOne, routeId=92708982-77af-4318-be25-57ccb0ff69ad, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 09:00:00, endTime=2013-05-04 15:51:52), startPlace=zhenjiang, endPlace=jiaxingnan, departureTime=2026-05-05), Travel(trip=Trip(id=c0fef95e-e75f-4185-892a-fb11de63152d, tripId=G1236, trainTypeName=GaoTieOne, routeId=a3f256c1-0e43-4f7d-9c21-121bf258101f, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 14:00:00, endTime=2013-05-04 20:51:52), startPlace=zhenjiang, endPlace=jiaxingnan, departureTime=2026-05-05)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[checkStationsExists][Check Stations Exists][stationNames: [zhenjiang, jiaxingnan]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: admin",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 1F2800FCC81849428C7693674D58EE08]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: admin]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiaWQiOiI1NDUwYzY4YS01ZmIzLTRjMmItYThjNi02M2VhM2JjNDkwNjMiLCJpYXQiOjE3Nzc2NDkyNzgsImV4cCI6MTc3NzY1Mjg3OH0.vMOoNBhN6P1eqG1SMJOFN-fjtXVf_j_d4xcYyWOLVdU USER ID: 5450c68a-5fb3-4c2b-a8c6-63ea3bc49063]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllUsers][Get all users]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllUser][Get all user]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllUsers][Get All Users][success]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[addUser][Add user][userName: KXCgFDT]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[addUser][ADD USER INFO][UserDto: UserDto(userId=cbb2c1cd-0f82-47d1-9847-c1e17036f56c, userName=KXCgFDT, password=HglavVrMBjeurVqteWXmJhrltfssTKbRGmMFofcQuubsyupSmP, gender=0, documentType=1, documentNum=39763385226480, email=PifbfHS@KdcPrtK.org)]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[registerUser][Register user][UserName: KXCgFDT]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[saveUser][Save User Name][user name: KXCgFDT]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[createDefaultAuthUser][CALL TO AUTH][AuthDto: AuthDto(userId=cbb2c1cd-0f82-47d1-9847-c1e17036f56c, userName=KXCgFDT, password=HglavVrMBjeurVqteWXmJhrltfssTKbRGmMFofcQuubsyupSmP)]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[createDefaultUser][Create default auth user with authDto][AuthDto: AuthDto(userId=cbb2c1cd-0f82-47d1-9847-c1e17036f56c, userName=KXCgFDT, password=HglavVrMBjeurVqteWXmJhrltfssTKbRGmMFofcQuubsyupSmP)]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[createDefaultAuthUser][Register User Info][AuthDto name: KXCgFDT]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[checkUserCreateInfo][Check user create info][userId: cbb2c1cd-0f82-47d1-9847-c1e17036f56c, userName: KXCgFDT]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[saveUser][Send authorization message to ts-auth-service....]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[addUser][Add user success][userName: KXCgFDT]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[updateUser][Update User][userName: KXCgFDT]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "UPDATE USER: UserDto(userId=cbb2c1cd-0f82-47d1-9847-c1e17036f56c, userName=KXCgFDT, password=hKZjQlScSnAsAZgcqXeQjoQWgyjBEOJcwjCQmTndHSuPGVhycn, gender=1, documentType=1, documentNum=39378456412978, email=BHdMeuv@sWVkXiT.edu)",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[updateUser][Update user][UserId: cbb2c1cd-0f82-47d1-9847-c1e17036f56c]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[updateUser][UPDATE USER: UserDto(userId=cbb2c1cd-0f82-47d1-9847-c1e17036f56c, userName=KXCgFDT, password=hKZjQlScSnAsAZgcqXeQjoQWgyjBEOJcwjCQmTndHSuPGVhycn, gender=1, documentType=1, documentNum=39378456412978, email=BHdMeuv@sWVkXiT.edu)]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[updateUser][Update user success][userName: KXCgFDT]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: yCdBXx]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 89F5758E36CE4273899839751263C411]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 12B2B83F2F964812959322745069BE80]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTI3OCwiZXhwIjoxNzc3NjUyODc4fQ.YaZkvEUS_g5juykuiGwQV-UJD0Dj5bT3oxCF7ZiRj80 USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[query][Query train]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Query all routes]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[query][Query TripResponse]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTicketsByBatch][before get basic][trips: [Trip(id=3dab37db-38be-43fd-855b-e39f579f1ed0, tripId=Z1235, trainTypeName=ZhiDa, routeId=9fc9c261-3263-4bfa-82f8-bb44e06b2f52, startStationName=shanghai, stationsName=nanjing, terminalStationName=beijing, startTime=2013-05-04 11:31:52, endTime=2013-05-04 17:51:52), Trip(id=51deaf2d-dded-4b2b-92ec-250c76426bac, tripId=Z1234, trainTypeName=ZhiDa, routeId=0b23bd3e-876a-4af3-b920-c50a90c90b04, startStationName=shanghai, stationsName=nanjing, terminalStationName=beijing, startTime=2013-05-04 09:51:52, endTime=2013-05-04 15:51:52), Trip(id=669aee28-a194-4b9e-96c8-901ce237a833, tripId=K1345, trainTypeName=KuaiSu, routeId=1367db1f-461e-4ab7-87ad-2bcc05fd9cb7, startStationName=shanghai, stationsName=nanjing, terminalStationName=beijing, startTime=2013-05-04 07:51:52, endTime=2013-05-04 19:59:52), Trip(id=693d9836-1cf8-43cf-ad1e-888197772277, tripId=T1235, trainTypeName=TeKuai, routeId=20eb7122-3a11-423f-b10a-be0dc5bce7db, startStationName=shanghai, stationsName=nanjing, terminalStationName=beijing, startTime=2013-05-04 08:31:52, endTime=2013-05-04 17:21:52), Trip(id=9291e7b7-fb3d-4f14-b044-102666a70a14, tripId=Z1236, trainTypeName=ZhiDa, routeId=d693a2c5-ef87-4a3c-bef8-600b43f62c68, startStationName=shanghai, stationsName=nanjing, terminalStationName=beijing, startTime=2013-05-04 7:05:52, endTime=2013-05-04 12:51:52)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryForTravels][Query for travels][Travels: [Travel(trip=Trip(id=3dab37db-38be-43fd-855b-e39f579f1ed0, tripId=Z1235, trainTypeName=ZhiDa, routeId=9fc9c261-3263-4bfa-82f8-bb44e06b2f52, startStationName=shanghai, stationsName=nanjing, terminalStationName=beijing, startTime=2013-05-04 11:31:52, endTime=2013-05-04 17:51:52), startPlace=nanjing, endPlace=suzhou, departureTime=2026-05-03), Travel(trip=Trip(id=51deaf2d-dded-4b2b-92ec-250c76426bac, tripId=Z1234, trainTypeName=ZhiDa, routeId=0b23bd3e-876a-4af3-b920-c50a90c90b04, startStationName=shanghai, stationsName=nanjing, terminalStationName=beijing, startTime=2013-05-04 09:51:52, endTime=2013-05-04 15:51:52), startPlace=nanjing, endPlace=suzhou, departureTime=2026-05-03), Travel(trip=Trip(id=669aee28-a194-4b9e-96c8-901ce237a833, tripId=K1345, trainTypeName=KuaiSu, routeId=1367db1f-461e-4ab7-87ad-2bcc05fd9cb7, startStationName=shanghai, stationsName=nanjing, terminalStationName=beijing, startTime=2013-05-04 07:51:52, endTime=2013-05-04 19:59:52), startPlace=nanjing, endPlace=suzhou, departureTime=2026-05-03), Travel(trip=Trip(id=693d9836-1cf8-43cf-ad1e-888197772277, tripId=T1235, trainTypeName=TeKuai, routeId=20eb7122-3a11-423f-b10a-be0dc5bce7db, startStationName=shanghai, stationsName=nanjing, terminalStationName=beijing, startTime=2013-05-04 08:31:52, endTime=2013-05-04 17:21:52), startPlace=nanjing, endPlace=suzhou, departureTime=2026-05-03), Travel(trip=Trip(id=9291e7b7-fb3d-4f14-b044-102666a70a14, tripId=Z1236, trainTypeName=ZhiDa, routeId=d693a2c5-ef87-4a3c-bef8-600b43f62c68, startStationName=shanghai, stationsName=nanjing, terminalStationName=beijing, startTime=2013-05-04 7:05:52, endTime=2013-05-04 12:51:52), startPlace=nanjing, endPlace=suzhou, departureTime=2026-05-03)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[checkStationsExists][Check Stations Exists][stationNames: [nanjing, suzhou]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryForIdBatch][Query stations for id batch][StationNameNumbers: 2]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllUsers][Get all users]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllUsers][Get All Users][success]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[addUser][Add user][userName: XigoRtY]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[addUser][ADD USER INFO][UserDto: UserDto(userId=4c9f2944-77dd-4a7c-9cd3-7dd16f30b783, userName=XigoRtY, password=wvuEKMJelBqGJBWWmacTgyfxHfiqeZcWmETDLPwVnPjPELMKXY, gender=0, documentType=0, documentNum=36999757787060, email=fiWpphP@gMutjRA.ru)]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "SQL Error: 0, SQLState: 08S01",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "HikariPool-1 - Connection is not available, request timed out after 30000ms.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "Communications link failure\n\nThe last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataAccessResourceFailureException: Unable to acquire JDBC Connection [HikariPool-1 - Connection is not available, request timed out after 30000ms.] [n/a]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: KKF843]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: FBF73F47E69847FDAE8B37265A7BC569]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTI5OCwiZXhwIjoxNzc3NjUyODk4fQ.YPDmh53H_HGofRHoq7tXy8qK1ePj4meJWp3pMPsYNNg USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Query all routes]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getCheapest][Search Cheapest][start: wuxi,end: jinan,time: 2026-05-29]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[searchCheapestResult][Get Cheapest Routes][From: wuxi, To: jinan, Num: 5, Date: 2026-05-29]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTripFromHighSpeedTravelServive][trip info: TripInfo(startPlace=wuxi, endPlace=jinan, departureTime=2026-05-29)]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: GTpJlP]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 3186BA1DFCC74DE9A2B9D0F1B6B7B5AA]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 81D069D3A2A54F3799FFE437D9E84989]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTMwMywiZXhwIjoxNzc3NjUyOTAzfQ.ybk4R6ZopBiPCy6PMVyHqhbvs7vst4IPvuOV-iBF-ks USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrdersForRefresh][Query Orders][for LoginId:4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Get filtered orders][size:0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrdersForRefresh][Query Orders][for LoginId:4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 1][Get Orders Number of Account][size: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Status Fits End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Travel Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Bought Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check All Requirement End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Get order num][size:0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: KR1MPu]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 87E1A2D3BF3C431AB0AAA3129CEE272E]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: F85B6451DB114F92B3404D8E87A10477]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTMwMywiZXhwIjoxNzc3NjUyOTAzfQ.ybk4R6ZopBiPCy6PMVyHqhbvs7vst4IPvuOV-iBF-ks USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrdersForRefresh][Query Orders][for LoginId:4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Get filtered orders][size:0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrdersForRefresh][Query Orders][for LoginId:4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 1][Get Orders Number of Account][size: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Status Fits End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Travel Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check Bought Date End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Step 2][Check All Requirement End]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryOrders][Get order num][size:0]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: LOOZC4]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: B5B1FD8E288C480F991C15C4259C8B78]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 48CDC014C15E44838FB917762E152A62]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTMwMywiZXhwIjoxNzc3NjUyOTAzfQ.ybk4R6ZopBiPCy6PMVyHqhbvs7vst4IPvuOV-iBF-ks USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getAllRoutes][Query all routes]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getQuickest][Search Quickest][start: suzhou,end: shanghai,time: 2026-05-08]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[searchQuickestResult][Get Quickest Routes][From: suzhou, To: shanghai, Num: 5, Date: 2026-05-08]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTripFromHighSpeedTravelServive][trip info: TripInfo(startPlace=suzhou, endPlace=shanghai, departureTime=2026-05-08)]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[query][Query TripResponse]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[today date][y: 2026][m:4][d: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[departrue date][y: 2026][m:4][d: 8]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTicketsByBatch][before get basic][trips: [Trip(id=64a9b497-6a28-411c-8a5d-fc7e937a8b57, tripId=D1345, trainTypeName=DongCheOne, routeId=f3d4d4ef-693b-4456-8eed-59c0d717dd08, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 07:00:00, endTime=2013-05-04 19:59:52), Trip(id=7566911e-125f-4a6c-b97f-49492281c9a9, tripId=G1237, trainTypeName=GaoTieTwo, routeId=084837bb-53c8-4438-87c8-0321a4d09917, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 08:00:00, endTime=2013-05-04 17:21:52), Trip(id=75d9aafc-249e-4610-8fcc-966483cc91d3, tripId=G1235, trainTypeName=GaoTieOne, routeId=aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 12:00:00, endTime=2013-05-04 17:51:52), Trip(id=b019e239-db5b-4fdd-9f9e-a22a0dbc14a6, tripId=G1234, trainTypeName=GaoTieOne, routeId=92708982-77af-4318-be25-57ccb0ff69ad, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 09:00:00, endTime=2013-05-04 15:51:52), Trip(id=c0fef95e-e75f-4185-892a-fb11de63152d, tripId=G1236, trainTypeName=GaoTieOne, routeId=a3f256c1-0e43-4f7d-9c21-121bf258101f, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 14:00:00, endTime=2013-05-04 20:51:52)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryForTravels][Query for travels][Travels: [Travel(trip=Trip(id=64a9b497-6a28-411c-8a5d-fc7e937a8b57, tripId=D1345, trainTypeName=DongCheOne, routeId=f3d4d4ef-693b-4456-8eed-59c0d717dd08, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 07:00:00, endTime=2013-05-04 19:59:52), startPlace=suzhou, endPlace=shanghai, departureTime=2026-05-08), Travel(trip=Trip(id=7566911e-125f-4a6c-b97f-49492281c9a9, tripId=G1237, trainTypeName=GaoTieTwo, routeId=084837bb-53c8-4438-87c8-0321a4d09917, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 08:00:00, endTime=2013-05-04 17:21:52), startPlace=suzhou, endPlace=shanghai, departureTime=2026-05-08), Travel(trip=Trip(id=75d9aafc-249e-4610-8fcc-966483cc91d3, tripId=G1235, trainTypeName=GaoTieOne, routeId=aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 12:00:00, endTime=2013-05-04 17:51:52), startPlace=suzhou, endPlace=shanghai, departureTime=2026-05-08), Travel(trip=Trip(id=b019e239-db5b-4fdd-9f9e-a22a0dbc14a6, tripId=G1234, trainTypeName=GaoTieOne, routeId=92708982-77af-4318-be25-57ccb0ff69ad, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 09:00:00, endTime=2013-05-04 15:51:52), startPlace=suzhou, endPlace=shanghai, departureTime=2026-05-08), Travel(trip=Trip(id=c0fef95e-e75f-4185-892a-fb11de63152d, tripId=G1236, trainTypeName=GaoTieOne, routeId=a3f256c1-0e43-4f7d-9c21-121bf258101f, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 14:00:00, endTime=2013-05-04 20:51:52), startPlace=suzhou, endPlace=shanghai, departureTime=2026-05-08)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[checkStationsExists][Check Stations Exists][stationNames: [suzhou, shanghai]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryForIdBatch][Query stations for id batch][StationNameNumbers: 2]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: uo3EWi]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: 5F1C6BA0CD1E425E9B53923ADE0FA63D]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "Login request of username: fdse_microservice",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][receivedCode: 123]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][Verify code start]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Verify code warn][Cookie not found][Path Info: null]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "[verifyCode][Get image code warn][Code not found][CookieId: F5AD91FD35AD48BC821F6AEE5B3E7736]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[verifyCode][verify result: false]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[loadUserByUsername][load UsernamePasswordAuthenticationToken][username: fdse_microservice]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getToken][success][USER TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZHNlX21pY3Jvc2VydmljZSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6IjRkMmE0NmM3LTcxY2ItNGNmMS1iNWJiLWI2ODQwNmQ5ZGE2ZiIsImlhdCI6MTc3NzY0OTMxOSwiZXhwIjoxNzc3NjUyOTE5fQ.lcxoj1j_Kx7uA-lg0Y4HKalnZssjhHk9uOSFOdPCNf4 USER ID: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getUserByUserId][Get user by user id][UserId: 4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[query][Query TripResponse]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[today date][y: 2026][m:4][d: 1]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[departrue date][y: 2026][m:4][d: 8]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[getTicketsByBatch][before get basic][trips: [Trip(id=64a9b497-6a28-411c-8a5d-fc7e937a8b57, tripId=D1345, trainTypeName=DongCheOne, routeId=f3d4d4ef-693b-4456-8eed-59c0d717dd08, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 07:00:00, endTime=2013-05-04 19:59:52), Trip(id=7566911e-125f-4a6c-b97f-49492281c9a9, tripId=G1237, trainTypeName=GaoTieTwo, routeId=084837bb-53c8-4438-87c8-0321a4d09917, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 08:00:00, endTime=2013-05-04 17:21:52), Trip(id=75d9aafc-249e-4610-8fcc-966483cc91d3, tripId=G1235, trainTypeName=GaoTieOne, routeId=aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 12:00:00, endTime=2013-05-04 17:51:52), Trip(id=b019e239-db5b-4fdd-9f9e-a22a0dbc14a6, tripId=G1234, trainTypeName=GaoTieOne, routeId=92708982-77af-4318-be25-57ccb0ff69ad, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 09:00:00, endTime=2013-05-04 15:51:52), Trip(id=c0fef95e-e75f-4185-892a-fb11de63152d, tripId=G1236, trainTypeName=GaoTieOne, routeId=a3f256c1-0e43-4f7d-9c21-121bf258101f, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 14:00:00, endTime=2013-05-04 20:51:52)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryForTravels][Query for travels][Travels: [Travel(trip=Trip(id=64a9b497-6a28-411c-8a5d-fc7e937a8b57, tripId=D1345, trainTypeName=DongCheOne, routeId=f3d4d4ef-693b-4456-8eed-59c0d717dd08, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 07:00:00, endTime=2013-05-04 19:59:52), startPlace=jinan, endPlace=xuzhou, departureTime=2026-05-08), Travel(trip=Trip(id=7566911e-125f-4a6c-b97f-49492281c9a9, tripId=G1237, trainTypeName=GaoTieTwo, routeId=084837bb-53c8-4438-87c8-0321a4d09917, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 08:00:00, endTime=2013-05-04 17:21:52), startPlace=jinan, endPlace=xuzhou, departureTime=2026-05-08), Travel(trip=Trip(id=75d9aafc-249e-4610-8fcc-966483cc91d3, tripId=G1235, trainTypeName=GaoTieOne, routeId=aefcef3f-3f42-46e8-afd7-6cb2a928bd3d, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 12:00:00, endTime=2013-05-04 17:51:52), startPlace=jinan, endPlace=xuzhou, departureTime=2026-05-08), Travel(trip=Trip(id=b019e239-db5b-4fdd-9f9e-a22a0dbc14a6, tripId=G1234, trainTypeName=GaoTieOne, routeId=92708982-77af-4318-be25-57ccb0ff69ad, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 09:00:00, endTime=2013-05-04 15:51:52), startPlace=jinan, endPlace=xuzhou, departureTime=2026-05-08), Travel(trip=Trip(id=c0fef95e-e75f-4185-892a-fb11de63152d, tripId=G1236, trainTypeName=GaoTieOne, routeId=a3f256c1-0e43-4f7d-9c21-121bf258101f, startStationName=shanghai, stationsName=suzhou, terminalStationName=taiyuan, startTime=2013-05-04 14:00:00, endTime=2013-05-04 20:51:52), startPlace=jinan, endPlace=xuzhou, departureTime=2026-05-08)]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[checkStationsExists][Check Stations Exists][stationNames: [jinan, xuzhou]]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "INFO",
+    "message": "[queryForIdBatch][Query stations for id batch][StationNameNumbers: 2]",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "WARN",
+    "message": "SQL Error: 0, SQLState: 08S01",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "HikariPool-1 - Connection is not available, request timed out after 30000ms.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "ERROR",
+    "message": "Communications link failure\n\nThe last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataAccessResourceFailureException: Unable to acquire JDBC Connection [HikariPool-1 - Connection is not available, request timed out after 30000ms.] [n/a]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  },
+  {
+    "timestamp": "",
+    "level": "SEVERE",
+    "message": "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.web.client.HttpClientErrorException$Forbidden: 403 : [no body]] with root cause",
+    "source": "ts"
+  }
+]

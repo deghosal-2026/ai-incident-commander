@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170411-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 07:15 on 08 Apr 2017 and 04:00 UTC on 11 Apr 2017, customers using Azure IoT Suite may have been unable to provision solutions. Engineers recommended deploying from an MSbuild prompt using code at https://aka.ms/rms_git. Existing resources were not impacted. ",
+  "root_cause_key_terms": [
+    "Azure IoT suite"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 07:15 on 08 Apr 2017 and 04:00 UTC on 11 Apr 2017, customers using Azure IoT Suite may have been unable to provision solutions. Engineers recommended deploying from an MSbuild prompt using cod",
+  "severity": "SEV1",
+  "service": "Azure IoT suite"
+}

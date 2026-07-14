@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "ELB load balancers",
+  "summary": "Summary of the December 24, 2012 Amazon ELB Service Event in the US-East Region",
+  "source": "intelligentdds/AWS",
+  "timestamp": "2012-12-24T00:00:00+00:00"
+}

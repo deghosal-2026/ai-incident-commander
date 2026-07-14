@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "service bus",
+  "summary": "Service Bus - Multiple regions",
+  "source": "intelligentdds/Azure",
+  "timestamp": "2017-05-17T00:00:00+00:00"
+}

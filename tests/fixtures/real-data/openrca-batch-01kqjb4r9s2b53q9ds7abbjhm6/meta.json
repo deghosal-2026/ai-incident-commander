@@ -1,0 +1,9 @@
+{
+  "incident_id": "OPENRCA-Q9DS7ABBJHM6",
+  "source_type": "openrca2",
+  "service": "ts-preserve-service",
+  "severity": "SEV1",
+  "start_time": "2026-05-02T01:59:49+08:00",
+  "system": "ts",
+  "chaos_family": "hybrid"
+}

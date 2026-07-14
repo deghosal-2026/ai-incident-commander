@@ -1,0 +1,8 @@
+{
+  "incident_id": "azure-20170321-2",
+  "source_type": "intelligentdds",
+  "service": "Microsoft Account authentication service",
+  "severity": "SEV1",
+  "start_time": "2017-03-21T00:00:00+00:00",
+  "provider": "Azure"
+}

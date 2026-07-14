@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "DynamoDB",
+  "summary": "Summary of the Amazon DynamoDB Service Disruption and Related Impacts in the US-East Region",
+  "source": "intelligentdds/AWS",
+  "timestamp": "2015-09-20T00:00:00+00:00"
+}

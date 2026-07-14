@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "Cloudflare Control Plane",
+  "summary": "Control Plane & Analytics Outage",
+  "source": "blog/cloudflare",
+  "timestamp": "2023-11-02T11:44:00Z"
+}

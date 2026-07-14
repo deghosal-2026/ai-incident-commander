@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170517-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 21:30 and 23:35 UTC on 16 May 2017, a subset of customers using Service Bus may have experienced errors with SSL validations connecting to resources. This issue only impacted new connections to Service Bus, existing connections were not affected. We recommend customers to restart your processes to complete recovery of the service. ",
+  "root_cause_key_terms": [
+    "service bus"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 21:30 and 23:35 UTC on 16 May 2017, a subset of customers using Service Bus may have experienced errors with SSL validations connecting to resources. This issue only impacted new connections t",
+  "severity": "SEV1",
+  "service": "service bus"
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "aws-11",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AWS",
+  "root_cause": "We want to give you some additional insight into the event that impacted a single Availability Zone in the South America Region (SA-EAST-1). On December 17th at 10:05PM PST, the impacted Availability Zone lost utility power due to a fault that happened at the substation of the local utility provider. The impacted Availability Zone automatically switched over to run on generator power when utility power was lost. Availability Zones are built with multiple layers of redundancy, and are designed to continue to operate even when multiple components fail at the same time. In this particular case when we experienced a loss in utility power, the load switched over to our backup generators as designed. During that failover a breaker in front of one of the generators opened, rendering that generator unavailable. Shortly thereafter, a second generator independently failed due to a mechanical issue. The loss of utility power combined with the unavailability of two additional generators meant that there was more load in the facility than the remaining healthy generators could handle. With more load on them than they could support, the remaining healthy generators also shut down. Our facilities team immediately began working to bring the failed generators back online. This facility uses an automated control system which allows it to aggregate power from multiple generators together. The team experienced several additional setbacks when trying to bring the power infrastructure back online, and eventually identified that the automated control system wasn\u2019t functioning properly. Once the team identified the issue, they bypassed the automated control system and began the slow process of manually bringing the generators online. Once there was sufficient generator capacity to fully support the facility, all of the impacted instances were recovered. While we have not completed forensics on the breaker opening and the generator mechanical failure, we find the double failure to be extremely unusual, and are deeply reviewing the operational records of the failed components.",
+  "root_cause_key_terms": [
+    "utility power",
+    "backup generator",
+    "EC2 instances"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "We want to give you some additional insight into the event that impacted a single Availability Zone in the South America Region (SA-EAST-1). On December 17th at 10:05PM PST, the impacted Availability ",
+  "severity": "SEV1",
+  "service": "utility power"
+}

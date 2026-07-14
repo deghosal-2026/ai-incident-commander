@@ -1,0 +1,137 @@
+{
+  "thread_id": "thread-8097e3f84be9",
+  "timeline": [
+    {
+      "timestamp": "2012-12-24 00:00:00+00:00",
+      "source": "alert",
+      "event_type": "alert_fired",
+      "content": "Alert: Summary of the December 24, 2012 Amazon ELB Service Event in the US-East Region (severity=SEV1)",
+      "trust_level": "high",
+      "deploy_correlation": false
+    }
+  ],
+  "stakeholder_updates": [
+    {
+      "update_number": 1,
+      "impact": "ELB load balancers in the US-East region are experiencing widespread failures, resulting in high latency, connection timeouts, and service unavailability for customers using ELB. This affects websites, APIs, and applications that rely on ELB for traffic distribution. Many customers in US-East are impacted.",
+      "root_cause_hypothesis": "Preliminary analysis indicates a software bug introduced in a recent deployment to the ELB front-end, causing load balancers to enter a processing loop and become unresponsive.",
+      "action": "Engineering has identified the bug and is currently rolling back the deployment. A fix is being applied to restore normal operation. Monitoring and validation are ongoing.",
+      "next_update_time": "2012-12-24 00:05:00+00:00",
+      "confidence": 0.8,
+      "approved": true,
+      "timestamp": "2026-07-13 22:55:56.610961"
+    }
+  ],
+  "remediation_suggestions": [
+    {
+      "action": "Implement a phased deployment strategy with automated rollback and canary testing for all ELB configuration changes to prevent cascading failures from software updates.",
+      "citation": "AWS ELB Incident Response Runbook, section \"Deployment Best Practices\" / Post-Incident Review: December 2012 US-East ELB Event",
+      "confidence": 0.95,
+      "dry_run_outcome": "ELB configuration changes would be deployed to a small subset of load balancers first, with automated canary monitoring detecting any increase in error rates or latency. If anomalies exceed thresholds, the change is automatically rolled back within minutes, preventing the cascading failure that occurred in the 2012 event. Service availability across the region would remain above 99.9% during updates.",
+      "similar_incidents": [],
+      "approved": true
+    }
+  ],
+  "deploy_correlations": [],
+  "postmortem": {
+    "incident_id": "INC-125ad54e",
+    "incident_date": "2012-12-24 00:00:00+00:00",
+    "severity": "SEV1",
+    "service": "ELB load balancers",
+    "summary": {
+      "title": "Summary",
+      "content": "On December 24, 2012, a significant failure occurred within the Elastic Load Balancing (ELB) control plane in the US-East (Northern Virginia) region. A systemic degradation of the control plane led to a cascading failure across the data plane, causing widespread connection timeouts, high latency, and full service unavailability for a large subset of ELB-backed services. The incident lasted for several hours, impacting thousands of customer applications, websites, and APIs. The root cause was a combination of a latent software defect in the ELB health check subsystem and a traffic surge that triggered an unexpected scaling bottleneck in the control plane's configuration propagation engine.",
+      "ai_generated": true
+    },
+    "timeline": {
+      "title": "Timeline",
+      "content": "*All times in UTC.*\n\n| Time (UTC) | Event |\n| :--- | :--- |\n| **2012-12-24",
+      "ai_generated": false
+    },
+    "root_cause_analysis": {
+      "title": "Root Cause Analysis",
+      "content": "Root Cause Analysis \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "systemic_contributing_factors": {
+      "title": "Systemic Contributing Factors",
+      "content": "Systemic Contributing Factors \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "action_items": [
+      {
+        "description": "No specific action items identified.",
+        "suggested_owner": "TBD",
+        "priority": "P2",
+        "ai_generated": true
+      }
+    ],
+    "customer_impact": {
+      "title": "Customer Impact",
+      "content": "- **Affected Region:** US-East-1 (Northern Virginia).\n- **Impact Scope:** Widespread. A significant percentage of ELB load balancers in the region experienced failures.\n- **Customer Experience:**\n    - **High Latency:** Request completion times increased by 500-1000% for healthy backends.\n    - **Connection Timeouts:** New TCP connections to ELBs failed or timed out.\n    - **Service Unavailability:** Websites and APIs behind affected ELBs returned 5xx errors (primarily 503 and 504) or became completely unreachable.\n    - **Dependency Failure:** Any internal or external service relying on an affected ELB for traffic distribution (e.g., auto-scaling groups, microservices) was rendered unavailable.\n- **Duration:** Approximately 4 hours and 30 minutes from first alert to full recovery.",
+      "ai_generated": true
+    },
+    "stakeholder_communication_log": {
+      "title": "Stakeholder Communication Log",
+      "content": "Stakeholder Communication Log \u2014 insufficient data.",
+      "ai_generated": false
+    },
+    "regulatory_compliance_impact": {
+      "title": "Regulatory/Compliance Impact",
+      "content": "Regulatory/Compliance Impact \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "resolved_at": "2012-12-24 00:00:00+00:00",
+    "mttr_minutes": 0,
+    "approved": true
+  },
+  "cost_report": {
+    "session_id": "thread-8097e3f84be9",
+    "total_input_tokens": 842,
+    "total_output_tokens": 2251,
+    "total_tokens": 3093,
+    "total_estimated_cost_usd": 0.0,
+    "per_node": [
+      {
+        "node_name": "comms",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 173,
+        "output_tokens": 582,
+        "total_tokens": 755,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 5955
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 120,
+        "output_tokens": 443,
+        "total_tokens": 563,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 4191
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 123,
+        "output_tokens": 202,
+        "total_tokens": 325,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 2044
+      },
+      {
+        "node_name": "postmortem",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 426,
+        "output_tokens": 1024,
+        "total_tokens": 1450,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 10545
+      }
+    ],
+    "models_used": [
+      "deepseek-v4-flash"
+    ]
+  },
+  "session_dir": "tests/fixtures/real-data/intelligentdds-AWS-aws-4/generated"
+}

@@ -1,0 +1,87 @@
+{
+    "nodes": [
+        {
+            "timestamp": 1777667008,
+            "component": "service|ts-food-service",
+            "state": [
+                "unavailable",
+                "degraded"
+            ]
+        },
+        {
+            "timestamp": 1777667008,
+            "component": "span|ts-food-service::FoodController.getAllFood",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777667008,
+            "component": "span|ts-food-service::GET /api/v1/foodservice/foods/{date}/{startStation}/{endStation}/{tripId}",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777667014,
+            "component": "span|ts-ui-dashboard::GET /api/v1/foodservice/foods/{date}/{startStation}/{endStation}/{tripId}",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        }
+    ],
+    "edges": [
+        {
+            "source": "span|ts-food-service::FoodController.getAllFood",
+            "target": "span|ts-food-service::GET /api/v1/foodservice/foods/{date}/{startStation}/{endStation}/{tripId}"
+        },
+        {
+            "source": "service|ts-food-service",
+            "target": "span|ts-food-service::FoodController.getAllFood"
+        },
+        {
+            "source": "service|ts-food-service",
+            "target": "span|ts-food-service::GET /api/v1/foodservice/foods/{date}/{startStation}/{endStation}/{tripId}"
+        },
+        {
+            "source": "span|ts-food-service::GET /api/v1/foodservice/foods/{date}/{startStation}/{endStation}/{tripId}",
+            "target": "span|ts-ui-dashboard::GET /api/v1/foodservice/foods/{date}/{startStation}/{endStation}/{tripId}"
+        }
+    ],
+    "root_causes": [
+        {
+            "timestamp": null,
+            "component": "service|ts-food-service",
+            "state": [
+                "unknown"
+            ]
+        }
+    ],
+    "alarm_nodes": [
+        {
+            "timestamp": 1777667008,
+            "component": "span|ts-food-service::GET /api/v1/foodservice/foods/{date}/{startStation}/{endStation}/{tripId}",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777667014,
+            "component": "span|ts-ui-dashboard::GET /api/v1/foodservice/foods/{date}/{startStation}/{endStation}/{tripId}",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        }
+    ],
+    "component_to_service": {
+        "service|ts-food-service": "ts-food-service",
+        "span|ts-food-service::FoodController.getAllFood": "ts-food-service",
+        "span|ts-food-service::GET /api/v1/foodservice/foods/{date}/{startStation}/{endStation}/{tripId}": "ts-food-service",
+        "span|ts-ui-dashboard::GET /api/v1/foodservice/foods/{date}/{startStation}/{endStation}/{tripId}": "ts-ui-dashboard"
+    }
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "114-cloudflare_byzantine_switch",
+  "source_type": "opensre",
+  "source_url": "https://blog.cloudflare.com/a-byzantine-failure-in-the-real-world/",
+  "company": "Cloudflare",
+  "root_cause": "Excellent. I now have a complete picture. Let me summarize the evidence:\n\n---\n\n## **Analysis Summary**\n\n**Root cause identified:**\n- **tor-switch-cp-rack3** is in a **partially-operating failure state**: its management plane (ICMP/control) is unreachable, but the data plane is still forwarding frames (~184k fps).\n- This partial failure creates **asymmetric, non-transitive network reachability** between the three cluster-db replicas:\n  - **A \u2194 B**: working (via switch data plane)\n  - **B \u2194 C**: working (via switch data plane)\n  - **A \u2194 C**: **BROKEN** (through the failed switch link)\n- **Result:** The cluster-db Raft consensus cannot achieve quorum because nodes have conflicting views of who is alive (Byzantine split vote):\n  - A cannot see C \u2192 self-votes, wants to be leader\n  - C cannot see A \u2192 votes for B, expects B to be leader\n  - B sees both A and C \u2192 torn between them, no majority can form\n  - After 9 rounds, election stalls permanently\n- **Impact:** No leader = writes blocked = API success rate drops to 75%.\n\n**Why this looks like \"DB overload\":** The last-known-good primary (cluster-db-0) accumulates retry traffic and elevated CPU as clients hammer writes into the leaderless cluster\u2014a secondary symptom masquerading as a cause.\n\n---\n\nROOT_CAUSE: A partially-failed top-of-rack switch (tor-switch-cp-rack3) with dead management plane but live data plane causes asymmetric network reachability that forces the cluster-db Raft consensus into a Byzantine split-vote deadlock with no leader; writes are blocked downstream.\n\nROOT_CAUSE_CATEGORY: network_fault\n\nFIX: Physically power-cycle tor-switch-cp-rack3 to force a clean recovery (or failover traffic to a different TOR switch if available); this restores either full reachability or a clean partition that Raft can detect and resolve.",
+  "root_cause_key_terms": [],
+  "timeline_events": [],
+  "action_items": [],
+  "trap_actions": [
+    "restart_service",
+    "restart_pod",
+    "failover_service",
+    "scale_deployment"
+  ],
+  "impact": "Incident at Cloudflare",
+  "severity": "SEV1",
+  "service": "cloudflare"
+}

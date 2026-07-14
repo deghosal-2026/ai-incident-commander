@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "utility power",
+  "summary": "Summary of the December 17th event in the South America Region (SA-EAST-1)",
+  "source": "intelligentdds/AWS",
+  "timestamp": "2013-12-17T00:00:00+00:00"
+}

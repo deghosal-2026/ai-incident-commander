@@ -1,0 +1,9 @@
+{
+  "incident_id": "OPENRCA-W2Z0SYFET4DR",
+  "source_type": "openrca2",
+  "service": "ts-food-service",
+  "severity": "SEV1",
+  "start_time": "2026-05-02T02:00:06+08:00",
+  "system": "ts",
+  "chaos_family": "hybrid"
+}

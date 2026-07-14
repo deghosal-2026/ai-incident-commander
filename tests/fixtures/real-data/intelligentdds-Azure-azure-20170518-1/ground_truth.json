@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170518-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 02:45 and 15:59 UTC on 18 May 2017, with most impact occurring between 07:00 and 13:00 UTC, a subset of customers using Virtual Machines (VMs), Storage, HDInsight, or Azure Search in West Europe may have experienced high latency or degraded performance when accessing resources hosted in this region. A subset of customers using VMs in the region may have experienced unexpected restarts of their VM. Engineers investigated and determined that root cause was due to congested links in our network infrastructure resulting in reduced network capacity and subsequent impacts to downstream services. ",
+  "root_cause_key_terms": [
+    "Virtual Machines",
+    "Storage",
+    "HDInsight",
+    "Azure Search"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 02:45 and 15:59 UTC on 18 May 2017, with most impact occurring between 07:00 and 13:00 UTC, a subset of customers using Virtual Machines (VMs), Storage, HDInsight, or Azure Search in West Euro",
+  "severity": "SEV1",
+  "service": "Virtual Machines"
+}

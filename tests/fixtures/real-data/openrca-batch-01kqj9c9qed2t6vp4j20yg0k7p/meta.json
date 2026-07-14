@@ -1,0 +1,9 @@
+{
+  "incident_id": "OPENRCA-VP4J20YG0K7P",
+  "source_type": "openrca2",
+  "service": "ts-admin-order-service",
+  "severity": "SEV1",
+  "start_time": "2026-05-02T01:29:00+08:00",
+  "system": "ts",
+  "chaos_family": "hybrid"
+}

@@ -1,0 +1,88 @@
+{
+    "nodes": [
+        {
+            "timestamp": 1777661027,
+            "component": "service|ts-basic-service",
+            "state": [
+                "degraded"
+            ]
+        },
+        {
+            "timestamp": 1777661027,
+            "component": "span|ts-basic-service::POST /api/v1/basicservice/basic/travel",
+            "state": [
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777661027,
+            "component": "span|ts-travel2-service::Travel2Controller.getTripAllDetailInfo",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777661027,
+            "component": "span|ts-travel2-service::POST /api/v1/travel2service/trip_detail",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777661027,
+            "component": "span|ts-basic-service::BasicController.queryForTravel",
+            "state": [
+                "missing",
+                "healthy"
+            ]
+        }
+    ],
+    "edges": [
+        {
+            "source": "service|ts-basic-service",
+            "target": "span|ts-basic-service::POST /api/v1/basicservice/basic/travel"
+        },
+        {
+            "source": "span|ts-basic-service::BasicController.queryForTravel",
+            "target": "span|ts-basic-service::POST /api/v1/basicservice/basic/travel"
+        },
+        {
+            "source": "service|ts-basic-service",
+            "target": "span|ts-basic-service::BasicController.queryForTravel"
+        },
+        {
+            "source": "span|ts-basic-service::POST /api/v1/basicservice/basic/travel",
+            "target": "span|ts-travel2-service::Travel2Controller.getTripAllDetailInfo"
+        },
+        {
+            "source": "span|ts-travel2-service::Travel2Controller.getTripAllDetailInfo",
+            "target": "span|ts-travel2-service::POST /api/v1/travel2service/trip_detail"
+        }
+    ],
+    "root_causes": [
+        {
+            "timestamp": null,
+            "component": "service|ts-basic-service",
+            "state": [
+                "unknown"
+            ]
+        }
+    ],
+    "alarm_nodes": [
+        {
+            "timestamp": 1777661027,
+            "component": "span|ts-travel2-service::POST /api/v1/travel2service/trip_detail",
+            "state": [
+                "missing"
+            ]
+        }
+    ],
+    "component_to_service": {
+        "service|ts-basic-service": "ts-basic-service",
+        "span|ts-basic-service::POST /api/v1/basicservice/basic/travel": "ts-basic-service",
+        "span|ts-travel2-service::Travel2Controller.getTripAllDetailInfo": "ts-travel2-service",
+        "span|ts-travel2-service::POST /api/v1/travel2service/trip_detail": "ts-travel2-service",
+        "span|ts-basic-service::BasicController.queryForTravel": "ts-basic-service"
+    }
+}

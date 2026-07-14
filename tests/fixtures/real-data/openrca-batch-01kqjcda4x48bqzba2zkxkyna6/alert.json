@@ -1,0 +1,15 @@
+{
+  "severity": "SEV1",
+  "service": "ad",
+  "summary": "hybrid anomaly in otel-demo affecting ad, recommendation",
+  "source": "openrca2/otel-demo",
+  "timestamp": "2026-05-02T02:21:58+08:00",
+  "metadata": {
+    "system": "otel-demo",
+    "chaos_family": "hybrid",
+    "affected_services": [
+      "ad",
+      "recommendation"
+    ]
+  }
+}

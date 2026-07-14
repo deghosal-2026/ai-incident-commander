@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "Azure IoT suite",
+  "summary": "IoT Suite - Failures Provisioning New Solutions - Germany",
+  "source": "intelligentdds/Azure",
+  "timestamp": "2017-04-11T00:00:00+00:00"
+}

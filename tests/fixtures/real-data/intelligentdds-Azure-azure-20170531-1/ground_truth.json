@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170531-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 22:50 and 23:30 UTC on 30 May 2017, a subset of customers using App Service Web Apps in West Europe may have received intermittent HTTP 5xx errors, timeouts or have experienced high latency when accessing Web Apps deployments hosted in this region.",
+  "root_cause_key_terms": [
+    "App service",
+    "Web apps"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 22:50 and 23:30 UTC on 30 May 2017, a subset of customers using App Service Web Apps in West Europe may have received intermittent HTTP 5xx errors, timeouts or have experienced high latency wh",
+  "severity": "SEV1",
+  "service": "App service"
+}

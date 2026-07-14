@@ -1,0 +1,9 @@
+{
+  "incident_id": "OPENRCA-9HFNQK8TJBWM",
+  "source_type": "openrca2",
+  "service": "ts-food-service",
+  "severity": "SEV1",
+  "start_time": "2026-05-02T04:23:28+08:00",
+  "system": "ts",
+  "chaos_family": "hybrid"
+}

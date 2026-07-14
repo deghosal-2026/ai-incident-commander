@@ -1,0 +1,8 @@
+{
+  "incident_id": "104-slack_tgw_fd_exhaustion",
+  "source_type": "opensre",
+  "service": "slack",
+  "severity": "SEV1",
+  "start_time": "",
+  "company": "Slack"
+}

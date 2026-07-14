@@ -1,0 +1,8 @@
+{
+  "incident_id": "azure-20161207-1",
+  "source_type": "intelligentdds",
+  "service": "Storage services",
+  "severity": "SEV1",
+  "start_time": "2016-12-07T00:00:00+00:00",
+  "provider": "Azure"
+}

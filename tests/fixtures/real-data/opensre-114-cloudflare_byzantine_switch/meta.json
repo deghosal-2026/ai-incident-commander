@@ -1,0 +1,8 @@
+{
+  "incident_id": "114-cloudflare_byzantine_switch",
+  "source_type": "opensre",
+  "service": "cloudflare",
+  "severity": "SEV1",
+  "start_time": "",
+  "company": "Cloudflare"
+}

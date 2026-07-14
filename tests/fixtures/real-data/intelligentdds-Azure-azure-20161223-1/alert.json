@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "Azure Functions",
+  "summary": "Azure Functions - Region Selection Issues in Portal | Recovered",
+  "source": "intelligentdds/Azure",
+  "timestamp": "2016-12-23T00:00:00+00:00"
+}

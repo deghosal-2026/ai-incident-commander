@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "GitHub.com",
+  "summary": "MySQL Failover \u2014 24h Degradation",
+  "source": "blog/github",
+  "timestamp": "2018-10-21T22:54:00Z"
+}

@@ -1,0 +1,94 @@
+{
+    "id": 2003,
+    "name": "batch-01KQJ2EJFXBQC4BFF46FCHAB9R",
+    "fault_type": "hybrid",
+    "category": "hs",
+    "pre_duration": 5,
+    "start_time": "2026-05-01T23:27:53+08:00",
+    "end_time": "2026-05-01T23:32:53+08:00",
+    "state": "inject_success",
+    "status": "enabled",
+    "benchmark_id": 108,
+    "benchmark_name": "clickhouse",
+    "pedestal_id": 140,
+    "pedestal_name": "hs",
+    "created_at": "2026-05-01T23:27:53.353+08:00",
+    "updated_at": "2026-05-01T23:32:53.449+08:00",
+    "engine_config_summary": [
+        {
+            "app": "geo",
+            "chaos_type": "PodFailure",
+            "duration": 5,
+            "namespace": "hs28",
+            "system": "hs0",
+            "system_type": "hs",
+            "time_offset": 0
+        },
+        {
+            "app": "search",
+            "chaos_type": "MemoryStress",
+            "container": "hotel-reserv-search",
+            "duration": 5,
+            "mem_type": "heap",
+            "mem_worker": 3,
+            "memory_size": 704,
+            "namespace": "hs28",
+            "system": "hs0",
+            "system_type": "hs",
+            "time_offset": 0
+        }
+    ],
+    "task_id": "c8cfbfc5-9d9e-4612-aef6-9c469c8e1b13",
+    "trace_id": "428f9850-6a2f-44bb-a10a-cfe04d598b20",
+    "source": "injection",
+    "description": "Fault batch for task c8cfbfc5-9d9e-4612-aef6-9c469c8e1b13 (2 faults)",
+    "engine_config": [
+        {
+            "app": "geo",
+            "chaos_type": "PodFailure",
+            "duration": 5,
+            "namespace": "hs28",
+            "system": "hs0",
+            "system_type": "hs",
+            "time_offset": 0
+        },
+        {
+            "app": "search",
+            "chaos_type": "MemoryStress",
+            "container": "hotel-reserv-search",
+            "duration": 5,
+            "mem_type": "heap",
+            "mem_worker": 3,
+            "memory_size": 704,
+            "namespace": "hs28",
+            "system": "hs0",
+            "system_type": "hs",
+            "time_offset": 0
+        }
+    ],
+    "ground_truth": [
+        {
+            "service": [
+                "geo"
+            ],
+            "container": [
+                "hotel-reserv-geo"
+            ]
+        },
+        {
+            "service": [
+                "search"
+            ],
+            "pod": [
+                "search-5b64b9cdbf-wprkx"
+            ],
+            "container": [
+                "hotel-reserv-search"
+            ],
+            "metric": [
+                "memory"
+            ]
+        }
+    ],
+    "groundtruth_source": "auto"
+}

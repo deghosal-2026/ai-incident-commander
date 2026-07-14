@@ -1,0 +1,73 @@
+{
+    "nodes": [
+        {
+            "timestamp": 1777663126,
+            "component": "service|recommendation",
+            "state": [
+                "degraded"
+            ]
+        },
+        {
+            "timestamp": 1777663126,
+            "component": "span|recommendation::recommendation.Recommendation/GetRecommendations",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777663126,
+            "component": "span|frontend::recommendation.Recommendation/GetRecommendations",
+            "state": [
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777663126,
+            "component": "span|frontend::HTTP /recommendations",
+            "state": [
+                "missing",
+                "erroring"
+            ]
+        }
+    ],
+    "edges": [
+        {
+            "source": "span|frontend::recommendation.Recommendation/GetRecommendations",
+            "target": "span|frontend::HTTP /recommendations"
+        },
+        {
+            "source": "service|recommendation",
+            "target": "span|recommendation::recommendation.Recommendation/GetRecommendations"
+        },
+        {
+            "source": "span|recommendation::recommendation.Recommendation/GetRecommendations",
+            "target": "span|frontend::recommendation.Recommendation/GetRecommendations"
+        }
+    ],
+    "root_causes": [
+        {
+            "timestamp": null,
+            "component": "service|recommendation",
+            "state": [
+                "unknown"
+            ]
+        }
+    ],
+    "alarm_nodes": [
+        {
+            "timestamp": 1777663126,
+            "component": "span|frontend::HTTP /recommendations",
+            "state": [
+                "missing",
+                "erroring"
+            ]
+        }
+    ],
+    "component_to_service": {
+        "service|recommendation": "recommendation",
+        "span|recommendation::recommendation.Recommendation/GetRecommendations": "recommendation",
+        "span|frontend::recommendation.Recommendation/GetRecommendations": "frontend",
+        "span|frontend::HTTP /recommendations": "frontend"
+    }
+}

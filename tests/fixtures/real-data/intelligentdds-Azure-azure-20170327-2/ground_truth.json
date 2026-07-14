@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170327-2",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 18:04 and 21:16 UTC on 27 Mar 2017, a subset of customers in Japan West may have experienced degraded performance, network drops or time outs when accessing their Azure resources hosted in this region. ",
+  "root_cause_key_terms": [
+    "Azure services"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 18:04 and 21:16 UTC on 27 Mar 2017, a subset of customers in Japan West may have experienced degraded performance, network drops or time outs when accessing their Azure resources hosted in thi",
+  "severity": "SEV1",
+  "service": "Azure services"
+}

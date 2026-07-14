@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170503-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 10:00 and 19:55 UTC on 03 May 2017, customers using Backup in North Europe and South Central US may have experienced difficulties when creating new and running scheduled Virtual Machine backup jobs in the region. Customers attempting to access these resources may have encountered the following error message: VM Agent is unable to communicate with the Azure Backup Service.",
+  "root_cause_key_terms": [
+    "Backup service"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 10:00 and 19:55 UTC on 03 May 2017, customers using Backup in North Europe and South Central US may have experienced difficulties when creating new and running scheduled Virtual Machine backup",
+  "severity": "SEV1",
+  "service": "Backup service"
+}

@@ -1,0 +1,10 @@
+{
+  "incident_id": "INC-2026-001",
+  "service": "payment-service",
+  "severity": "SEV1",
+  "start_time": "2026-07-13T14:00:00",
+  "description": "Database connection pool exhaustion causing payment failures",
+  "commander": "alice",
+  "oncall_roster": ["alice", "bob", "charlie"],
+  "tags": ["database", "payment", "SEV1"]
+}

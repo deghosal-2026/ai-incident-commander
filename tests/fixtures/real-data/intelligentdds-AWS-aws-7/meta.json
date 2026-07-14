@@ -1,0 +1,8 @@
+{
+  "incident_id": "aws-7",
+  "source_type": "intelligentdds",
+  "service": "EC2 instances",
+  "severity": "SEV1",
+  "start_time": "2014-08-07T00:00:00+00:00",
+  "provider": "AWS"
+}

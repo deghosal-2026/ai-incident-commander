@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170512-2",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 18:33 UTC and 19:08 UTC on 12 May 2017, a subset of customers may have experienced difficulties or received error notifications when connecting to resources hosted in East US. Azure Engineers detected a card failure on a backbone router servicing portions of East US. The router was removed from servicing the network. The backup device exceeded critical parameters due to previously undetected fiber damage on this device, and customers may have observed packet loss and increased latency. ",
+  "root_cause_key_terms": [
+    "Virtual machines"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 18:33 UTC and 19:08 UTC on 12 May 2017, a subset of customers may have experienced difficulties or received error notifications when connecting to resources hosted in East US. Azure Engineers ",
+  "severity": "SEV1",
+  "service": "Virtual machines"
+}

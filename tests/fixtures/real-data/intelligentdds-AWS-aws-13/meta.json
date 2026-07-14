@@ -1,0 +1,8 @@
+{
+  "incident_id": "aws-13",
+  "source_type": "intelligentdds",
+  "service": "AWS Direct Connect",
+  "severity": "SEV1",
+  "start_time": "2021-09-02T00:00:00+00:00",
+  "provider": "AWS"
+}

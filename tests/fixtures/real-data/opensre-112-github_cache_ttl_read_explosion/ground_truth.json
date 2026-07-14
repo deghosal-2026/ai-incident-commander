@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "112-github_cache_ttl_read_explosion",
+  "source_type": "opensre",
+  "source_url": "https://github.blog/news-insights/company-news/github-availability-report-february-2026/",
+  "company": "GitHub",
+  "root_cause": "All evidence converges on a single causal chain. Investigation complete.\n\n**Evidence chain (corroborated across metrics, traces, alerts, events):**\n- **Trigger (14:05):** `settings-cache-config` TTL reduced 12h \u2192 2h for a model rollout.\n- **Unmasking (16:08):** At peak Monday, 2h entries expired en masse \u2192 `user-settings-db` read QPS jumped to **10.2x baseline** while authenticated Git request rate is only **1.1x** \u2014 so this is *not* organic Git growth. ~90% of excess reads attributed to two pre-existing client regressions (mobile-app v8.2, web-prefs-service v3.7 shipped ~3 weeks ago).\n- **Coordinator flood (16:11):** Each cache miss enqueues an async rewrite \u2192 350 \u2192 **8400 rewrites/s**, saturating the shared `background-work-coordinator` (CPU 97%, queue 22x).\n- **Victim (16:12):** `git-https-proxy` can't acquire upstream connections to the saturated coordinator \u2192 pool exhausted 4096/4096, conn_acquire p99 9.2s, traces show 9.18s/9.21s spent purely waiting on the coordinator. Git work span never executes.\n\n**Look-alikes ruled out:**\n- **bad_deploy of proxy:** revision 31 unchanged 23d, image 2.41.0 stable, all 60/60 replicas Available, 0 restarts/0 OOM \u2014 rollback would do nothing.\n- **proxy capacity / saturation:** proxy resources fine; it's blocked downstream, not overloaded itself.\n- **user traffic surge:** Git request rate only 1.1x \u2014 demand didn't change.\n\nROOT_CAUSE: A settings-cache TTL reduction (12h\u21922h) unmasked a latent 10x client read regression, causing mass cache expiry \u2192 an 8400/s async cache-rewrite flood that saturated the shared background-work-coordinator (CPU 97%); git-https-proxy then exhausted its upstream connection pool (4096/4096) waiting on that saturated coordinator and returned 5xx/timeouts.\nROOT_CAUSE_CATEGORY: dependency_failure\nFIX: Disable the asynchronous settings-cache rewrites (via settings-cache-config) to drain the coordinator queue, then restart git-https-proxy across datacenters to recover its connection pool.",
+  "root_cause_key_terms": [],
+  "timeline_events": [],
+  "action_items": [],
+  "trap_actions": [
+    "Just revert the cache refresh TTL 2h -> 12h and declare it resolved \u2014 this is only HALF the story: it re-hides the symptom but leaves the latent 10x client read regression in place, so the cascade re-arms at the next peak (the documented half-fix that does not address the client read traffic)",
+    "Roll back / restart the git-https-proxy as the fix \u2014 the proxy is a downstream victim (revision 31 unchanged 23d, 0 restarts, image stable); rolling it back addresses nothing and restarts alone do not stop the upstream coordinator flood",
+    "Add user-settings-db capacity / scale the DB to fix 'saturation' \u2014 the read explosion is the latent client regression amplified by cache misses, not organic traffic, so more DB capacity does not stop the read amplification or the coordinator flood"
+  ],
+  "impact": "Incident at GitHub",
+  "severity": "SEV1",
+  "service": "github"
+}

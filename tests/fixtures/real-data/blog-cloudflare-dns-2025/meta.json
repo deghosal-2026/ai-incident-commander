@@ -1,0 +1,8 @@
+{
+  "incident_id": "blog-cloudflare-dns-2025",
+  "source_type": "blog",
+  "service": "1.1.1.1 DNS Resolver",
+  "severity": "SEV1",
+  "start_time": "2025-07-14T21:48:00Z",
+  "company": "Cloudflare"
+}

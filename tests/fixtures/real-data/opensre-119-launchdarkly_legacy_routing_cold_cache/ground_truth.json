@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "119-launchdarkly_legacy_routing_cold_cache",
+  "source_type": "opensre",
+  "source_url": "https://launchdarkly.com/blog/what-happened-what-we-learned-and-how-were-improving/",
+  "company": "LaunchDarkly",
+  "root_cause": "Perfect. I now have a complete and clear picture. Let me synthesize the evidence:\n\n---\n\n## Analysis Summary\n\n**The True Root Cause (not the AWS outage, not undersizing):**\n\nAt 11:48, the routing configuration was switched from a new fault-tolerant path back to the **LEGACY routing path** (to reduce web-app load). The legacy router's per-flag cache started **cold** (hit ratio 0.06). \n\nThis created a catastrophic feedback loop:\n1. Every SDK stream init becomes a **cache miss** \u2192 DynamoDB fall-through\n2. DynamoDB is still rate-limited from the earlier AWS event \u2192 timeouts\n3. SDK stream init errors \u2192 SDK reconnects aggressively (retry storm)\n4. Connect-attempt rate jumps to **14.2x baseline** (even though flag_eval_rate is only 1.1x baseline \u2014 this is pure amplification, not organic traffic)\n5. The streaming service and load balancer get saturated (CPU 98%, LB 5xx 0.91)\n6. HPA tries to scale out but EC2 RunInstances is throttled (a constraint, not a cause)\n\n**Why this is NOT:**\n- **bad_deploy**: The streaming image (2025.10.7) is 11 days old and unchanged; 0 restarts, 0 OOMs.\n- **AWS outage**: The direct AWS impact had recovered by 11:40; the crash happened at 11:48 triggered by the config flip, not the outage.\n- **undersizing**: Scaling is blocked by EC2 throttling; even if more replicas existed, they'd just take more retry traffic hitting cold caches.\n\n---\n\n**ROOT_CAUSE:** The legacy routing path was enabled at 11:48 with a cold per-flag cache, causing every SDK stream initialization to miss cache and timeout on DynamoDB (still recovering from AWS degradation), triggering a 14.2x amplified reconnect storm that saturated the streaming service and load balancer.\n\n**ROOT_CAUSE_CATEGORY:** config_error\n\n**FIX:** `kubectl set env configmap/fdn-routing-mode ROUTING_MODE=new_fault_tolerant -n flag-delivery` (revert the legacy routing configuration switch made at 11:48; restore the fault-tolerant path with warm caches).",
+  "root_cause_key_terms": [],
+  "timeline_events": [],
+  "action_items": [],
+  "trap_actions": [
+    "Cut over flag delivery to the cold/legacy routing path 'to reduce load on the web application' \u2014 this is the self-inflicted regression: cold caches force DynamoDB fall-through, SDKs retry excessively (connect attempts 14x), and the storm makes the streaming service and its load balancer unresponsive (the documented worsening)",
+    "Scale out the fdn-streaming Deployment / its load balancer to absorb the connect storm \u2014 the load is amplified SDK retries on cold caches, not organic demand, so more replicas just take more reconnects; and the scale-out is blocked anyway because EC2 RunInstances is throttled by the AWS event",
+    "Treat it as direct AWS-outage fallout and only wait for the cloud provider \u2014 wrong: the new fault-tolerant path was tolerating the AWS degradation; the proximate cause is the internal legacy cutover at 11:48 and must be reverted"
+  ],
+  "impact": "Incident at LaunchDarkly",
+  "severity": "SEV1",
+  "service": "launchdarkly"
+}

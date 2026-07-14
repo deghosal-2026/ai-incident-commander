@@ -1,0 +1,244 @@
+{
+    "nodes": [
+        {
+            "timestamp": 1777660845,
+            "component": "service|checkout",
+            "state": [
+                "degraded"
+            ]
+        },
+        {
+            "timestamp": 1777660845,
+            "component": "span|checkout::oteldemo.PaymentService/Charge",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777660845,
+            "component": "span|checkout::oteldemo.CheckoutService/PlaceOrder",
+            "state": [
+                "slow",
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777660878,
+            "component": "span|frontend::grpc.oteldemo.CheckoutService/PlaceOrder",
+            "state": [
+                "slow",
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777660878,
+            "component": "span|frontend::executing api route (pages) /api/checkout",
+            "state": [
+                "slow",
+                "erroring",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777660878,
+            "component": "span|frontend::POST /api/checkout",
+            "state": [
+                "slow",
+                "erroring",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777660875,
+            "component": "span|frontend-proxy::router frontend egress",
+            "state": [
+                "slow",
+                "erroring",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777660875,
+            "component": "span|frontend-proxy::ingress",
+            "state": [
+                "slow",
+                "erroring",
+                "missing",
+                "healthy"
+            ]
+        },
+        {
+            "timestamp": 1777660845,
+            "component": "span|checkout::oteldemo.CartService/GetCart",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777660845,
+            "component": "span|checkout::prepareOrderItemsAndShippingQuoteFromCart",
+            "state": [
+                "slow",
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777660845,
+            "component": "span|checkout::oteldemo.CartService/EmptyCart",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777660845,
+            "component": "span|checkout::oteldemo.CurrencyService/Convert",
+            "state": [
+                "slow",
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777660845,
+            "component": "span|checkout::orders publish",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777660845,
+            "component": "span|checkout::oteldemo.ProductCatalogService/GetProduct",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        }
+    ],
+    "edges": [
+        {
+            "source": "span|frontend::executing api route (pages) /api/checkout",
+            "target": "span|frontend::POST /api/checkout"
+        },
+        {
+            "source": "span|frontend::grpc.oteldemo.CheckoutService/PlaceOrder",
+            "target": "span|frontend::executing api route (pages) /api/checkout"
+        },
+        {
+            "source": "service|checkout",
+            "target": "span|checkout::oteldemo.ProductCatalogService/GetProduct"
+        },
+        {
+            "source": "span|checkout::oteldemo.CartService/GetCart",
+            "target": "span|checkout::prepareOrderItemsAndShippingQuoteFromCart"
+        },
+        {
+            "source": "span|frontend::POST /api/checkout",
+            "target": "span|frontend-proxy::router frontend egress"
+        },
+        {
+            "source": "span|checkout::orders publish",
+            "target": "span|checkout::oteldemo.CheckoutService/PlaceOrder"
+        },
+        {
+            "source": "service|checkout",
+            "target": "span|checkout::oteldemo.CheckoutService/PlaceOrder"
+        },
+        {
+            "source": "span|checkout::oteldemo.CheckoutService/PlaceOrder",
+            "target": "span|frontend::grpc.oteldemo.CheckoutService/PlaceOrder"
+        },
+        {
+            "source": "span|checkout::oteldemo.PaymentService/Charge",
+            "target": "span|checkout::oteldemo.CheckoutService/PlaceOrder"
+        },
+        {
+            "source": "service|checkout",
+            "target": "span|checkout::orders publish"
+        },
+        {
+            "source": "span|checkout::oteldemo.CartService/EmptyCart",
+            "target": "span|checkout::oteldemo.CheckoutService/PlaceOrder"
+        },
+        {
+            "source": "span|checkout::oteldemo.ProductCatalogService/GetProduct",
+            "target": "span|checkout::prepareOrderItemsAndShippingQuoteFromCart"
+        },
+        {
+            "source": "span|checkout::oteldemo.CurrencyService/Convert",
+            "target": "span|checkout::prepareOrderItemsAndShippingQuoteFromCart"
+        },
+        {
+            "source": "service|checkout",
+            "target": "span|checkout::oteldemo.PaymentService/Charge"
+        },
+        {
+            "source": "service|checkout",
+            "target": "span|checkout::oteldemo.CartService/EmptyCart"
+        },
+        {
+            "source": "service|checkout",
+            "target": "span|checkout::prepareOrderItemsAndShippingQuoteFromCart"
+        },
+        {
+            "source": "span|frontend-proxy::router frontend egress",
+            "target": "span|frontend-proxy::ingress"
+        },
+        {
+            "source": "service|checkout",
+            "target": "span|checkout::oteldemo.CartService/GetCart"
+        },
+        {
+            "source": "service|checkout",
+            "target": "span|checkout::oteldemo.CurrencyService/Convert"
+        },
+        {
+            "source": "span|checkout::prepareOrderItemsAndShippingQuoteFromCart",
+            "target": "span|checkout::oteldemo.CheckoutService/PlaceOrder"
+        }
+    ],
+    "root_causes": [
+        {
+            "timestamp": null,
+            "component": "service|checkout",
+            "state": [
+                "unknown"
+            ]
+        }
+    ],
+    "alarm_nodes": [
+        {
+            "timestamp": 1777660875,
+            "component": "span|frontend-proxy::ingress",
+            "state": [
+                "slow",
+                "erroring",
+                "missing",
+                "healthy"
+            ]
+        }
+    ],
+    "component_to_service": {
+        "service|checkout": "checkout",
+        "span|checkout::oteldemo.PaymentService/Charge": "checkout",
+        "span|checkout::oteldemo.CheckoutService/PlaceOrder": "checkout",
+        "span|frontend::grpc.oteldemo.CheckoutService/PlaceOrder": "frontend",
+        "span|frontend::executing api route (pages) /api/checkout": "frontend",
+        "span|frontend::POST /api/checkout": "frontend",
+        "span|frontend-proxy::router frontend egress": "frontend-proxy",
+        "span|frontend-proxy::ingress": "frontend-proxy",
+        "span|checkout::oteldemo.CartService/GetCart": "checkout",
+        "span|checkout::prepareOrderItemsAndShippingQuoteFromCart": "checkout",
+        "span|checkout::oteldemo.CartService/EmptyCart": "checkout",
+        "span|checkout::oteldemo.CurrencyService/Convert": "checkout",
+        "span|checkout::orders publish": "checkout",
+        "span|checkout::oteldemo.ProductCatalogService/GetProduct": "checkout"
+    }
+}

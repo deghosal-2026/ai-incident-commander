@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "106-github_network_partition_orchestrator",
+  "source_type": "opensre",
+  "source_url": "https://github.blog/news-insights/company-news/oct21-post-incident-analysis/",
+  "company": "GitHub",
+  "root_cause": "I have a complete, consistent picture. Let me synthesize.\n\n**Evidence chain:**\n- **22:51:17** \u2014 East hub uplink `NetworkUnavailable=True` for exactly 43s during 100G optical equipment replacement (transient partition).\n- **22:52:00** \u2014 East orchestrator's Raft peer heartbeats timed out \u2192 East leader stepped down (`RaftLeaderDeselection`).\n- **22:52:01** \u2014 West orchestrator nodes formed a 2/3 quorum *without East* and elected a new leader.\n- **22:52:03** \u2014 Orchestrator promoted `mysql-primary-west-0` to writable and demoted `mysql-primary-east-0` to `read_only=ON`.\n- **22:52:46** \u2014 Link restored; East readmitted as follower, but writes already split.\n- **23:30** \u2014 GTID sets diverged (split-brain): both DCs hold transactions absent from the other.\n\n**Ruling out look-alikes:**\n- East primary is `Running 1/1`, 0 restarts, CPU 0.44 cores, mem 38% \u2192 not a DB crash, not resource_exhaustion/saturation/OOM. The `ERROR 1290 read_only` is a *consequence* of orchestrator demotion, not a failure.\n- Nodes are Ready, no pressure conditions \u2192 not node_failure. The link is UP now (`east_west_link_up=1`).\n- The metrics surface the real cause: `orchestrator_raft_leader_changes_total=1` and `orchestrator_raft_quorum_members=2` (East excluded), coincident with the link flap, plus `mysql_gtid_divergence_count=1`.\n\nThe \"MySQL primary write failure\" framing in the alert is the loud-but-misleading symptom. The actual mechanism is an orchestrator/Raft failover triggered by a transient network partition, producing split-brain.\n\nROOT_CAUSE: A transient 43s East\u2194West link loss (optical equipment swap) caused the East orchestrator node to drop out of the Raft quorum; the West orchestrator nodes re-formed quorum without East, elected a new leader, and failed over by promoting the West MySQL primary while demoting the East primary to read_only \u2014 so the East \"write failure\" is an orchestrated demotion, and the now-independent accepted writes on both coasts produced GTID split-brain.\n\nROOT_CAUSE_CATEGORY: network_fault\n\nFIX: Stop the bleed by pointing application writes back to a single authoritative primary, then reconcile the divergence: pause orchestrator auto-failover, choose the surviving West primary as the source of truth, extract and replay the ~40 min of orphaned East-only transactions (22:51:17\u201322:52:03) into West, then re-clone/rebuild East as a replica of West before restoring failover. (Operationally: `orchestrator-client -c disable-global-recoveries`, fence the East primary, reconcile West-only as source of truth.)",
+  "root_cause_key_terms": [],
+  "timeline_events": [],
+  "action_items": [],
+  "trap_actions": [
+    "failover_service",
+    "rollback_deployment",
+    "scale_deployment"
+  ],
+  "impact": "Incident at GitHub",
+  "severity": "SEV1",
+  "service": "github"
+}

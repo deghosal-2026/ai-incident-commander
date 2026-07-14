@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170603-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 21:03 UTC on 01 Jun 2017 and 22:04 UTC on the 02 Jun 2017, ExpressRoute customers connecting to Azure services through ExpressRoute public peering in Amsterdam may have experienced a loss in network connectivity. Customers with redundant connectivity configurations may have experienced a partial loss in connectivity. This was caused by an ExpressRoute router configuration size which overloaded router resources. Once the issue was detected, configuration was partitioned across multiple devices to mitigate the issue. During this time customers could have failed over to using a 2nd ExpressRoute circuit in the geo or could have failed back to the internet",
+  "root_cause_key_terms": [
+    "Express Route",
+    "Azure services"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 21:03 UTC on 01 Jun 2017 and 22:04 UTC on the 02 Jun 2017, ExpressRoute customers connecting to Azure services through ExpressRoute public peering in Amsterdam may have experienced a loss in n",
+  "severity": "SEV1",
+  "service": "Express Route"
+}

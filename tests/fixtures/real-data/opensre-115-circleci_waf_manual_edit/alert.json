@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "circleci",
+  "summary": "Incident at CircleCI: ---\n\n## ROOT CAUSE ANALYSIS\n\nThe evidence is conclusive and multi-layered:\n\n**The Smoking Gun:**\n- T",
+  "source": "opensre/circleci",
+  "timestamp": ""
+}

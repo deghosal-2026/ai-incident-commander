@@ -1,0 +1,124 @@
+{
+    "id": 2031,
+    "name": "batch-01KQJ4HP632XZ54QV706C04GDE",
+    "fault_type": "hybrid",
+    "category": "ts",
+    "pre_duration": 5,
+    "start_time": "2026-05-02T00:04:32+08:00",
+    "end_time": "2026-05-02T00:09:32+08:00",
+    "state": "inject_success",
+    "status": "enabled",
+    "benchmark_id": 108,
+    "benchmark_name": "clickhouse",
+    "pedestal_id": 149,
+    "pedestal_name": "ts",
+    "created_at": "2026-05-02T00:04:32.595+08:00",
+    "updated_at": "2026-05-02T00:09:32.978+08:00",
+    "engine_config_summary": [
+        {
+            "app": "ts-route-plan-service",
+            "chaos_type": "JVMRuntimeMutator",
+            "class": "plan.service.RoutePlanServiceImpl",
+            "duration": 5,
+            "method": "getRouteByRouteId",
+            "mutator_config": "constant:\"/api/v1/routeservice/routes/\":\"mutated_/api/v1/routeservice/routes/\"",
+            "namespace": "ts19",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        },
+        {
+            "app": "ts-route-service",
+            "chaos_type": "NetworkLoss",
+            "correlation": 21,
+            "direction": "to",
+            "duration": 5,
+            "loss": 37,
+            "namespace": "ts19",
+            "system": "ts",
+            "system_type": "ts",
+            "target_service": "mysql",
+            "time_offset": 0
+        }
+    ],
+    "task_id": "915a39a4-b9ef-414e-ac58-dd9a91bd2ecf",
+    "trace_id": "e429ec5a-5032-45c1-b15c-3e522d2e9ba9",
+    "source": "injection",
+    "description": "Fault batch for task 915a39a4-b9ef-414e-ac58-dd9a91bd2ecf (2 faults)",
+    "engine_config": [
+        {
+            "app": "ts-route-plan-service",
+            "chaos_type": "JVMRuntimeMutator",
+            "class": "plan.service.RoutePlanServiceImpl",
+            "duration": 5,
+            "method": "getRouteByRouteId",
+            "mutator_config": "constant:\"/api/v1/routeservice/routes/\":\"mutated_/api/v1/routeservice/routes/\"",
+            "namespace": "ts19",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        },
+        {
+            "app": "ts-route-service",
+            "chaos_type": "NetworkLoss",
+            "correlation": 21,
+            "direction": "to",
+            "duration": 5,
+            "loss": 37,
+            "namespace": "ts19",
+            "system": "ts",
+            "system_type": "ts",
+            "target_service": "mysql",
+            "time_offset": 0
+        }
+    ],
+    "ground_truth": [
+        {
+            "service": [
+                "ts-route-plan-service"
+            ],
+            "pod": [
+                "ts-route-plan-service-79d8644b7d-jp7gw"
+            ],
+            "container": [
+                "ts-route-plan-service"
+            ],
+            "function": [
+                "plan.service.RoutePlanServiceImpl.getRouteByRouteId"
+            ]
+        },
+        {
+            "service": [
+                "ts-route-service",
+                "mysql"
+            ],
+            "pod": [
+                "mysql-0",
+                "ts-route-service-78d8dc4476-mmjr4"
+            ],
+            "container": [
+                "mysql",
+                "ts-route-service"
+            ],
+            "span": [
+                "ALTER table ts",
+                "CREATE TABLE `ts`.`route_distances`",
+                "CREATE TABLE `ts`.`route_stations`",
+                "CREATE table ts",
+                "DELETE ts.route",
+                "DELETE ts.route_distances",
+                "DELETE ts.route_stations",
+                "INSERT ts.route",
+                "INSERT ts.route_distances",
+                "INSERT ts.route_stations",
+                "SELECT `ts`.`route`",
+                "SELECT ts",
+                "SELECT ts.route",
+                "SELECT ts.route_distances",
+                "SELECT ts.route_stations",
+                "SELECT ts.ts"
+            ]
+        }
+    ],
+    "groundtruth_source": "auto"
+}

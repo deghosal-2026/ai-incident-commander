@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "aws-2",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AWS",
+  "root_cause": "The issues affecting EC2 customers last week primarily involved a subset of the Amazon Elastic Block Store (\u201cEBS\u201d) volumes in a single Availability Zone within the US East Region that became unable to service read and write operations. In this document, we will refer to these as \u201cstuck\u201d volumes. This caused instances trying to use these affected volumes to also get \u201cstuck\u201d when they attempted to read or write to them. In order to restore these volumes and stabilize the EBS cluster in that Availability Zone, we disabled all control APIs (e.g. Create Volume, Attach Volume, Detach Volume, and Create Snapshot) for EBS in the affected Availability Zone for much of the duration of the event. For two periods during the first day of the issue, the degraded EBS cluster affected the EBS APIs and caused high error rates and latencies for EBS calls to these APIs across the entire US East Region. As with any complicated operational issue, this one was caused by several root causes interacting with one another and therefore gives us many opportunities to protect the service against any similar event reoccurring.",
+  "root_cause_key_terms": [
+    "EC2 instances",
+    "EBS cluster",
+    "EBS control plane",
+    "Amazon RDS"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "The issues affecting EC2 customers last week primarily involved a subset of the Amazon Elastic Block Store (\u201cEBS\u201d) volumes in a single Availability Zone within the US East Region that became unable to",
+  "severity": "SEV1",
+  "service": "EC2 instances"
+}

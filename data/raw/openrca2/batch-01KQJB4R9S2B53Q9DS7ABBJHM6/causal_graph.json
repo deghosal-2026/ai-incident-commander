@@ -1,0 +1,82 @@
+{
+    "nodes": [
+        {
+            "timestamp": 1777658389,
+            "component": "service|ts-preserve-service",
+            "state": [
+                "degraded",
+                "unavailable"
+            ]
+        },
+        {
+            "timestamp": 1777658389,
+            "component": "span|ts-preserve-service::PreserveController.preserve",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777658389,
+            "component": "span|ts-preserve-service::POST /api/v1/preserveservice/preserve",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777658389,
+            "component": "span|ts-ui-dashboard::POST /api/v1/preserveservice/preserve",
+            "state": [
+                "missing"
+            ]
+        }
+    ],
+    "edges": [
+        {
+            "source": "service|ts-preserve-service",
+            "target": "span|ts-preserve-service::PreserveController.preserve"
+        },
+        {
+            "source": "service|ts-preserve-service",
+            "target": "span|ts-preserve-service::POST /api/v1/preserveservice/preserve"
+        },
+        {
+            "source": "span|ts-preserve-service::POST /api/v1/preserveservice/preserve",
+            "target": "span|ts-ui-dashboard::POST /api/v1/preserveservice/preserve"
+        },
+        {
+            "source": "span|ts-preserve-service::PreserveController.preserve",
+            "target": "span|ts-preserve-service::POST /api/v1/preserveservice/preserve"
+        }
+    ],
+    "root_causes": [
+        {
+            "timestamp": null,
+            "component": "service|ts-preserve-service",
+            "state": [
+                "unknown"
+            ]
+        }
+    ],
+    "alarm_nodes": [
+        {
+            "timestamp": 1777658389,
+            "component": "span|ts-preserve-service::POST /api/v1/preserveservice/preserve",
+            "state": [
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777658389,
+            "component": "span|ts-ui-dashboard::POST /api/v1/preserveservice/preserve",
+            "state": [
+                "missing"
+            ]
+        }
+    ],
+    "component_to_service": {
+        "service|ts-preserve-service": "ts-preserve-service",
+        "span|ts-preserve-service::PreserveController.preserve": "ts-preserve-service",
+        "span|ts-preserve-service::POST /api/v1/preserveservice/preserve": "ts-preserve-service",
+        "span|ts-ui-dashboard::POST /api/v1/preserveservice/preserve": "ts-ui-dashboard"
+    }
+}

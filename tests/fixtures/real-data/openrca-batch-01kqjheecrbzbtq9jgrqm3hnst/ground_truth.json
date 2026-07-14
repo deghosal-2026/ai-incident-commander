@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "OPENRCA-Q9JGRQM3HNST",
+  "source_type": "openrca2",
+  "source_url": "https://huggingface.co/datasets/lincyaw/openrca2-v1-500",
+  "company": "OpenRCA2 (ts)",
+  "root_cause": [
+    {
+      "service": [
+        "ts-food-service"
+      ],
+      "pod": [
+        "ts-food-service-58c55dfc7d-c62b6"
+      ],
+      "container": [
+        "ts-food-service"
+      ],
+      "function": [
+        "foodsearch.controller.FoodController.getAllFood"
+      ]
+    },
+    {
+      "service": [
+        "ts-train-food-service"
+      ],
+      "pod": [
+        "ts-train-food-service-d6dddbc67-ml69x"
+      ],
+      "container": [
+        "ts-train-food-service"
+      ],
+      "function": [
+        "trainFood.service.TrainFoodServiceImpl.listTrainFoodByTripId"
+      ]
+    }
+  ],
+  "root_cause_key_terms": [
+    "ts-food-service",
+    "JVMRuntimeMutator",
+    "ts-train-food-service",
+    "JVMException"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "hybrid failure in ts for Duration unknown",
+  "severity": "SEV1",
+  "service": "ts-food-service"
+}

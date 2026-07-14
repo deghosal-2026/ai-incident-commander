@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "OPENRCA-1NPH7CS7FZCP",
+  "source_type": "openrca2",
+  "source_url": "https://huggingface.co/datasets/lincyaw/openrca2-v1-500",
+  "company": "OpenRCA2 (ts)",
+  "root_cause": [
+    {
+      "service": [
+        "ts-basic-service"
+      ],
+      "pod": [
+        "ts-basic-service-5f98774b68-mhbnr"
+      ],
+      "container": [
+        "ts-basic-service"
+      ],
+      "function": [
+        "fdse.microservice.controller.BasicController.queryForTravels"
+      ]
+    },
+    {
+      "service": [
+        "ts-station-service",
+        "mysql"
+      ],
+      "pod": [
+        "mysql-0",
+        "ts-station-service-865c4558d6-h8xlx"
+      ],
+      "container": [
+        "mysql",
+        "ts-station-service"
+      ],
+      "span": [
+        "ALTER table ts",
+        "CREATE table ts",
+        "INSERT station",
+        "INSERT ts.station",
+        "SELECT ts",
+        "SELECT ts.station",
+        "SELECT ts.ts"
+      ]
+    }
+  ],
+  "root_cause_key_terms": [
+    "ts-basic-service",
+    "JVMRuntimeMutator",
+    "ts-station-service",
+    "NetworkBandwidth"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "hybrid failure in ts for Duration unknown",
+  "severity": "SEV1",
+  "service": "ts-basic-service"
+}

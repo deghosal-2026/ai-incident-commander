@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "115-circleci_waf_manual_edit",
+  "source_type": "opensre",
+  "source_url": "https://discuss.circleci.com/t/post-incident-report-april-4-2025-circleci-ui-loading-build-triggering-issues/53208",
+  "company": "CircleCI",
+  "root_cause": "---\n\n## ROOT CAUSE ANALYSIS\n\nThe evidence is conclusive and multi-layered:\n\n**The Smoking Gun:**\n- The `EdgeWAFConfigDrift` alert shows a WAF rule named `sec-monitor-block-rule` (priority=3, action=BLOCK) exists in the LIVE CloudFront WAF web-ACL but is **absent from the Terraform desired state**.\n- Kubernetes events + logs confirm this rule was applied **out-of-band at 2026-06-20T00:16:11Z by the IAM role `security-monitoring-operator`** \u2014 no Terraform apply, no PR, pure console/API mutation.\n- The rule blocks 864 requests/sec across api.circleci.com and circleci.com (confirmed by metrics).\n\n**Why This Causes the Observed Symptoms:**\n1. **CORS errors + UI not loading**: Browser OPTIONS preflight requests to api.circleci.com hit the edge WAF rule \u2192 403 returned *before reaching the origin* \u2192 no CORS headers in response \u2192 browser CORS policy violation.\n2. **GitHub webhook failures**: Inbound webhook POSTs to api.circleci.com are 403'd at the edge (dropped from ~310/min to ~4/min) \u2192 workflows never triggered.\n3. **The Adversarial Red Herrings**: \n   - circleci-frontend and api-gateway deployments are completely healthy (4/4 and 6/6 replicas, unchanged for 3 days).\n   - Origin CORS headers are correct (100% compliance); only the edge blocks requests before the origin can respond.\n   - Direct in-cluster probes to api-gateway return 204 + correct ACAO headers, confirming the app has no CORS bug.\n   - Backend services return 0% 5xx errors; no origin health issue.\n\n---\n\n**ROOT_CAUSE:** An out-of-band WAF rule (`sec-monitor-block-rule`) was manually added to the CloudFront edge WAF by the `security-monitoring-operator` IAM role, circumventing the Terraform IaC pipeline. This rule broadly blocks legitimate traffic (UI loads, API calls, GitHub webhooks) intended to api.circleci.com and circleci.com, returning 403 Forbidden before requests reach the origin, causing browser CORS preflight failures and webhook drops.\n\n**ROOT_CAUSE_CATEGORY:** config_error\n\n**FIX:** Delete the out-of-band WAF rule `sec-monitor-block-rule` from the CloudFront web-ACL `edge-waf-circleci` via AWS Console (or CLI: `aws wafv2 update-web-acl --name edge-waf-circleci --scope=CLOUDFRONT --region us-east-1 ...`) to restore the Terraform-managed desired state, then audit and revoke the `security-monitoring-operator` IAM role's `wafv2:*` permissions to prevent future out-of-band mutations.",
+  "root_cause_key_terms": [],
+  "timeline_events": [],
+  "action_items": [],
+  "trap_actions": [
+    "Anchor on the just-resolved prior 'delays in starting workflows' incident and treat these CORS/connectivity errors as its aftereffects (re-open it) \u2014 the documented bias that wasted investigation time",
+    "Trust the IaC/Terraform state and git history and conclude 'the WAF cannot be the cause because no Terraform change exists' \u2014 fails to verify the LIVE cloud/edge state where the out-of-band rule actually is",
+    "rollback_deployment of circleci-frontend or api-gateway chasing a non-existent recent-deploy regression \u2014 ineffective, no app change occurred",
+    "'Fix CORS' / restart_service on the api-gateway to address CORS errors \u2014 wrong layer; origin CORS headers are already correct and the 403 is injected at the edge"
+  ],
+  "impact": "Incident at CircleCI",
+  "severity": "SEV1",
+  "service": "circleci"
+}

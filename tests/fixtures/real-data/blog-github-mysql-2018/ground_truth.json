@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "blog-github-mysql-2018",
+  "source_type": "blog",
+  "source_url": "https://blog.github.com/2018-10-30-oct21-post-incident-analysis/",
+  "company": "GitHub",
+  "root_cause": "100G optical equipment replacement caused 43s connectivity loss between data centers; failover mechanism created inconsistent databases",
+  "root_cause_key_terms": [],
+  "timeline_events": [
+    {
+      "time": "2018-10-21T22:54:00Z",
+      "event": "Network maintenance began; 100G optical equipment replaced"
+    },
+    {
+      "time": "2018-10-21T22:54:43Z",
+      "event": "Connectivity lost between US East Coast hubs"
+    },
+    {
+      "time": "2018-10-21T22:55:00Z",
+      "event": "Automated failover promoted West Coast to primary"
+    },
+    {
+      "time": "2018-10-21T23:00:00Z",
+      "event": "Databases found to be inconsistent; failover could not complete"
+    },
+    {
+      "time": "2018-10-22T13:00:00Z",
+      "event": "Full service restored"
+    }
+  ],
+  "action_items": [
+    "Improve failover mechanism to handle partial connectivity loss",
+    "Add automated consistency verification after failover"
+  ],
+  "impact": "MySQL Failover \u2014 24h Degradation",
+  "severity": "SEV1",
+  "service": "GitHub.com"
+}

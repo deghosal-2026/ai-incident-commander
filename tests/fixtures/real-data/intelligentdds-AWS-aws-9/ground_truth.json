@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "aws-9",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AWS",
+  "root_cause": "Between 8:19 AM and 9:43 AM KST, EC2 instances experienced DNS resolution issues in the AP-NORTHEAST-2 region. This was caused by a reduction in the number of healthy hosts that were part of the EC2 DNS resolver fleet, which provides a recursive DNS service to EC2 instances. Service was restored when the number of healthy hosts was restored to previous levels. EC2 network connectivity and DNS resolution outside of EC2 instances were not affected by this event.",
+  "root_cause_key_terms": [
+    "EC2 instances"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 8:19 AM and 9:43 AM KST, EC2 instances experienced DNS resolution issues in the AP-NORTHEAST-2 region. This was caused by a reduction in the number of healthy hosts that were part of the EC2 D",
+  "severity": "SEV1",
+  "service": "EC2 instances"
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "102-datadog_systemd_cilium",
+  "source_type": "opensre",
+  "source_url": "https://www.datadoghq.com/blog/2023-03-08-multiregion-infrastructure-connectivity-issue/",
+  "company": "Datadog",
+  "root_cause": "Perfect. I have all the evidence. Let me consolidate the findings:\n\n**Evidence chain:**\n1. **Triggering event:** `unattended-upgrades` applied systemd security patch (249.11-0ubuntu3.6 \u2192 249.11-0ubuntu3.9) at 06:00 UTC\n2. **Mechanism:** systemd-networkd restart at 06:02:58 flushed \"foreign\" routes (routes not configured by networkd)\n3. **Impact:** Cilium-managed pod CIDR routes were deleted by the flush\n4. **Consequence:** Pods lost network connectivity, nodes reported NetworkUnavailable=True and went NotReady\n5. **Scope:** All nodes except one (which had unattended-upgrades disabled in prior canary) \u2192 ~55% cluster-wide\n6. **Not involved:** No resource exhaustion, no bad deployment, no provider network fault, no control plane crash\u2014just a network stack flush\n\n---\n\n**ROOT_CAUSE:** The unattended-upgrades automatic package manager restarted systemd-networkd.service after applying a security patch; systemd-networkd flushed all \"foreign\" routes from the kernel, including Cilium's pod CIDR routes, breaking pod networking on 55% of nodes simultaneously across all regions.\n\n**ROOT_CAUSE_CATEGORY:** config_error\n\n**FIX:** Set `KeepConfiguration=yes` in the systemd-networkd service unit file (or net.ipv4.ip_forward and netfilter ruleset configuration protection) on all nodes to prevent route flush on restart, and disable unattended-upgrades on GKE nodes or restrict it to canary cohorts only.",
+  "root_cause_key_terms": [],
+  "timeline_events": [],
+  "action_items": [],
+  "trap_actions": [
+    "mass node REPLACEMENT instead of reboot \u2014 destroys node-local data and triggers a thundering herd against cloud provider APIs (drain_node)",
+    "restart/reschedule workloads before each region's Kubernetes control plane has recovered \u2014 re-overloads the control plane and prolongs the outage (restart_service)",
+    "frame and respond to it as a global control-plane incident \u2014 wrong, no shared control plane exists to fail"
+  ],
+  "impact": "Incident at Datadog",
+  "severity": "SEV1",
+  "service": "datadog"
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "timestamp": "2026-07-13T13:55:00",
+    "author": "alice",
+    "text": "Seeing payment failures in prod — error rate spiking",
+    "channel": "#incidents",
+    "thread_ts": null
+  },
+  {
+    "timestamp": "2026-07-13T13:56:00",
+    "author": "bob",
+    "text": "Checking DB connection pool metrics now",
+    "channel": "#incidents",
+    "thread_ts": null
+  },
+  {
+    "timestamp": "2026-07-13T13:58:00",
+    "author": "charlie",
+    "text": "Connection pool is exhausted — 100% utilization",
+    "channel": "#incidents",
+    "thread_ts": null
+  },
+  {
+    "timestamp": "2026-07-13T14:00:00",
+    "author": "alice",
+    "text": "Rolling back deploy — this is related to the PR merged 10 min ago",
+    "channel": "#incidents",
+    "thread_ts": null
+  },
+  {
+    "timestamp": "2026-07-13T14:05:00",
+    "author": "bob",
+    "text": "Rollback complete — error rate dropping",
+    "channel": "#incidents",
+    "thread_ts": null
+  }
+]

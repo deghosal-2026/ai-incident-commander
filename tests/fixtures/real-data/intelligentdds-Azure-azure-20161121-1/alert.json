@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "Azure Resource Manager",
+  "summary": "Microsoft Azure Portal \u2013 Errors using Azure Resource Manager to create Virtual Machines",
+  "source": "intelligentdds/Azure",
+  "timestamp": "2016-11-21T00:00:00+00:00"
+}

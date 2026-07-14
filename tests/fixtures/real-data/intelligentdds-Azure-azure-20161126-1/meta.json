@@ -1,0 +1,8 @@
+{
+  "incident_id": "azure-20161126-1",
+  "source_type": "intelligentdds",
+  "service": "Virtual Machines",
+  "severity": "SEV1",
+  "start_time": "2016-11-26T00:00:00+00:00",
+  "provider": "Azure"
+}

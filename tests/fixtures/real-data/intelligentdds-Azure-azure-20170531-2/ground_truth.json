@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170531-2",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 18:35 and 19:54 UTC on 31 May 2017, customers experienced Service Management operation failures in North Central US, Central US, West US, West US 2, East US, East US 2, Canada East, and Canada Central, with resources containing permissions inherited from security groups. Customers could have experienced errors when viewing resources in the Azure Portal. ",
+  "root_cause_key_terms": [
+    "service management",
+    "Azure Portal"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 18:35 and 19:54 UTC on 31 May 2017, customers experienced Service Management operation failures in North Central US, Central US, West US, West US 2, East US, East US 2, Canada East, and Canada",
+  "severity": "SEV1",
+  "service": "service management"
+}

@@ -1,0 +1,34 @@
+{
+  "probe": "rex-phase1-partA-diagnostic-climb",
+  "model": "claude-haiku-4-5",
+  "scenario": "gcp_service_control (hidden-root cascade)",
+  "gold_root": "service-control control-plane config crashloop; product 503s are downstream",
+  "seeds": 3,
+  "budget": 6,
+  "per_seed": [
+    {
+      "seed": 1,
+      "first_correct_iter": 1,
+      "iter0_correct": false,
+      "best_score": 1.0,
+      "clean_win": true
+    },
+    {
+      "seed": 2,
+      "first_correct_iter": 0,
+      "iter0_correct": true,
+      "best_score": 1.0,
+      "clean_win": true
+    },
+    {
+      "seed": 3,
+      "first_correct_iter": 1,
+      "iter0_correct": false,
+      "best_score": 1.0,
+      "clean_win": true
+    }
+  ],
+  "seeds_wrong_at_iter0": 2,
+  "seeds_climbed_wrong_to_right": 2,
+  "verdict": "DIAGNOSTIC CLIMB \u2014 feedback corrects wrong hypothesis to right"
+}

@@ -1,0 +1,9 @@
+{
+  "incident_id": "OPENRCA-242GFN97BETP",
+  "source_type": "openrca2",
+  "service": "ts-admin-order-service",
+  "severity": "SEV1",
+  "start_time": "2026-05-02T00:04:29+08:00",
+  "system": "ts",
+  "chaos_family": "hybrid"
+}

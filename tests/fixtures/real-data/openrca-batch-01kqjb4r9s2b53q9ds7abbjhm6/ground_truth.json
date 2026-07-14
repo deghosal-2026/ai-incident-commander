@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "OPENRCA-Q9DS7ABBJHM6",
+  "source_type": "openrca2",
+  "source_url": "https://huggingface.co/datasets/lincyaw/openrca2-v1-500",
+  "company": "OpenRCA2 (ts)",
+  "root_cause": [
+    {
+      "service": [
+        "ts-preserve-service"
+      ],
+      "pod": [
+        "ts-preserve-service-85bf55b698-9w4gf"
+      ],
+      "container": [
+        "ts-preserve-service"
+      ],
+      "function": [
+        "preserve.service.PreserveServiceImpl.checkSecurity"
+      ]
+    },
+    {
+      "service": [
+        "ts-seat-service",
+        "ts-config-service"
+      ],
+      "pod": [
+        "ts-config-service-666fd6876d-s2bvt",
+        "ts-seat-service-77bcb8f6df-d69sm"
+      ],
+      "container": [
+        "ts-config-service",
+        "ts-seat-service"
+      ],
+      "span": [
+        "GET"
+      ]
+    }
+  ],
+  "root_cause_key_terms": [
+    "ts-preserve-service",
+    "JVMRuntimeMutator",
+    "ts-seat-service",
+    "NetworkDuplicate"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "hybrid failure in ts for Duration unknown",
+  "severity": "SEV1",
+  "service": "ts-preserve-service"
+}

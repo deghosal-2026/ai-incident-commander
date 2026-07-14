@@ -1,0 +1,8 @@
+{
+  "incident_id": "105-slack_consul_cache_db_metastable",
+  "source_type": "opensre",
+  "service": "slack",
+  "severity": "SEV1",
+  "start_time": "",
+  "company": "Slack"
+}

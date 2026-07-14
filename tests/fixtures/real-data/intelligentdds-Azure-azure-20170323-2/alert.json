@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "Azure Data Lake Analytics ",
+  "summary": "RCA \u2013 Data Lake Analytics and Data Lake Store \u2013 East US 2",
+  "source": "intelligentdds/Azure",
+  "timestamp": "2017-03-23T00:00:00+00:00"
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "108-github_dns_zone_corruption",
+  "source_type": "opensre",
+  "source_url": "https://github.blog/news-insights/dns-outage-post-mortem/",
+  "company": "GitHub",
+  "root_cause": "Nodes are healthy \u2014 rules out node_failure and resource_exhaustion. The evidence is complete and consistent. I have enough to report.\n\n**Causal chain reconstructed:**\n1. **17:55** \u2014 Puppet pushed new upstream IP config. Authoritative NS restarted, but caching nameservers were *not* restarted due to a Puppet manifest bug \u2192 they kept querying stale upstream IPs \u2192 **DNS query timeouts (0.83)**, phase 1 of the loud symptom.\n2. **18:20** \u2014 The DNS deploy pipeline ran. Its provisioning-API calls require working DNS (`lookup provisioning.internal` timed out \u2014 a **circular dependency**), so it received a partial/truncated result.\n3. **18:21\u201318:22** \u2014 That unvalidated, partial output generated a **truncated zone: 41902 \u2192 7118 records**. Missing backend records \u2192 **NXDOMAIN (0.74)**, phase 2.\n4. **18:40+** \u2014 Victim app retries flooded fileservers, causing OOMKills \u2014 a downstream knock-on, not an independent incident.\n\nThe alert's \"DNS resolver outage\" framing is a look-alike: the resolver/NS pods are all `up`/Ready (process health is misleading). The actual defect is corrupted DNS *data* pushed by an unvalidated deploy that fed on a circular dependency. Re-running the DNS deploy would re-corrupt the zone (the trap).\n\nROOT_CAUSE: The DNS deploy pipeline (revision 7, 18:20) pushed an unvalidated, truncated authoritative zone (41902\u21927118 records) after its own provisioning-API call failed to resolve `provisioning.internal` (a circular dependency), returning a partial result; the missing backend records produced the NXDOMAIN flood. (The earlier timeout phase came from caching nameservers never being restarted after the 17:55 Puppet IP change, but the firing failure is the truncated zone.)\n\nROOT_CAUSE_CATEGORY: config_error\n\nFIX: Roll back the authoritative DNS zone to the last-known-good full version (~41902 records) from the pre-18:20 snapshot/serial, and freeze the dns-deploy-pipeline so it cannot re-run and re-push the truncated zone until the provisioning-API circular dependency and missing sanity-check (record-count guardrail) are fixed.",
+  "root_cause_key_terms": [],
+  "timeline_events": [],
+  "action_items": [],
+  "trap_actions": [
+    "re-run the DNS deploy pipeline to 'push fresh records' without a sanity-check \u2014 the pipeline needs DNS and writes unvalidated output, so it re-truncated the zone and WORSENED the NXDOMAIN outage (the postmortem's wrong move)",
+    "restart_service / restart_pod on the caching or authoritative nameservers \u2014 resolvers are 'up'; restarting does not restore the dropped zone records and does not fix the stale-config or truncated-data root cause",
+    "uniform/wholesale restart of all fileservers to clear the OOM \u2014 re-spawns the retry storm and keeps healthy fileservers blocked by routing back-pressure; misbehaving fileservers must be removed INDIVIDUALLY"
+  ],
+  "impact": "Incident at GitHub",
+  "severity": "SEV1",
+  "service": "github"
+}

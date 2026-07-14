@@ -1,0 +1,15 @@
+{
+  "severity": "SEV1",
+  "service": "profile",
+  "summary": "hybrid anomaly in hs affecting profile, recommendation",
+  "source": "openrca2/hs",
+  "timestamp": "2026-05-02T03:18:46+08:00",
+  "metadata": {
+    "system": "hs",
+    "chaos_family": "hybrid",
+    "affected_services": [
+      "profile",
+      "recommendation"
+    ]
+  }
+}

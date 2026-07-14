@@ -1,0 +1,8 @@
+{
+  "incident_id": "azure-20170601-1",
+  "source_type": "intelligentdds",
+  "service": "Azure Management Portal",
+  "severity": "SEV1",
+  "start_time": "2017-05-31T00:00:00+00:00",
+  "provider": "Azure"
+}

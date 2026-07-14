@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170512-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 09:07 UTC on 11 May 2017 and 03:02 UTC on 12 May 2017, a subset of customers in North Europe may have received intermittent allocation failure notifications when attempting to provision new D-series V2 Virtual Machines. Customers with existing D-Series V2 Virtual Machines may have also experienced failures when attempting to perform scaling or resizing operations. This issue did not impact the availability of existing Virtual Machines. ",
+  "root_cause_key_terms": [
+    "Virtual machines"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 09:07 UTC on 11 May 2017 and 03:02 UTC on 12 May 2017, a subset of customers in North Europe may have received intermittent allocation failure notifications when attempting to provision new D-",
+  "severity": "SEV1",
+  "service": "Virtual machines"
+}

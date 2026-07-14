@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "aws-3",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AWS",
+  "root_cause": "The event was triggered during a large scale electrical storm which swept through the Northern Virginia area. Our US East-1 Region consists of more than 10 datacenters structured into multiple Availability Zones. These Availability Zones are in distinct physical locations and are engineered to isolate failure from each other. Last Friday, due to weather warnings of the approaching storm, all change activity in the US East-1 Region had been cancelled and extra personnel had been called into the datacenters for the evening.",
+  "root_cause_key_terms": [
+    "EC2 instances",
+    "EBS volumes",
+    "RDS instances",
+    "ELB instances",
+    "control plane",
+    "utility electrical switches",
+    "utility power"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "The event was triggered during a large scale electrical storm which swept through the Northern Virginia area. Our US East-1 Region consists of more than 10 datacenters structured into multiple Availab",
+  "severity": "SEV1",
+  "service": "EC2 instances"
+}

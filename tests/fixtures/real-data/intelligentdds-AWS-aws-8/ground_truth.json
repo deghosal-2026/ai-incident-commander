@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "aws-8",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AWS",
+  "root_cause": "We\u2019d like to give you some additional information about the service disruption that occurred in the Tokyo (AP-NORTHEAST-1) Region on August 23, 2019. Beginning at 12:36 PM JST, a small percentage of EC2 servers in a single Availability Zone in the Tokyo (AP-NORTHEAST-1) Region shut down due to overheating. This resulted in impaired EC2 instances and degraded EBS volume performance for some resources in the affected area of the Availability Zone. The overheating was due to a control system failure that caused multiple, redundant cooling systems to fail in parts of the affected Availability Zone. The affected cooling systems were restored at 3:21 PM JST and temperatures in the affected areas began to return to normal. As temperatures returned to normal, power was restored to the affected instances. By 6:30 PM JST, the vast majority of affected instances and volumes had recovered. A small number of instances and volumes were hosted on hardware which was adversely affected by the loss of power and excessive heat. It took longer to recover these instances and volumes and some needed to be retired as a result of failures to the underlying hardware.",
+  "root_cause_key_terms": [
+    "EC2 instances",
+    "EBS volumes"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "We\u2019d like to give you some additional information about the service disruption that occurred in the Tokyo (AP-NORTHEAST-1) Region on August 23, 2019. Beginning at 12:36 PM JST, a small percentage of E",
+  "severity": "SEV1",
+  "service": "EC2 instances"
+}

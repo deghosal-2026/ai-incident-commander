@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "Virtual machines",
+  "summary": "Virtual Machines and Storage -West US 2",
+  "source": "intelligentdds/Azure",
+  "timestamp": "2017-05-09T00:00:00+00:00"
+}

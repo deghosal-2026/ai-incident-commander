@@ -1,0 +1,8 @@
+{
+  "incident_id": "blog-gitlab-db-2017",
+  "source_type": "blog",
+  "service": "GitLab.com",
+  "severity": "SEV1",
+  "start_time": "2017-01-31T23:00:00Z",
+  "company": "GitLab"
+}

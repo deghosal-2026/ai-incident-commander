@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "github",
+  "summary": "Incident at GitHub: Nodes are healthy \u2014 rules out node_failure and resource_exhaustion. The evidence is complete and con",
+  "source": "opensre/github",
+  "timestamp": ""
+}

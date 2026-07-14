@@ -1,0 +1,8 @@
+{
+  "incident_id": "azure-20161222-1",
+  "source_type": "intelligentdds",
+  "service": "Visual Studio Team Services",
+  "severity": "SEV1",
+  "start_time": "2016-12-22T00:00:00+00:00",
+  "provider": "Azure"
+}

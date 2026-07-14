@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "Virtual machines",
+  "summary": "Virtual Machines - North Europe",
+  "source": "intelligentdds/Azure",
+  "timestamp": "2017-05-12T00:00:00+00:00"
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "116-aws_dynamodb_dns_enactor",
+  "source_type": "opensre",
+  "source_url": "https://aws.amazon.com/message/12721/",
+  "company": "AWS",
+  "root_cause": "I have conclusive evidence. The investigation is complete \u2014 all sources corroborate the same chain.\n\n**Evidence summary:**\n- `DnsRecordSetEmpty` alert fired at 07:48:25Z \u2014 *before* the DynamoDB endpoint error alert (07:49:10Z).\n- Enactor logs show the precise mechanism: a delayed run=A was applying plan-8841 while a faster run=B applied a newer plan-8842 and ran stale-plan cleanup, which deleted the record set still being applied by run=A \u2014 leaving an **empty DNS record set** for `dynamodb.us-east-1.amazonaws.com`. The enactor latched into an inconsistent state and could not self-correct.\n- The request-router pods are healthy (Running, 0 restarts, 23d uptime, 2/2 ready). Clients see 100% errors only because they cannot *resolve* the endpoint (NXANSWER), not because the service is failing.\n- The EC2 \"insufficient capacity\" (DWFM lease backlog) and NLB AZ-failover alerts are timestamped 30\u201390 min later and are explicitly downstream knock-on effects, not separate incidents.\n\nThis rules out the look-alikes: not resource_exhaustion (pods healthy), not bad_deploy (image 23d old), not real EC2 capacity (knock-on), not a true DynamoDB control-plane outage (DDB itself is reachable; only DNS is empty).\n\nROOT_CAUSE: A race condition in the Route53-internal DNS Enactor: a delayed enactor run (run=A) was still applying an older plan while a concurrent faster run (run=B) applied a newer plan and ran stale-plan cleanup, which deleted the record set run=A was writing \u2014 leaving the authoritative DNS record for dynamodb.us-east-1.amazonaws.com EMPTY (0 targets) and latched in an inconsistent state, so all callers fail to resolve/connect to the regional endpoint.\n\nROOT_CAUSE_CATEGORY: config_error\n\nFIX: Disable the DNS Planner/Enactor automation and manually restore the correct (non-empty) record set for dynamodb.us-east-1.amazonaws.com so callers can resolve the regional endpoint again.",
+  "root_cause_key_terms": [],
+  "timeline_events": [],
+  "action_items": [],
+  "trap_actions": [
+    "Let NLB automatic AZ DNS health-check failover keep firing while capacity recovers \u2014 with EC2 hosts impaired it pulled healthy AZs out of DNS (26 failover events, healthy-target ratio fell to 0.42), removing capacity and prolonging the EC2 phase (the documented auto-mitigation worsening); it had to be DISABLED during the storm",
+    "Re-enable or trust the DNS Planner/Enactor automation before the race is fixed \u2014 it re-introduces the empty regional-endpoint record",
+    "Treat EC2 'insufficient capacity' as a real capacity shortage and aggressively add/launch instances \u2014 DWFM is backlogged on its DynamoDB dependency, so naive launches deepen the lease backlog instead of throttling to let it drain",
+    "Roll back / restart the DynamoDB request-router as if it were a control-plane outage \u2014 the fleet is healthy (0 restarts, 9% CPU, 240/240 Available, 23d revision); the failure is name resolution, not the request-router"
+  ],
+  "impact": "Incident at AWS",
+  "severity": "SEV1",
+  "service": "aws"
+}

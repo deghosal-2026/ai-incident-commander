@@ -1,0 +1,12 @@
+{
+  "severity": "SEV1",
+  "service": "payment-service",
+  "summary": "Database connection pool exhaustion — payment failures",
+  "source": "datadog",
+  "timestamp": "2026-07-13T14:00:00",
+  "incident_id": "INC-2026-001",
+  "metadata": {
+    "region": "us-east-1",
+    "error_rate_pct": 5.2
+  }
+}

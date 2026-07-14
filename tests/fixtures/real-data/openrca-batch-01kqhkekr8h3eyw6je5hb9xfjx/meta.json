@@ -1,0 +1,9 @@
+{
+  "incident_id": "OPENRCA-W6JE5HB9XFJX",
+  "source_type": "openrca2",
+  "service": "profile",
+  "severity": "SEV1",
+  "start_time": "2026-05-01T19:05:46+08:00",
+  "system": "hs",
+  "chaos_family": "*Stress"
+}

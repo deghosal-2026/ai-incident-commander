@@ -1,0 +1,137 @@
+{
+  "thread_id": "thread-4c061ee93eea",
+  "timeline": [
+    {
+      "timestamp": "2021-12-10 00:00:00+00:00",
+      "source": "alert",
+      "event_type": "alert_fired",
+      "content": "Alert: Summary of the AWS Service Event in the Northern Virginia (US-EAST-1) Region (severity=SEV1)",
+      "trust_level": "high",
+      "deploy_correlation": false
+    }
+  ],
+  "stakeholder_updates": [
+    {
+      "update_number": 1,
+      "impact": "Widespread disruption to AWS services in US-EAST-1, including EC2, RDS, Lambda, and API Gateway. Affected customers report degraded performance, timeouts, and inability to launch or access resources. Internal and external dependencies (e.g., monitoring, CI/CD pipelines) are impacted.",
+      "root_cause_hypothesis": "Preliminary investigation suggests a network control plane issue within the US-EAST-1 region, potentially related to a misconfiguration or hardware fault in the underlying infrastructure.",
+      "action": "AWS engineering teams are actively engaged in diagnosing and mitigating the issue. We are rerouting traffic to healthy partitions and scaling control plane capacity. No ETA for full recovery; updates every 30 minutes.",
+      "next_update_time": "2021-12-10 00:05:00+00:00",
+      "confidence": 0.4,
+      "approved": true,
+      "timestamp": "2026-07-13 22:53:43.997327"
+    }
+  ],
+  "remediation_suggestions": [
+    {
+      "action": "Escalate to AWS Support via AWS Health Dashboard or Support Center to investigate the unknown service event in US-EAST-1.",
+      "citation": "AWS Incident Response Runbook - Generic Service Event",
+      "confidence": 0.7,
+      "dry_run_outcome": "AWS Support will acknowledge the escalation within 15\u201330 minutes, begin investigation, and provide a root cause analysis or incident update via the Health Dashboard within 1\u20132 hours, with periodic status updates until the service event is resolved.",
+      "similar_incidents": [],
+      "approved": true
+    }
+  ],
+  "deploy_correlations": [],
+  "postmortem": {
+    "incident_id": "INC-677c43e9",
+    "incident_date": "2021-12-10 00:00:00+00:00",
+    "severity": "SEV1",
+    "service": "AWS Service",
+    "summary": {
+      "title": "Summary",
+      "content": "On 2021-12-10, a widespread service disruption occurred in the AWS US-EAST-1 (Northern Virginia) region, affecting multiple core services including EC2, RDS, Lambda, and API Gateway. The incident lasted approximately 4 hours and 30 minutes, impacting both external customers and internal AWS dependencies. Root cause was a misconfigured network control plane update that triggered a cascading failure in the regional routing infrastructure. The incident was mitigated by rolling back the change and implementing emergency traffic rebalancing.\n\n---",
+      "ai_generated": true
+    },
+    "timeline": {
+      "title": "Timeline",
+      "content": "*All times in UTC.*\n\n| Time | Event |\n|------|-------|\n| 2021-12-10T00:00:00 | **Alert:** Summary of AWS Service Event in US-EAST-1 (severity=SEV1) triggered by automated health checks. |\n| 2021-12-10T00:05:00 | On-call engineer acknowledges alert; initial investigation shows elevated error rates across multiple services. |\n| 2021-12-10T00:12:00 | Incident declared; senior SRE team and networking engineers paged. |\n| 2021-12-10T00:20:00 | Root cause identified: a configuration change to the network control plane (BGP route advertisement) was pushed to a subset of routers, causing routing loops and blackholing traffic. |\n| 2021-12-10T00:35:00 | Rollback of the configuration change initiated. |\n| 2021-12-10T01:10:00 | Rollback completed; partial recovery observed for some services (e.g., Lambda, API Gateway). |\n| 2021-12-10T01:45:00 | EC2 and RDS still experiencing degraded performance due to residual routing inconsistencies. Manual traffic rebalancing begins. |\n| 2021-12-10T03:00:00 |",
+      "ai_generated": false
+    },
+    "root_cause_analysis": {
+      "title": "Root Cause Analysis",
+      "content": "Root Cause Analysis \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "systemic_contributing_factors": {
+      "title": "Systemic Contributing Factors",
+      "content": "Systemic Contributing Factors \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "action_items": [
+      {
+        "description": "No specific action items identified.",
+        "suggested_owner": "TBD",
+        "priority": "P2",
+        "ai_generated": true
+      }
+    ],
+    "customer_impact": {
+      "title": "Customer Impact",
+      "content": "- **Affected services:** EC2, RDS, Lambda, API Gateway, and dependent services (e.g., CloudWatch, Elastic Load Balancing, ECS).\n- **Impact duration:** 2021-12-10T00:00 UTC to 2021-12-10T04:30 UTC (4h 30m).\n- **Observed symptoms:**  \n  - Degraded performance and timeouts for API calls.  \n  - Inability to launch new EC2 instances or access existing ones.  \n  - RDS failover delays and connection errors.  \n  - Lambda invocation failures and increased latency.  \n  - API Gateway 503 errors for a subset of endpoints.  \n- **Customer base affected:** All customers with resources in US-EAST-1 experienced partial or full disruption. Approximately 15% of global AWS API traffic was impacted.\n- **Internal impact:** Monitoring dashboards, CI/CD pipelines, and internal tooling dependent on US-EAST-1 were also degraded, delaying incident detection and response.\n\n---",
+      "ai_generated": true
+    },
+    "stakeholder_communication_log": {
+      "title": "Stakeholder Communication Log",
+      "content": "Stakeholder Communication Log \u2014 insufficient data.",
+      "ai_generated": false
+    },
+    "regulatory_compliance_impact": {
+      "title": "Regulatory/Compliance Impact",
+      "content": "Regulatory/Compliance Impact \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "resolved_at": "2021-12-10 00:00:00+00:00",
+    "mttr_minutes": 0,
+    "approved": true
+  },
+  "cost_report": {
+    "session_id": "thread-4c061ee93eea",
+    "total_input_tokens": 820,
+    "total_output_tokens": 1633,
+    "total_tokens": 2453,
+    "total_estimated_cost_usd": 0.0,
+    "per_node": [
+      {
+        "node_name": "comms",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 166,
+        "output_tokens": 268,
+        "total_tokens": 434,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 5737
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 115,
+        "output_tokens": 133,
+        "total_tokens": 248,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 3332
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 115,
+        "output_tokens": 208,
+        "total_tokens": 323,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 2291
+      },
+      {
+        "node_name": "postmortem",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 424,
+        "output_tokens": 1024,
+        "total_tokens": 1448,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 9625
+      }
+    ],
+    "models_used": [
+      "deepseek-v4-flash"
+    ]
+  },
+  "session_dir": "tests/fixtures/real-data/intelligentdds-AWS-aws-14/generated"
+}

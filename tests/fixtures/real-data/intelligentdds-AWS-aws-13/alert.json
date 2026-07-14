@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "AWS Direct Connect",
+  "summary": "Summary of AWS Direct Connect Event in the Tokyo (AP-NORTHEAST-1) Region",
+  "source": "intelligentdds/AWS",
+  "timestamp": "2021-09-02T00:00:00+00:00"
+}

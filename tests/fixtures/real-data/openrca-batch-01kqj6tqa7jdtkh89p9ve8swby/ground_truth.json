@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "OPENRCA-H89P9VE8SWBY",
+  "source_type": "openrca2",
+  "source_url": "https://huggingface.co/datasets/lincyaw/openrca2-v1-500",
+  "company": "OpenRCA2 (ts)",
+  "root_cause": [
+    {
+      "service": [
+        "ts-admin-user-service"
+      ],
+      "pod": [
+        "ts-admin-user-service-75d69f9ff8-4wgg9"
+      ],
+      "container": [
+        "ts-admin-user-service"
+      ],
+      "function": [
+        "adminuser.service.AdminUserServiceImpl.getAllUsers"
+      ]
+    },
+    {
+      "service": [
+        "ts-user-service",
+        "ts-auth-service"
+      ],
+      "pod": [
+        "ts-auth-service-584f76f977-xxzlq",
+        "ts-user-service-7554bd95dd-9sxjh"
+      ],
+      "container": [
+        "ts-auth-service",
+        "ts-user-service"
+      ],
+      "span": [
+        "DELETE",
+        "POST"
+      ]
+    }
+  ],
+  "root_cause_key_terms": [
+    "ts-admin-user-service",
+    "JVMRuntimeMutator",
+    "ts-user-service",
+    "NetworkLoss"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "hybrid failure in ts for Duration unknown",
+  "severity": "SEV1",
+  "service": "ts-admin-user-service"
+}

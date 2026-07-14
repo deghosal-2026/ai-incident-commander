@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "blog-cloudflare-control-plane-2023",
+  "source_type": "blog",
+  "source_url": "https://blog.cloudflare.com/post-mortem-on-cloudflare-control-plane-and-analytics-outage/",
+  "company": "Cloudflare",
+  "root_cause": "Data center power failure (Flexential PDX-04) \u2014 cascading breaker failure caused total power loss to control plane infrastructure",
+  "root_cause_key_terms": [],
+  "timeline_events": [
+    {
+      "time": "2023-11-02T11:44:00Z",
+      "event": "PDX-04 data center lost power; breakers failed to fail over"
+    },
+    {
+      "time": "2023-11-02T13:40:00Z",
+      "event": "Decision made to fail over to European disaster recovery sites"
+    },
+    {
+      "time": "2023-11-02T17:57:00Z",
+      "event": "Most control plane services restored at DR facility"
+    },
+    {
+      "time": "2023-11-04T04:25:00Z",
+      "event": "Full service restored"
+    }
+  ],
+  "action_items": [
+    "Implement Code Orange: shift engineering focus to reliability",
+    "Remove dependencies on core data centers for control plane configuration"
+  ],
+  "impact": "Control Plane & Analytics Outage",
+  "severity": "SEV1",
+  "service": "Cloudflare Control Plane"
+}

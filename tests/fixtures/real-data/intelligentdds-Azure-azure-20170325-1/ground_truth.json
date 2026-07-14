@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170325-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 21:23 UTC on 24 Mar 2017 to 00:35 UTC on 25 Mar 2017, a subset of customers using Azure Active Directory (AAD) to authenticate to their Azure resources, or services with dependencies on AAD might have experienced failures. This included authentications using the Management Portal, PowerShell, Command-line interfaces (CLI) and other authentication providers. This incident started with high number of failing authentication requests across multiple regions. Failure rates were significantly higher in the US West and US South Central regions than other Azure regions. Engineering teams identified the issue to be a class of requests resulting in expensive backend queries (long running queries) causing timeouts and requests being dropped. Engineering teams worked on isolating the tenants causing this behavior to restore the service.",
+  "root_cause_key_terms": [
+    "Azure Active Directory",
+    "services with dependencies on AAD authentication"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 21:23 UTC on 24 Mar 2017 to 00:35 UTC on 25 Mar 2017, a subset of customers using Azure Active Directory (AAD) to authenticate to their Azure resources, or services with dependencies on AAD mi",
+  "severity": "SEV1",
+  "service": "Azure Active Directory"
+}

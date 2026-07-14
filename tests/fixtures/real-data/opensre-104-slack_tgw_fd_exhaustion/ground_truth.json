@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "104-slack_tgw_fd_exhaustion",
+  "source_type": "opensre",
+  "source_url": "https://slack.engineering/slacks-outage-on-january-4th-2021/",
+  "company": "Slack",
+  "root_cause": "All evidence converges. I have enough to confirm the root cause and rule out the look-alikes.\n\n**Evidence chain:**\n- **Metrics:** `tgw_cross_vpc_packet_loss_pct` 0 \u2192 11.8% (intra-VPC loss 0.0%); TGW packets/s 1.45M \u2192 2.95M (first-Monday cold-cache surge). CPU paradoxically LOW (28%) with 96% Apache workers blocked-on-net \u2014 the classic network-blocking signature, not CPU/compute.\n- **Traces:** Slow spans are ~4.5s spent in `cross_vpc_db_read[tgw-0a91f]` with TCP retransmits/timeouts; the DB itself answers in 41ms once packets arrive. Dashboarding times out on `cross_vpc_db_connect[tgw-0a91f]`.\n- **Deploys ruled out:** Morning rev1/rev2 contain no networking change; rolling back doesn't fix packet loss.\n- **Autoscaler/open-files/AWS throttle ruled out:** Desired-replicas explosion (40\u21921240), `provision-service` FD-limit and `RequestLimitExceeded` errors are *downstream consequences* of CPU-based autoscaling thrashing in the wrong direction.\n- **Dashboarding ruled out as cause:** It's a victim \u2014 its own DB sits across the same saturated TGW.\n\nROOT_CAUSE: The cross-VPC Transit Gateway (tgw-0a91f) is dropping 11.8% of packets after first-Monday cold-cache traffic doubled (1.45M\u21922.95M pps) and the TGW failed to scale to absorb it; webapp's Apache workers block on retransmitting/timing-out cross-VPC DB reads (intra-VPC traffic is clean), driving error rate to 9.3% and latency to 4,800ms while CPU stays low, and the dashboarding tier goes dark because its DB is reached over the same saturated path.\n\nROOT_CAUSE_CATEGORY: network_fault\n\nFIX: Relieve the Transit Gateway saturation \u2014 cap/roll back webapp's autoscaler to a sane replica count (e.g. back toward ~40, halting the thrash that inflates cross-VPC pps) and engage AWS/networking to scale out the TGW (or shift cross-VPC DB traffic off tgw-0a91f), rather than rolling back the morning deploy.",
+  "root_cause_key_terms": [],
+  "timeline_events": [],
+  "action_items": [],
+  "trap_actions": [
+    "scale_deployment: aggressively scale the web tier UP (+1,200 replicas) while the Transit Gateway is saturated \u2014 low CPU was blocked-on-network, not idle; this drove provision-service into the Linux open-file limit + AWS API quota and pinned the ASG at max, PROLONGING the outage",
+    "rollback_deployment: roll back the day-of webapp deploys (rev1/rev2) \u2014 the first instinct, but those changes are unrelated to networking and the rollback does nothing for the cross-VPC packet loss"
+  ],
+  "impact": "Incident at Slack",
+  "severity": "SEV1",
+  "service": "slack"
+}

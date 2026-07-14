@@ -1,0 +1,8 @@
+{
+  "incident_id": "108-github_dns_zone_corruption",
+  "source_type": "opensre",
+  "service": "github",
+  "severity": "SEV1",
+  "start_time": "",
+  "company": "GitHub"
+}

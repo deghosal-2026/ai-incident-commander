@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        shell: bash
+        run: |
+          pip install -e ".[dev,all]"
+          pip install ruff mypy pytest pytest-cov pytest-asyncio pip-audit pip-licenses
+      - name: Lint with ruff
+        shell: bash
+        run: ruff check src/ tests/
+      - name: Type check with mypy
+        shell: bash
+        run: mypy --strict src/
+      - name: Test with pytest
+        shell: bash
+        run: pytest --cov=incident_commander --cov-report=term-missing -m "not e2e and not real_data"
+      - name: Security audit with pip-audit
+        shell: bash
+        run: pip-audit
+      - name: License check
+        shell: bash
+        run: |
+          pip-licenses --format=json > /tmp/licenses.json
+          python3 << 'PYEOF'
+          import json
+          with open("/tmp/licenses.json") as f:
+              data = json.load(f)
+          fail = []
+          warn = []
+          for pkg in data:
+              lic = pkg.get("License", "").lower().strip()
+              name = pkg["Name"]
+              if "agpl" in lic or "proprietary" in lic:
+                  fail.append((name, pkg["License"]))
+              elif "gpl" in lic and "lgpl" not in lic:
+                  warn.append((name, pkg["License"]))
+          if fail:
+              print("FAILED — packages with AGPL or Proprietary licenses:")
+              for n, l in fail:
+                  print(f"  {n}: {l!r}")
+              raise SystemExit(1)
+          if warn:
+              print("WARNING — packages with GPL (non-LGPL) licenses (not a hard fail):")
+              for n, l in warn:
+                  print(f"  {n}: {l!r}")
+          print("License check OK")
+          PYEOF

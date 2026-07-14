@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "Virtual machines",
+  "summary": "RCA - Virtual Machines - Japan East",
+  "source": "intelligentdds/Azure",
+  "timestamp": "2017-05-04T00:00:00+00:00"
+}

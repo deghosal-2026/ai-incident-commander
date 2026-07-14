@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170323-2",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between approximately March 22 15:02 UTC and March 22 17:25 UTC, a subset of customers experienced a number of intermittent failures when accessing Azure Data Lake Store (ADLS) in East US 2. This may have caused Azure Data Lake Analytics job and/or ADLS request failures. This incident was because of a misconfiguration which resulted in one of the ADLS microservices not serving the requests for the customers. Azure Monitoring detected the event and an alert was triggered. Azure engineers engaged immediately and mitigated the issue by reverting the configuration that triggered the incident",
+  "root_cause_key_terms": [
+    "Azure Data Lake Analytics ",
+    "Azure Data Lake Store"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between approximately March 22 15:02 UTC and March 22 17:25 UTC, a subset of customers experienced a number of intermittent failures when accessing Azure Data Lake Store (ADLS) in East US 2. This may ",
+  "severity": "SEV1",
+  "service": "Azure Data Lake Analytics "
+}

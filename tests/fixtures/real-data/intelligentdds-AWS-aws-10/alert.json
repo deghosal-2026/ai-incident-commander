@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "EBS volumes",
+  "summary": "Summary of the October 22,2012 AWS Service Event in the US-East Region",
+  "source": "intelligentdds/AWS",
+  "timestamp": "2012-10-22T00:00:00+00:00"
+}

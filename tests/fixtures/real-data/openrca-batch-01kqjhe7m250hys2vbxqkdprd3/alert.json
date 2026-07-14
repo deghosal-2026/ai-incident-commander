@@ -1,0 +1,15 @@
+{
+  "severity": "SEV1",
+  "service": "ts-cancel-service",
+  "summary": "hybrid anomaly in ts affecting ts-cancel-service, ts-inside-payment-service",
+  "source": "openrca2/ts",
+  "timestamp": "2026-05-02T03:49:51+08:00",
+  "metadata": {
+    "system": "ts",
+    "chaos_family": "hybrid",
+    "affected_services": [
+      "ts-cancel-service",
+      "ts-inside-payment-service"
+    ]
+  }
+}

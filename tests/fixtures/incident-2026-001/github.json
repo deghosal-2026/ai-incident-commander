@@ -1,0 +1,14 @@
+[
+  {
+    "number": 101,
+    "title": "fix: update DB connection pool settings",
+    "author": "bob",
+    "merge_time": "2026-07-13T13:45:00",
+    "files_changed": [
+      "src/config/database.py",
+      "src/pool/connection.py"
+    ],
+    "labels": ["database", "bugfix"],
+    "base_branch": "main"
+  }
+]

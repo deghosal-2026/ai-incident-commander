@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "network",
+  "summary": "RCA for Network Infrastructure in West Europe",
+  "source": "intelligentdds/Azure",
+  "timestamp": "2016-12-11T00:00:00+00:00"
+}

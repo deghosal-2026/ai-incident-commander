@@ -1,0 +1,9 @@
+{
+  "incident_id": "OPENRCA-89E5H8YXBDC1",
+  "source_type": "openrca2",
+  "service": "geo",
+  "severity": "SEV1",
+  "start_time": "2026-05-01T22:32:31+08:00",
+  "system": "hs",
+  "chaos_family": "hybrid"
+}

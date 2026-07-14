@@ -1,0 +1,87 @@
+{
+    "nodes": [
+        {
+            "timestamp": 1777663100,
+            "component": "service|ts-admin-user-service",
+            "state": [
+                "degraded",
+                "unavailable"
+            ]
+        },
+        {
+            "timestamp": 1777663100,
+            "component": "span|ts-admin-user-service::GET /api/v1/adminuserservice/users",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777663106,
+            "component": "span|ts-ui-dashboard::GET /api/v1/adminuserservice/users",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777663100,
+            "component": "span|ts-admin-user-service::AdminUserController.getAllUsers",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        }
+    ],
+    "edges": [
+        {
+            "source": "span|ts-admin-user-service::GET /api/v1/adminuserservice/users",
+            "target": "span|ts-ui-dashboard::GET /api/v1/adminuserservice/users"
+        },
+        {
+            "source": "span|ts-admin-user-service::AdminUserController.getAllUsers",
+            "target": "span|ts-admin-user-service::GET /api/v1/adminuserservice/users"
+        },
+        {
+            "source": "service|ts-admin-user-service",
+            "target": "span|ts-admin-user-service::AdminUserController.getAllUsers"
+        },
+        {
+            "source": "service|ts-admin-user-service",
+            "target": "span|ts-admin-user-service::GET /api/v1/adminuserservice/users"
+        }
+    ],
+    "root_causes": [
+        {
+            "timestamp": null,
+            "component": "service|ts-admin-user-service",
+            "state": [
+                "unknown"
+            ]
+        }
+    ],
+    "alarm_nodes": [
+        {
+            "timestamp": 1777663100,
+            "component": "span|ts-admin-user-service::GET /api/v1/adminuserservice/users",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777663106,
+            "component": "span|ts-ui-dashboard::GET /api/v1/adminuserservice/users",
+            "state": [
+                "slow",
+                "missing"
+            ]
+        }
+    ],
+    "component_to_service": {
+        "service|ts-admin-user-service": "ts-admin-user-service",
+        "span|ts-admin-user-service::GET /api/v1/adminuserservice/users": "ts-admin-user-service",
+        "span|ts-ui-dashboard::GET /api/v1/adminuserservice/users": "ts-ui-dashboard",
+        "span|ts-admin-user-service::AdminUserController.getAllUsers": "ts-admin-user-service"
+    }
+}

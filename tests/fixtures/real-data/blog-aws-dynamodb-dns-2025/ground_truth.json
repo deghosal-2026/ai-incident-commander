@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "blog-aws-dynamodb-dns-2025",
+  "source_type": "blog",
+  "source_url": "https://devopshero.dev/stories/the-empty-dns-record-that-took-down-70-aws-services-for-14-h-69a2e9",
+  "company": "AWS",
+  "root_cause": "Race condition between parallel DNS Enactors: one Enator classified anothers in-progress plan as stale and deleted it, publishing empty DNS record for dynamodb.us-east-1.amazonaws.com",
+  "root_cause_key_terms": [],
+  "timeline_events": [
+    {
+      "time": "2025-10-19T23:48:00Z",
+      "event": "DynamoDB API error rates spike; DNS record for regional endpoint is empty"
+    },
+    {
+      "time": "2025-10-20T00:18:00Z",
+      "event": "Engineers confirm empty DNS record; DNS automation disabled"
+    },
+    {
+      "time": "2025-10-20T02:25:00Z",
+      "event": "DynamoDB service recovers; thundering herd begins"
+    },
+    {
+      "time": "2025-10-20T07:30:00Z",
+      "event": "Manual throttling breaks congestive collapse cycle"
+    },
+    {
+      "time": "2025-10-20T10:48:00Z",
+      "event": "Majority of dependent services restored"
+    },
+    {
+      "time": "2025-10-20T13:50:00Z",
+      "event": "Full recovery across all 70+ services"
+    }
+  ],
+  "action_items": [
+    "Implement safeguard preventing cleanup of actively-applied DNS plans",
+    "Add rate limiting for DWFM lease re-establishment after failover"
+  ],
+  "impact": "DynamoDB DNS Outage \u2014 70 Services Affected",
+  "severity": "SEV1",
+  "service": "AWS DynamoDB"
+}

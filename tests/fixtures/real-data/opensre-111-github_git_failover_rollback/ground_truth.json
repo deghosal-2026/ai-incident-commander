@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "111-github_git_failover_rollback",
+  "source_type": "opensre",
+  "source_url": "https://github.blog/news-insights/company-news/github-availability-report-may-2023/",
+  "company": "GitHub",
+  "root_cause": "The investigation is conclusive. The evidence forms a coherent timeline and rules out every look-alike.\n\n**Timeline:**\n- `22:48` \u2014 conn-saturation config applied (cleanly on all other clusters); it triggered a failover on this cluster.\n- `22:50:00` \u2014 automated failover promoted `gitdb-primary-0` and marked the cluster \"healthy.\"\n- `22:50:01` \u2014 but the failover code path **skipped the replica-reattach step**: 0/2 replicas reattached.\n- `22:51` \u2014 primary saturates serving 100% of reads alone \u2192 read timeouts \u2192 the loud alert.\n- `22:55` \u2014 naive config rollback **failed** (broken rollback path) \u2014 the trap.\n\n**Look-alikes ruled out:**\n- *Bad deploy / config error*: the config applied cleanly everywhere else; reverting it FAILED and would not restore service (trap). It was only the failover trigger, not the failing component.\n- *Primary crash / OOM / overload by bad query*: `gitdb-primary-0` is Running 1/1, 0 restarts. Its 96% CPU is a *symptom* of carrying full read load alone \u2014 replacing/restarting it would re-trigger the same broken failover.\n- *Network / proxy fault*: proxy healthy; timeouts are downstream of the saturated primary. Router shows 0 replica targets registered.\n- *Resource exhaustion (real)*: replicas sit at 4% CPU \u2014 ample spare read capacity exists, it's just not in the serving path.\n\nThe single shared root cause: **the failover left healthy read replicas detached**, so the primary serves 100% of reads and saturates.\n\nROOT_CAUSE: The automated failover at 22:50 promoted gitdb-primary-0 but skipped the replica-reattach step, leaving both healthy read replicas detached (attached_to_primary=false, ~4% CPU). The primary is therefore serving 100% of reads (read_share=1.0), saturating at 96% CPU and timing out 15-26% of Git operations.\n\nROOT_CAUSE_CATEGORY: config_error\n\nFIX: Reattach the two read replicas to the newly promoted primary (re-run the post-failover replica reattach/re-point step, e.g. orchestrator reattach gitdb-replica-0 and gitdb-replica-1 to gitdb-primary-0) to restore read offload \u2014 do NOT revert the config or restart/replace the primary.",
+  "root_cause_key_terms": [],
+  "timeline_events": [],
+  "action_items": [],
+  "trap_actions": [
+    "rollback_deployment",
+    "restart_service",
+    "scale_deployment"
+  ],
+  "impact": "Incident at GitHub",
+  "severity": "SEV1",
+  "service": "github"
+}

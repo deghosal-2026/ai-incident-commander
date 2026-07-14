@@ -1,0 +1,137 @@
+{
+    "nodes": [
+        {
+            "timestamp": 1777633546,
+            "component": "service|reservation",
+            "state": [
+                "degraded"
+            ]
+        },
+        {
+            "timestamp": 1777633546,
+            "component": "span|reservation::reservation.Reservation/MakeReservation",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777633567,
+            "component": "span|reservation::reservation.Reservation/CheckAvailability",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777633567,
+            "component": "span|frontend::reservation.Reservation/CheckAvailability",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777633567,
+            "component": "span|frontend::HTTP /hotels",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777633567,
+            "component": "span|reservation::memcached_reserve_get_multi_number",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777633567,
+            "component": "span|reservation::memcached_capacity_get_multi_number",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        }
+    ],
+    "edges": [
+        {
+            "source": "span|frontend::reservation.Reservation/CheckAvailability",
+            "target": "span|frontend::HTTP /hotels"
+        },
+        {
+            "source": "service|reservation",
+            "target": "span|reservation::reservation.Reservation/MakeReservation"
+        },
+        {
+            "source": "span|reservation::memcached_capacity_get_multi_number",
+            "target": "span|reservation::reservation.Reservation/CheckAvailability"
+        },
+        {
+            "source": "service|reservation",
+            "target": "span|reservation::memcached_reserve_get_multi_number"
+        },
+        {
+            "source": "span|reservation::reservation.Reservation/CheckAvailability",
+            "target": "span|frontend::reservation.Reservation/CheckAvailability"
+        },
+        {
+            "source": "span|reservation::memcached_reserve_get_multi_number",
+            "target": "span|reservation::memcached_capacity_get_multi_number"
+        },
+        {
+            "source": "service|reservation",
+            "target": "span|reservation::memcached_capacity_get_multi_number"
+        },
+        {
+            "source": "service|reservation",
+            "target": "span|reservation::reservation.Reservation/CheckAvailability"
+        }
+    ],
+    "root_causes": [
+        {
+            "timestamp": null,
+            "component": "service|reservation",
+            "state": [
+                "unknown"
+            ]
+        }
+    ],
+    "alarm_nodes": [
+        {
+            "timestamp": 1777633546,
+            "component": "span|reservation::reservation.Reservation/MakeReservation",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777633567,
+            "component": "span|frontend::HTTP /hotels",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        },
+        {
+            "timestamp": 1777633567,
+            "component": "span|reservation::memcached_capacity_get_multi_number",
+            "state": [
+                "healthy",
+                "missing"
+            ]
+        }
+    ],
+    "component_to_service": {
+        "service|reservation": "reservation",
+        "span|reservation::reservation.Reservation/MakeReservation": "reservation",
+        "span|reservation::reservation.Reservation/CheckAvailability": "reservation",
+        "span|frontend::reservation.Reservation/CheckAvailability": "frontend",
+        "span|frontend::HTTP /hotels": "frontend",
+        "span|reservation::memcached_reserve_get_multi_number": "reservation",
+        "span|reservation::memcached_capacity_get_multi_number": "reservation"
+    }
+}

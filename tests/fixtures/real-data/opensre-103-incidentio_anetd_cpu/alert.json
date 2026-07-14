@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "incident.io",
+  "summary": "Incident at incident.io: Evidence is complete and consistent. Let me summarize the causal chain:\n\n**What it is NOT (look-alik",
+  "source": "opensre/incident.io",
+  "timestamp": ""
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "blog-cloudflare-dns-2025",
+  "source_type": "blog",
+  "source_url": "https://blog.cloudflare.com/cloudflare-1-1-1-1-incident-on-july-14-2025/",
+  "company": "Cloudflare",
+  "root_cause": "Configuration error: stale test topology linked 1.1.1.1 prefixes to non-production DLS service; second change triggered global prefix withdrawal",
+  "root_cause_key_terms": [],
+  "timeline_events": [
+    {
+      "time": "2025-07-14T21:48:00Z",
+      "event": "Configuration change triggered refresh; 1.1.1.1 prefixes began withdrawing"
+    },
+    {
+      "time": "2025-07-14T21:52:00Z",
+      "event": "DNS traffic to 1.1.1.1 began dropping globally"
+    },
+    {
+      "time": "2025-07-14T22:01:00Z",
+      "event": "Alerts fired; incident declared"
+    },
+    {
+      "time": "2025-07-14T22:20:00Z",
+      "event": "Revert deployed to restore previous configuration"
+    },
+    {
+      "time": "2025-07-14T22:54:00Z",
+      "event": "Traffic returned to normal levels"
+    }
+  ],
+  "action_items": [
+    "Implement staged rollback capability for service topology changes",
+    "Add pre-deployment validation that no active service prefixes link to non-production topologies"
+  ],
+  "impact": "1.1.1.1 DNS Resolver Outage",
+  "severity": "SEV1",
+  "service": "1.1.1.1 DNS Resolver"
+}

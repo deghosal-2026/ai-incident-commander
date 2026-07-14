@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "110-github_mysql_semaphore_rename",
+  "source_type": "opensre",
+  "source_url": "https://github.blog/2021-12-01-github-availability-report-november-2021",
+  "company": "GitHub",
+  "root_cause": "The evidence is conclusive across all sources. I have enough to distinguish the true root cause from the look-alikes (capacity shortage, OOM, primary failure).\n\n**Evidence summary:**\n- **Trigger:** A `gh-ost`-style online schema migration on `repository_events` (~1.2B rows) reached final cutover at 22:51, executing `RENAME TABLE _repository_events_gho -> repository_events`.\n- **Mechanism:** Replicas applying this RENAME from the relay log hit an InnoDB long-semaphore-wait (X-lock on `dict_sys->mutex` > 600s), and mysqld intentionally self-crashes. On restart they re-replay the same relay-log RENAME and crash again \u2014 a crash-recovery **loop** (replicas c-0 and d-0, 13 crash-recovery cycles, exit code 1, signal 6).\n- **Look-alikes ruled out:**\n  - *Capacity shortage* \u2014 the loud `replicas_available 3/6` + 91% CPU + 8800ms p99 are downstream symptoms of redirected load; survivors are healthy victims. Adding replicas doesn't help.\n  - *Trap* \u2014 promoting the analytics replica would just replay the same RENAME and crash too.\n  - *Primary/write failure / data corruption* \u2014 primary is 100% healthy, write error rate 0.0, replication lag only 2s.\n  - *OOM/eviction/node failure* \u2014 last_state is `Error`/signal 6 from semaphore deadlock, not OOMKilled; nodes not implicated.\n\nROOT_CAUSE: The online schema migration's final `RENAME TABLE _repository_events_gho -> repository_events` (~1.2B-row table) deadlocks InnoDB on the read replicas applying it from the relay log \u2014 they hit a >600s long-semaphore-wait on `dict_sys->mutex`, self-crash, and re-replay the same RENAME on restart, producing a crash-recovery loop that drops the read fleet from 6\u21923 and saturates the survivors.\n\nROOT_CAUSE_CATEGORY: bad_deploy\n\nFIX: Pause/abort the schema-migration cutover and stop the RENAME from continuing to be replayed (e.g., kill the migration cutover job and `STOP REPLICA SQL_THREAD` then skip/allow the stuck RENAME to complete cleanly), so the replicas can apply the event once and exit the crash-recovery loop \u2014 do NOT add or promote replicas.",
+  "root_cause_key_terms": [],
+  "timeline_events": [],
+  "action_items": [],
+  "trap_actions": [
+    "scale_deployment",
+    "restart_pod"
+  ],
+  "impact": "Incident at GitHub",
+  "severity": "SEV1",
+  "service": "github"
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20161209-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between approximately 10:00 and 19:00 UTC on 09 Dec 2016, customers using SQL Database in North Central US may have experienced issues performing service management operations.",
+  "root_cause_key_terms": [
+    "SQL Database"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between approximately 10:00 and 19:00 UTC on 09 Dec 2016, customers using SQL Database in North Central US may have experienced issues performing service management operations.",
+  "severity": "SEV1",
+  "service": "SQL Database"
+}

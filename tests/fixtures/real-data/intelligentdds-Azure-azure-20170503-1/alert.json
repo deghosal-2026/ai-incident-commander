@@ -1,0 +1,7 @@
+{
+  "severity": "SEV1",
+  "service": "Backup service",
+  "summary": "Backup - Failure notifications when performing Backup operations ",
+  "source": "intelligentdds/Azure",
+  "timestamp": "2017-05-03T00:00:00+00:00"
+}

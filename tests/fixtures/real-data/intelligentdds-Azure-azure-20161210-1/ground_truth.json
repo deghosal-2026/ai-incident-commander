@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20161210-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 22:30 UTC on 09 Dec 2016 and 05:10 UTC on 10 Dec 2016, customers using HDInsight in North Central US may have received failure notifications when performing service management operations - such as create, update, delete - for resources hosted in this region. Existing clusters were not affected.",
+  "root_cause_key_terms": [
+    "HDInsight"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 22:30 UTC on 09 Dec 2016 and 05:10 UTC on 10 Dec 2016, customers using HDInsight in North Central US may have received failure notifications when performing service management operations - suc",
+  "severity": "SEV1",
+  "service": "HDInsight"
+}

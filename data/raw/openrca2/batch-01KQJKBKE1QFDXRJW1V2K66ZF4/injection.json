@@ -1,0 +1,110 @@
+{
+    "id": 2283,
+    "name": "batch-01KQJKBKE1QFDXRJW1V2K66ZF4",
+    "fault_type": "hybrid",
+    "category": "ts",
+    "pre_duration": 5,
+    "start_time": "2026-05-02T04:23:22+08:00",
+    "end_time": "2026-05-02T04:28:21+08:00",
+    "state": "inject_success",
+    "status": "enabled",
+    "benchmark_id": 108,
+    "benchmark_name": "clickhouse",
+    "pedestal_id": 149,
+    "pedestal_name": "ts",
+    "created_at": "2026-05-02T04:23:21.808+08:00",
+    "updated_at": "2026-05-02T04:28:22.2+08:00",
+    "engine_config_summary": [
+        {
+            "app": "ts-admin-user-service",
+            "chaos_type": "JVMRuntimeMutator",
+            "class": "adminuser.service.AdminUserServiceImpl",
+            "duration": 5,
+            "method": "getAllUsers",
+            "mutator_config": "constant:\"/api/v1/userservice/users\":\"mutated_/api/v1/userservice/users\"",
+            "namespace": "ts8",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        },
+        {
+            "app": "ts-user-service",
+            "chaos_type": "NetworkLoss",
+            "correlation": 21,
+            "direction": "to",
+            "duration": 5,
+            "loss": 33,
+            "namespace": "ts8",
+            "system": "ts",
+            "system_type": "ts",
+            "target_service": "ts-auth-service",
+            "time_offset": 0
+        }
+    ],
+    "task_id": "23fa5e96-f18b-4a4e-85aa-5e9408b003de",
+    "trace_id": "91f8a733-97e9-4dbf-934a-77b8b432780d",
+    "source": "injection",
+    "description": "Fault batch for task 23fa5e96-f18b-4a4e-85aa-5e9408b003de (2 faults)",
+    "engine_config": [
+        {
+            "app": "ts-admin-user-service",
+            "chaos_type": "JVMRuntimeMutator",
+            "class": "adminuser.service.AdminUserServiceImpl",
+            "duration": 5,
+            "method": "getAllUsers",
+            "mutator_config": "constant:\"/api/v1/userservice/users\":\"mutated_/api/v1/userservice/users\"",
+            "namespace": "ts8",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        },
+        {
+            "app": "ts-user-service",
+            "chaos_type": "NetworkLoss",
+            "correlation": 21,
+            "direction": "to",
+            "duration": 5,
+            "loss": 33,
+            "namespace": "ts8",
+            "system": "ts",
+            "system_type": "ts",
+            "target_service": "ts-auth-service",
+            "time_offset": 0
+        }
+    ],
+    "ground_truth": [
+        {
+            "service": [
+                "ts-admin-user-service"
+            ],
+            "pod": [
+                "ts-admin-user-service-677df49fb4-lgpgw"
+            ],
+            "container": [
+                "ts-admin-user-service"
+            ],
+            "function": [
+                "adminuser.service.AdminUserServiceImpl.getAllUsers"
+            ]
+        },
+        {
+            "service": [
+                "ts-user-service",
+                "ts-auth-service"
+            ],
+            "pod": [
+                "ts-auth-service-7bbfd7d567-jnbvr",
+                "ts-user-service-8f4f789d6-jhwpp"
+            ],
+            "container": [
+                "ts-auth-service",
+                "ts-user-service"
+            ],
+            "span": [
+                "DELETE",
+                "POST"
+            ]
+        }
+    ],
+    "groundtruth_source": "auto"
+}

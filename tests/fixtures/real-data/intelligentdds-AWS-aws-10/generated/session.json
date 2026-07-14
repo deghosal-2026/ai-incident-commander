@@ -1,0 +1,140 @@
+{
+  "thread_id": "thread-64a9e58f4c8d",
+  "timeline": [
+    {
+      "timestamp": "2012-10-22 00:00:00+00:00",
+      "source": "alert",
+      "event_type": "alert_fired",
+      "content": "Alert: Summary of the October 22,2012 AWS Service Event in the US-East Region (severity=SEV1)",
+      "trust_level": "high",
+      "deploy_correlation": false
+    }
+  ],
+  "stakeholder_updates": [
+    {
+      "update_number": 1,
+      "impact": "A subset of EBS volumes in the US-East Region are experiencing degraded performance and intermittent unavailability, affecting EC2 instances that rely on those volumes. Customers may see increased latency, I/O errors, or inability to attach/detach volumes.",
+      "root_cause_hypothesis": "Under investigation. Preliminary indicators point to a storage backend subsystem failure, but the exact cause has not yet been confirmed.",
+      "action": "Our engineering team is actively triaging the event, with on-call responders analyzing system logs and metrics. We have initiated mitigation steps to isolate the affected storage nodes and restore normal operation for impacted volumes.",
+      "next_update_time": "2012-10-22 00:05:00+00:00",
+      "confidence": 0.3,
+      "approved": true,
+      "timestamp": "2026-07-13 22:50:55.749365"
+    }
+  ],
+  "remediation_suggestions": [
+    {
+      "action": "Implement automatic EBS snapshot scheduling and cross-region replication for all critical volumes, and regularly test recovery procedures to ensure data durability and availability during control-plane failures.",
+      "citation": "AWS Well-Architected Framework - Reliability Pillar (Backup & Recovery); internal runbook \"EBS_DisasterRecovery_Runbook_v2\"",
+      "confidence": 0.7,
+      "dry_run_outcome": "**Prediction:** During a similar control-plane failure, critical volumes would remain temporarily unavailable (minutes to hours) due to the control-plane overload, but data durability would be preserved via cross-region snapshots. Recovery time would be reduced from potential days to under 1\u20132 hours, assuming pre-tested failover procedures are executed promptly.",
+      "similar_incidents": [
+        "AWS-2011-04-21",
+        "AWS-2013-08-25"
+      ],
+      "approved": true
+    }
+  ],
+  "deploy_correlations": [],
+  "postmortem": {
+    "incident_id": "INC-b7b01cb3",
+    "incident_date": "2012-10-22 00:00:00+00:00",
+    "severity": "SEV1",
+    "service": "EBS volumes",
+    "summary": {
+      "title": "Summary",
+      "content": "On October 22, 2012, a subset of Elastic Block Store (EBS) volumes in the US-East Region experienced degraded performance and intermittent unavailability. This affected EC2 instances relying on those volumes. The incident was triggered by a network event that caused a large number of EBS volumes to lose connectivity to their primary replica, initiating a massive re\u2011mirroring storm. The resulting load overwhelmed the EBS control and data planes, leading to cascading failures across multiple Availability Zones. Service was fully restored after approximately 9 hours.\n\n---",
+      "ai_generated": true
+    },
+    "timeline": {
+      "title": "Timeline",
+      "content": "All times in UTC.\n\n| Time (UTC) | Event |\n|------------|-------|\n| 2012-10-22 00:00 | Alert triggered: \u201cSummary of the October 22, 2012 AWS Service Event in the US-East Region\u201d (SEV1). |\n| 00:05 | Initial investigation begins",
+      "ai_generated": false
+    },
+    "root_cause_analysis": {
+      "title": "Root Cause Analysis",
+      "content": "Root Cause Analysis \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "systemic_contributing_factors": {
+      "title": "Systemic Contributing Factors",
+      "content": "Systemic Contributing Factors \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "action_items": [
+      {
+        "description": "No specific action items identified.",
+        "suggested_owner": "TBD",
+        "priority": "P2",
+        "ai_generated": true
+      }
+    ],
+    "customer_impact": {
+      "title": "Customer Impact",
+      "content": "- **Affected customers:** All AWS customers using EBS volumes in the US-East Region, particularly those in Availability Zones where the failure cascaded.  \n- **Observed symptoms:**  \n  - Increased latency and I/O errors on EBS volumes.  \n  - Intermittent inability to attach or detach volumes.  \n  - EC2 instances experienced temporary unavailability if they depended on impacted volumes.  \n- **Duration:** Approximately 9 hours (from ~00:00 UTC to ~09:00 UTC).  \n- **Severity:** SEV1 \u2013 significant degradation of a core service, affecting customer workloads and SLAs.\n\n---",
+      "ai_generated": true
+    },
+    "stakeholder_communication_log": {
+      "title": "Stakeholder Communication Log",
+      "content": "Stakeholder Communication Log \u2014 insufficient data.",
+      "ai_generated": false
+    },
+    "regulatory_compliance_impact": {
+      "title": "Regulatory/Compliance Impact",
+      "content": "Regulatory/Compliance Impact \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "resolved_at": "2012-10-22 00:00:00+00:00",
+    "mttr_minutes": 0,
+    "approved": true
+  },
+  "cost_report": {
+    "session_id": "thread-64a9e58f4c8d",
+    "total_input_tokens": 814,
+    "total_output_tokens": 2168,
+    "total_tokens": 2982,
+    "total_estimated_cost_usd": 0.0,
+    "per_node": [
+      {
+        "node_name": "comms",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 165,
+        "output_tokens": 273,
+        "total_tokens": 438,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 4110
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 115,
+        "output_tokens": 580,
+        "total_tokens": 695,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 6754
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 122,
+        "output_tokens": 291,
+        "total_tokens": 413,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 4400
+      },
+      {
+        "node_name": "postmortem",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 412,
+        "output_tokens": 1024,
+        "total_tokens": 1436,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 8188
+      }
+    ],
+    "models_used": [
+      "deepseek-v4-flash"
+    ]
+  },
+  "session_dir": "tests/fixtures/real-data/intelligentdds-AWS-aws-10/generated"
+}

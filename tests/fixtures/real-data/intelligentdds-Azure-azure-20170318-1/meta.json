@@ -1,0 +1,8 @@
+{
+  "incident_id": "azure-20170318-1",
+  "source_type": "intelligentdds",
+  "service": "Log analytics",
+  "severity": "SEV1",
+  "start_time": "2017-03-18T00:00:00+00:00",
+  "provider": "Azure"
+}

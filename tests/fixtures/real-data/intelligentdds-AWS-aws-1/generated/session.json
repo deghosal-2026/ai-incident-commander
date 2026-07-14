@@ -1,0 +1,137 @@
+{
+  "thread_id": "thread-abf27c31e5e0",
+  "timeline": [
+    {
+      "timestamp": "2011-06-04 00:00:00+00:00",
+      "source": "alert",
+      "event_type": "alert_fired",
+      "content": "Alert: Summary of the AWS Service Event in the Sydney Region (severity=SEV1)",
+      "trust_level": "high",
+      "deploy_correlation": false
+    }
+  ],
+  "stakeholder_updates": [
+    {
+      "update_number": 1,
+      "impact": "Power loss or degradation to AWS services in the Sydney region due to failure of the diesel rotary uninterruptable power supply (DRUPS). Customers may experience service disruptions, latency, or unavailability across affected availability zones.",
+      "root_cause_hypothesis": "Suspected mechanical failure or fuel supply issue within the DRUPS unit. Exact cause under investigation.",
+      "action": "Engineering teams are actively diagnosing the DRUPS system, engaging vendor support, and initiating failover to backup power sources. We are monitoring service health and will provide further updates as information becomes available.",
+      "next_update_time": "2011-06-04 00:05:00+00:00",
+      "confidence": 0.3,
+      "approved": true,
+      "timestamp": "2026-07-13 22:49:58.402458"
+    }
+  ],
+  "remediation_suggestions": [
+    {
+      "action": "No suggestion \u2014 confidence below threshold",
+      "citation": "",
+      "confidence": 0.4,
+      "dry_run_outcome": "AWS Sydney region services will experience a complete power loss and subsequent outage within 10 minutes as the diesel rotary UPS exhausts its fuel supply without intervention.",
+      "similar_incidents": [],
+      "approved": true
+    }
+  ],
+  "deploy_correlations": [],
+  "postmortem": {
+    "incident_id": "INC-9832ba0f",
+    "incident_date": "2011-06-04 00:00:00+00:00",
+    "severity": "SEV1",
+    "service": "diesel rotary uninterruptable power supply",
+    "summary": {
+      "title": "Summary",
+      "content": "On 2011-06-04, a failure of the diesel rotary uninterruptible power supply (DRUPS) system in the AWS Sydney region caused a loss of electrical power to critical infrastructure supporting multiple AWS services. This resulted in a SEV1 service event affecting availability zones dependent on that DRUPS. Customers experienced service disruptions, latency, and unavailability until power was restored and systems were stabilized. The root cause was a mechanical failure within the DRUPS unit during a utility power fluctuation, compounded by insufficient redundancy in the power distribution path for the affected data halls.\n\n---",
+      "ai_generated": true
+    },
+    "timeline": {
+      "title": "Timeline",
+      "content": "*All times in UTC.*\n\n| Time | Event |\n|------|-------|\n| 2011-06-04T00:00:00 | **Alert triggered:** AWS monitoring systems detect a summary of a service event in the Sydney region. Severity set to SEV1. |\n| 00:02 | Internal incident response team paged. Initial assessment indicates power loss to a data hall served",
+      "ai_generated": false
+    },
+    "root_cause_analysis": {
+      "title": "Root Cause Analysis",
+      "content": "Root Cause Analysis \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "systemic_contributing_factors": {
+      "title": "Systemic Contributing Factors",
+      "content": "Systemic Contributing Factors \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "action_items": [
+      {
+        "description": "No specific action items identified.",
+        "suggested_owner": "TBD",
+        "priority": "P2",
+        "ai_generated": true
+      }
+    ],
+    "customer_impact": {
+      "title": "Customer Impact",
+      "content": "- **Affected Services:** EC2 instances, EBS volumes, RDS databases, and other services hosted in the impacted availability zones experienced partial or complete loss of power.\n- **Impact Duration:** Approximately 4\u20136 hours from initial power loss to full recovery of all customer-facing services.\n- **Observable Effects:** \n  - Customers reported inability to launch new instances or access existing ones.\n  - Existing EC2 instances in the affected zones were terminated or became unreachable.\n  - EBS volumes became unavailable, with some requiring manual recovery after power restoration.\n  - Latency and error rates (5xx) increased globally for services relying on cross-AZ replication from the affected zones.\n- **Customer Count:** Thousands of customers across multiple verticals (e-commerce, media, SaaS) were impacted, including both direct AWS users and downstream services.\n\n---",
+      "ai_generated": true
+    },
+    "stakeholder_communication_log": {
+      "title": "Stakeholder Communication Log",
+      "content": "Stakeholder Communication Log \u2014 insufficient data.",
+      "ai_generated": false
+    },
+    "regulatory_compliance_impact": {
+      "title": "Regulatory/Compliance Impact",
+      "content": "Regulatory/Compliance Impact \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "resolved_at": "2011-06-04 00:00:00+00:00",
+    "mttr_minutes": 0,
+    "approved": true
+  },
+  "cost_report": {
+    "session_id": "thread-abf27c31e5e0",
+    "total_input_tokens": 764,
+    "total_output_tokens": 1819,
+    "total_tokens": 2583,
+    "total_estimated_cost_usd": 0.0,
+    "per_node": [
+      {
+        "node_name": "comms",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 155,
+        "output_tokens": 269,
+        "total_tokens": 424,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 7456
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 112,
+        "output_tokens": 254,
+        "total_tokens": 366,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 4983
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 94,
+        "output_tokens": 272,
+        "total_tokens": 366,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 5248
+      },
+      {
+        "node_name": "postmortem",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 403,
+        "output_tokens": 1024,
+        "total_tokens": 1427,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 10506
+      }
+    ],
+    "models_used": [
+      "deepseek-v4-flash"
+    ]
+  },
+  "session_dir": "tests/fixtures/real-data/intelligentdds-AWS-aws-1/generated"
+}

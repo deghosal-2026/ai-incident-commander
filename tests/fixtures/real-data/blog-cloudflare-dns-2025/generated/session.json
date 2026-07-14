@@ -1,0 +1,137 @@
+{
+  "thread_id": "thread-e57da5ea66b6",
+  "timeline": [
+    {
+      "timestamp": "2025-07-14 21:48:00+00:00",
+      "source": "alert",
+      "event_type": "alert_fired",
+      "content": "Alert: 1.1.1.1 DNS Resolver Outage (severity=SEV1)",
+      "trust_level": "high",
+      "deploy_correlation": false
+    }
+  ],
+  "stakeholder_updates": [
+    {
+      "update_number": 1,
+      "impact": "All users of the 1.1.1.1 DNS resolver are currently unable to resolve domain names, affecting internet browsing, API calls, and any service relying on Cloudflare\u2019s public DNS. This includes both end users and organizations using 1.1.1.1 for their DNS resolution.",
+      "root_cause_hypothesis": "Under investigation \u2013 initial hypothesis is a software or configuration issue in the global DNS resolution pipeline; no evidence of external attack at this time.",
+      "action": "Engineering teams are actively triaging the incident, reviewing recent changes and system metrics. A rollback of the last configuration deployment is being prepared as a potential mitigation. We will provide an update within 15 minutes.",
+      "next_update_time": "2025-07-14 21:53:00+00:00",
+      "confidence": 0.3,
+      "approved": true,
+      "timestamp": "2026-07-13 22:44:37.364191"
+    }
+  ],
+  "remediation_suggestions": [
+    {
+      "action": "Implement DNS failover to secondary resolver (e.g., 8.8.8.8) until primary 1.1.1.1 service is restored.",
+      "citation": "General DNS outage response runbook",
+      "confidence": 0.7,
+      "dry_run_outcome": "DNS resolution should be restored immediately for all users, with query latency potentially increasing slightly due to different resolver infrastructure. Expected outcome: \"DNS query success rate returns to 100% within seconds of failover activation.\"",
+      "similar_incidents": [],
+      "approved": true
+    }
+  ],
+  "deploy_correlations": [],
+  "postmortem": {
+    "incident_id": "INC-c5f0ef59",
+    "incident_date": "2025-07-14 21:48:00+00:00",
+    "severity": "SEV1",
+    "service": "1.1.1.1 DNS Resolver",
+    "summary": {
+      "title": "Summary",
+      "content": "On 2025-07-14 at 21",
+      "ai_generated": true
+    },
+    "timeline": {
+      "title": "Timeline",
+      "content": "Timeline \u2014 insufficient data.",
+      "ai_generated": false
+    },
+    "root_cause_analysis": {
+      "title": "Root Cause Analysis",
+      "content": "Root Cause Analysis \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "systemic_contributing_factors": {
+      "title": "Systemic Contributing Factors",
+      "content": "Systemic Contributing Factors \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "action_items": [
+      {
+        "description": "No specific action items identified.",
+        "suggested_owner": "TBD",
+        "priority": "P2",
+        "ai_generated": true
+      }
+    ],
+    "customer_impact": {
+      "title": "Customer Impact",
+      "content": "Customer Impact \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "stakeholder_communication_log": {
+      "title": "Stakeholder Communication Log",
+      "content": "Stakeholder Communication Log \u2014 insufficient data.",
+      "ai_generated": false
+    },
+    "regulatory_compliance_impact": {
+      "title": "Regulatory/Compliance Impact",
+      "content": "Regulatory/Compliance Impact \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "resolved_at": "2025-07-14 21:48:00+00:00",
+    "mttr_minutes": 0,
+    "approved": true
+  },
+  "cost_report": {
+    "session_id": "thread-e57da5ea66b6",
+    "total_input_tokens": 841,
+    "total_output_tokens": 1637,
+    "total_tokens": 2478,
+    "total_estimated_cost_usd": 0.0,
+    "per_node": [
+      {
+        "node_name": "comms",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 165,
+        "output_tokens": 259,
+        "total_tokens": 424,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 3505
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 119,
+        "output_tokens": 234,
+        "total_tokens": 353,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 2762
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 128,
+        "output_tokens": 120,
+        "total_tokens": 248,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 1850
+      },
+      {
+        "node_name": "postmortem",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 429,
+        "output_tokens": 1024,
+        "total_tokens": 1453,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 8486
+      }
+    ],
+    "models_used": [
+      "deepseek-v4-flash"
+    ]
+  },
+  "session_dir": "tests/fixtures/real-data/blog-cloudflare-dns-2025/generated"
+}

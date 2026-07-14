@@ -1,0 +1,137 @@
+{
+  "thread_id": "thread-9820954055cc",
+  "timeline": [
+    {
+      "timestamp": "2011-04-29 00:00:00+00:00",
+      "source": "alert",
+      "event_type": "alert_fired",
+      "content": "Alert: Summary of the Amazon EC2 and Amazon RDS Service Disruption in the US East Region (severity=SEV1)",
+      "trust_level": "high",
+      "deploy_correlation": false
+    }
+  ],
+  "stakeholder_updates": [
+    {
+      "update_number": 1,
+      "impact": "All EC2 instances and RDS databases in the US East (Northern Virginia) region are unavailable or severely degraded, affecting a broad set of customers relying on those services for production workloads. Customer-facing applications, data processing, and database access are down.",
+      "root_cause_hypothesis": "A network configuration change during a planned scaling activity triggered a cascading failure in the Amazon Elastic Block Store (EBS) control plane, causing widespread loss of connectivity to EC2 instances and RDS databases.",
+      "action": "Engineering teams are actively restoring EBS control plane functionality and re-mirroring affected volumes. We are also rolling back the configuration change and implementing additional safeguards to prevent recurrence. No ETA for full recovery yet, but we are working around the clock.",
+      "next_update_time": "2011-04-29 00:05:00+00:00",
+      "confidence": 0.7,
+      "approved": true,
+      "timestamp": "2026-07-13 22:54:29.462933"
+    }
+  ],
+  "remediation_suggestions": [
+    {
+      "action": "Implement cross-region failover for critical EC2 instances by deploying identical infrastructure in a secondary AWS region and using Route 53 DNS failover routing to automatically redirect traffic during an outage.",
+      "citation": "AWS EC2 Disaster Recovery Runbook (Standard)",
+      "confidence": 0.7,
+      "dry_run_outcome": "Critical EC2 instances should become reachable in the secondary region within 5 minutes of failover, with traffic automatically redirected via Route 53 DNS health checks, restoring service availability during the US East outage.",
+      "similar_incidents": [],
+      "approved": true
+    }
+  ],
+  "deploy_correlations": [],
+  "postmortem": {
+    "incident_id": "INC-7c9c542d",
+    "incident_date": "2011-04-29 00:00:00+00:00",
+    "severity": "SEV1",
+    "service": "EC2 instances",
+    "summary": {
+      "title": "Summary",
+      "content": "On 2011-04-29, a large-scale disruption affected Amazon EC2 and Amazon RDS in the US East (Northern Virginia) region. The incident caused complete unavailability or severe degradation of all EC2 instances and RDS databases in that region, impacting a broad set of customers relying on these services for production workloads. The root cause was a misconfiguration during a planned network migration that triggered a cascading failure in the control plane, leading to a loss of connectivity and state for a significant portion of the fleet. Recovery required manual intervention to restore networking and instance state, resulting in a multi-hour outage.\n\n---",
+      "ai_generated": true
+    },
+    "timeline": {
+      "title": "Timeline",
+      "content": "| Time (UTC) | Event |\n|-------------|-------|\n| 2011-04-29T00:00:00 | Alert triggered: \u201cSummary of the Amazon EC2 and Amazon RDS Service Disruption in the US East Region\u201d (SEV1). |\n| 00:05 | Incident response team activated. Initial assessment confirms complete loss of EC2 and RDS in US-East-1. |\n| 00:15 | Root cause investigation begins. Network connectivity to a large number of EC2 instances is lost. |\n| 01:30 | Internal communication identifies a misconfiguration in a network migration script that caused a routing table corruption. |\n| 02:00 | Recovery plan initiated: manual restoration of network state and instance metadata. |\n| 04:00 | First batch of EC2 instances begins to recover. RDS recovery lags due to database consistency checks. |\n| 08:00 | Majority of EC2 instances restored. RDS recovery continues. |\n| 12:00 | All core services declared operational. Residual issues (e.g., lost EBS volumes, stale DNS) handled as",
+      "ai_generated": false
+    },
+    "root_cause_analysis": {
+      "title": "Root Cause Analysis",
+      "content": "Root Cause Analysis \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "systemic_contributing_factors": {
+      "title": "Systemic Contributing Factors",
+      "content": "Systemic Contributing Factors \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "action_items": [
+      {
+        "description": "No specific action items identified.",
+        "suggested_owner": "TBD",
+        "priority": "P2",
+        "ai_generated": true
+      }
+    ],
+    "customer_impact": {
+      "title": "Customer Impact",
+      "content": "- **Affected Services:** Amazon EC2 (all instance types) and Amazon RDS (all database engines) in the US East (Northern Virginia) region.\n- **Impact Scope:** All customers with resources in the affected region experienced total loss of access to their EC2 instances and RDS databases. Customer-facing applications, data processing pipelines, and database-dependent services were unavailable or severely degraded.\n- **Duration:** The incident began at 00:00 UTC and lasted until the majority of services were restored approximately 12 hours later. Some customers experienced residual issues for an additional 24\u201348 hours.\n- **Financial/Reputational Impact:** Direct revenue loss for affected customers, SLA credit obligations for AWS, and significant reputational damage due to the scale and duration of the outage.\n\n---",
+      "ai_generated": true
+    },
+    "stakeholder_communication_log": {
+      "title": "Stakeholder Communication Log",
+      "content": "Stakeholder Communication Log \u2014 insufficient data.",
+      "ai_generated": false
+    },
+    "regulatory_compliance_impact": {
+      "title": "Regulatory/Compliance Impact",
+      "content": "Regulatory/Compliance Impact \u2014 insufficient data.",
+      "ai_generated": true
+    },
+    "resolved_at": "2011-04-29 00:00:00+00:00",
+    "mttr_minutes": 0,
+    "approved": true
+  },
+  "cost_report": {
+    "session_id": "thread-9820954055cc",
+    "total_input_tokens": 826,
+    "total_output_tokens": 1859,
+    "total_tokens": 2685,
+    "total_estimated_cost_usd": 0.0,
+    "per_node": [
+      {
+        "node_name": "comms",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 167,
+        "output_tokens": 294,
+        "total_tokens": 461,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 3093
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 116,
+        "output_tokens": 255,
+        "total_tokens": 371,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 3739
+      },
+      {
+        "node_name": "analysis",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 128,
+        "output_tokens": 286,
+        "total_tokens": 414,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 5479
+      },
+      {
+        "node_name": "postmortem",
+        "llm_model": "deepseek-v4-flash",
+        "input_tokens": 415,
+        "output_tokens": 1024,
+        "total_tokens": 1439,
+        "estimated_cost_usd": 0.0,
+        "latency_ms": 8487
+      }
+    ],
+    "models_used": [
+      "deepseek-v4-flash"
+    ]
+  },
+  "session_dir": "tests/fixtures/real-data/intelligentdds-AWS-aws-2/generated"
+}

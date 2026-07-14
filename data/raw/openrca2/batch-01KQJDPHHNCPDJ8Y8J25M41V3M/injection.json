@@ -1,0 +1,116 @@
+{
+    "id": 2163,
+    "name": "batch-01KQJDPHHNCPDJ8Y8J25M41V3M",
+    "fault_type": "hybrid",
+    "category": "ts",
+    "pre_duration": 5,
+    "start_time": "2026-05-02T02:44:29+08:00",
+    "end_time": "2026-05-02T02:49:28+08:00",
+    "state": "inject_success",
+    "status": "enabled",
+    "benchmark_id": 108,
+    "benchmark_name": "clickhouse",
+    "pedestal_id": 149,
+    "pedestal_name": "ts",
+    "created_at": "2026-05-02T02:44:28.87+08:00",
+    "updated_at": "2026-05-02T02:49:29.288+08:00",
+    "engine_config_summary": [
+        {
+            "app": "ts-admin-order-service",
+            "chaos_type": "JVMRuntimeMutator",
+            "class": "adminorder.service.AdminOrderServiceImpl",
+            "duration": 5,
+            "method": "deleteOrder",
+            "mutator_config": "constant:\"/api/v1/orderOtherService/orderOther/\":\"mutated_/api/v1/orderOtherService/orderOther/\"",
+            "namespace": "ts6",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        },
+        {
+            "app": "ts-order-other-service",
+            "chaos_type": "NetworkLoss",
+            "correlation": 21,
+            "direction": "to",
+            "duration": 5,
+            "loss": 33,
+            "namespace": "ts6",
+            "system": "ts",
+            "system_type": "ts",
+            "target_service": "mysql",
+            "time_offset": 0
+        }
+    ],
+    "task_id": "b29193fc-9e2f-4e8c-b67b-471fb66609ab",
+    "trace_id": "7cf7a9bf-41b6-47c9-a2ad-baf1eadd6254",
+    "source": "injection",
+    "description": "Fault batch for task b29193fc-9e2f-4e8c-b67b-471fb66609ab (2 faults)",
+    "engine_config": [
+        {
+            "app": "ts-admin-order-service",
+            "chaos_type": "JVMRuntimeMutator",
+            "class": "adminorder.service.AdminOrderServiceImpl",
+            "duration": 5,
+            "method": "deleteOrder",
+            "mutator_config": "constant:\"/api/v1/orderOtherService/orderOther/\":\"mutated_/api/v1/orderOtherService/orderOther/\"",
+            "namespace": "ts6",
+            "system": "ts",
+            "system_type": "ts",
+            "time_offset": 0
+        },
+        {
+            "app": "ts-order-other-service",
+            "chaos_type": "NetworkLoss",
+            "correlation": 21,
+            "direction": "to",
+            "duration": 5,
+            "loss": 33,
+            "namespace": "ts6",
+            "system": "ts",
+            "system_type": "ts",
+            "target_service": "mysql",
+            "time_offset": 0
+        }
+    ],
+    "ground_truth": [
+        {
+            "service": [
+                "ts-admin-order-service"
+            ],
+            "pod": [
+                "ts-admin-order-service-59df649bd9-6gkhn"
+            ],
+            "container": [
+                "ts-admin-order-service"
+            ],
+            "function": [
+                "adminorder.service.AdminOrderServiceImpl.deleteOrder"
+            ]
+        },
+        {
+            "service": [
+                "ts-order-other-service",
+                "mysql"
+            ],
+            "pod": [
+                "mysql-0",
+                "ts-order-other-service-68f8bd5bbd-q5cr8"
+            ],
+            "container": [
+                "mysql",
+                "ts-order-other-service"
+            ],
+            "span": [
+                "CREATE table ts",
+                "DELETE orders_other",
+                "DELETE ts.orders_other",
+                "INSERT ts.orders_other",
+                "SELECT ts",
+                "SELECT ts.orders_other",
+                "SELECT ts.ts",
+                "UPDATE ts.orders_other"
+            ]
+        }
+    ],
+    "groundtruth_source": "auto"
+}

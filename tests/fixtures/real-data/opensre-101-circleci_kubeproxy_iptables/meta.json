@@ -1,0 +1,8 @@
+{
+  "incident_id": "101-circleci_kubeproxy_iptables",
+  "source_type": "opensre",
+  "service": "circleci",
+  "severity": "SEV1",
+  "start_time": "",
+  "company": "CircleCI"
+}

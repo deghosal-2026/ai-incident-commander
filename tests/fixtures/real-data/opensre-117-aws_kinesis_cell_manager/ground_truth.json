@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "117-aws_kinesis_cell_manager",
+  "source_type": "opensre",
+  "source_url": "https://aws.amazon.com/message/073024/",
+  "company": "AWS",
+  "root_cause": "I have a complete, consistent causal chain. All evidence corroborates and the look-alikes are ruled out.\n\n## Investigation Summary\n\n**Causal chain (confirmed by alert timeline, metrics, and logs):**\n\n1. **09:09\u201309:41** Routine single-AZ deploy removed a host. Cell manager rebalanced shards \u2014 but it **balances by throughput/IO, not shard count**. A novel many-very-low-throughput-shard workload caused ~9,412 shards to pile onto kds-host-3 (and ~9,388 on kds-host-4), vs ~1,100 normal. Aggregate IO/CPU stayed normal (38%).\n2. **14:40** Each over-loaded host's status message ballooned to **14MB** (vs ~80KB) because it carries one descriptor per shard \u2014 far over the 256KB/250ms ingest budget.\n3. **14:41** (alert #1, fired FIRST) Cell manager can't ingest the oversized status in time \u2192 **status-ingest lag 41s** \u2192 **falsely marks healthy hosts UNHEALTHY**.\n4. False-unhealthy verdicts trigger shard redistribution \u2192 **reshuffle storm (640/s vs 2/s)**. Each move re-provisions secure TLS connections.\n5. **14:45** (alert #2) Reshuffle + churn causes dataplane PutRecord/GetRecords errors and 9,400ms p99.\n6. **14:52** (alert #3, fired LAST) Connection request rate 120/s \u2192 3,900/s overruns the conn-provisioner ceiling (60,000/60,000) \u2192 it refuses new connections, making the storm self-sustaining.\n\n**Look-alikes ruled out:**\n- *bad_deploy*: rollout completed cleanly, r3 is byte-identical to prior good revision, all 8 pods Ready. Rollback doesn't stop the storm. The deploy only *triggered* the rebalance.\n- *conn-provisioner saturation*: it's the loud last-link **victim**, not origin \u2014 adding capacity alone didn't drain the backlog until upstream status messages shrank.\n- *node_failure / resource_exhaustion*: all nodes Ready, CPU/mem normal, no pressure conditions; the \"unhealthy\" hosts are actually serving.\n\n---\n\nROOT_CAUSE: The cell manager balances shards by throughput/IO rather than shard *count*, so after the deploy removed a host it piled ~9,412 low-throughput shards onto two hosts; their per-host status messages ballooned to ~14MB, blew the status-ingest budget, and caused the cell manager to falsely mark healthy hosts unhealthy \u2014 triggering a 640/s shard-reshuffle storm that exhausted the TLS connection provisioner and drove the dataplane error/latency spike.\n\nROOT_CAUSE_CATEGORY: config_error\n\nFIX: Apply a per-host shard-count cap (cap \u22482,000 shards/host) in the cell manager's balancer and load-shed/redistribute the excess shards off kds-host-3/kds-host-4 so status messages shrink below the ingest budget \u2014 this halts the false-unhealthy verdicts and the reshuffle storm, after which the conn-provisioner drains.",
+  "root_cause_key_terms": [],
+  "timeline_events": [],
+  "action_items": [],
+  "trap_actions": [
+    "restart_pod / restart_service: restart the 'unhealthy' dataplane hosts (kds-host-3/4) \u2014 they are FALSELY flagged unhealthy and are actually serving; restarting them adds MORE rebalance churn and feeds the reshuffle storm",
+    "scale_deployment: add raw shard/host capacity without addressing status-message size \u2014 more hosts do not shrink the oversized status messages and the cell manager keeps over-concentrating and false-flagging, so the storm continues",
+    "scale_deployment: add connection-provisioner capacity FIRST (before shedding load) \u2014 capacity alone does not drain the backlog while the reshuffle storm keeps churning ~3,900 secure-connection requests/s; it only helped after load-shed shrank the status messages",
+    "end_incident: rely on cell isolation to contain the impact \u2014 the damage is INSIDE the cell, so isolation does not stop this self-amplifying control-loop storm"
+  ],
+  "impact": "Incident at AWS",
+  "severity": "SEV1",
+  "service": "aws"
+}

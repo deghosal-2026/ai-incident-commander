@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "azure-20170327-1",
+  "source_type": "intelligentdds",
+  "source_url": "",
+  "company": "AZURE",
+  "root_cause": "Between 06:08 and 10:15 UTC on 27 Mar 2017, a subset of customers using Visual Studio Team Services in the Azure Management Portal (https://portal.azure.com) may have experienced difficulties connecting to the following services: VSTS Team Projects, Team Services, Load Testing, Team Service Accounts and Release Management - Continuous Delivery. This would have manifested in the form of continuous loading in the service blade. As a workaround, customers could continue to access these services via their Visual Studio accounts (https://accountname.visualstudio.com). More information is available at https://aka.ms/vstsblog .",
+  "root_cause_key_terms": [
+    "Visual Studio Team services"
+  ],
+  "timeline_events": [],
+  "action_items": [],
+  "impact": "Between 06:08 and 10:15 UTC on 27 Mar 2017, a subset of customers using Visual Studio Team Services in the Azure Management Portal (https://portal.azure.com) may have experienced difficulties connecti",
+  "severity": "SEV1",
+  "service": "Visual Studio Team services"
+}
