@@ -77,7 +77,7 @@ class MarkdownOutputWriter:
             logger.error("Failed to write %s: %s", jsonl_path, exc)
             raise
 
-        # Write session.json — full result snapshot; default=str handles datetimes and other non-serializable types
+        # Write session.json — full result snapshot; default=str for dates and non-serializable
         session_path = out / "session.json"
         try:
             session_path.write_text(json.dumps(result_dict, indent=2, default=str))
