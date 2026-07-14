@@ -8,7 +8,7 @@ import re
 import subprocess
 import sys
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 
@@ -89,10 +89,10 @@ def generate_report(results: dict, output: Path) -> None:
     lines = [
         "# Field Test Results",
         "",
-        f"> **Generated:** {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}",
-        f"> **LLM:** Local MLX (Qwen3.6-35B-A3B)",
-        f"> **Embeddings:** sentence-transformers/all-MiniLM-L6-v2",
-        f"> **Cost:** $0.00 (fully local)",
+        f"> **Generated:** {datetime.now(UTC).strftime('%Y-%m-%d %H:%M UTC')}",
+        "> **LLM:** Local MLX (Qwen3.6-35B-A3B)",
+        "> **Embeddings:** sentence-transformers/all-MiniLM-L6-v2",
+        "> **Cost:** $0.00 (fully local)",
         "",
         f"**Total:** {total_checks} checks across {len(by_incident)} incidents",
         f"**Passed:** {total_passed} ({total_passed/total_checks*100:.1f}%)" if total_checks else "",
@@ -166,9 +166,9 @@ def generate_report_from_progress(progress: dict, output: Path) -> None:
     lines = [
         "# Field Test Results",
         "",
-        f"> **Generated:** {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}",
-        f"> **LLM:** DeepSeek V4 Flash (OpenCode Zen)",
-        f"> **Embeddings:** sentence-transformers/all-MiniLM-L6-v2",
+        f"> **Generated:** {datetime.now(UTC).strftime('%Y-%m-%d %H:%M UTC')}",
+        "> **LLM:** DeepSeek V4 Flash (OpenCode Zen)",
+        "> **Embeddings:** sentence-transformers/all-MiniLM-L6-v2",
         "",
         f"**Incidents tested:** {len(completed)}",
         "",

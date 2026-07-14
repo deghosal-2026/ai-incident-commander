@@ -4,14 +4,10 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
-import shutil
-import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import pyarrow.parquet as pq
-
 
 FIXTURE_DIR = Path("tests/fixtures/real-data")
 DATASET_DIR = Path("data/raw")
@@ -118,9 +114,9 @@ def _convert_one_openrca2(case: dict, case_dir: Path) -> None:
         try:
             dt = datetime.fromisoformat(start_time)
         except (ValueError, TypeError):
-            dt = datetime.now(timezone.utc)
+            dt = datetime.now(UTC)
     else:
-        dt = datetime.now(timezone.utc)
+        dt = datetime.now(UTC)
 
     affected_services = case.get("root_services", [system])
 
@@ -157,7 +153,7 @@ def _convert_one_openrca2(case: dict, case_dir: Path) -> None:
             for row in table.to_pylist():
                 ts = row.get("timestamp", "")
                 if isinstance(ts, (int, float)):
-                    ts = datetime.fromtimestamp(ts, tz=timezone.utc).isoformat()
+                    ts = datetime.fromtimestamp(ts, tz=UTC).isoformat()
                 logs.append({
                     "timestamp": ts,
                     "level": str(row.get("level", row.get("severity", "INFO"))).upper(),
@@ -172,7 +168,7 @@ def _convert_one_openrca2(case: dict, case_dir: Path) -> None:
         "schema_version": "1.0",
         "incident_id": meta["incident_id"],
         "source_type": "openrca2",
-        "source_url": f"https://huggingface.co/datasets/lincyaw/openrca2-v1-500",
+        "source_url": "https://huggingface.co/datasets/lincyaw/openrca2-v1-500",
         "company": f"OpenRCA2 ({system})",
         "root_cause": root_cause,
         "root_cause_key_terms": root_cause_key_terms,
@@ -347,12 +343,12 @@ def _convert_one_intelligentdds(inc: dict) -> None:
     time_str = inc.get("time", "")
 
     # Parse date from time field (e.g. "06/04/2011" -> ISO)
-    from datetime import datetime, timezone
+    from datetime import datetime
     try:
-        dt = datetime.strptime(time_str, "%m/%d/%Y").replace(tzinfo=timezone.utc)
+        dt = datetime.strptime(time_str, "%m/%d/%Y").replace(tzinfo=UTC)
         timestamp = dt.isoformat()
     except (ValueError, TypeError):
-        timestamp = datetime.now(timezone.utc).isoformat()
+        timestamp = datetime.now(UTC).isoformat()
 
     meta = {
         "incident_id": inc_id,

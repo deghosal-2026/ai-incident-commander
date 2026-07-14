@@ -4,13 +4,12 @@ from __future__ import annotations
 
 import json
 import math
+import os
 import re
 from pathlib import Path
 
 import pytest
 from sentence_transformers import SentenceTransformer, util
-
-import os
 
 from incident_commander.config import Config, LLMConfig
 

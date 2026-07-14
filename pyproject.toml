@@ -70,10 +70,15 @@ incident-commander = "incident_commander.cli:main"
 [tool.ruff]
 target-version = "py311"
 line-length = 100
+exclude = ["data/"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "N", "UP", "D", "ANN"]
 ignore = ["D203", "D213"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["D100", "D101", "D103", "ANN001", "ANN201", "ANN202", "F401"]
+"scripts/*" = ["D103", "ANN201", "ANN202", "E501", "E701"]
 
 [tool.mypy]
 strict = true

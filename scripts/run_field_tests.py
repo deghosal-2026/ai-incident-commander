@@ -7,10 +7,9 @@ are checked against the cached result.
 from __future__ import annotations
 
 import json
-import os
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 PROGRESS_FILE = Path("/tmp/real_data_progress.json")
@@ -42,12 +41,15 @@ def save_progress(progress: dict) -> None:
 
 def run_one_incident(name: str) -> dict:
     """Run one incident through the LLM, check all 8 criteria, return results."""
-    from tests.real_data import (
-        ALL_INCIDENTS, BLAME_RE, MLX_CONFIG, FIXTURE_DIR,
-        cosine_sim, embed, fuzzy_match, load_fixture,
-    )
     from incident_commander.api import run_incident
-    import numpy as np
+    from tests.real_data import (
+        BLAME_RE,
+        FIXTURE_DIR,
+        MLX_CONFIG,
+        cosine_sim,
+        embed,
+        load_fixture,
+    )
 
     f = load_fixture(name)
     out_dir = str(FIXTURE_DIR / name / "generated")
@@ -170,7 +172,7 @@ def main():
 
     for name in batch:
         t0 = time.time()
-        print(f"[{datetime.now(timezone.utc).strftime('%H:%M:%S')}] {name}")
+        print(f"[{datetime.now(UTC).strftime('%H:%M:%S')}] {name}")
         try:
             results = run_one_incident(name)
             passed = sum(1 for r in results.values() if isinstance(r, dict) and r.get("passed") is True)
