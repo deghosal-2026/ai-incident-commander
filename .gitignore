@@ -50,7 +50,7 @@ logs/
 ~/.incident-commander/
 *.db
 *.sqlite
-output/
+/output/
 schemas/
 
 
