@@ -2,38 +2,48 @@
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability in ai-incident-commander, please report it privately. **Do not open a public GitHub issue.**
+If you discover a security vulnerability, please report it privately. Do not open a public issue.
 
-Send details to the project maintainers via GitHub's security advisory feature:
+**Email:** security@ghosal.dev
 
-1. Go to https://github.com/deghosal-2026/ai-incident-commander/security/advisories
-2. Click "New advisory"
-3. Fill in the details
-
-Alternatively, email the maintainers directly (see GitHub profile for contact info).
+Please include:
+- A detailed description of the vulnerability
+- Steps to reproduce
+- The affected version(s)
+- Any potential impact or exploit scenario
 
 ## Response Timeline
 
-- **Acknowledgement:** Within 48 hours of report
-- **Triaged:** Within 5 business days
-- **Fix released:** Within 30 days (depending on severity)
+- **Acknowledgment:** Within 48 hours
+- **Initial assessment:** Within 5 business days
+- **Fix timeline:** Depends on severity — critical issues prioritized for immediate patch release
 
-## What to Include
+## Supported Versions
 
-- Description of the vulnerability
-- Steps to reproduce
-- Affected versions
-- Any proposed fix (optional)
+| Version | Supported |
+|---|---|
+| Latest (main) | ✅ |
+| Older versions | ❌ |
 
-## Scope
+## Security Design Principles
 
-This project is a CLI tool that processes incident data locally. It does not:
+ai-incident-commander is built with the following security principles:
 
-- Expose a network service
-- Store credentials in source code
-- Send data to third parties (LLM calls go to user-configured endpoints)
-- Execute production changes
+- **All external calls are authenticated.** API tokens are scoped to read-only where possible.
+- **No secrets persist.** Tokens are passed as environment variables or CLI args — never written to disk or logs.
 
-## Responsible Disclosure
+## Common Security Knowledge
 
-Please allow time for a fix before disclosing the vulnerability publicly. We will coordinate disclosure with you once a fix is available.
+All contributors are expected to understand and avoid these common security pitfalls:
+
+- **Injection attacks:** Never construct SQL, shell commands, or LDAP queries via string concatenation. Use parameterized queries and safe APIs.
+- **Authentication bypass:** Never trust client-side identity assertions. All identity verification happens server-side.
+- **Secrets management:** API keys, tokens, and credentials are loaded from environment variables. Never hard-code secrets.
+- **Input validation:** All user-supplied input should be validated before reaching business logic. Expect and reject malformed input.
+
+## What to Expect
+
+If a vulnerability is confirmed:
+1. A fix will be developed and tested
+2. A security advisory will be published with the fix
+3. Credit will be given to the reporter (unless anonymity is requested)

@@ -100,5 +100,9 @@ markers = [
     "real_data: Tests with real-world incident data",
 ]
 
+[tool.bandit]
+exclude_dirs = ["tests", ".venv"]
+skips = ["B101", "B311"]
+
 [tool.coverage.report]
 fail_under = 80
