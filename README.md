@@ -267,3 +267,9 @@ mypy --strict src/
 ## License
 
 MIT
+
+## Resources
+
+- **Issues:** [github.com/deghosal-2026/ai-incident-commander/issues](https://github.com/deghosal-2026/ai-incident-commander/issues) — bug reports and feature requests
+- **Security:** [SECURITY.md](SECURITY.md) — report vulnerabilities privately
+- **Contributing:** [CONTRIBUTING.md](CONTRIBUTING.md) — coding standards and PR process
