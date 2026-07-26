@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Architecture - ai-incident-commander</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">ai-incident-commander</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">Architecture</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../api-reference/" class="nav-link">API Reference</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../input-format/" class="nav-link">Input Format</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../output-format/" class="nav-link">Output Format</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../simulation-guide/" class="nav-link">Simulation Guide</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../safety-guardrails/" class="nav-link">Safety Guardrails</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../field-test-results/" class="nav-link">Field Test Results</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../PRD/" class="nav-link">PRD</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../SPEC/" class="nav-link">SPEC</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../wbs/" class="nav-link">WBS</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href=".." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../api-reference/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#architecture" class="nav-link">Architecture</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#high-level-data-flow" class="nav-link">High-Level Data Flow</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#langgraph-graph-visualization" class="nav-link">LangGraph Graph Visualization</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#state-transitions-incidentstate-lifecycle" class="nav-link">State Transitions — IncidentState Lifecycle</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#node-descriptions-inputs-outputs" class="nav-link">Node Descriptions (Inputs / Outputs)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#llm-router-data-flow" class="nav-link">LLM Router Data Flow</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#cost-tracking-data-flow" class="nav-link">Cost Tracking Data Flow</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#session-persistence-flow" class="nav-link">Session Persistence Flow</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="architecture">Architecture</h1>
+<p>This document describes the internal architecture of <strong>ai-incident-commander</strong>:
+the LangGraph state graph, the <code>IncidentState</code> lifecycle, per-node contracts,
+LLM routing, cost tracking, and session persistence.</p>
+<p>All details below are derived from the source code in
+<code>src/incident_commander/</code>.</p>
+<hr />
+<h2 id="high-level-data-flow">High-Level Data Flow</h2>
+<pre><code>                         ┌─────────────┐
+                         │  Input data │  (alert, logs, messages, PRs, runbooks)
+                         └──────┬──────┘
+                                │
+                                ▼
+              ┌──────────────────────────────────────┐
+              │          IncidentState               │   (Pydantic schema)
+              │  alert · input_logs · input_messages │
+              │  input_prs · input_manual_events     │
+              └─────────────────┬────────────────────┘
+                                │
+                                ▼
+            ┌───────────────────────────────────────┐
+            │         LangGraph StateGraph          │
+            │  (14 nodes · 4 conditional edges)     │
+            └─────────────────┬─────────────────────┘
+                              │
+   ┌──────────────────────────┼───────────────────────────┐
+   │                          │                           │
+   ▼                          ▼                           ▼
+ Timeline &amp;            Stakeholder comms            Remediation &amp;
+ deploy correlation    (cadence-driven loop)         postmortem
+   │                          │                           │
+   └──────────────┬───────────┴───────────┬───────────────┘
+                  ▼                       ▼
+            ┌──────────┐            ┌───────────┐
+            │ CostReport│           │  Postmortem│
+            └──────┬─────┘           └─────┬─────┘
+                   │                       │
+                   ▼                       ▼
+              ┌─────────────────────────────────┐
+              │   SessionManager (JSON on disk) │
+              │   ~/.incident-commander/sessions │
+              └─────────────────────────────────┘
+</code></pre>
+<hr />
+<h2 id="langgraph-graph-visualization">LangGraph Graph Visualization</h2>
+<p>The graph is built by <code>build_graph()</code> in <code>src/incident_commander/graph.py</code>.
+It registers <strong>14 nodes</strong> across 6 phases and wires <strong>4 conditional edges</strong>
+plus the linear edges shown below.</p>
+<pre><code>                            ENTRY POINT
+                                │
+                                ▼
+                       ┌─────────────────┐
+                       │ build_timeline  │   Phase 1: Data fusion
+                       └────────┬────────┘
+                                │
+                                ▼
+                     ┌────────────────────┐
+                     │ correlate_deploys  │
+                     └─────────┬──────────┘
+                               │
+                               ▼
+                     ┌──────────────────┐
+                     │ retrieve_runbooks│   Phase 2: RAG retrieval
+                     └─────────┬────────┘
+                               │
+                               ▼
+                     ┌─────────────────┐
+                     │ rerank_evidence │
+                     └────────┬────────┘
+                              │
+                              ▼
+                     ┌───────────────┐
+              ┌─────►│ cadence_timer │   Phase 3: Stakeholder comms
+              │      └───────┬───────┘
+              │              │
+              │              ▼
+              │      ┌─────────────┐
+              │      │ draft_update│
+              │      └──────┬──────┘
+              │             │
+              │             ▼
+              │   ┌─────────────────────────┐
+              │   │ interrupt_for_approval  │ ◄── CONDITIONAL EDGE 1
+              │   └──────────┬──────────────┘
+              │     approved  │  \  rejected
+              │          │    │   \    │
+              │          │    │    └───┴──► (back to draft_update)
+              │          ▼    │
+              │   ┌───────────────┐
+              │   │ produce_output│ ◄── CONDITIONAL EDGE 2
+              │   └───────┬───────┘
+              │     resolved │  \  not resolved
+              │       (remediate) \ (continue)
+              │           │       └──────► (back to cadence_timer)
+              │           ▼
+              │  ┌──────────────────────┐
+              │  │ suggest_remediation  │   Phase 4: Remediation
+              │  └──────────┬───────────┘
+              │             │
+              │             ▼
+              │  ┌────────────────────┐
+              │  │ dry_run_simulate   │
+              │  └─────────┬──────────┘
+              │            │
+              │            ▼
+              │  ┌─────────────────────────────────────┐
+              │  │ interrupt_for_remediation_review    │ ◄── CONDITIONAL EDGE 3
+              │  └──────────┬──────────────────────────┘
+              │    approved  │  \  rejected
+              │         │    │   \    │
+              │         │    │    └───┴──► (back to suggest_remediation)
+              │         ▼    │
+              │  ┌───────────────────────┐
+              │  │ generate_postmortem   │   Phase 5: Postmortem
+              │  └──────────┬────────────┘
+              │             │
+              │             ▼
+              │  ┌────────────────────────────────────┐
+              │  │ interrupt_for_postmortem_review    │ ◄── CONDITIONAL EDGE 4
+              │  └──────────┬─────────────────────────┘
+              │    approved  │  \  rejected
+              │         │    │   \    │
+              │         │    │    └───┴──► (back to generate_postmortem)
+              │         ▼    │
+              │  ┌──────────────┐
+              │  │  cost_report │   Phase 6: Cost aggregation
+              │  └──────┬───────┘
+              │         │
+              │         ▼
+              │       ┌───┐
+              │       │END│
+              │       └───┘
+</code></pre>
+<h3 id="edge-inventory">Edge inventory</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>From</th>
+<th>To</th>
+<th>Type</th>
+<th>Router function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>build_timeline</code></td>
+<td><code>correlate_deploys</code></td>
+<td>linear</td>
+<td>—</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>correlate_deploys</code></td>
+<td><code>retrieve_runbooks</code></td>
+<td>linear</td>
+<td>—</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>retrieve_runbooks</code></td>
+<td><code>rerank_evidence</code></td>
+<td>linear</td>
+<td>—</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>rerank_evidence</code></td>
+<td><code>cadence_timer</code></td>
+<td>linear</td>
+<td>—</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>cadence_timer</code></td>
+<td><code>draft_update</code></td>
+<td>linear</td>
+<td>—</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>draft_update</code></td>
+<td><code>interrupt_for_approval</code></td>
+<td>linear</td>
+<td>—</td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>interrupt_for_approval</code></td>
+<td><code>produce_output</code> / <code>draft_update</code></td>
+<td><strong>conditional</strong></td>
+<td><code>_approval_router</code></td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>produce_output</code></td>
+<td><code>suggest_remediation</code> / <code>cadence_timer</code></td>
+<td><strong>conditional</strong></td>
+<td><code>_is_resolved</code></td>
+</tr>
+<tr>
+<td>9</td>
+<td><code>suggest_remediation</code></td>
+<td><code>dry_run_simulate</code></td>
+<td>linear</td>
+<td>—</td>
+</tr>
+<tr>
+<td>10</td>
+<td><code>dry_run_simulate</code></td>
+<td><code>interrupt_for_remediation_review</code></td>
+<td>linear</td>
+<td>—</td>
+</tr>
+<tr>
+<td>11</td>
+<td><code>interrupt_for_remediation_review</code></td>
+<td><code>generate_postmortem</code> / <code>suggest_remediation</code></td>
+<td><strong>conditional</strong></td>
+<td><code>_remediation_router</code></td>
+</tr>
+<tr>
+<td>12</td>
+<td><code>generate_postmortem</code></td>
+<td><code>interrupt_for_postmortem_review</code></td>
+<td>linear</td>
+<td>—</td>
+</tr>
+<tr>
+<td>13</td>
+<td><code>interrupt_for_postmortem_review</code></td>
+<td><code>cost_report</code> / <code>generate_postmortem</code></td>
+<td><strong>conditional</strong></td>
+<td><code>_postmortem_router</code></td>
+</tr>
+<tr>
+<td>14</td>
+<td><code>cost_report</code></td>
+<td><code>END</code></td>
+<td>linear</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Entry point:</strong> <code>build_timeline</code>
+<strong>Terminal node:</strong> <code>cost_report</code> → <code>END</code></p>
+<blockquote>
+<p>Note: The module docstring in <code>graph.py</code> mentions "15 nodes" but the code
+registers <strong>14</strong> nodes (confirmed by the inline comment
+<code>Register all 14 nodes</code> at <code>graph.py:170</code>).</p>
+</blockquote>
+<hr />
+<h2 id="state-transitions-incidentstate-lifecycle">State Transitions — IncidentState Lifecycle</h2>
+<p><code>IncidentState</code> (<code>src/incident_commander/models/state.py</code>) is the single
+Pydantic state object threaded through every node. Every field has a sensible
+default so <code>IncidentState()</code> is valid at any point in the lifecycle. Nodes are
+responsible for populating only the fields they own.</p>
+<h3 id="lifecycle-stages">Lifecycle stages</h3>
+<pre><code> ┌─────────────────────────────────────────────────────────────────────────┐
+ │  STAGE 1 — INPUT LOADING  (build_and_run, graph.py:276)                 │
+ │  alert, severity, service, incident_id, thread_id, mode set             │
+ │  input_logs, input_messages, input_prs, input_manual_events populated   │
+ └──────────────────────────────┬──────────────────────────────────────────┘
+                                ▼
+ ┌─────────────────────────────────────────────────────────────────────────┐
+ │  STAGE 2 — DATA FUSION  (build_timeline, correlate_deploys)             │
+ │  timeline: list[TimelineEvent]            ← merged chronological events │
+ │  deploy_correlations: list[DeployCorrelation] ← PRs correlated to alert │
+ └──────────────────────────────┬──────────────────────────────────────────┘
+                                ▼
+ ┌─────────────────────────────────────────────────────────────────────────┐
+ │  STAGE 3 — RAG RETRIEVAL  (retrieve_runbooks, rerank_evidence)          │
+ │  retrieved_runbooks: list[dict]     ← matched runbooks                  │
+ │  retrieved_incidents: list[dict]    ← past incidents                    │
+ │  reranked_evidence: list[dict]      ← post-rerank top-k                 │
+ └──────────────────────────────┬──────────────────────────────────────────┘
+                                ▼
+ ┌─────────────────────────────────────────────────────────────────────────┐
+ │  STAGE 4 — STAKEHOLDER COMMS LOOP  (cadence → draft → approve → output) │
+ │  next_update_time: datetime          ← set by cadence_timer_node        │
+ │  current_update_draft: StakeholderUpdate | None  ← draft_update_node    │
+ │  update_approved: bool               ← toggled by interrupt gate        │
+ │  stakeholder_updates: list[StakeholderUpdate]   ← produce_output_node   │
+ │  last_update_time: datetime          ← updated on each send             │
+ │  resolved: bool                      ← True in simulate after 1st send  │
+ │     ┌──────────────────────────────────────────────────┐                │
+ │     │  LOOPS back to cadence_timer when not resolved   │                │
+ │     └──────────────────────────────────────────────────┘                │
+ └──────────────────────────────┬──────────────────────────────────────────┘
+                                │ resolved == True
+                                ▼
+ ┌─────────────────────────────────────────────────────────────────────────┐
+ │  STAGE 5 — REMEDIATION  (suggest → dry-run → review)                    │
+ │  current_remediation: RemediationSuggestion | None  ← suggest node      │
+ │  current_remediation.dry_run_outcome: str           ← dry_run node      │
+ │  remediation_approved: bool                         ← review gate       │
+ │  remediation_suggestions: list[RemediationSuggestion] ← on approve      │
+ │     ┌──────────────────────────────────────────────────┐                │
+ │     │  LOOPS back to suggest_remediation on rejection  │                │
+ │     └──────────────────────────────────────────────────┘                │
+ └──────────────────────────────┬──────────────────────────────────────────┘
+                                │ remediation_approved == True
+                                ▼
+ ┌─────────────────────────────────────────────────────────────────────────┐
+ │  STAGE 6 — POSTMORTEM  (generate → review)                              │
+ │  postmortem: Postmortem | None          ← generate_postmortem_node      │
+ │  postmortem_approved: bool              ← review gate                   │
+ │     ┌──────────────────────────────────────────────────┐                │
+ │     │  LOOPS back to generate_postmortem on rejection  │                │
+ │     └──────────────────────────────────────────────────┘                │
+ └──────────────────────────────┬──────────────────────────────────────────┘
+                                │ postmortem_approved == True
+                                ▼
+ ┌─────────────────────────────────────────────────────────────────────────┐
+ │  STAGE 7 — COST AGGREGATION  (cost_report_node)                         │
+ │  cost_report: CostReport | None         ← aggregated from CostTracker   │
+ └─────────────────────────────────────────────────────────────────────────┘
+</code></pre>
+<h3 id="incidentstate-field-reference">IncidentState field reference</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Set by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>alert</code></td>
+<td><code>Alert \| None</code></td>
+<td><code>None</code></td>
+<td>input loading</td>
+</tr>
+<tr>
+<td><code>severity</code></td>
+<td><code>Literal["SEV1","SEV2","SEV3"]</code></td>
+<td><code>"SEV3"</code></td>
+<td>input loading (mirrors alert)</td>
+</tr>
+<tr>
+<td><code>service</code></td>
+<td><code>str</code></td>
+<td><code>""</code></td>
+<td>input loading (mirrors alert)</td>
+</tr>
+<tr>
+<td><code>incident_id</code></td>
+<td><code>str</code></td>
+<td><code>""</code></td>
+<td>input loading (mirrors alert)</td>
+</tr>
+<tr>
+<td><code>input_logs</code></td>
+<td><code>list[LogEntry]</code></td>
+<td><code>[]</code></td>
+<td>input loading</td>
+</tr>
+<tr>
+<td><code>input_messages</code></td>
+<td><code>list[ChatMessage]</code></td>
+<td><code>[]</code></td>
+<td>input loading</td>
+</tr>
+<tr>
+<td><code>input_prs</code></td>
+<td><code>list[GitHubPR]</code></td>
+<td><code>[]</code></td>
+<td>input loading</td>
+</tr>
+<tr>
+<td><code>input_manual_events</code></td>
+<td><code>list[TimelineEvent]</code></td>
+<td><code>[]</code></td>
+<td>input loading</td>
+</tr>
+<tr>
+<td><code>timeline</code></td>
+<td><code>list[TimelineEvent]</code></td>
+<td><code>[]</code></td>
+<td><code>build_timeline_node</code></td>
+</tr>
+<tr>
+<td><code>deploy_correlations</code></td>
+<td><code>list[DeployCorrelation]</code></td>
+<td><code>[]</code></td>
+<td><code>correlate_deploys_node</code></td>
+</tr>
+<tr>
+<td><code>retrieved_runbooks</code></td>
+<td><code>list[dict]</code></td>
+<td><code>[]</code></td>
+<td><code>retrieve_runbooks_node</code></td>
+</tr>
+<tr>
+<td><code>retrieved_incidents</code></td>
+<td><code>list[dict]</code></td>
+<td><code>[]</code></td>
+<td><code>retrieve_runbooks_node</code></td>
+</tr>
+<tr>
+<td><code>reranked_evidence</code></td>
+<td><code>list[dict]</code></td>
+<td><code>[]</code></td>
+<td><code>rerank_evidence_node</code></td>
+</tr>
+<tr>
+<td><code>stakeholder_updates</code></td>
+<td><code>list[StakeholderUpdate]</code></td>
+<td><code>[]</code></td>
+<td><code>produce_output_node</code></td>
+</tr>
+<tr>
+<td><code>current_update_draft</code></td>
+<td><code>StakeholderUpdate \| None</code></td>
+<td><code>None</code></td>
+<td><code>draft_update_node</code></td>
+</tr>
+<tr>
+<td><code>update_approved</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td><code>interrupt_for_approval</code></td>
+</tr>
+<tr>
+<td><code>remediation_suggestions</code></td>
+<td><code>list[RemediationSuggestion]</code></td>
+<td><code>[]</code></td>
+<td><code>interrupt_for_remediation_review</code></td>
+</tr>
+<tr>
+<td><code>current_remediation</code></td>
+<td><code>RemediationSuggestion \| None</code></td>
+<td><code>None</code></td>
+<td><code>suggest_remediation_node</code></td>
+</tr>
+<tr>
+<td><code>remediation_approved</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td><code>interrupt_for_remediation_review</code></td>
+</tr>
+<tr>
+<td><code>postmortem</code></td>
+<td><code>Postmortem \| None</code></td>
+<td><code>None</code></td>
+<td><code>generate_postmortem_node</code></td>
+</tr>
+<tr>
+<td><code>postmortem_approved</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td><code>interrupt_for_postmortem_review</code></td>
+</tr>
+<tr>
+<td><code>cost_report</code></td>
+<td><code>CostReport \| None</code></td>
+<td><code>None</code></td>
+<td><code>cost_report_node</code></td>
+</tr>
+<tr>
+<td><code>thread_id</code></td>
+<td><code>str</code></td>
+<td><code>""</code></td>
+<td>input loading (LangGraph checkpoint key)</td>
+</tr>
+<tr>
+<td><code>mode</code></td>
+<td><code>Literal["simulate","run"]</code></td>
+<td><code>"simulate"</code></td>
+<td>input loading</td>
+</tr>
+<tr>
+<td><code>resolved</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td><code>produce_output_node</code> (simulate) or human (run)</td>
+</tr>
+<tr>
+<td><code>last_update_time</code></td>
+<td><code>datetime \| None</code></td>
+<td><code>None</code></td>
+<td><code>produce_output_node</code></td>
+</tr>
+<tr>
+<td><code>next_update_time</code></td>
+<td><code>datetime \| None</code></td>
+<td><code>None</code></td>
+<td><code>cadence_timer_node</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="node-descriptions-inputs-outputs">Node Descriptions (Inputs / Outputs)</h2>
+<h3 id="phase-1-data-fusion">Phase 1 — Data fusion</h3>
+<h4 id="build_timeline_node"><code>build_timeline_node</code></h4>
+<ul>
+<li><strong>File:</strong> <code>src/incident_commander/nodes/timeline.py</code></li>
+<li><strong>Reads:</strong> <code>alert</code>, <code>input_logs</code>, <code>input_messages</code>, <code>input_prs</code>, <code>input_manual_events</code></li>
+<li><strong>Writes:</strong> <code>timeline</code> (merged, chronological <code>list[TimelineEvent]</code>)</li>
+<li><strong>Purpose:</strong> Fuses multi-source inputs (alert, chat, logs, GitHub PRs, manual events) into a single unified, chronologically-ordered timeline. Each event carries a <code>source</code> tag and <code>trust_level</code>.</li>
+</ul>
+<h4 id="correlate_deploys_node"><code>correlate_deploys_node</code></h4>
+<ul>
+<li><strong>File:</strong> <code>src/incident_commander/nodes/deploy_correlation.py</code></li>
+<li><strong>Reads:</strong> <code>input_prs</code>, <code>alert.timestamp</code>, <code>deploy_correlation_window_minutes</code> (config, default 30 min)</li>
+<li><strong>Writes:</strong> <code>deploy_correlations</code> (<code>list[DeployCorrelation]</code>)</li>
+<li><strong>Purpose:</strong> Identifies GitHub PRs merged within the look-back window before the alert. Each correlation records <code>pr_number</code>, <code>pr_title</code>, <code>author</code>, <code>merge_time</code>, <code>files_changed</code>, <code>minutes_before_alert</code>, and <code>correlation_strength</code> (<code>"strong"</code> or <code>"weak"</code>).</li>
+</ul>
+<h3 id="phase-2-rag-retrieval">Phase 2 — RAG retrieval</h3>
+<h4 id="retrieve_runbooks_node"><code>retrieve_runbooks_node</code></h4>
+<ul>
+<li><strong>File:</strong> <code>src/incident_commander/nodes/rag.py</code></li>
+<li><strong>Reads:</strong> <code>timeline</code>, <code>service</code>, <code>severity</code>, runbooks (from <code>InMemoryRetriever</code> or Qdrant)</li>
+<li><strong>Writes:</strong> <code>retrieved_runbooks</code>, <code>retrieved_incidents</code></li>
+<li><strong>Purpose:</strong> Retrieves relevant runbooks and historical incidents via keyword/semantic matching. Uses <code>InMemoryRetriever</code> by default; a Qdrant-backed retriever is used when <code>qdrant_url</code> is configured.</li>
+</ul>
+<h4 id="rerank_evidence_node"><code>rerank_evidence_node</code></h4>
+<ul>
+<li><strong>File:</strong> <code>src/incident_commander/nodes/rerank.py</code></li>
+<li><strong>Reads:</strong> <code>retrieved_runbooks</code>, <code>retrieved_incidents</code></li>
+<li><strong>Writes:</strong> <code>reranked_evidence</code> (post-rerank top-k <code>list[dict]</code>)</li>
+<li><strong>Purpose:</strong> Reranks retrieved evidence by relevance to produce the top-k items used downstream by the comms and remediation nodes.</li>
+</ul>
+<h3 id="phase-3-stakeholder-communication">Phase 3 — Stakeholder communication</h3>
+<h4 id="cadence_timer_node"><code>cadence_timer_node</code></h4>
+<ul>
+<li><strong>File:</strong> <code>src/incident_commander/nodes/cadence.py</code></li>
+<li><strong>Reads:</strong> <code>severity</code>, <code>last_update_time</code>, <code>cadence</code> config dict (<code>SEV1: 5</code>, <code>SEV2: 15</code>, <code>SEV3: 30</code> minutes)</li>
+<li><strong>Writes:</strong> <code>next_update_time</code></li>
+<li><strong>Purpose:</strong> Enforces the per-severity update cadence. Decides whether enough time has elapsed since the last update to draft a new one.</li>
+</ul>
+<h4 id="draft_update_node"><code>draft_update_node</code></h4>
+<ul>
+<li><strong>File:</strong> <code>src/incident_commander/nodes/stakeholder.py:114</code></li>
+<li><strong>Reads:</strong> <code>alert</code>, <code>service</code>, <code>severity</code>, <code>deploy_correlations</code>, <code>retrieved_runbooks</code>, timeline summary</li>
+<li><strong>Writes:</strong> <code>current_update_draft</code> (<code>StakeholderUpdate</code>), sets <code>update_approved = False</code></li>
+<li><strong>LLM task:</strong> <code>"comms"</code></li>
+<li><strong>Purpose:</strong> Generates a consequence-first stakeholder update (IMPACT / ROOT_CAUSE / ACTION / CONFIDENCE) via LLM. Includes deploy correlation context and top-3 retrieved runbooks in the prompt.</li>
+</ul>
+<h4 id="interrupt_for_approval"><code>interrupt_for_approval</code></h4>
+<ul>
+<li><strong>File:</strong> <code>src/incident_commander/nodes/stakeholder.py:168</code></li>
+<li><strong>Reads:</strong> <code>mode</code>, <code>current_update_draft</code></li>
+<li><strong>Writes:</strong> <code>update_approved</code></li>
+<li><strong>Purpose:</strong> Human-in-the-loop gate. In <code>simulate</code> mode, auto-approves. In <code>run</code> mode, the LangGraph interrupt mechanism pauses for a human reviewer to approve or reject the draft before it reaches stakeholders.</li>
+</ul>
+<h4 id="produce_output_node"><code>produce_output_node</code></h4>
+<ul>
+<li><strong>File:</strong> <code>src/incident_commander/nodes/stakeholder.py:136</code></li>
+<li><strong>Reads:</strong> <code>current_update_draft</code>, <code>mode</code></li>
+<li><strong>Writes:</strong> appends to <code>stakeholder_updates</code>, updates <code>last_update_time</code>, clears <code>current_update_draft</code>, sets <code>update_approved = False</code>. In <code>simulate</code> mode, sets <code>resolved = True</code>.</li>
+<li><strong>Purpose:</strong> Finalizes the approved draft into the sent-updates list. In simulate mode, marks the incident resolved after the first update so the graph exits the comms loop and proceeds to remediation. In run mode, <code>resolved</code> stays <code>False</code> until a human declares the incident over.</li>
+</ul>
+<h3 id="phase-4-remediation">Phase 4 — Remediation</h3>
+<h4 id="suggest_remediation_node"><code>suggest_remediation_node</code></h4>
+<ul>
+<li><strong>File:</strong> <code>src/incident_commander/nodes/remediation.py:132</code></li>
+<li><strong>Reads:</strong> <code>alert</code>, <code>service</code>, <code>reranked_evidence</code>, <code>deploy_correlations</code>, <code>confidence_threshold</code> (config)</li>
+<li><strong>Writes:</strong> <code>current_remediation</code> (<code>RemediationSuggestion</code>), sets <code>remediation_approved = False</code></li>
+<li><strong>LLM task:</strong> <code>"analysis"</code></li>
+<li><strong>Purpose:</strong> Proposes ONE remediation action with a mandatory source citation. Enforces two safety guardrails: (1) suggestions without a citation are rejected, (2) suggestions below the confidence threshold (default 0.7) are suppressed.</li>
+</ul>
+<h4 id="dry_run_simulate_node"><code>dry_run_simulate_node</code></h4>
+<ul>
+<li><strong>File:</strong> <code>src/incident_commander/nodes/remediation.py:197</code></li>
+<li><strong>Reads:</strong> <code>current_remediation</code>, <code>alert</code>, <code>service</code></li>
+<li><strong>Writes:</strong> <code>current_remediation.dry_run_outcome</code></li>
+<li><strong>LLM task:</strong> <code>"analysis"</code></li>
+<li><strong>Purpose:</strong> LLM generates a <strong>text prediction</strong> of what would happen if the proposed action is taken. This is NOT code execution — the LLM never runs shell commands, makes API calls, or touches production systems.</li>
+</ul>
+<h4 id="interrupt_for_remediation_review"><code>interrupt_for_remediation_review</code></h4>
+<ul>
+<li><strong>File:</strong> <code>src/incident_commander/nodes/remediation.py:220</code></li>
+<li><strong>Reads:</strong> <code>mode</code>, <code>current_remediation</code></li>
+<li><strong>Writes:</strong> <code>remediation_approved</code>, appends to <code>remediation_suggestions</code> (on approve)</li>
+<li><strong>Purpose:</strong> Human-in-the-loop gate. In <code>simulate</code> mode, auto-approves and appends the suggestion to the list. In <code>run</code> mode, pauses for a human to evaluate the suggestion and its dry-run outcome before actioning.</li>
+</ul>
+<h3 id="phase-5-postmortem">Phase 5 — Postmortem</h3>
+<h4 id="generate_postmortem_node"><code>generate_postmortem_node</code></h4>
+<ul>
+<li><strong>File:</strong> <code>src/incident_commander/nodes/postmortem.py:214</code></li>
+<li><strong>Reads:</strong> <code>incident_id</code>, <code>service</code>, <code>severity</code>, <code>alert.timestamp</code>, <code>timeline</code>, <code>stakeholder_updates</code>, <code>reranked_evidence</code></li>
+<li><strong>Writes:</strong> <code>postmortem</code> (<code>Postmortem</code>), sets <code>postmortem_approved = False</code></li>
+<li><strong>LLM task:</strong> <code>"postmortem"</code></li>
+<li><strong>Purpose:</strong> Generates an Amazon COE-format postmortem with severity-conditional sections:</li>
+<li><strong>SEV1:</strong> all 8 sections (summary, customer_impact, timeline, root_cause_analysis, systemic_contributing_factors, action_items, stakeholder_communication_log, regulatory_compliance_impact)</li>
+<li><strong>SEV2:</strong> omits regulatory_compliance_impact + stakeholder_communication_log</li>
+<li><strong>SEV3:</strong> omits customer_impact + regulatory_compliance_impact + stakeholder_communication_log</li>
+<li>Enforces blameless rules in the prompt and labels AI-generated sections via <code>ai_generated</code> flags. Computes MTTR as <code>(last_timeline_event - alert.timestamp)</code> in minutes.</li>
+</ul>
+<h4 id="interrupt_for_postmortem_review"><code>interrupt_for_postmortem_review</code></h4>
+<ul>
+<li><strong>File:</strong> <code>src/incident_commander/nodes/postmortem.py:245</code></li>
+<li><strong>Reads:</strong> <code>mode</code>, <code>postmortem</code></li>
+<li><strong>Writes:</strong> <code>postmortem_approved</code>, sets <code>postmortem.approved = True</code> (on approve)</li>
+<li><strong>Purpose:</strong> Human-in-the-loop gate. In <code>simulate</code> mode, auto-approves. In <code>run</code> mode, pauses for a human to check blameless compliance and factual accuracy before publishing.</li>
+</ul>
+<h3 id="phase-6-cost-aggregation">Phase 6 — Cost aggregation</h3>
+<h4 id="cost_report_node"><code>cost_report_node</code></h4>
+<ul>
+<li><strong>File:</strong> <code>src/incident_commander/nodes/cost_report.py:14</code></li>
+<li><strong>Reads:</strong> <code>thread_id</code>, <code>LLMRouter.cost_tracker</code> (module-level singleton)</li>
+<li><strong>Writes:</strong> <code>cost_report</code> (<code>CostReport</code>)</li>
+<li><strong>Purpose:</strong> Aggregates all per-node <code>NodeCost</code> records accumulated during the session into a single <code>CostReport</code> and stores it in state. This is the terminal node before <code>END</code>.</li>
+</ul>
+<hr />
+<h2 id="llm-router-data-flow">LLM Router Data Flow</h2>
+<p>The <code>LLMRouter</code> (<code>src/incident_commander/llm_router.py</code>) is the single entry
+point for all LLM calls. It selects the model per <strong>task type</strong>, tracks cost,
+and logs every call for observability.</p>
+<pre><code>   Node calls router.generate(prompt, task=...)
+                    │
+                    ▼
+        ┌───────────────────────┐
+        │  _resolve_model(task) │
+        └───────────┬───────────┘
+                    │
+     ┌──────────────┼──────────────────┐
+     │ task=&quot;comms&quot; │ task=&quot;postmortem&quot;│ default
+     │  &amp; comms_    │  &amp; postmortem_   │
+     │  model set   │  model set       │
+     ▼              ▼                  ▼
+  comms_model   postmortem_model   analysis_model
+  comms_base_url postmortem_base   analysis_base_url
+                    │
+                    ▼
+        ┌───────────────────────────┐
+        │  OpenAI-compatible POST   │
+        │  {base_url}/chat/completions│
+        │  (or mock_llm if provided) │
+        └─────────────┬─────────────┘
+                      │
+         ┌────────────┼─────────────┐
+         ▼            ▼             ▼
+   ┌──────────┐ ┌───────────┐ ┌──────────────┐
+   │CostTracker│ │LLMObserver│ │  info dict   │
+   │record_call│ │ log_call  │ │ (model,      │
+   │           │ │ → JSONL   │ │  tokens,     │
+   └─────┬────┘ └─────┬─────┘ │  cost, latency│
+         │            │        │  call_id,    │
+         │            │        │  error)      │
+         ▼            ▼        └──────┬───────┘
+   per-node       ~/.incident-        │
+   NodeCost       commander/logs/     │
+   list           llm-calls.jsonl     │
+                                        ▼
+                              returned to node as
+                              (response, info)
+</code></pre>
+<h3 id="task-model-resolution-_resolve_model">Task → model resolution (<code>_resolve_model</code>)</h3>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Model used</th>
+<th>Fallback</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"analysis"</code></td>
+<td><code>llm.analysis_model</code></td>
+<td>— (always used as base)</td>
+</tr>
+<tr>
+<td><code>"comms"</code></td>
+<td><code>llm.comms_model</code> (if set)</td>
+<td>falls back to <code>analysis_model</code></td>
+</tr>
+<tr>
+<td><code>"postmortem"</code></td>
+<td><code>llm.postmortem_model</code> (if set)</td>
+<td>falls back to <code>analysis_model</code></td>
+</tr>
+</tbody>
+</table>
+<p>This allows a single-model setup (only <code>analysis_model</code> configured) while
+still supporting differentiated routing in production — e.g. a powerful model
+for analysis and a cheaper model for routine comms.</p>
+<h3 id="generate-return-contract"><code>generate()</code> return contract</h3>
+<p><code>router.generate(prompt, task, model_override=None)</code> returns a tuple:</p>
+<pre><code>(response_text: str, info: dict)
+</code></pre>
+<p>where <code>info</code> contains: <code>model</code>, <code>input_tokens</code>, <code>output_tokens</code>,
+<code>estimated_cost_usd</code>, <code>latency_ms</code>, <code>call_id</code>, and <code>error</code> (or <code>None</code>).</p>
+<h3 id="node-task-mapping">Node → task mapping</h3>
+<table>
+<thead>
+<tr>
+<th>Node</th>
+<th>LLM task</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>draft_update_node</code></td>
+<td><code>"comms"</code></td>
+</tr>
+<tr>
+<td><code>suggest_remediation_node</code></td>
+<td><code>"analysis"</code></td>
+</tr>
+<tr>
+<td><code>dry_run_simulate_node</code></td>
+<td><code>"analysis"</code></td>
+</tr>
+<tr>
+<td><code>generate_postmortem_node</code></td>
+<td><code>"postmortem"</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="cost-tracking-data-flow">Cost Tracking Data Flow</h2>
+<p>Cost tracking is handled by three cooperating components in
+<code>src/incident_commander/llm_router.py</code>:</p>
+<pre><code>   Every LLM call (router.generate)
+            │
+            ├──────────────────────────────────────────┐
+            ▼                                          ▼
+   ┌────────────────┐                      ┌────────────────────┐
+   │  CostTracker   │                      │   LLMObserver      │
+   │  (in-memory)   │                      │   (JSONL on disk)  │
+   │                │                      │                    │
+   │  record_call(  │                      │  log_call(         │
+   │    node_name,  │                      │    call_id,        │
+   │    model,      │                      │    node_name,      │
+   │    input_tok,  │                      │    model, tokens,  │
+   │    output_tok, │                      │    cost, latency,  │
+   │    cost_usd,   │                      │    prompt_hash,    │
+   │    latency_ms) │                      │    error, response)│
+   │       │        │                      │       │            │
+   │       ▼        │                      │       ▼            │
+   │  NodeCost list │                      │  llm-calls.jsonl   │
+   └───────┬────────┘                      └────────────────────┘
+           │
+           │  At graph exit:
+           ▼
+   ┌──────────────────────┐
+   │  cost_report_node    │
+   │  get_report(         │
+   │    session_id=       │
+   │    thread_id)        │
+   └──────────┬───────────┘
+              ▼
+   ┌──────────────────────┐
+   │  CostReport          │
+   │  · total_input_tokens│
+   │  · total_output_tokens│
+   │  · total_tokens      │
+   │  · total_estimated_  │
+   │    cost_usd          │
+   │  · per_node: list[   │
+   │    NodeCost]         │
+   │  · models_used       │
+   └──────────┬───────────┘
+              ▼
+        state.cost_report
+</code></pre>
+<h3 id="cost-estimation-_estimate_cost">Cost estimation (<code>_estimate_cost</code>)</h3>
+<p>Cost is computed from <code>llm.model_pricing</code> (per 1M tokens):</p>
+<pre><code>cost = (input_tokens / 1_000_000 * pricing[&quot;input&quot;])
+     + (output_tokens / 1_000_000 * pricing[&quot;output&quot;])
+</code></pre>
+<p>Unknown models default to <code>{"input": 0.0, "output": 0.0}</code> (free) so the
+cost report never fails due to missing pricing entries. The result is
+rounded to 6 decimal places.</p>
+<h3 id="nodecost-fields"><code>NodeCost</code> fields</h3>
+<p>Each LLM call produces a <code>NodeCost</code> record: <code>node_name</code>, <code>llm_model</code>,
+<code>input_tokens</code>, <code>output_tokens</code>, <code>total_tokens</code>, <code>estimated_cost_usd</code>,
+<code>latency_ms</code>.</p>
+<h3 id="costreport-fields"><code>CostReport</code> fields</h3>
+<p>The aggregate report (built at graph exit): <code>session_id</code>,
+<code>total_input_tokens</code>, <code>total_output_tokens</code>, <code>total_tokens</code>,
+<code>total_estimated_cost_usd</code>, <code>per_node</code> (breakdown), <code>models_used</code>.</p>
+<h3 id="llm-call-observability">LLM call observability</h3>
+<p><code>LLMObserver</code> writes one JSON record per call to
+<code>~/.incident-commander/logs/llm-calls.jsonl</code>. Each record includes a
+<code>call_id</code> (12-char hex), timestamp, node name, model, token counts, cost,
+latency, SHA-256 <code>prompt_hash</code>, error (if any), and a truncated response
+(first 2000 chars).</p>
+<hr />
+<h2 id="session-persistence-flow">Session Persistence Flow</h2>
+<p>Session persistence is handled by <code>SessionManager</code>
+(<code>src/incident_commander/persistence.py</code>). Sessions are stored as individual
+JSON files named <code>&lt;thread_id&gt;.json</code> in the session directory
+(<code>~/.incident-commander/sessions</code> by default).</p>
+<pre><code>   Graph execution completes
+            │
+            ▼
+   ┌────────────────────┐
+   │  build_and_run()   │   (graph.py:276)
+   │  returns state dict │
+   └─────────┬──────────┘
+             │
+             ▼
+   ┌────────────────────────────┐
+   │  MarkdownOutputWriter      │   (if output_dir provided)
+   │  write_all(IncidentResult) │
+   └─────────┬──────────────────┘
+             │
+             ▼
+   ┌────────────────────────────────────┐
+   │  SessionManager                    │
+   │  save_session(thread_id, state)    │
+   │  → &lt;thread_id&gt;.json on disk        │
+   └────────────────────────────────────┘
+</code></pre>
+<h3 id="sessionmanager-api">SessionManager API</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>save_session(thread_id, state)</code></td>
+<td>Persist state dict as JSON (uses <code>default=str</code> for datetimes/enums)</td>
+</tr>
+<tr>
+<td><code>load_session(thread_id)</code></td>
+<td>Load and return a session dict; raises <code>KeyError</code> if not found, <code>ValueError</code> if corrupt</td>
+</tr>
+<tr>
+<td><code>delete_session(thread_id)</code></td>
+<td>Delete a session file</td>
+</tr>
+<tr>
+<td><code>list_sessions()</code></td>
+<td>Return sorted list of thread IDs (without <code>.json</code> suffix)</td>
+</tr>
+<tr>
+<td><code>export_session(thread_id)</code></td>
+<td>Alias for <code>load_session</code></td>
+</tr>
+<tr>
+<td><code>get_checkpointer(thread_id)</code></td>
+<td>Return a <code>_SessionCheckpointer</code> for LangGraph checkpointing</td>
+</tr>
+</tbody>
+</table>
+<h3 id="checkpointer">Checkpointer</h3>
+<p><code>_SessionCheckpointer</code> provides <code>get()</code> and <code>set()</code> methods backed by the
+<code>SessionManager</code>. It caches state in memory and persists checkpoints to disk,
+enabling resumable multi-turn incident workflows. <code>get()</code> returns the cached
+state if available, otherwise loads from disk (returns <code>{}</code> if no session
+exists).</p>
+<h3 id="thread-id">Thread ID</h3>
+<p><code>thread_id</code> is the LangGraph checkpoint key. It is auto-generated as
+<code>thread-&lt;12-hex-chars&gt;</code> in <code>build_and_run()</code> if not provided, ensuring every
+run produces a traceable, unique session. The <code>incident_id</code> is similarly
+auto-generated as <code>INC-&lt;8-hex-chars&gt;</code> if the input alert lacks one.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

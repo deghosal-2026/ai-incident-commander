@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Input Format - ai-incident-commander</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">ai-incident-commander</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../architecture/" class="nav-link">Architecture</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../api-reference/" class="nav-link">API Reference</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">Input Format</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../output-format/" class="nav-link">Output Format</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../simulation-guide/" class="nav-link">Simulation Guide</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../safety-guardrails/" class="nav-link">Safety Guardrails</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../field-test-results/" class="nav-link">Field Test Results</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../PRD/" class="nav-link">PRD</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../SPEC/" class="nav-link">SPEC</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../wbs/" class="nav-link">WBS</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../api-reference/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../output-format/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#input-format" class="nav-link">Input Format</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#input-directory-structure" class="nav-link">Input Directory Structure</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#metajson" class="nav-link">meta.json</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#alertjson" class="nav-link">alert.json</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#messagesjson" class="nav-link">messages.json</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#githubjson" class="nav-link">github.json</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#log-file-formats" class="nav-link">Log File Formats</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#notesmd" class="nav-link">notes.md</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#runbooks-directory" class="nav-link">runbooks/ Directory</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#cli-flags-mode" class="nav-link">CLI Flags Mode</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#python-api-mode" class="nav-link">Python API Mode</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#json-schema-validation" class="nav-link">JSON Schema Validation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="input-format">Input Format</h1>
+<p>ai-incident-commander accepts incident data through two primary modes: a
+structured <strong>input directory</strong> (recommended for complex, multi-source incidents)
+and <strong>individual CLI flags</strong> (for quick single-input runs). Both modes feed the
+same normalizer pipeline, so the underlying Pydantic models are identical.</p>
+<hr />
+<h2 id="input-directory-structure">Input Directory Structure</h2>
+<p>When you pass <code>--input-dir</code>, the loader (<code>InputDirLoader</code>) expects a directory
+with the following layout. Only <code>meta.json</code> and <code>alert.json</code> are required; all
+other files and sub-directories are optional.</p>
+<pre><code>incident-2026-001/
+├── meta.json            # required — incident metadata
+├── alert.json           # required — triggering alert payload
+├── logs/                # optional — log files (.log, .json, .md)
+│   ├── app.log
+│   ├── infra.json
+│   └── captured.md
+├── messages.json        # optional — chat/message export
+├── github.json          # optional — GitHub PR data
+├── runbooks/            # optional — runbook files (.json)
+│   ├── rb-001.json
+│   └── rb-002.json
+└── notes.md             # optional — free-form incident notes
+</code></pre>
+<p>Missing optional files are silently replaced with defaults (empty lists or
+<code>None</code>). Unknown file extensions in <code>logs/</code> and <code>runbooks/</code> are skipped.</p>
+<hr />
+<h2 id="metajson">meta.json</h2>
+<p>Incident metadata that identifies and contextualizes the incident. Maps to the
+<code>IncidentMeta</code> model.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>incident_id</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>Unique incident identifier</td>
+</tr>
+<tr>
+<td><code>service</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>Affected service name</td>
+</tr>
+<tr>
+<td><code>severity</code></td>
+<td><code>"SEV1" \| "SEV2" \| "SEV3"</code></td>
+<td>Yes</td>
+<td>Incident severity</td>
+</tr>
+<tr>
+<td><code>start_time</code></td>
+<td><code>datetime</code> (ISO 8601)</td>
+<td>Yes</td>
+<td>Incident start timestamp</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>str</code></td>
+<td>No</td>
+<td>Free-form description (default <code>""</code>)</td>
+</tr>
+<tr>
+<td><code>commander</code></td>
+<td><code>str</code></td>
+<td>No</td>
+<td>Person leading the response (default <code>""</code>)</td>
+</tr>
+<tr>
+<td><code>oncall_roster</code></td>
+<td><code>list[str]</code></td>
+<td>No</td>
+<td>Engineers on call for escalation (default <code>[]</code>)</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td><code>list[str]</code></td>
+<td>No</td>
+<td>Free-form labels for search/grouping (default <code>[]</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example">Example</h3>
+<pre><code class="language-json">{
+  &quot;incident_id&quot;: &quot;INC-2026-001&quot;,
+  &quot;service&quot;: &quot;payment-service&quot;,
+  &quot;severity&quot;: &quot;SEV1&quot;,
+  &quot;start_time&quot;: &quot;2026-07-13T14:00:00&quot;,
+  &quot;description&quot;: &quot;Payment processing failures during peak traffic&quot;,
+  &quot;commander&quot;: &quot;Alice Chen&quot;,
+  &quot;oncall_roster&quot;: [&quot;Bob Smith&quot;, &quot;Carol Jones&quot;],
+  &quot;tags&quot;: [&quot;payments&quot;, &quot;sev1&quot;, &quot;peak-traffic&quot;]
+}
+</code></pre>
+<hr />
+<h2 id="alertjson">alert.json</h2>
+<p>The triggering alert payload. Maps to the <code>Alert</code> model. Field names align with
+the PagerDuty Common Event Format (PD-CEF) — <code>summary</code> maps to PD-CEF <code>summary</code>,
+<code>severity</code> to <code>severity</code>, <code>source</code> to <code>source_component</code>, and <code>metadata</code> preserves
+the original payload for traceability.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>severity</code></td>
+<td><code>"SEV1" \| "SEV2" \| "SEV3"</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Alert severity</td>
+</tr>
+<tr>
+<td><code>service</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Affected service</td>
+</tr>
+<tr>
+<td><code>summary</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Short alert summary (PD-CEF <code>summary</code>)</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td><code>str</code></td>
+<td>No</td>
+<td><code>"manual"</code></td>
+<td>Originating system (PD-CEF <code>source_component</code>)</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>datetime</code> (ISO 8601)</td>
+<td>Yes</td>
+<td>—</td>
+<td>Alert trigger time</td>
+</tr>
+<tr>
+<td><code>incident_id</code></td>
+<td><code>str</code></td>
+<td>No</td>
+<td><code>""</code></td>
+<td>Incident ID (populated from meta or auto-generated)</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>dict[str, Any]</code></td>
+<td>No</td>
+<td><code>{}</code></td>
+<td>Original payload preserved for traceability</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example_1">Example</h3>
+<pre><code class="language-json">{
+  &quot;severity&quot;: &quot;SEV1&quot;,
+  &quot;service&quot;: &quot;payment-service&quot;,
+  &quot;summary&quot;: &quot;Payment success rate dropped below 50%&quot;,
+  &quot;source&quot;: &quot;datadog-monitor&quot;,
+  &quot;timestamp&quot;: &quot;2026-07-13T14:05:00&quot;,
+  &quot;incident_id&quot;: &quot;INC-2026-001&quot;,
+  &quot;metadata&quot;: {
+    &quot;monitor_id&quot;: &quot;mon-98765&quot;,
+    &quot;threshold&quot;: 0.5,
+    &quot;window_minutes&quot;: 5
+  }
+}
+</code></pre>
+<hr />
+<h2 id="messagesjson">messages.json</h2>
+<p>A JSON array of chat messages from Slack, Teams, or other chat exports. Maps to
+<code>list[ChatMessage]</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>datetime</code> (ISO 8601)</td>
+<td>Yes</td>
+<td>—</td>
+<td>Message timestamp</td>
+</tr>
+<tr>
+<td><code>author</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Message author</td>
+</tr>
+<tr>
+<td><code>text</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Message content</td>
+</tr>
+<tr>
+<td><code>channel</code></td>
+<td><code>str</code></td>
+<td>No</td>
+<td><code>""</code></td>
+<td>Channel name (empty = no channel context)</td>
+</tr>
+<tr>
+<td><code>thread_ts</code></td>
+<td><code>str \| null</code></td>
+<td>No</td>
+<td><code>null</code></td>
+<td>Slack thread timestamp for reply grouping</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example_2">Example</h3>
+<pre><code class="language-json">[
+  {
+    &quot;timestamp&quot;: &quot;2026-07-13T14:06:00&quot;,
+    &quot;author&quot;: &quot;alice&quot;,
+    &quot;text&quot;: &quot;Seeing a huge spike in payment errors starting ~2:05pm&quot;,
+    &quot;channel&quot;: &quot;#incidents&quot;,
+    &quot;thread_ts&quot;: null
+  },
+  {
+    &quot;timestamp&quot;: &quot;2026-07-13T14:08:00&quot;,
+    &quot;author&quot;: &quot;bob&quot;,
+    &quot;text&quot;: &quot;Confirmed — connection pool is exhausted on the primary DB&quot;,
+    &quot;channel&quot;: &quot;#incidents&quot;,
+    &quot;thread_ts&quot;: &quot;14:06&quot;
+  }
+]
+</code></pre>
+<hr />
+<h2 id="githubjson">github.json</h2>
+<p>A JSON array of recently merged GitHub pull requests, used for deploy
+correlation analysis. Maps to <code>list[GitHubPR]</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>number</code></td>
+<td><code>int</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>PR number on GitHub</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>PR title</td>
+</tr>
+<tr>
+<td><code>author</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>PR author (GitHub username)</td>
+</tr>
+<tr>
+<td><code>merge_time</code></td>
+<td><code>datetime</code> (ISO 8601)</td>
+<td>Yes</td>
+<td>—</td>
+<td>Merge timestamp</td>
+</tr>
+<tr>
+<td><code>files_changed</code></td>
+<td><code>list[str]</code></td>
+<td>No</td>
+<td><code>[]</code></td>
+<td>File paths modified by the PR</td>
+</tr>
+<tr>
+<td><code>labels</code></td>
+<td><code>list[str]</code></td>
+<td>No</td>
+<td><code>[]</code></td>
+<td>GitHub labels (e.g. <code>"hotfix"</code>, <code>"deploy"</code>)</td>
+</tr>
+<tr>
+<td><code>base_branch</code></td>
+<td><code>str</code></td>
+<td>No</td>
+<td><code>"main"</code></td>
+<td>Target branch the PR was merged into</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example_3">Example</h3>
+<pre><code class="language-json">[
+  {
+    &quot;number&quot;: 4521,
+    &quot;title&quot;: &quot;Increase DB connection pool size&quot;,
+    &quot;author&quot;: &quot;carol&quot;,
+    &quot;merge_time&quot;: &quot;2026-07-13T13:45:00&quot;,
+    &quot;files_changed&quot;: [&quot;config/db-pool.yaml&quot;, &quot;src/db/client.py&quot;],
+    &quot;labels&quot;: [&quot;hotfix&quot;, &quot;deploy&quot;],
+    &quot;base_branch&quot;: &quot;main&quot;
+  }
+]
+</code></pre>
+<hr />
+<h2 id="log-file-formats">Log File Formats</h2>
+<p>The <code>logs/</code> sub-directory accepts three file formats, dispatched by extension.
+All parsed entries become <code>LogEntry</code> objects.</p>
+<h3 id="logentry-fields"><code>LogEntry</code> fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>datetime</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Log entry timestamp</td>
+</tr>
+<tr>
+<td><code>level</code></td>
+<td><code>"DEBUG"|"INFO"|"WARN"|"ERROR"|"FATAL"|"TRACE"</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Log severity level</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Log message</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td><code>str</code></td>
+<td>No</td>
+<td><code>""</code></td>
+<td>Entry origin (empty if not captured)</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>dict[str, Any]</code></td>
+<td>No</td>
+<td><code>{}</code></td>
+<td>Structured fields (e.g. <code>trace_id</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="log-format"><code>.log</code> format</h3>
+<p>Each line must match the pattern <code>TIMESTAMP LEVEL SOURCE: MESSAGE</code>. Accepted
+timestamp formats include ISO 8601 (<code>2026-07-13T14:05:00</code>), space-separated
+(<code>2026-07-13 14:05:00</code>), <code>HH:MM</code>, and Unix epoch seconds. Slash-separated dates
+(<code>2026/07/13 14:05:00</code>) are converted to hyphens.</p>
+<pre><code>2026-07-13T14:05:00 ERROR payment-service: Connection pool exhausted
+2026-07-13T14:05:01 WARN payment-service: Retrying request (attempt 1/3)
+2026-07-13T14:05:05 FATAL db-client: Pool acquire timeout after 30s
+2026-07-13T14:06:00 INFO api-gateway: Health check returning 503
+</code></pre>
+<h3 id="json-format"><code>.json</code> format</h3>
+<p>A JSON array of log entry objects. Each object is validated as a <code>LogEntry</code>. If
+an item lacks a <code>source</code> field, the file path is used as the default. Malformed
+items are skipped individually so one bad entry doesn't lose all logs.</p>
+<pre><code class="language-json">[
+  {
+    &quot;timestamp&quot;: &quot;2026-07-13T14:05:00&quot;,
+    &quot;level&quot;: &quot;ERROR&quot;,
+    &quot;message&quot;: &quot;Connection pool exhausted&quot;,
+    &quot;source&quot;: &quot;payment-service&quot;,
+    &quot;metadata&quot;: {&quot;trace_id&quot;: &quot;abc-123&quot;, &quot;pool_size&quot;: 10}
+  },
+  {
+    &quot;timestamp&quot;: &quot;2026-07-13T14:05:05&quot;,
+    &quot;level&quot;: &quot;FATAL&quot;,
+    &quot;message&quot;: &quot;Pool acquire timeout after 30s&quot;,
+    &quot;source&quot;: &quot;db-client&quot;
+  }
+]
+</code></pre>
+<h3 id="md-format"><code>.md</code> format</h3>
+<p>Markdown files with fenced code blocks. The parser extracts content between
+<code>```</code> fences and parses each line as a <code>.log</code>-format entry. Non-fenced prose
+is ignored.</p>
+<pre><code class="language-markdown"># Captured Logs
+
+## Application logs
+
+```log
+2026-07-13T14:05:00 ERROR payment-service: Connection pool exhausted
+2026-07-13T14:05:05 FATAL db-client: Pool acquire timeout after 30s
+```
+
+## Infrastructure logs
+
+```log
+2026-07-13T14:06:00 INFO k8s: Pod payment-service-7 restarted
+```
+</code></pre>
+<hr />
+<h2 id="notesmd">notes.md</h2>
+<p>Free-form incident notes parsed into timeline events via <code>##</code>-style Markdown
+headings. Each <code>##</code> heading becomes a <code>TimelineEvent</code> with <code>source="manual"</code>
+and <code>trust_level="low"</code>.</p>
+<p>The timestamp is extracted from the heading text or the first line of body
+content. Accepted patterns include ISO 8601 (<code>2026-07-13T14:05:00</code>) and 24-hour
+<code>HH:MM</code> (assumes today's date). If no timestamp is found, the current time is
+used as a fallback.</p>
+<p>The heading text (minus the timestamp) becomes <code>event_type</code>, and the body
+content becomes <code>content</code>.</p>
+<h3 id="example_4">Example</h3>
+<pre><code class="language-markdown"># Incident Notes — INC-2026-001
+
+## 14:05 — First responder notices spike
+Alice spotted the error rate spike on the Datadog dashboard.
+Error rate jumped from 0.1% to 52% within 2 minutes.
+
+## 14:10 — IC declared
+Bob declared incident commander and opened the incident channel.
+
+## 14:20 — Rollback started
+Canary deploy from PR #4521 is suspected. Rollback initiated.
+</code></pre>
+<p>This produces three <code>TimelineEvent</code> objects at 14:05, 14:10, and 14:20, all with
+<code>source="manual"</code> and <code>trust_level="low"</code>.</p>
+<hr />
+<h2 id="runbooks-directory">runbooks/ Directory</h2>
+<p>Contains runbook JSON files used for RAG retrieval. Each <code>.json</code> file may
+contain a single runbook object or an array of runbook objects. Maps to
+<code>list[Runbook]</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>str</code></td>
+<td>No</td>
+<td><code>""</code></td>
+<td>Unique runbook identifier</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Runbook title</td>
+</tr>
+<tr>
+<td><code>path</code></td>
+<td><code>str</code></td>
+<td>No</td>
+<td><code>""</code></td>
+<td>File path or URL</td>
+</tr>
+<tr>
+<td><code>content</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Runbook content (steps, procedures)</td>
+</tr>
+<tr>
+<td><code>keywords</code></td>
+<td><code>list[str]</code></td>
+<td>No</td>
+<td><code>[]</code></td>
+<td>Keywords for RAG indexing</td>
+</tr>
+<tr>
+<td><code>service</code></td>
+<td><code>str</code></td>
+<td>No</td>
+<td><code>""</code></td>
+<td>Service this runbook applies to (empty = all)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-runbooksrb-001json">Example (<code>runbooks/rb-001.json</code>)</h3>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;rb-001&quot;,
+  &quot;title&quot;: &quot;DB Connection Pool Exhaustion&quot;,
+  &quot;path&quot;: &quot;runbooks/db-pool-exhaustion.md&quot;,
+  &quot;content&quot;: &quot;1. Check current pool size: `show pool_status`\n2. Increase pool size in config/db-pool.yaml\n3. Restart affected pods\n4. Monitor error rate for 5 minutes&quot;,
+  &quot;keywords&quot;: [&quot;db&quot;, &quot;connection&quot;, &quot;pool&quot;, &quot;exhausted&quot;, &quot;timeout&quot;],
+  &quot;service&quot;: &quot;payment-service&quot;
+}
+</code></pre>
+<hr />
+<h2 id="cli-flags-mode">CLI Flags Mode</h2>
+<p>For simple, single-input runs, you can pass individual files via CLI flags
+without creating a full directory structure.</p>
+<pre><code class="language-bash"># Minimal: alert only
+incident-commander run --alert alert.json --output-dir ./output
+
+# Alert + logs directory
+incident-commander run --alert alert.json --logs ./logs --output-dir ./output
+
+# All channels
+incident-commander run \
+  --alert alert.json \
+  --logs ./logs \
+  --messages messages.json \
+  --github github.json \
+  --output-dir ./output \
+  --auto-approve
+</code></pre>
+<h3 id="cli-flags-reference">CLI flags reference</h3>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--alert</code></td>
+<td>Path to alert JSON file (required unless <code>--input-dir</code>)</td>
+</tr>
+<tr>
+<td><code>--logs</code></td>
+<td>Path to logs directory or log file</td>
+</tr>
+<tr>
+<td><code>--messages</code></td>
+<td>Path to messages JSON file</td>
+</tr>
+<tr>
+<td><code>--github</code></td>
+<td>Path to GitHub PRs JSON file</td>
+</tr>
+<tr>
+<td><code>--input-dir</code></td>
+<td>Path to structured input directory (overrides flags)</td>
+</tr>
+<tr>
+<td><code>--output-dir</code></td>
+<td>Output directory for generated files</td>
+</tr>
+<tr>
+<td><code>--auto-approve</code></td>
+<td>Skip all approval gates (sets mode to <code>simulate</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>Each flag file is passed through the normalizer, which accepts dicts, model
+instances, or file paths. Either <code>--alert</code> or <code>--input-dir</code> is required.</p>
+<hr />
+<h2 id="python-api-mode">Python API Mode</h2>
+<p>For programmatic use, call <code>run_incident()</code> directly. All inputs accept
+Pydantic model instances, raw dicts, or file path strings — the normalizer
+dispatches on type at runtime.</p>
+<pre><code class="language-python">from incident_commander import run_incident, Alert
+
+result = run_incident(
+    alert={
+        &quot;severity&quot;: &quot;SEV1&quot;,
+        &quot;service&quot;: &quot;payment-service&quot;,
+        &quot;summary&quot;: &quot;Payment success rate dropped below 50%&quot;,
+        &quot;source&quot;: &quot;datadog-monitor&quot;,
+        &quot;timestamp&quot;: &quot;2026-07-13T14:05:00&quot;,
+    },
+    logs=&quot;path/to/logs/&quot;,           # directory or file path
+    messages=&quot;path/to/messages.json&quot;,
+    github=&quot;path/to/github.json&quot;,
+    runbooks=[
+        {
+            &quot;id&quot;: &quot;rb-001&quot;,
+            &quot;title&quot;: &quot;DB Connection Pool Exhaustion&quot;,
+            &quot;content&quot;: &quot;1. Check pool size...&quot;,
+            &quot;keywords&quot;: [&quot;db&quot;, &quot;pool&quot;, &quot;exhausted&quot;],
+            &quot;service&quot;: &quot;payment-service&quot;,
+        }
+    ],
+    manual_events=[
+        {
+            &quot;timestamp&quot;: &quot;2026-07-13T14:10:00&quot;,
+            &quot;source&quot;: &quot;manual&quot;,
+            &quot;event_type&quot;: &quot;IC declared&quot;,
+            &quot;content&quot;: &quot;Bob declared incident commander&quot;,
+            &quot;trust_level&quot;: &quot;low&quot;,
+        }
+    ],
+    output_dir=&quot;./output&quot;,
+    auto_approve=True,
+)
+</code></pre>
+<p>You can also use the <code>InputDirLoader</code> directly to load a directory and pass
+the resulting <code>IncidentInput</code> to <code>run_incident()</code>:</p>
+<pre><code class="language-python">from incident_commander.ingest.input_dir import InputDirLoader
+from incident_commander import run_incident
+
+loader = InputDirLoader(&quot;incident-2026-001/&quot;)
+incident_input = loader.load()
+
+result = run_incident(
+    alert=incident_input.alert,
+    logs=incident_input.logs,
+    messages=incident_input.messages,
+    github=incident_input.github,
+    runbooks=incident_input.runbooks,
+    manual_events=incident_input.manual_events,
+    output_dir=&quot;./output&quot;,
+)
+</code></pre>
+<hr />
+<h2 id="json-schema-validation">JSON Schema Validation</h2>
+<p>ai-incident-commander ships with a JSON Schema registry covering all input and
+output models. Use the <code>validate</code> CLI command to check an alert file before
+running a full incident session:</p>
+<pre><code class="language-bash"># Validate an alert file against the Alert schema
+incident-commander validate --alert path/to/alert.json
+</code></pre>
+<p>Output on success:</p>
+<pre><code>Alert validation: PASSED
+</code></pre>
+<h3 id="programmatic-validation">Programmatic validation</h3>
+<pre><code class="language-python">from incident_commander import validate_input, export_schemas
+
+# Validate any data against a named schema
+is_valid = validate_input(
+    {&quot;severity&quot;: &quot;SEV1&quot;, &quot;service&quot;: &quot;payment-service&quot;, &quot;summary&quot;: &quot;...&quot;, &quot;timestamp&quot;: &quot;2026-07-13T14:05:00&quot;},
+    schema_name=&quot;alert&quot;,
+)
+# Returns True, or raises pydantic.ValidationError on mismatch
+
+# Export all 16 JSON Schemas to files
+paths = export_schemas(&quot;./schemas&quot;)
+</code></pre>
+<h3 id="available-schemas">Available schemas</h3>
+<p>The <code>SCHEMAS</code> registry contains 16 named schemas:</p>
+<table>
+<thead>
+<tr>
+<th>Schema name</th>
+<th>Pydantic model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>alert</code></td>
+<td><code>Alert</code></td>
+</tr>
+<tr>
+<td><code>chat-message</code></td>
+<td><code>ChatMessage</code></td>
+</tr>
+<tr>
+<td><code>log-entry</code></td>
+<td><code>LogEntry</code></td>
+</tr>
+<tr>
+<td><code>github-pr</code></td>
+<td><code>GitHubPR</code></td>
+</tr>
+<tr>
+<td><code>runbook</code></td>
+<td><code>Runbook</code></td>
+</tr>
+<tr>
+<td><code>incident-meta</code></td>
+<td><code>IncidentMeta</code></td>
+</tr>
+<tr>
+<td><code>incident-input</code></td>
+<td><code>IncidentInput</code></td>
+</tr>
+<tr>
+<td><code>incident-result</code></td>
+<td><code>IncidentResult</code></td>
+</tr>
+<tr>
+<td><code>timeline-event</code></td>
+<td><code>TimelineEvent</code></td>
+</tr>
+<tr>
+<td><code>deploy-correlation</code></td>
+<td><code>DeployCorrelation</code></td>
+</tr>
+<tr>
+<td><code>stakeholder-update</code></td>
+<td><code>StakeholderUpdate</code></td>
+</tr>
+<tr>
+<td><code>remediation-suggestion</code></td>
+<td><code>RemediationSuggestion</code></td>
+</tr>
+<tr>
+<td><code>postmortem</code></td>
+<td><code>Postmortem</code></td>
+</tr>
+<tr>
+<td><code>cost-report</code></td>
+<td><code>CostReport</code></td>
+</tr>
+<tr>
+<td><code>session-meta</code></td>
+<td><code>SessionMeta</code></td>
+</tr>
+<tr>
+<td><code>llm-call</code></td>
+<td><code>LLMCall</code></td>
+</tr>
+</tbody>
+</table>
+<p>Use <code>export-schemas</code> CLI command to write all schemas to a directory:</p>
+<pre><code class="language-bash">incident-commander export-schemas --output-dir ./schemas
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

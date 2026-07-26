@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>LLM Strategy - ai-incident-commander</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">ai-incident-commander</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../architecture/" class="nav-link">Architecture</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../api-reference/" class="nav-link">API Reference</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../input-format/" class="nav-link">Input Format</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../output-format/" class="nav-link">Output Format</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../simulation-guide/" class="nav-link">Simulation Guide</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../safety-guardrails/" class="nav-link">Safety Guardrails</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../field-test-results/" class="nav-link">Field Test Results</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../PRD/" class="nav-link">PRD</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../SPEC/" class="nav-link">SPEC</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../wbs/" class="nav-link">WBS</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#llm-strategy" class="nav-link">LLM Strategy</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#local-cloud-llm-mix" class="nav-link">Local + Cloud LLM Mix</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#model-routing" class="nav-link">Model Routing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#cost-tracking-per-model" class="nav-link">Cost Tracking Per Model</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#cost-optimization-tips" class="nav-link">Cost Optimization Tips</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#escalation-strategy" class="nav-link">Escalation Strategy</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#environment-variable-configuration" class="nav-link">Environment Variable Configuration</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="llm-strategy">LLM Strategy</h1>
+<p>This document describes the LLM model strategy for ai-incident-commander:
+the local + cloud model mix, task-based routing, per-model cost tracking,
+cost optimization, escalation strategy, and environment variable
+configuration.</p>
+<p>All details are derived from <code>src/incident_commander/config.py</code>
+(<code>LLMConfig</code>) and <code>src/incident_commander/llm_router.py</code> (<code>LLMRouter</code>).</p>
+<hr />
+<h2 id="local-cloud-llm-mix">Local + Cloud LLM Mix</h2>
+<p>ai-incident-commander uses an <strong>OpenAI-compatible API</strong> for all LLM calls,
+which means any provider exposing that interface can be used. The default
+configuration targets a <strong>local Ollama</strong> instance; cloud providers (OpenAI,
+Anthropic) are optional and can be enabled per task.</p>
+<h3 id="default-local-ollama">Default: Local (Ollama)</h3>
+<pre><code class="language-python"># config.py — LLMConfig defaults
+analysis_model: str = &quot;ollama/qwen2.5-coder:7b&quot;
+analysis_base_url: str = &quot;http://localhost:11434/v1&quot;  # Ollama OpenAI-compatible endpoint
+</code></pre>
+<p>Ollama runs models locally on your machine (or a dedicated GPU host). It
+exposes an OpenAI-compatible API at <code>http://localhost:11434/v1</code>, so the
+router's <code>httpx</code> POST to <code>{base_url}/chat/completions</code> works without any
+code changes. Local models are <strong>free</strong> — no per-token billing.</p>
+<h3 id="optional-cloud-openai-anthropic">Optional: Cloud (OpenAI / Anthropic)</h3>
+<p>Cloud models are configured by setting the task-specific model fields on
+<code>LLMConfig</code>. The router uses OpenAI-compatible endpoints, so any provider
+that exposes that interface works:</p>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Example model</th>
+<th>Endpoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenAI</td>
+<td><code>gpt-4o</code>, <code>gpt-4o-mini</code></td>
+<td><code>https://api.openai.com/v1</code></td>
+</tr>
+<tr>
+<td>Anthropic</td>
+<td><code>claude-3-5-sonnet</code></td>
+<td>OpenAI-compatible proxy or native adapter</td>
+</tr>
+<tr>
+<td>OpenCode Zen</td>
+<td>any Zen-hosted model</td>
+<td>Zen's OpenAI-compatible endpoint</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>OpenCode Zen:</strong> Because the router speaks the OpenAI-compatible protocol,
+any OpenCode Zen model endpoint that exposes <code>/chat/completions</code> can be
+used by setting the appropriate <code>*_model</code> and <code>*_base_url</code> fields (and
+<code>LLM_API_KEY</code>). Zen-hosted models are configured identically to any other
+OpenAI-compatible provider — no special integration is required.</p>
+</blockquote>
+<h3 id="single-model-vs-multi-model-setups">Single-model vs. multi-model setups</h3>
+<p>The configuration supports two deployment patterns:</p>
+<p><strong>Single-model (default):</strong> Only <code>analysis_model</code> is set. All tasks fall back
+to it. This is the simplest setup — one local model handles everything.</p>
+<p><strong>Multi-model (production):</strong> Set <code>comms_model</code> and/or <code>postmortem_model</code> to
+route different tasks to different models. For example, a powerful local
+model for analysis and a cheaper cloud model for routine comms.</p>
+<hr />
+<h2 id="model-routing">Model Routing</h2>
+<p>The <code>LLMRouter._resolve_model()</code> method (<code>llm_router.py:153</code>) selects the
+model and base URL based on the <strong>task type</strong> passed to <code>generate()</code>:</p>
+<pre><code class="language-python">def _resolve_model(self, task: str) -&gt; tuple[str, str | None]:
+    llm: LLMConfig = self._config.llm
+    if task == &quot;comms&quot; and llm.comms_model:
+        return llm.comms_model, llm.comms_base_url
+    if task == &quot;postmortem&quot; and llm.postmortem_model:
+        return llm.postmortem_model, llm.postmortem_base_url
+    return llm.analysis_model, llm.analysis_base_url
+</code></pre>
+<h3 id="task-model-routing-table">Task → model routing table</h3>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Primary model</th>
+<th>Fallback (if primary not set)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>analysis</code></td>
+<td><code>llm.analysis_model</code></td>
+<td>— (always used as the base)</td>
+</tr>
+<tr>
+<td><code>comms</code></td>
+<td><code>llm.comms_model</code></td>
+<td><code>llm.analysis_model</code></td>
+</tr>
+<tr>
+<td><code>postmortem</code></td>
+<td><code>llm.postmortem_model</code></td>
+<td><code>llm.analysis_model</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="which-nodes-use-which-task">Which nodes use which task</h3>
+<table>
+<thead>
+<tr>
+<th>Node</th>
+<th>LLM task</th>
+<th>Default model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>suggest_remediation_node</code></td>
+<td><code>analysis</code></td>
+<td><code>ollama/qwen2.5-coder:7b</code> (local, free)</td>
+</tr>
+<tr>
+<td><code>dry_run_simulate_node</code></td>
+<td><code>analysis</code></td>
+<td><code>ollama/qwen2.5-coder:7b</code> (local, free)</td>
+</tr>
+<tr>
+<td><code>draft_update_node</code></td>
+<td><code>comms</code></td>
+<td>falls back to <code>analysis_model</code> if <code>comms_model</code> is <code>None</code></td>
+</tr>
+<tr>
+<td><code>generate_postmortem_node</code></td>
+<td><code>postmortem</code></td>
+<td>falls back to <code>analysis_model</code> if <code>postmortem_model</code> is <code>None</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="fallback-chain-explained">Fallback chain explained</h3>
+<p>The fallback design lets you start with a single local model and
+incrementally add cloud models for specific tasks:</p>
+<pre><code>   Task: &quot;comms&quot;
+      │
+      ├── comms_model is set? ── YES ──► use comms_model + comms_base_url
+      │
+      └── comms_model is None? ── YES ──► fall back to analysis_model + analysis_base_url
+
+   Task: &quot;postmortem&quot;
+      │
+      ├── postmortem_model is set? ── YES ──► use postmortem_model + postmortem_base_url
+      │
+      └── postmortem_model is None? ── YES ──► fall back to analysis_model + analysis_base_url
+
+   Task: &quot;analysis&quot;
+      │
+      └── always uses analysis_model + analysis_base_url
+</code></pre>
+<p>This means:
+- <strong>Analysis tasks</strong> (remediation suggestions, dry-run simulation) always use
+  the configured analysis model — typically the most capable local model.
+- <strong>Comms tasks</strong> (stakeholder updates) can use a cheaper/faster model if
+  <code>comms_model</code> is set, otherwise reuse the analysis model.
+- <strong>Postmortem tasks</strong> can use a more articulate model if <code>postmortem_model</code>
+  is set, otherwise reuse the analysis model.</p>
+<hr />
+<h2 id="cost-tracking-per-model">Cost Tracking Per Model</h2>
+<h3 id="pricing-table">Pricing table</h3>
+<p>Cost is estimated from <code>LLMConfig.model_pricing</code> (<code>config.py:25</code>), which maps
+model IDs to per-1M-token USD rates:</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Input ($/1M tokens)</th>
+<th>Output ($/1M tokens)</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ollama/qwen2.5-coder:7b</code></td>
+<td>$0.00</td>
+<td>$0.00</td>
+<td><strong>Free</strong> (local)</td>
+</tr>
+<tr>
+<td><code>gpt-4o-mini</code></td>
+<td>$0.15</td>
+<td>$0.60</td>
+<td>Cheap cloud</td>
+</tr>
+<tr>
+<td><code>gpt-4o</code></td>
+<td>$2.50</td>
+<td>$10.00</td>
+<td>Expensive cloud</td>
+</tr>
+<tr>
+<td><code>claude-3-5-sonnet</code></td>
+<td>$3.00</td>
+<td>$15.00</td>
+<td>Most expensive</td>
+</tr>
+</tbody>
+</table>
+<p>Unknown models default to <code>{"input": 0.0, "output": 0.0}</code> (free), so the cost
+report never fails due to missing pricing entries.</p>
+<h3 id="cost-calculation">Cost calculation</h3>
+<pre><code class="language-python"># llm_router.py:168
+cost = (input_tokens / 1_000_000 * pricing[&quot;input&quot;]) + \
+       (output_tokens / 1_000_000 * pricing[&quot;output&quot;])
+</code></pre>
+<p>Result is rounded to 6 decimal places.</p>
+<h3 id="example-cost-scenarios">Example cost scenarios</h3>
+<p><strong>All-local (default):</strong>
+- 5 LLM calls × ~500 input tokens × ~200 output tokens
+- Total: ~3,500 tokens
+- Cost: <strong>$0.00</strong> (Ollama is free)</p>
+<p><strong>Analysis on local + comms on gpt-4o-mini:</strong>
+- 2 analysis calls on Ollama: $0.00
+- 1 comms call on gpt-4o-mini (500 in / 200 out): $0.000075 + $0.00012 = $0.000195
+- Total: <strong>~$0.0002</strong></p>
+<p><strong>All on gpt-4o:</strong>
+- 5 calls × (500 in / 200 out) = 2,500 in / 1,000 out
+- Input: 2,500/1M × $2.50 = $0.00625
+- Output: 1,000/1M × $10.00 = $0.01
+- Total: <strong>~$0.016</strong></p>
+<h3 id="cost-report-output">Cost report output</h3>
+<p>At graph exit, <code>cost_report_node</code> aggregates all <code>NodeCost</code> records into a
+<code>CostReport</code> containing:
+- <code>total_input_tokens</code>, <code>total_output_tokens</code>, <code>total_tokens</code>
+- <code>total_estimated_cost_usd</code>
+- <code>per_node</code> breakdown (model, tokens, cost, latency per call)
+- <code>models_used</code> (distinct model IDs invoked)</p>
+<p>Every individual LLM call is also logged to
+<code>~/.incident-commander/logs/llm-calls.jsonl</code> by <code>LLMObserver</code> for post-hoc
+analysis.</p>
+<hr />
+<h2 id="cost-optimization-tips">Cost Optimization Tips</h2>
+<h3 id="1-default-to-local-models">1. Default to local models</h3>
+<p>The out-of-the-box configuration uses <code>ollama/qwen2.5-coder:7b</code> for all
+tasks at <strong>$0.00 cost</strong>. For most incidents, a 7B local model is sufficient
+for drafting updates, suggesting remediations, and generating postmortems.</p>
+<h3 id="2-use-task-specific-routing-to-minimize-cloud-spend">2. Use task-specific routing to minimize cloud spend</h3>
+<p>Only route to cloud models for tasks where local quality is insufficient:</p>
+<pre><code class="language-python">from incident_commander.config import Config, LLMConfig
+
+config = Config(llm=LLMConfig(
+    analysis_model=&quot;ollama/qwen2.5-coder:7b&quot;,     # free — handles analysis
+    comms_model=&quot;gpt-4o-mini&quot;,                     # $0.15/$0.60 — cheap, articulate
+    comms_base_url=&quot;https://api.openai.com/v1&quot;,
+    postmortem_model=&quot;gpt-4o-mini&quot;,                # cheap cloud for long-form writing
+    postmortem_base_url=&quot;https://api.openai.com/v1&quot;,
+))
+</code></pre>
+<p>This keeps analysis free while using a cheap cloud model for comms and
+postmortems where articulateness matters.</p>
+<h3 id="3-reserve-expensive-models-for-complex-incidents">3. Reserve expensive models for complex incidents</h3>
+<p><code>gpt-4o</code> ($2.50/$10.00) and <code>claude-3-5-sonnet</code> ($3.00/$15.00) are 15-20x
+more expensive than <code>gpt-4o-mini</code>. Use them only for SEV1 incidents where
+root-cause analysis quality is critical. See the escalation strategy below.</p>
+<h3 id="4-monitor-token-usage">4. Monitor token usage</h3>
+<p>Review the per-node cost breakdown in the <code>CostReport</code> after each session.
+The <code>llm-calls.jsonl</code> log provides per-call granularity for identifying
+which nodes consume the most tokens.</p>
+<h3 id="5-leverage-prompt-truncation">5. Leverage prompt truncation</h3>
+<p>The router truncates prompts to 8,000 characters (<code>llm_router.py:231</code>) and
+caps <code>max_tokens</code> at 1,024 (<code>llm_router.py:232</code>). This prevents runaway
+costs from oversized prompts or verbose completions. The remediation and
+postmortem nodes further limit context (top-3 to top-5 evidence items) to
+keep prompts within budget.</p>
+<h3 id="6-use-mock-llm-for-testing">6. Use mock LLM for testing</h3>
+<p>Pass a <code>mock_llm</code> callable to <code>build_graph()</code> or <code>LLMRouter</code> to run the full
+graph without any real API calls — zero cost, zero latency, reproducible
+results for CI and unit tests.</p>
+<hr />
+<h2 id="escalation-strategy">Escalation Strategy</h2>
+<p>The recommended strategy is to <strong>start local</strong> and escalate to cloud models
+only when an incident's complexity demands it.</p>
+<h3 id="tier-1-all-local-default">Tier 1: All-local (default)</h3>
+<pre><code>analysis  → ollama/qwen2.5-coder:7b  (free)
+comms     → ollama/qwen2.5-coder:7b  (free, fallback)
+postmortem → ollama/qwen2.5-coder:7b (free, fallback)
+</code></pre>
+<ul>
+<li><strong>Use for:</strong> SEV3 incidents, demos, testing, CI</li>
+<li><strong>Cost:</strong> $0.00</li>
+<li><strong>Quality:</strong> Good for straightforward incidents with clear runbook matches</li>
+</ul>
+<h3 id="tier-2-local-analysis-cloud-comms">Tier 2: Local analysis + cloud comms</h3>
+<pre><code>analysis  → ollama/qwen2.5-coder:7b  (free)
+comms     → gpt-4o-mini              ($0.15/$0.60 per 1M)
+postmortem → gpt-4o-mini             ($0.15/$0.60 per 1M)
+</code></pre>
+<ul>
+<li><strong>Use for:</strong> SEV2 incidents where stakeholder communication quality matters</li>
+<li><strong>Cost:</strong> ~$0.001-0.01 per incident</li>
+<li><strong>Quality:</strong> Articulate comms and postmortems; local analysis keeps costs
+  near zero</li>
+</ul>
+<h3 id="tier-3-cloud-for-everything">Tier 3: Cloud for everything</h3>
+<pre><code>analysis  → gpt-4o                   ($2.50/$10.00 per 1M)
+comms     → gpt-4o-mini              ($0.15/$0.60 per 1M)
+postmortem → gpt-4o-mini             ($0.15/$0.60 per 1M)
+</code></pre>
+<ul>
+<li><strong>Use for:</strong> SEV1 incidents with complex root-cause analysis where local
+  model quality is insufficient</li>
+<li><strong>Cost:</strong> ~$0.01-0.05 per incident</li>
+<li><strong>Quality:</strong> Strongest analysis; cheap cloud for routine comms</li>
+</ul>
+<h3 id="tier-4-premium-cloud">Tier 4: Premium cloud</h3>
+<pre><code>analysis  → claude-3-5-sonnet        ($3.00/$15.00 per 1M)
+comms     → gpt-4o                   ($2.50/$10.00 per 1M)
+postmortem → claude-3-5-sonnet       ($3.00/$15.00 per 1M)
+</code></pre>
+<ul>
+<li><strong>Use for:</strong> Customer-facing SEV1 incidents requiring the highest-quality
+  analysis and communication</li>
+<li><strong>Cost:</strong> ~$0.05-0.20 per incident</li>
+<li><strong>Quality:</strong> Best available; use sparingly</li>
+</ul>
+<h3 id="implementing-escalation">Implementing escalation</h3>
+<p>Switch tiers by changing the <code>Config</code> at runtime:</p>
+<pre><code class="language-python">from incident_commander.config import Config, LLMConfig
+
+# Tier 1 — all local (default)
+config = Config()
+
+# Tier 2 — local analysis + cloud comms
+config = Config(llm=LLMConfig(
+    comms_model=&quot;gpt-4o-mini&quot;,
+    comms_base_url=&quot;https://api.openai.com/v1&quot;,
+    postmortem_model=&quot;gpt-4o-mini&quot;,
+    postmortem_base_url=&quot;https://api.openai.com/v1&quot;,
+))
+
+# Tier 3 — cloud analysis
+config = Config(llm=LLMConfig(
+    analysis_model=&quot;gpt-4o&quot;,
+    analysis_base_url=&quot;https://api.openai.com/v1&quot;,
+    comms_model=&quot;gpt-4o-mini&quot;,
+    comms_base_url=&quot;https://api.openai.com/v1&quot;,
+))
+</code></pre>
+<p>A production deployment could auto-select the tier based on severity:</p>
+<pre><code class="language-python">def config_for_severity(severity: str) -&gt; Config:
+    if severity == &quot;SEV1&quot;:
+        return Config(llm=LLMConfig(
+            analysis_model=&quot;gpt-4o&quot;,
+            analysis_base_url=&quot;https://api.openai.com/v1&quot;,
+            comms_model=&quot;gpt-4o-mini&quot;,
+            comms_base_url=&quot;https://api.openai.com/v1&quot;,
+        ))
+    if severity == &quot;SEV2&quot;:
+        return Config(llm=LLMConfig(
+            comms_model=&quot;gpt-4o-mini&quot;,
+            comms_base_url=&quot;https://api.openai.com/v1&quot;,
+        ))
+    return Config()  # SEV3 — all local
+</code></pre>
+<hr />
+<h2 id="environment-variable-configuration">Environment Variable Configuration</h2>
+<h3 id="llm_api_key"><code>LLM_API_KEY</code></h3>
+<p>The only environment variable read by the router is <code>LLM_API_KEY</code>
+(<code>llm_router.py:222</code>):</p>
+<pre><code class="language-python">api_key = os.environ.get(&quot;LLM_API_KEY&quot;, &quot;&quot;)
+if api_key:
+    headers[&quot;Authorization&quot;] = f&quot;Bearer {api_key}&quot;
+</code></pre>
+<p>This key is sent as a Bearer token to the LLM endpoint. It is required for
+cloud providers (OpenAI, Anthropic, OpenCode Zen) and <strong>not needed</strong> for
+local Ollama (which ignores the header).</p>
+<h3 id="setting-it">Setting it</h3>
+<pre><code class="language-bash"># For OpenAI
+export LLM_API_KEY=&quot;sk-...&quot;
+
+# For Anthropic (via OpenAI-compatible proxy)
+export LLM_API_KEY=&quot;sk-ant-...&quot;
+
+# For OpenCode Zen
+export LLM_API_KEY=&quot;zen-...&quot;
+
+# For local Ollama — not required (no key needed)
+# LLM_API_KEY can be unset or empty
+</code></pre>
+<h3 id="endpoint-configuration">Endpoint configuration</h3>
+<p>Model names and base URLs are configured via <code>LLMConfig</code> (Python), not
+environment variables. To use a cloud endpoint, set the <code>*_base_url</code> field
+to the provider's OpenAI-compatible URL:</p>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Base URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ollama (default)</td>
+<td><code>http://localhost:11434/v1</code></td>
+</tr>
+<tr>
+<td>OpenAI</td>
+<td><code>https://api.openai.com/v1</code></td>
+</tr>
+<tr>
+<td>OpenCode Zen</td>
+<td>(Zen's OpenAI-compatible endpoint URL)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="complete-cloud-configuration-example">Complete cloud configuration example</h3>
+<pre><code class="language-python">from incident_commander.config import Config, LLMConfig
+
+config = Config(llm=LLMConfig(
+    analysis_model=&quot;gpt-4o&quot;,
+    analysis_base_url=&quot;https://api.openai.com/v1&quot;,
+    comms_model=&quot;gpt-4o-mini&quot;,
+    comms_base_url=&quot;https://api.openai.com/v1&quot;,
+    postmortem_model=&quot;gpt-4o-mini&quot;,
+    postmortem_base_url=&quot;https://api.openai.com/v1&quot;,
+))
+</code></pre>
+<p>With <code>LLM_API_KEY</code> set in the environment, the router will authenticate
+against the cloud endpoint for all three task types.</p>
+<h3 id="adding-custom-model-pricing">Adding custom model pricing</h3>
+<p>If you use a model not in the default pricing table, add it to
+<code>model_pricing</code> so costs are tracked accurately:</p>
+<pre><code class="language-python">config = Config(llm=LLMConfig(
+    analysis_model=&quot;my-custom-model&quot;,
+    analysis_base_url=&quot;https://my-llm-host/v1&quot;,
+    model_pricing={
+        **LLMConfig().model_pricing,  # keep defaults
+        &quot;my-custom-model&quot;: {&quot;input&quot;: 1.00, &quot;output&quot;: 4.00},
+    },
+))
+</code></pre>
+<p>Models not in the pricing table default to free ($0.00), so costs will
+show as $0.00 unless you add an entry.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

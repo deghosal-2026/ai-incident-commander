@@ -1,0 +1,3004 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>WBS - ai-incident-commander</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">ai-incident-commander</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../architecture/" class="nav-link">Architecture</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../api-reference/" class="nav-link">API Reference</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../input-format/" class="nav-link">Input Format</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../output-format/" class="nav-link">Output Format</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../simulation-guide/" class="nav-link">Simulation Guide</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../safety-guardrails/" class="nav-link">Safety Guardrails</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../field-test-results/" class="nav-link">Field Test Results</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../PRD/" class="nav-link">PRD</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../SPEC/" class="nav-link">SPEC</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">WBS</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../SPEC/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#ai-incident-commander-detailed-work-breakdown-structure" class="nav-link">ai-incident-commander — Detailed Work Breakdown Structure</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#legend" class="nav-link">Legend</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#phase-1-foundation-s1" class="nav-link">Phase 1: Foundation (S1)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#phase-2-implementation-s2-s5" class="nav-link">Phase 2: Implementation (S2-S5)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#phase-3-ship-s6-s7" class="nav-link">Phase 3: Ship (S6-S7)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#phase-4-go-public-m1-m10" class="nav-link">Phase 4: Go Public (M1-M10)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#dependency-graph" class="nav-link">Dependency Graph</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#summary" class="nav-link">Summary</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="ai-incident-commander-detailed-work-breakdown-structure">ai-incident-commander — Detailed Work Breakdown Structure</h1>
+<blockquote>
+<p><strong>Goal:</strong> Build ai-incident-commander v0.1.0 from scaffold to public release.
+<strong>Total estimate:</strong> ~7 days implementation + 3 days go-public = ~10 days</p>
+<p><strong>Key decisions (since original WBS):</strong>
+- No direct Slack/PagerDuty integration in v0.1.0 — tool produces pasteable writeups
+- Three ingestion channels: CLI flags, input directory, Python API
+- Output as markdown files to output directory
+- Standalone RAG via Qdrant (in-memory default for simulation)
+- COE-format postmortem (research-informed)
+- Cost tracking + LLM observability per node
+- 8 pre-built simulation scenarios
+- Real-data integration testing with public postmortems
+- JSON Schema definitions aligned with PagerDuty PD-CEF</p>
+</blockquote>
+<h2 id="legend">Legend</h2>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[ ]</code></td>
+<td>Not started</td>
+</tr>
+<tr>
+<td><code>[x]</code></td>
+<td>Complete</td>
+</tr>
+<tr>
+<td><code>▶</code></td>
+<td>Checkpoint — must pass before next milestone</td>
+</tr>
+<tr>
+<td><code>⚡</code></td>
+<td>Depends on — listed milestones must be complete</td>
+</tr>
+<tr>
+<td><code>🤖</code></td>
+<td>LLM model recommendation for this task</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="phase-1-foundation-s1">Phase 1: Foundation (S1)</h2>
+<blockquote>
+<p><strong>Goal:</strong> Runnable repo with package structure, CI, and project metadata.
+<strong>Estimated time:</strong> 0.5 day</p>
+</blockquote>
+<h3 id="s1-project-scaffold-none-1">S1: Project Scaffold ⚡ none <a href="https://github.com/deghosal-2026/ai-incident-commander/issues/1">#1</a></h3>
+<p><strong>🤖 LLM strategy:</strong> Local model (OMLX qwen2.5-coder:7b) — mechanical scaffolding; free</p>
+<h4 id="tasks">Tasks</h4>
+<ul>
+<li>[x] Create package directory structure:</li>
+<li>[x] <code>src/incident_commander/</code> with <code>__init__.py</code> (<code>__version__ = "0.1.0"</code>)</li>
+<li>[x] <code>src/incident_commander/models/</code> — <code>state.py</code>, <code>input.py</code>, <code>output.py</code>, <code>__init__.py</code> (re-exports)</li>
+<li>[x] <code>src/incident_commander/nodes/</code> — LangGraph node functions</li>
+<li>[x] <code>src/incident_commander/ingest/</code> — <code>input_dir.py</code>, <code>log_parser.py</code>, <code>notes_parser.py</code>, <code>normalizer.py</code></li>
+<li>[x] <code>src/incident_commander/output/</code> — <code>markdown_writer.py</code>, <code>formatters.py</code>, <code>comms_blocks.py</code></li>
+<li>[x] <code>src/incident_commander/simulation/</code> — <code>simulator.py</code>, <code>scenarios.py</code>, <code>demo_runbooks.py</code></li>
+<li>[x] <code>src/incident_commander/graph.py</code> — LangGraph state graph definition</li>
+<li>[x] <code>src/incident_commander/cli.py</code> — CLI entry point</li>
+<li>[x] <code>src/incident_commander/api.py</code> — Python API (<code>run_incident</code>, <code>run_simulation</code>)</li>
+<li>[x] <code>src/incident_commander/schema.py</code> — JSON Schema registry, validation, export</li>
+<li>[x] <code>src/incident_commander/config.py</code> — Config, LLMConfig models</li>
+<li>[x] <code>src/incident_commander/persistence.py</code> — SQLite checkpointer + session manager</li>
+<li>[x] <code>src/incident_commander/llm_router.py</code> — LLM router + CostTracker + LLMObserver</li>
+<li>[x] <code>tests/</code> with <code>unit/</code>, <code>integration/</code>, <code>e2e/</code>, <code>real_data/</code>, <code>conftest.py</code></li>
+<li>[x] Create <code>pyproject.toml</code>:</li>
+<li>[x] hatchling build backend</li>
+<li>[x] Core deps: <code>langchain</code>, <code>langgraph</code>, <code>pydantic&gt;=2</code>, <code>httpx</code>, <code>click</code>, <code>rich</code>, <code>langchain-community</code></li>
+<li>[x] Optional deps: <code>qdrant-client</code> (rag extra), <code>openai</code> (cloud LLM extra), <code>anthropic</code> (cloud LLM extra)</li>
+<li>[x] <code>ai-incident-commander[all]</code> meta-extra combining all optional deps</li>
+<li>[x] Dev deps: <code>pytest</code>, <code>pytest-asyncio</code>, <code>pytest-cov</code>, <code>ruff</code>, <code>mypy</code>, <code>pip-audit</code>, <code>pip-licenses</code>, <code>build</code>, <code>twine</code></li>
+<li>[x] CLI entry point: <code>incident-commander = "incident_commander.cli:main"</code></li>
+<li>[x] All classifiers: Development Status (3 - Alpha), Python 3.11/3.12, License (MIT), Topic (Software Development::Libraries, System Administration), Operating System (OS Independent), Typing (Typed)</li>
+<li>[x] Project URLs: Homepage, Repository, Issues, Documentation, Changelog</li>
+<li>[x] Configure ruff: py311, line-length=100, select E/F/I/N/UP/D/ANN, ignore D203/D213</li>
+<li>[x] Configure mypy: <code>--strict</code>, python_version 3.11, disable_error_code=unused-ignore</li>
+<li>[x] Configure pytest: asyncio_mode=auto, strict-markers, cov-fail-under=80</li>
+<li>[x] Create <code>.env.example</code> with placeholder values:</li>
+<li>[x] <code>LLM_MODEL=ollama/qwen2.5-coder:7b</code></li>
+<li>[x] <code>LLM_BASE_URL=http://localhost:11434/v1</code></li>
+<li>[x] <code>COMMS_MODEL=</code> (optional — empty = use analysis model)</li>
+<li>[x] <code>POSTMORTEM_MODEL=</code> (optional — empty = use analysis model)</li>
+<li>[x] <code>QDRANT_URL=</code> (optional — empty = in-memory retriever)</li>
+<li>[x] <code>GITHUB_TOKEN=</code> (optional — empty = JSON export mode only)</li>
+<li>[x] Create <code>.gitignore</code> — cover: <code>__pycache__/</code>, <code>*.pyc</code>, <code>.env</code>, <code>dist/</code>, <code>build/</code>, <code>*.egg-info/</code>, <code>.mypy_cache/</code>, <code>.ruff_cache/</code>, <code>.pytest_cache/</code>, <code>~/.incident-commander/</code>, <code>*.db</code>, <code>*.sqlite</code>, <code>output/</code>, <code>schemas/</code></li>
+<li>[x] Verify <code>.gitignore</code> covers all sensitive patterns (no <code>.env</code> ever committed)</li>
+<li>[x] Create <code>Makefile</code> with targets: <code>install</code>, <code>test</code>, <code>lint</code>, <code>typecheck</code>, <code>format</code>, <code>clean</code>, <code>build</code>, <code>check-all</code></li>
+<li>[x] Create <code>.github/workflows/ci.yml</code>:</li>
+<li>[x] Matrix: Python 3.11, 3.12 × ubuntu-latest</li>
+<li>[x] Steps: ruff check, mypy --strict, pytest --cov, <code>pip-audit</code> (scan for known vulnerabilities), <code>pip-licenses</code> (verify license compatibility)</li>
+<li>[x] <code>shell: bash</code> for all steps</li>
+<li>[x] Create <code>.github/workflows/security.yml</code>:</li>
+<li>[x] Run gitleaks on PRs to prevent secret leaks</li>
+<li>[x] Create <code>.github/workflows/publish.yml</code>:</li>
+<li>[x] Tag-triggered (on <code>v*.*.*</code> tag push)</li>
+<li>[x] Uses PyPI trusted publishing (OIDC — no API token needed)</li>
+<li>[x] Steps: checkout, setup Python, <code>pip install build twine</code>, <code>python -m build</code>, <code>twine check dist/*</code>, <code>twine upload dist/*</code></li>
+<li>[x] Create stub modules for all future milestones (empty <code>__init__.py</code> or minimal stubs with docstrings)</li>
+<li>[x] Create <code>incident_commander/__init__.py</code> with <code>__version__ = "0.1.0"</code> + stub public API exports</li>
+</ul>
+<h4 id="testing">Testing</h4>
+<ul>
+<li>[x] <code>pip install -e .</code> succeeds in fresh venv</li>
+<li>[x] <code>pip install -e ".[dev]"</code> succeeds — all dev deps install</li>
+<li>[x] <code>pip install -e ".[all]"</code> succeeds — all optional deps install</li>
+<li>[x] <code>ruff check</code> returns 0 (even on stubs)</li>
+<li>[x] <code>mypy --strict src/</code> returns 0 (even on stubs)</li>
+<li>[x] <code>pytest</code> runs (even with 0 tests, no collection errors)</li>
+<li>[x] <code>pip-audit</code> returns 0 (no known vulnerabilities in deps)</li>
+<li>[x] <code>pip-licenses</code> returns 0 (all dep licenses compatible with MIT)</li>
+<li>[x] <code>incident-commander --help</code> works (CLI entry point resolves)</li>
+<li>[x] CI workflow passes on push to main</li>
+<li>[x] Security workflow passes on PR</li>
+</ul>
+<h4 id="glm-52-review-per-sprint-gate">▶ GLM 5.2 Review (per-sprint gate)</h4>
+<ul>
+<li>[x] <strong>Code review</strong> — Review all new/modified code with GLM 5.2</li>
+<li>[x] Functional correctness: all logic matches SPEC</li>
+<li>[x] Edge cases: nulls, empty inputs, invalid types handled</li>
+<li>[x] API ergonomics: public exports sensible, naming consistent</li>
+<li>[x] <strong>Test review</strong> — Review all tests with GLM 5.2</li>
+<li>[x] Coverage gaps: every model, function, and edge case tested</li>
+<li>[x] Test names: descriptive, follow <code>test_&lt;unit&gt;_&lt;scenario&gt;</code> convention</li>
+<li>[x] Assertions: specific (value checks, not just <code>is not None</code>)</li>
+<li>[x] <strong>Lint cleanup</strong> — <code>ruff check src/ tests/</code> returns 0</li>
+<li>[x] <strong>Typecheck</strong> — <code>mypy --strict src/</code> returns 0</li>
+<li>[x] <strong>Comments</strong> — Add docstrings to all public modules, classes, and functions (ruff <code>D</code> rules pass)</li>
+<li>[x] <strong>Test comments</strong> — Each test function has a one-line docstring describing the scenario</li>
+</ul>
+<h4 id="checkpoint-s1-all-passed">▶ Checkpoint S1 — ✅ All passed</h4>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>How to verify</th>
+<th>Pass criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Package builds</td>
+<td><code>pip install -e .</code></td>
+<td>✅ Exit code 0</td>
+</tr>
+<tr>
+<td>Dev deps install</td>
+<td><code>pip install -e ".[dev]"</code></td>
+<td>✅ Exit code 0</td>
+</tr>
+<tr>
+<td>All extras install</td>
+<td><code>pip install -e ".[all]"</code></td>
+<td>✅ Exit code 0</td>
+</tr>
+<tr>
+<td>ruff clean</td>
+<td><code>ruff check</code></td>
+<td>✅ 0 errors</td>
+</tr>
+<tr>
+<td>mypy clean</td>
+<td><code>mypy --strict src/</code></td>
+<td>✅ 0 errors</td>
+</tr>
+<tr>
+<td>pytest runs</td>
+<td><code>pytest</code></td>
+<td>✅ No collection errors</td>
+</tr>
+<tr>
+<td>pip-audit clean</td>
+<td><code>pip-audit</code></td>
+<td>✅ 0 vulnerabilities</td>
+</tr>
+<tr>
+<td>pip-licenses clean</td>
+<td><code>pip-licenses</code></td>
+<td>✅ All compatible with MIT</td>
+</tr>
+<tr>
+<td>CLI entry point</td>
+<td><code>incident-commander --help</code></td>
+<td>✅ Shows usage text</td>
+</tr>
+<tr>
+<td>.env.example exists</td>
+<td><code>cat .env.example</code></td>
+<td>✅ Placeholder values only, no real secrets</td>
+</tr>
+<tr>
+<td>.gitignore complete</td>
+<td><code>git check-ignore .env</code></td>
+<td>✅ <code>.env</code> is ignored</td>
+</tr>
+<tr>
+<td>CI workflow runs</td>
+<td>Check GitHub Actions tab</td>
+<td>✅ ci.yml passes on main</td>
+</tr>
+<tr>
+<td>Security workflow runs</td>
+<td>Check GitHub Actions tab</td>
+<td>✅ security.yml passes on PR</td>
+</tr>
+<tr>
+<td>Publish workflow exists</td>
+<td><code>cat .github/workflows/publish.yml</code></td>
+<td>✅ Tag-triggered, trusted publishing configured</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="phase-2-implementation-s2-s5">Phase 2: Implementation (S2-S5)</h2>
+<blockquote>
+<p><strong>Goal:</strong> Core incident commander agent works end-to-end with simulated incidents.
+<strong>Estimated time:</strong> 5 days</p>
+</blockquote>
+<h3 id="s2-prd-spec-s1-2">S2: PRD + SPEC ⚡ S1 <a href="https://github.com/deghosal-2026/ai-incident-commander/issues/2">#2</a></h3>
+<p><strong>🤖 LLM strategy:</strong> GLM 5.2 for prose; local model for formatting</p>
+<h4 id="tasks_1">Tasks</h4>
+<ul>
+<li>[x] Write <code>docs/PRD.md</code>:</li>
+<li>[x] 28 sections: glossary, problem, users, journeys, use cases, competitive analysis, goals/non-goals, assumptions, metrics, FRs, NFRs, interaction model, edge cases, data privacy, threat model, testing strategy, docs, risks, rollout, pricing, feedback loop, exit path, release scope, packaging, community, open questions, references, sign-off</li>
+<li>[x] Competitive analysis: HolmesGPT, sre-warroom, sre-copilot, PagerDuty Copilot, ilert AI, Incident.io</li>
+<li>[x] No direct Slack/PagerDuty integration (pasteable output instead)</li>
+<li>[x] 8 research features: deploy correlation, cost tracking, dry-run, evidence reranking, blameless postmortem, scenario library, LLM observability, pasteable output</li>
+<li>[x] Write <code>docs/SPEC.md</code>:</li>
+<li>[x] 22 sections covering architecture, all data models, LangGraph graph, simulation, timeline, deploy correlation, stakeholder comms, remediation, postmortem (COE), RAG, cost tracking, session persistence, data ingestion &amp; output (3 channels), JSON schema definitions (PD-CEF aligned), safety guardrails, edge cases, LLM strategy, testing plan (unit/integration/E2E/real-data), packaging, threat model, open questions, public API surface</li>
+<li>[x] COE format research: parse public postmortems from Amazon, Google SRE, Cloudflare, GitLab, GitHub</li>
+<li>[x] Real-data test matrix: 9 configs (LLM × rules)</li>
+<li>[x] JSON Schema definitions for all input/output types, aligned with PD-CEF</li>
+<li>[x] Write <code>docs/wbs.md</code> (this file)</li>
+<li>[x] Cross-reference check: every PRD FR maps to a SPEC section and a WBS task</li>
+</ul>
+<h4 id="testing_1">Testing</h4>
+<ul>
+<li>[x] PRD has all 28 sections — <code>grep -c '^## ' docs/PRD.md</code> returns ≥28</li>
+<li>[x] SPEC has all 22 sections — <code>grep -c '^## ' docs/SPEC.md</code> returns ≥22</li>
+<li>[x] Every FR in PRD is addressed in SPEC — manual cross-reference check</li>
+<li>[x] Every SPEC section maps to at least one WBS task — manual cross-reference check</li>
+<li>[x] No broken internal document links — all <code>docs/</code> references resolve</li>
+<li>[x] No vault/local paths in any doc — <code>grep -r "/Users/\|vault\|2nd-brain\|obsidian" docs/</code> returns 0 hits</li>
+</ul>
+<h4 id="glm-52-review-per-sprint-gate_1">▶ GLM 5.2 Review (per-sprint gate)</h4>
+<ul>
+<li>[x] <strong>Code review</strong> — Review all docs with GLM 5.2 for consistency</li>
+<li>[x] PRD ↔ SPEC ↔ WBS: all cross-references valid</li>
+<li>[x] No contradictory requirements between documents</li>
+<li>[x] All FRs mapped: every PRD FR has a SPEC section and a WBS task</li>
+<li>[x] <strong>Lint cleanup</strong> — <code>ruff check docs/</code> or manual lint passes (markdown formatting consistent)</li>
+<li>[x] <strong>Comments</strong> — Spec code examples have explanatory comments; data models have field-level descriptions</li>
+</ul>
+<h4 id="checkpoint-s2-all-passed">▶ Checkpoint S2 — ✅ All passed</h4>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>How to verify</th>
+<th>Pass criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PRD complete</td>
+<td>All 28 sections present</td>
+<td>✅ ≥28 <code>##</code> headings</td>
+</tr>
+<tr>
+<td>PRD competitive analysis</td>
+<td>6 projects analyzed</td>
+<td>✅ HolmesGPT, sre-warroom, sre-copilot, PagerDuty Copilot, ilert AI, Incident.io</td>
+</tr>
+<tr>
+<td>SPEC complete</td>
+<td>All 22 sections present</td>
+<td>✅ ≥22 <code>##</code> headings</td>
+</tr>
+<tr>
+<td>JSON schemas in SPEC</td>
+<td>PD-CEF mapping table present</td>
+<td>✅ §13.11 exists with input + output schemas</td>
+</tr>
+<tr>
+<td>COE research in SPEC</td>
+<td>§9.0 exists with source analysis</td>
+<td>✅ Amazon, Google SRE, Cloudflare, GitLab, GitHub parsed</td>
+</tr>
+<tr>
+<td>Real-data test matrix</td>
+<td>§17.5 exists with 9 configs (A-I)</td>
+<td>✅ LLMs × rules matrix defined</td>
+</tr>
+<tr>
+<td>Safety constraints documented</td>
+<td>Interrupt points, confidence thresholds, citation requirements</td>
+<td>✅ §14 exists with guardrail table</td>
+</tr>
+<tr>
+<td>WBS matches SPEC</td>
+<td>All WBS tasks traceable to SPEC sections</td>
+<td>✅ Manual cross-reference</td>
+</tr>
+<tr>
+<td>No internal refs</td>
+<td><code>grep -r "/Users/\|vault\|2nd-brain" docs/</code></td>
+<td>✅ 0 hits</td>
+</tr>
+<tr>
+<td>FR → SPEC mapping</td>
+<td>Every FR in PRD has corresponding SPEC section</td>
+<td>✅ Manual check</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="s3-simulation-timeline-deploy-correlation-schemas-s2-3">S3: Simulation + Timeline + Deploy Correlation + Schemas ⚡ S2 <a href="https://github.com/deghosal-2026/ai-incident-commander/issues/3">#3</a></h3>
+<p><strong>🤖 LLM strategy:</strong> Local model (OMLX qwen2.5-coder:7b) — Pydantic models and timeline logic are mechanical; free</p>
+<h4 id="tasks_2">Tasks</h4>
+<ul>
+<li>[x] Create <code>src/incident_commander/config.py</code>:</li>
+<li>[x] <code>LLMConfig</code> Pydantic model — analysis_model, analysis_base_url, comms_model, comms_base_url, postmortem_model, postmortem_base_url, model_pricing dict</li>
+<li>[x] <code>Config</code> Pydantic model — mode, llm, cadence dict (SEV1=5, SEV2=15, SEV3=30), confidence_threshold (0.7), deploy_correlation_window_minutes (30), qdrant_url, qdrant_collection, github_token, session_dir, log_dir, output_format</li>
+<li>[x] Pydantic validators: confidence_threshold ge=0.0 le=1.0, deploy_correlation_window_minutes ge=1</li>
+<li>[x] Sensible defaults: mode="simulate", analysis_model="ollama/qwen2.5-coder:7b"</li>
+<li>[x] Create <code>src/incident_commander/models/state.py</code>:</li>
+<li>[x] <code>Alert</code> — severity, service, summary, source, timestamp, incident_id, metadata</li>
+<li>[x] <code>TimelineEvent</code> — timestamp, source, event_type, content, trust_level, deploy_correlation</li>
+<li>[x] <code>IncidentState</code> — full state schema per SPEC §2.1 (all fields)</li>
+<li>[x] <code>DeployCorrelation</code> — pr_number, pr_title, author, merge_time, files_changed, minutes_before_alert, correlation_strength</li>
+<li>[x] <code>StakeholderUpdate</code> — update_number, impact, root_cause_hypothesis, action, next_update_time, confidence, approved, timestamp</li>
+<li>[x] <code>RemediationSuggestion</code> — action, citation, confidence, dry_run_outcome, similar_incidents, approved</li>
+<li>[x] <code>PostmortemSection</code> — title, content, ai_generated</li>
+<li>[x] <code>Postmortem</code> — incident_id, incident_date, severity, service, summary, timeline, rca, systemic_factors, action_items, customer_impact, stakeholder_comm_log, regulatory_compliance</li>
+<li>[x] <code>ActionItem</code> — description, suggested_owner, priority, ai_generated</li>
+<li>[x] <code>CostReport</code> — session_id, total_input_tokens, total_output_tokens, total_tokens, total_estimated_cost_usd, per_node, models_used</li>
+<li>[x] <code>NodeCost</code> — node_name, llm_model, input_tokens, output_tokens, total_tokens, estimated_cost_usd, latency_ms</li>
+<li>[x] Create <code>src/incident_commander/models/input.py</code>:</li>
+<li>[x] <code>ChatMessage</code> — timestamp, author, text, channel, thread_ts</li>
+<li>[x] <code>LogEntry</code> — timestamp, level, message, source, metadata</li>
+<li>[x] <code>GitHubPR</code> — number, title, author, merge_time, files_changed, labels, base_branch</li>
+<li>[x] <code>Runbook</code> — id, title, path, content, keywords, service</li>
+<li>[x] <code>IncidentMeta</code> — incident_id, service, severity, start_time, description, commander, oncall_roster, tags</li>
+<li>[x] <code>IncidentInput</code> — schema_version, alert, logs, messages, github, runbooks, manual_events, meta</li>
+<li>[x] Create <code>src/incident_commander/models/output.py</code>:</li>
+<li>[x] <code>IncidentResult</code> — thread_id, timeline, stakeholder_updates, remediation_suggestions, deploy_correlations, postmortem, cost_report, session_dir, to_markdown(), to_json()</li>
+<li>[x] <code>SessionMeta</code> — thread_id, models_used, total_cost_usd, total_tokens, started_at, ended_at, mode, auto_approved</li>
+<li>[x] <code>LLMCall</code> — call_id, timestamp, node_name, model, input_tokens, output_tokens, total_tokens, estimated_cost_usd, latency_ms, prompt_hash, response_truncated, error</li>
+<li>[x] Create <code>src/incident_commander/models/__init__.py</code> — re-export all models</li>
+<li>[x] Create <code>src/incident_commander/simulation/simulator.py</code>:</li>
+<li>[x] <code>IncidentSimulator</code> — generates fake alert, log entries, chat messages, GitHub PRs</li>
+<li>[x] Configurable: service name, severity, seed for reproducibility</li>
+<li>[x] <code>simulate(service, severity) -&gt; IncidentInput</code> — returns full simulated input</li>
+<li>[x] Deterministic with seed: same seed → same output</li>
+<li>[x] <code>deploy_correlated</code> flag controls PR merge timing (before/after alert)</li>
+<li>[x] Create <code>src/incident_commander/simulation/scenarios.py</code>:</li>
+<li>[x] 8 pre-built scenarios per SPEC §4.2:<ul>
+<li>[x] <code>db-connection-pool</code> — SEV1, payment-service, pool exhaustion, PR correlation</li>
+<li>[x] <code>bad-deploy</code> — SEV2, api-gateway, misconfigured route, PR correlation</li>
+<li>[x] <code>memory-leak</code> — SEV2, auth-service, gradual memory growth, no PR correlation</li>
+<li>[x] <code>cert-expiry</code> — SEV1, api-gateway, TLS cert expired, no PR correlation</li>
+<li>[x] <code>dependency-outage</code> — SEV1, payment-service, third-party API down, no PR correlation</li>
+<li>[x] <code>config-drift</code> — SEV3, web-frontend, stale config, weak PR correlation</li>
+<li>[x] <code>cache-invalidation</code> — SEV2, product-catalog, stale cache, no PR correlation</li>
+<li>[x] <code>rate-limit-hit</code> — SEV3, search-service, upstream rate limit, no PR correlation</li>
+</ul>
+</li>
+<li>[x] <code>SCENARIOS</code> dict mapping scenario name → scenario config</li>
+<li>[x] <code>load_scenario(name, seed) -&gt; IncidentInput</code> function</li>
+<li>[x] Each scenario has: service, severity, deploy_correlated (bool), expected_runbook_matches</li>
+<li>[x] Create <code>src/incident_commander/simulation/demo_runbooks.py</code>:</li>
+<li>[x] 6 demo runbooks per SPEC §4.3: db-connection-pool, rollback-procedure, cert-renewal, cache-clear, rate-limit-negotiation, memory-leak</li>
+<li>[x] Markdown content with keywords for RAG indexing</li>
+<li>[x] Each runbook has: title, content (markdown), keywords list, service tag</li>
+<li>[x] <code>DEMO_PAST_INCIDENTS</code> — 6 sample past incidents for RAG retrieval</li>
+<li>[x] Create <code>src/incident_commander/nodes/timeline.py</code>:</li>
+<li>[x] <code>build_timeline_node(state) -&gt; state</code> — merge multi-source events into chronological order</li>
+<li>[x] Trust hierarchy: alert/chat/github = high, logs = medium, manual = low</li>
+<li>[x] <code>add_event(state, event)</code> — append event with trust level metadata</li>
+<li>[x] <code>get_timeline_summary(state) -&gt; str</code> — human-readable timeline for display</li>
+<li>[x] Handle: empty timeline, single event, events with same timestamp (stable sort by trust level)</li>
+<li>[x] Create <code>src/incident_commander/nodes/deploy_correlation.py</code>:</li>
+<li>[x] <code>correlate_deploys_node(state) -&gt; state</code> — correlate GitHub PRs with alert timestamp</li>
+<li>[x] Correlation window: configurable (default 30 min)</li>
+<li>[x] Correlation strength: strong (&lt;15 min), weak (&lt;30 min)</li>
+<li>[x] Mark timeline events with <code>deploy_correlation: True</code> if within window</li>
+<li>[x] Handle: no PRs in input (skip gracefully), PRs outside window (no correlation), multiple PRs within window (all correlated)</li>
+<li>[x] Create <code>src/incident_commander/schema.py</code>:</li>
+<li>[x] <code>SCHEMAS</code> registry — dict mapping 16 schema names → Pydantic models</li>
+<li>[x] <code>export_schemas(output_dir) -&gt; list[Path]</code> — export all JSON Schemas to files</li>
+<li>[x] <code>validate_input(data, schema_name) -&gt; bool</code> — validate dict against named schema</li>
+<li>[x] <code>SCHEMA_VERSION = "0.1.0"</code> constant</li>
+<li>[x] All 11 mypy strict errors fixed (dict/tuple type args, type[BaseModel])</li>
+<li>[x] Write unit tests:</li>
+<li>[x] <code>tests/unit/test_config.py</code> (10 tests):<ul>
+<li>[x] Default config values correct (mode, model, cadence, threshold)</li>
+<li>[x] Custom config values accepted</li>
+<li>[x] Invalid confidence_threshold (&lt; 0, &gt; 1) raises ValidationError</li>
+<li>[x] Invalid severity raises ValidationError</li>
+<li>[x] Cadence dict accepts custom values</li>
+<li>[x] LLMConfig defaults: comms_model=None, postmortem_model=None</li>
+</ul>
+</li>
+<li>[x] <code>tests/unit/test_models.py</code> (44 tests):<ul>
+<li>[x] Each model: valid input → creates instance</li>
+<li>[x] Each model: missing required field → raises ValidationError</li>
+<li>[x] Each model: invalid field type → raises ValidationError</li>
+<li>[x] Alert: severity enum restricted to SEV1/SEV2/SEV3</li>
+<li>[x] TimelineEvent: source enum restricted to alert/chat/log/github/manual</li>
+<li>[x] TimelineEvent: trust_level enum restricted to high/medium/low</li>
+<li>[x] DeployCorrelation: correlation_strength enum restricted to strong/weak</li>
+<li>[x] Postmortem: all COE sections present as PostmortemSection</li>
+<li>[x] ActionItem: priority enum restricted to P0/P1/P2</li>
+<li>[x] CostReport: total_tokens = input + output (validator)</li>
+<li>[x] IncidentState: default values (empty lists, None optionals)</li>
+<li>[x] IncidentInput: required=alert, optional=everything else</li>
+</ul>
+</li>
+<li>[x] <code>tests/unit/test_simulation.py</code> (18 tests):<ul>
+<li>[x] Simulator produces valid IncidentInput for each severity (SEV1, SEV2, SEV3)</li>
+<li>[x] Simulator with seed=42 produces deterministic output (same seed → same result)</li>
+<li>[x] All 8 scenarios load via <code>load_scenario(name)</code> and return valid IncidentInput</li>
+<li>[x] Each scenario has correct service and severity</li>
+<li>[x] Scenarios with deploy_correlated=True have PRs before alert</li>
+<li>[x] Scenarios with deploy_correlated=False have PRs after alert</li>
+<li>[x] Demo runbooks: all 6 load with content and keywords</li>
+<li>[x] Unknown scenario name raises KeyError</li>
+</ul>
+</li>
+<li>[x] <code>tests/unit/test_timeline.py</code> (18 tests):<ul>
+<li>[x] Empty timeline → empty list, no crash</li>
+<li>[x] Single event → timeline with 1 event</li>
+<li>[x] Events from 4 sources (alert, log, chat, github) → sorted chronologically</li>
+<li>[x] Events with same timestamp → stable sort by trust level (high first)</li>
+<li>[x] Trust levels applied correctly per source</li>
+<li>[x] <code>add_event</code> appends to timeline</li>
+<li>[x] <code>get_timeline_summary</code> returns human-readable string</li>
+<li>[x] Manual events have trust_level "low"</li>
+</ul>
+</li>
+<li>[x] <code>tests/unit/test_deploy_correlation.py</code> (14 tests):<ul>
+<li>[x] PR merged 10 min before alert → strong correlation</li>
+<li>[x] PR merged 20 min before alert → weak correlation</li>
+<li>[x] PR merged 35 min before alert → no correlation (outside 30 min window)</li>
+<li>[x] PR merged after alert → no correlation</li>
+<li>[x] No PRs in input → no correlations, no crash</li>
+<li>[x] Multiple PRs within window → all correlated</li>
+<li>[x] Timeline events marked with deploy_correlation=True</li>
+<li>[x] Custom window (15 min) respected</li>
+</ul>
+</li>
+<li>[x] <code>tests/unit/test_schema.py</code> (10 tests):<ul>
+<li>[x] <code>export_schemas("./schemas/")</code> creates 16 JSON Schema files</li>
+<li>[x] Each exported schema has $id, $schema, title</li>
+<li>[x] <code>validate_input</code> with valid alert dict → returns True</li>
+<li>[x] <code>validate_input</code> with missing required field → raises ValidationError</li>
+<li>[x] <code>validate_input</code> with invalid severity → raises ValidationError</li>
+<li>[x] <code>validate_input</code> with unknown schema name → raises KeyError</li>
+<li>[x] SCHEMA_VERSION = "0.1.0"</li>
+</ul>
+</li>
+</ul>
+<h4 id="glm-52-review-per-sprint-gate_2">▶ GLM 5.2 Review (per-sprint gate)</h4>
+<ul>
+<li>[x] <strong>Code review</strong> — Review all S3 modules with GLM 5.2</li>
+<li>[x] <code>config.py</code>: defaults correct, validators enforce constraints, pricing dict complete</li>
+<li>[x] <code>models/</code>: every field matches SPEC §2, enums restricted correctly, defaults sensible</li>
+<li>[x] <code>simulation/</code>: simulator deterministic, all 8 scenarios produce valid IncidentInput, runbooks indexed correctly</li>
+<li>[x] <code>nodes/</code>: timeline merge correct (stable sort, trust hierarchy), deploy correlation window and strength logic correct</li>
+<li>[x] <code>schema.py</code>: registry has 16 schemas, export creates valid JSON Schema files, validation raises on bad input</li>
+<li>Bug audit completed: 70 issues found → 12 GitHub issues → all fixed and closed</li>
+<li>SPEC alignment fixes: IncidentState input fields, Postmortem sections, scenario deploy_correlated, deploy correlation boundary</li>
+<li>[x] <strong>Test review</strong> — Review all 133 unit tests with GLM 5.2</li>
+<li>[x] Coverage: every model validated (valid + invalid input), every edge case (empty/null/None)</li>
+<li>[x] Simulation: deterministic seed, all 8 scenarios, unknown scenario raises KeyError</li>
+<li>[x] Timeline: empty, single, multi-source, same-timestamp stable sort</li>
+<li>[x] Deploy correlation: strong/weak thresholds, no-PRs skip, multiple PRs, custom window</li>
+<li>[x] Schema: export count (16 files), validate passes/fails correctly, unknown schema raises</li>
+<li>[x] <strong>Lint cleanup</strong> — <code>ruff check src/ tests/</code> returns 0 — ruff=0, mypy=0 across 21 src/ files</li>
+<li>[x] <strong>Typecheck</strong> — <code>mypy --strict src/</code> returns 0 — 21 files, 0 errors</li>
+<li>[x] <strong>Comments</strong> — All public classes/functions have docstrings; complex logic has inline comments; ruff D rules pass</li>
+<li>[x] <strong>Test comments</strong> — Each test <code>def test_*</code> has a one-line docstring; inline comments added throughout</li>
+</ul>
+<h4 id="checkpoint-s3-all-passed">▶ Checkpoint S3 — ✅ All passed</h4>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>How to verify</th>
+<th>Pass criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Models importable</td>
+<td><code>from incident_commander.models import Alert, TimelineEvent, ...</code></td>
+<td>✅ All 19 models importable</td>
+</tr>
+<tr>
+<td>Config works</td>
+<td><code>Config()</code> creates with defaults; <code>Config(mode="run")</code> accepts</td>
+<td>✅ No ValidationError</td>
+</tr>
+<tr>
+<td>All 8 scenarios work</td>
+<td><code>for name in SCENARIOS: load_scenario(name, seed=42)</code></td>
+<td>✅ All 8 produce valid IncidentInput</td>
+</tr>
+<tr>
+<td>Deterministic simulation</td>
+<td><code>IncidentSimulator(seed=42).simulate("svc","SEV1")</code> called twice → identical output</td>
+<td>✅ Deterministic</td>
+</tr>
+<tr>
+<td>Timeline merges correctly</td>
+<td>Build timeline from 4 sources (alert, log, chat, github)</td>
+<td>✅ Chronologically sorted, trust levels applied</td>
+</tr>
+<tr>
+<td>Same-timestamp stable sort</td>
+<td>Two events with same timestamp, different trust</td>
+<td>✅ High-trust event first</td>
+</tr>
+<tr>
+<td>Empty timeline</td>
+<td><code>build_timeline_node(IncidentState())</code></td>
+<td>✅ No crash, empty timeline</td>
+</tr>
+<tr>
+<td>Deploy correlation works</td>
+<td>PR within 30 min flagged, strength calculated</td>
+<td>✅ strong (&lt;15 min), weak (&lt;30 min)</td>
+</tr>
+<tr>
+<td>No PRs</td>
+<td><code>correlate_deploys_node(IncidentState())</code></td>
+<td>✅ No crash, no correlations</td>
+</tr>
+<tr>
+<td>JSON Schemas export</td>
+<td><code>export_schemas(tmp_path)</code></td>
+<td>✅ 16 JSON files created</td>
+</tr>
+<tr>
+<td>Schema validation works</td>
+<td><code>validate_input(valid_dict, "alert")</code> → True; <code>validate_input(invalid_dict, "alert")</code> → raises</td>
+<td>✅ Correct pass/fail</td>
+</tr>
+<tr>
+<td>Unit tests pass</td>
+<td><code>pytest tests/unit/ -v</code></td>
+<td>✅ 133 tests, all green</td>
+</tr>
+<tr>
+<td>ruff clean</td>
+<td><code>ruff check src/ tests/</code></td>
+<td>✅ 0 errors</td>
+</tr>
+<tr>
+<td>mypy clean</td>
+<td><code>mypy --strict src/</code></td>
+<td>✅ 0 errors (21 files)</td>
+</tr>
+<tr>
+<td>pip-audit clean</td>
+<td><code>pip-audit</code></td>
+<td>✅ 0 vulnerabilities</td>
+</tr>
+<tr>
+<td>Coverage</td>
+<td><code>pytest --cov=incident_commander --cov-fail-under=80</code></td>
+<td>✅ 99% coverage</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="s4-data-ingestion-rag-cost-tracking-persistence-s3-4">S4: Data Ingestion + RAG + Cost Tracking + Persistence ⚡ S3 <a href="https://github.com/deghosal-2026/ai-incident-commander/issues/4">#4</a></h3>
+<p><strong>🤖 LLM strategy:</strong> Local model (OMLX qwen2.5-coder:7b) for parsers; GLM 5.2 for LLM router design</p>
+<h4 id="tasks_3">Tasks</h4>
+<ul>
+<li>[x] Create <code>src/incident_commander/ingest/normalizer.py</code>:</li>
+<li>[x] <code>_normalize_alert(alert)</code> — accepts Alert object, dict, or path to JSON file → returns Alert</li>
+<li>[x] <code>_normalize_logs(logs)</code> — accepts list of dicts, list of LogEntry, or path to log directory → returns list[LogEntry]</li>
+<li>[x] <code>_normalize_messages(messages)</code> — accepts list of dicts or path to JSON file → returns list[ChatMessage]</li>
+<li>[x] <code>_normalize_github(github)</code> — accepts list of dicts or path to JSON file → returns list[GitHubPR]</li>
+<li>[x] <code>_normalize_runbooks(runbooks)</code> — accepts list of dicts or list of Runbook → returns list[Runbook]</li>
+<li>[x] Handle: None inputs (return empty list), invalid types (raise TypeError), file not found (raise FileNotFoundError)</li>
+<li>[x] Create <code>src/incident_commander/ingest/input_dir.py</code>:</li>
+<li>[x] <code>InputDirLoader</code> — loads all files from structured input directory per SPEC §13.3</li>
+<li>[x] Required: meta.json, alert.json — raise FileNotFoundError if missing</li>
+<li>[x] Optional: logs/ directory, messages.json, github.json, runbooks/ directory, notes.md</li>
+<li>[x] <code>load() -&gt; IncidentInput</code> — returns full incident input</li>
+<li>[x] Handle: missing optional files (graceful default to empty), malformed JSON (raise with file path in message), empty directory (raise FileNotFoundError)</li>
+<li>[x] Create <code>src/incident_commander/ingest/log_parser.py</code>:</li>
+<li>[x] <code>parse_log_file(path) -&gt; list[LogEntry]</code> — parses <code>.log</code>, <code>.json</code>, and <code>.md</code> log files</li>
+<li>[x] <code>.log</code> format: parse lines matching <code>TIMESTAMP LEVEL SOURCE: MESSAGE</code> pattern</li>
+<li>[x] <code>.json</code> format: parse JSON array of log entry objects</li>
+<li>[x] <code>.md</code> format: parse markdown with code blocks containing log lines</li>
+<li>[x] Handle: empty file (return []), malformed lines (skip with warning), unknown format (skip file)</li>
+<li>[x] Timestamp parsing: ISO 8601, Unix epoch, common log formats</li>
+<li>[x] Create <code>src/incident_commander/ingest/notes_parser.py</code>:</li>
+<li>[x] <code>parse_notes_to_events(notes_text) -&gt; list[TimelineEvent]</code> — parses notes.md <code>##</code> headings into TimelineEvents</li>
+<li>[x] Each <code>##</code> heading becomes a timeline event with timestamp extracted from heading or content</li>
+<li>[x] Parsed as manual events with trust_level "low"</li>
+<li>[x] Content under heading becomes event content</li>
+<li>[x] Handle: empty notes (return []), no headings (return []), malformed timestamps (use current time as fallback)</li>
+<li>[x] Create <code>src/incident_commander/llm_router.py</code>:</li>
+<li>[x] <code>LLMRouter</code> — routes LLM calls to local (Ollama/OMLX) or cloud (OpenAI/Anthropic) models</li>
+<li>[x] Model routing: analysis → config.llm.analysis_model, comms → config.llm.comms_model (fallback to analysis), postmortem → config.llm.postmortem_model (fallback to analysis)</li>
+<li>[x] <code>generate(prompt, task, model) -&gt; (response, info)</code> — returns response string + LLMCall info object</li>
+<li>[x] Mock-friendly: accepts <code>mock_llm</code> parameter for testing (no real LLM calls in tests)</li>
+<li>[x] Handle: LLM timeout (raise with timeout message), LLM error (raise with error details), empty response (return empty string with warning)</li>
+<li>[x] Create <code>src/incident_commander/llm_router.py</code> (continued):</li>
+<li>[x] <code>CostTracker</code> — accumulates per-node token counts and costs per SPEC §11.1</li>
+<li>[x] <code>record_call(node_name, model, input_tokens, output_tokens, cost_usd, latency_ms)</code> — adds to tracker</li>
+<li>[x] <code>get_report() -&gt; CostReport</code> — returns aggregate CostReport with per-node breakdown</li>
+<li>[x] <code>total_tokens = total_input + total_output</code> (validator)</li>
+<li>[x] Handle: zero calls (return empty CostReport)</li>
+<li>[x] <code>LLMObserver</code> — logs every LLM call to JSONL (llm-calls.jsonl) per SPEC §11.2</li>
+<li>[x] Each LLM call logged: call_id, timestamp, node_name, model, tokens, cost, latency, prompt_hash (SHA-256 of prompt)</li>
+<li>[x] JSONL format: one JSON object per line, append-only</li>
+<li>[x] Handle: log directory doesn't exist (create it), write failure (log warning, don't crash)</li>
+<li>[x] Create <code>src/incident_commander/nodes/rag.py</code>:</li>
+<li>[x] <code>InMemoryRetriever</code> (default) — indexes runbooks in memory</li>
+<li>[x] <code>index(runbooks: list[Runbook])</code> — builds keyword index from runbook content + keywords</li>
+<li>[x] <code>query_runbooks(service, symptoms) -&gt; list[dict]</code> — returns ranked runbooks with citations</li>
+<li>[x] <code>query_past_incidents(service, symptoms) -&gt; list[dict]</code> — returns similar past incidents (from demo data)</li>
+<li>[x] Returns: list of dicts with {title, path, content_snippet, keywords, citation, relevance_score}</li>
+<li>[x] Ranking: keyword overlap + service match + symptom similarity</li>
+<li>[x] <code>QdrantRetriever</code> (optional) — uses Qdrant for persistent RAG, same interface</li>
+<li>[x] <code>Retriever</code> protocol — Protocol class for mock injection</li>
+<li>[x] <code>retrieve_runbooks_node(state) -&gt; state</code> — queries retriever, stores results in state.retrieved_runbooks + state.retrieved_incidents</li>
+<li>[x] Handle: empty runbook index (return empty list), no match (return empty list), retriever error (log warning, continue with empty results)</li>
+<li>[x] Create <code>src/incident_commander/nodes/rerank.py</code>:</li>
+<li>[x] <code>rerank_evidence_node(state) -&gt; state</code> — reranks retrieved evidence by relevance</li>
+<li>[x] Combines RAG retrieval results with timeline evidence</li>
+<li>[x] Reranking: prioritize evidence that matches service + has high keyword overlap + correlates with deploy</li>
+<li>[x] Returns reranked evidence list in state.reranked_evidence</li>
+<li>[x] Handle: no evidence retrieved (return empty list)</li>
+<li>[x] Create <code>src/incident_commander/persistence.py</code>:</li>
+<li>[x] <code>SessionManager</code> — JSON file-based session persistence for LangGraph</li>
+<li>[x] <code>__init__(session_dir)</code> — creates session directory if not exists</li>
+<li>[x] <code>get_checkpointer(thread_id) -&gt; _SessionCheckpointer</code> — returns checkpointer for session</li>
+<li>[x] <code>export_session(thread_id) -&gt; dict</code> — exports full session as JSON</li>
+<li>[x] <code>list_sessions() -&gt; list[str]</code> — lists all session thread IDs</li>
+<li>[x] Session files in configured directory (default <code>~/.incident-commander/sessions/</code>)</li>
+<li>[x] Handle: session doesn't exist (raise KeyError), corrupt session file (raise with message), permission error (raise with message)</li>
+<li>[x] Write unit tests:</li>
+<li>[x] <code>tests/unit/test_normalizer.py</code> (18 tests):<ul>
+<li>[x] Alert object → passes through</li>
+<li>[x] Alert dict → converted to Alert</li>
+<li>[x] Alert JSON file path → reads file, converts to Alert</li>
+<li>[x] Logs as list of dicts → converted to list[LogEntry]</li>
+<li>[x] Logs as path to directory → reads all .log files, converts</li>
+<li>[x] Messages as list of dicts → converted to list[ChatMessage]</li>
+<li>[x] Messages as JSON file path → reads, converts</li>
+<li>[x] GitHub as list of dicts → converted to list[GitHubPR]</li>
+<li>[x] None input → returns empty list</li>
+<li>[x] Invalid type → raises TypeError</li>
+<li>[x] File not found → raises FileNotFoundError</li>
+<li>[x] Malformed JSON file → raises with file path in message</li>
+</ul>
+</li>
+<li>[x] <code>tests/unit/test_input_dir.py</code> (8 tests):<ul>
+<li>[x] Full directory: meta.json + alert.json + logs/ + messages.json + github.json + runbooks/ + notes.md → valid IncidentInput</li>
+<li>[x] Missing meta.json → raises FileNotFoundError</li>
+<li>[x] Missing alert.json → raises FileNotFoundError</li>
+<li>[x] Missing optional files (messages, github, runbooks, notes) → graceful defaults (empty lists)</li>
+<li>[x] Empty logs/ directory → empty log list</li>
+<li>[x] Malformed JSON in alert.json → raises with file path</li>
+<li>[x] Non-existent directory → raises FileNotFoundError</li>
+</ul>
+</li>
+<li>[x] <code>tests/unit/test_log_parser.py</code> (7 tests):<ul>
+<li>[x] <code>.log</code> file with standard format → parsed to LogEntry list</li>
+<li>[x] <code>.json</code> file with log array → parsed to LogEntry list</li>
+<li>[x] <code>.md</code> file with code blocks → code blocks extracted and parsed</li>
+<li>[x] Empty file → returns []</li>
+<li>[x] Malformed lines in .log → skipped with warning</li>
+<li>[x] Unknown file extension → skipped</li>
+<li>[x] Multiple log files sorted by name</li>
+</ul>
+</li>
+<li>[x] <code>tests/unit/test_notes_parser.py</code> (8 tests):<ul>
+<li>[x] Notes with 3 <code>##</code> headings → 3 TimelineEvents</li>
+<li>[x] Events have trust_level "low"</li>
+<li>[x] Events have source "manual"</li>
+<li>[x] Timestamp extracted from heading if present</li>
+<li>[x] Empty notes → returns []</li>
+<li>[x] No headings → returns []</li>
+<li>[x] Content under heading becomes event content</li>
+</ul>
+</li>
+<li>[x] <code>tests/unit/test_llm_router.py</code> (12 tests):<ul>
+<li>[x] Analysis task → calls analysis_model</li>
+<li>[x] Comms task → calls comms_model (or analysis_model if comms_model is None)</li>
+<li>[x] Postmortem task → calls postmortem_model (or analysis_model if postmortem_model is None)</li>
+<li>[x] Mock LLM returns configured response</li>
+<li>[x] CostTracker: record 3 calls → get_report() returns correct totals</li>
+<li>[x] CostTracker: total_tokens = sum of input + output</li>
+<li>[x] CostTracker: total_cost = sum of per-call costs</li>
+<li>[x] CostTracker: zero calls → empty CostReport</li>
+<li>[x] LLMObserver: logs to JSONL file, one line per call</li>
+<li>[x] LLMObserver: each log line has all required fields</li>
+<li>[x] LLMObserver: prompt_hash is SHA-256 of prompt</li>
+<li>[x] LLM timeout → raises with timeout message</li>
+<li>[x] LLM error → raises with error details</li>
+</ul>
+</li>
+<li>[x] <code>tests/unit/test_rag.py</code> (8 tests):<ul>
+<li>[x] InMemoryRetriever: index 5 runbooks → query returns ranked results</li>
+<li>[x] Query by service name → returns runbooks tagged with that service</li>
+<li>[x] Query by symptoms → returns runbooks with matching keywords</li>
+<li>[x] Results include citation (runbook title/path)</li>
+<li>[x] Results include relevance_score</li>
+<li>[x] Empty index → query returns []</li>
+<li>[x] No match → query returns []</li>
+<li>[x] QdrantRetriever mock → same interface, returns mock results</li>
+<li>[x] retrieve_runbooks_node: stores results in state.retrieved_runbooks</li>
+<li>[x] retrieve_runbooks_node: stores past incidents in state.retrieved_incidents</li>
+</ul>
+</li>
+<li>[x] <code>tests/unit/test_rerank.py</code> (4 tests):<ul>
+<li>[x] Rerank with 5 evidence items → returns reordered list</li>
+<li>[x] Evidence matching service + deploy correlation → ranked higher</li>
+<li>[x] No evidence → returns empty list</li>
+<li>[x] Reranked evidence stored in state.reranked_evidence</li>
+</ul>
+</li>
+<li>[x] <code>tests/unit/test_persistence.py</code> (8 tests):<ul>
+<li>[x] Save session → load session → state matches</li>
+<li>[x] Export session → returns dict with all state fields</li>
+<li>[x] List sessions → returns list of thread IDs</li>
+<li>[x] Non-existent session → raises KeyError</li>
+<li>[x] Session directory created if not exists</li>
+<li>[x] Multiple sessions coexist</li>
+</ul>
+</li>
+</ul>
+<h4 id="glm-52-review-per-sprint-gate_3">▶ GLM 5.2 Review (per-sprint gate)</h4>
+<ul>
+<li>[x] <strong>Code review</strong> — Review all S4 modules with GLM 5.2</li>
+<li>[x] <code>ingest/</code>: normalizer handles all input types (obj/dict/path), input_dir loader handles missing/optional files correctly, log parser handles all 3 formats, notes parser extracts headings properly</li>
+<li>[x] <code>llm_router.py</code>: routing logic correct (analysis/comms/postmortem fallback chains), CostTracker accumulates correctly, LLMObserver writes valid JSONL</li>
+<li>[x] <code>nodes/rag.py</code>: InMemoryRetriever indexes and queries correctly, QdrantRetriever has same interface, rerank evidence prioritizes correctly</li>
+<li>[x] <code>persistence.py</code>: SessionManager creates/reads/writes sessions, exports JSON, lists sessions</li>
+<li>[x] <strong>Test review</strong> — Review all ~73 unit tests with GLM 5.2</li>
+<li>[x] Normalizer: each type accepted, None→empty, invalid→TypeError, file-not-found→FileNotFoundError</li>
+<li>[x] Input dir: missing required files, optional files graceful, malformed JSON, empty directory</li>
+<li>[x] Log parser: .log/.json/.md formats, empty file, malformed lines, unknown format</li>
+<li>[x] Notes parser: empty notes, no headings, malformed timestamps</li>
+<li>[x] LLM router: timeout, error, empty response, mock injection</li>
+<li>[x] RAG: empty index, no match, retriever error</li>
+<li>[x] Persistence: CRUD operations, corrupt session, permissions</li>
+<li>[x] <strong>Lint cleanup</strong> — <code>ruff check src/ tests/</code> returns 0</li>
+<li>[x] <strong>Typecheck</strong> — <code>mypy --strict src/</code> returns 0</li>
+<li>[x] <strong>Comments</strong> — All public classes/functions have docstrings; parsers have format examples in comments</li>
+<li>[x] <strong>Test comments</strong> — Each test <code>def test_*</code> has a one-line docstring</li>
+</ul>
+<h4 id="checkpoint-s4-all-passed">▶ Checkpoint S4 — ✅ All passed</h4>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>How to verify</th>
+<th>Pass criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Input directory loads</td>
+<td><code>InputDirLoader("./tests/fixtures/incident-2026-001/").load()</code></td>
+<td>✅ Returns valid IncidentInput with all fields populated</td>
+</tr>
+<tr>
+<td>Missing required file</td>
+<td><code>InputDirLoader("./empty-dir/").load()</code></td>
+<td>✅ Raises FileNotFoundError with file name</td>
+</tr>
+<tr>
+<td>Missing optional files</td>
+<td>Directory with only meta.json + alert.json</td>
+<td>✅ Returns IncidentInput with empty lists for missing optionals</td>
+</tr>
+<tr>
+<td>Log parser handles all formats</td>
+<td>Parse .log, .json, .md files from test fixtures</td>
+<td>✅ All parse to LogEntry objects with correct timestamps</td>
+</tr>
+<tr>
+<td>Empty log file</td>
+<td><code>parse_log_file("empty.log")</code></td>
+<td>✅ Returns [], no crash</td>
+</tr>
+<tr>
+<td>Notes parser works</td>
+<td><code>parse_notes_to_events("## 14:05\nFirst responder...")</code></td>
+<td>✅ Returns 1 TimelineEvent with trust_level "low", source "manual"</td>
+</tr>
+<tr>
+<td>LLM router routes correctly</td>
+<td>Mock LLM, call with task="analysis" → analysis_model called</td>
+<td>✅ Correct model selected</td>
+</tr>
+<tr>
+<td>LLM fallback</td>
+<td>comms_model=None, task="comms" → analysis_model called</td>
+<td>✅ Fallback works</td>
+</tr>
+<tr>
+<td>Cost tracking accurate</td>
+<td>Record 3 calls with known tokens → get_report()</td>
+<td>✅ total_tokens = sum, per_node has 3 entries</td>
+</tr>
+<tr>
+<td>Cost report validator</td>
+<td>total_tokens ≠ input + output</td>
+<td>✅ ValidationError raised</td>
+</tr>
+<tr>
+<td>LLM observer logs</td>
+<td>Call generate() 3 times → read JSONL file</td>
+<td>✅ 3 lines, each with all required fields</td>
+</tr>
+<tr>
+<td>LLM prompt hash</td>
+<td>Read JSONL, check prompt_hash</td>
+<td>✅ SHA-256 hex string, 64 chars</td>
+</tr>
+<tr>
+<td>In-memory retriever works</td>
+<td>Index demo runbooks, query "db connection pool"</td>
+<td>✅ Returns db-connection-pool runbook with citation</td>
+</tr>
+<tr>
+<td>Empty retriever index</td>
+<td>Query without indexing</td>
+<td>✅ Returns []</td>
+</tr>
+<tr>
+<td>Session persistence works</td>
+<td>Save → load → compare states</td>
+<td>✅ States match exactly</td>
+</tr>
+<tr>
+<td>Export session</td>
+<td><code>export_session(thread_id)</code></td>
+<td>✅ Returns dict with all state fields</td>
+</tr>
+<tr>
+<td>Unit tests pass</td>
+<td><code>pytest tests/unit/ -v</code></td>
+<td>✅ All green (213 total, ~73 new)</td>
+</tr>
+<tr>
+<td>ruff clean</td>
+<td><code>ruff check</code></td>
+<td>✅ 0 errors</td>
+</tr>
+<tr>
+<td>mypy clean</td>
+<td><code>mypy --strict src/</code></td>
+<td>✅ 0 errors (pre-existing S3 mypy errors excluded)</td>
+</tr>
+<tr>
+<td>pip-audit clean</td>
+<td><code>pip-audit</code></td>
+<td>✅ 0 vulnerabilities</td>
+</tr>
+<tr>
+<td>Coverage</td>
+<td><code>pytest tests/unit/ --cov</code></td>
+<td>✅ 89% (threshold 80%)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="s5-comms-remediation-postmortem-graph-cli-api-done-s4-5">S5: Comms + Remediation + Postmortem + Graph + CLI + API — ✅ DONE ⚡ S4 <a href="https://github.com/deghosal-2026/ai-incident-commander/issues/5">#5</a></h3>
+<blockquote>
+<p><strong>Completed:</strong> 2026-07-13. 271 tests (213 unit + 58 integration). ruff=0, mypy=0, coverage ≥80%.</p>
+</blockquote>
+<p><strong>🤖 LLM strategy:</strong> GLM 5.2 for prompt design; local model for mechanical graph wiring</p>
+<h4 id="tasks_4">Tasks</h4>
+<ul>
+<li>[x] Create <code>src/incident_commander/nodes/stakeholder.py</code>:</li>
+<li>[x] <code>draft_update_node(state) -&gt; state</code> — LLM generates consequence-first update:<ul>
+<li>Impact (what's broken, who's affected)</li>
+<li>Root cause hypothesis (current best guess)</li>
+<li>Action taken (what we're doing about it)</li>
+<li>Next update time (severity-driven cadence: SEV1=5min, SEV2=15min, SEV3=30min)</li>
+</ul>
+</li>
+<li>[x] Prompt includes: incident summary, timeline summary, deploy correlations, retrieved runbooks</li>
+<li>[x] LLM response parsed into StakeholderUpdate with confidence score</li>
+<li>[x] Confidence threshold: if LLM confidence &lt; config.confidence_threshold (0.7), suppress suggestion, log "low confidence"</li>
+<li>[x] <code>produce_output_node(state) -&gt; state</code> — produces pasteable comms blocks:<ul>
+<li>Incident notes block (for PagerDuty/ticket): timeline + remediation summary</li>
+<li>Stakeholder comms block (for Slack/email): consequence-first format with clear separators</li>
+</ul>
+</li>
+<li>[x] <code>interrupt_for_approval(state) -&gt; state</code> — LangGraph <code>interrupt()</code> — commander reviews draft</li>
+<li>[x] Handle: LLM returns malformed response (parse what's available, log warning), empty timeline (draft minimal update)</li>
+<li>[x] Create <code>src/incident_commander/nodes/remediation.py</code>:</li>
+<li>[x] <code>suggest_remediation_node(state) -&gt; state</code> — pattern-matches past incidents + runbooks, suggests action with confidence</li>
+<li>[x] Every suggestion includes source citation: "Source: incident INC-2025-001, resolved by rollback"</li>
+<li>[x] If no citation in LLM response → reject suggestion, log "missing citation"</li>
+<li>[x] If confidence &lt; threshold → suppress suggestion, log "low confidence"</li>
+<li>[x] <code>dry_run_simulate_node(state) -&gt; state</code> — LLM simulates expected outcome (NOT code execution)</li>
+<li>[x] Prompt: "Given action X on service Y with current error rate Z, predict the expected outcome"</li>
+<li>[x] Response: text description of expected outcome (e.g., "payment success &gt;99% within 2 min of rollback")</li>
+<li>[x] <code>interrupt_for_remediation_review(state) -&gt; state</code> — commander reviews before action</li>
+<li>[x] Never executes — only suggests. Human decides.</li>
+<li>[x] Handle: no similar incidents found (suggest "no precedent — manual investigation"), LLM returns no action (state remains unchanged)</li>
+<li>[x] Create <code>src/incident_commander/nodes/postmortem.py</code>:</li>
+<li>[x] <code>generate_postmortem_node(state) -&gt; state</code> — generates COE-format postmortem:<ul>
+<li>Summary (always) — AI-generated, labeled</li>
+<li>Customer Impact (SEV1/SEV2 only) — AI-generated, labeled</li>
+<li>Timeline (always) — from session data, NOT AI-generated</li>
+<li>Root Cause Analysis (always) — AI-generated with citations to timeline events, labeled</li>
+<li>Systemic Contributing Factors (always) — AI-generated, blameless framing, labeled</li>
+<li>Action Items (always) — AI-generated with suggested owners, labeled</li>
+<li>Stakeholder Communication Log (SEV1 only) — from session state, NOT AI-generated</li>
+<li>Regulatory/Compliance Impact (SEV1 only) — AI-generated, labeled</li>
+</ul>
+</li>
+<li>[x] Severity-conditional sections: SEV1 gets all 8 sections, SEV2 gets 6 (no Regulatory, no Comm Log), SEV3 gets 5 (no Customer Impact, no Regulatory, no Comm Log)</li>
+<li>[x] Labels AI-generated sections clearly (<code>ai_generated: bool = True</code> on each PostmortemSection)</li>
+<li>[x] Blameless rules applied (from COE format research, SPEC §9.0):<ul>
+<li>Prompt explicitly says "BLAMELESS — focus on what failed, not who failed"</li>
+<li>Systemic Contributing Factors section focuses on processes, not people</li>
+<li>No individual names in root cause or systemic factors</li>
+</ul>
+</li>
+<li>[x] <code>interrupt_for_postmortem_review(state) -&gt; state</code> — commander reviews, edits, publishes</li>
+<li>[x] Handle: empty timeline (generate minimal postmortem with "insufficient data" note), LLM returns malformed response (parse what's available)</li>
+<li>[x] Create <code>src/incident_commander/nodes/cost_report.py</code>:</li>
+<li>[x] <code>cost_report_node(state) -&gt; state</code> — aggregates CostTracker data into CostReport</li>
+<li>[x] Saves session data via SessionManager</li>
+<li>[x] Writes output files if output_dir is set (delegates to MarkdownOutputWriter)</li>
+<li>[x] Handle: zero LLM calls (return CostReport with zeros)</li>
+<li>[x] Create <code>src/incident_commander/nodes/cadence.py</code>:</li>
+<li>[x] <code>cadence_timer_node(state) -&gt; state</code> — determines next update time based on severity</li>
+<li>[x] SEV1 → 5 min, SEV2 → 15 min, SEV3 → 30 min (from config.cadence)</li>
+<li>[x] Sets state.next_update_time</li>
+<li>[x] Handle: unknown severity (default to 30 min)</li>
+<li>[x] Create <code>src/incident_commander/graph.py</code>:</li>
+<li>[x] Wire all nodes into LangGraph StateGraph per SPEC §3:<ul>
+<li><code>receive_alert</code> → <code>build_timeline</code> → <code>correlate_deploys</code> → <code>retrieve_runbooks</code> → <code>rerank_evidence</code></li>
+<li>→ <code>cadence_timer</code> → <code>draft_update</code> → <code>interrupt_for_approval</code></li>
+<li>→ approve: <code>produce_output</code> → cycle back to <code>build_timeline</code> (every cadence interval) until resolved</li>
+<li>→ reject: <code>draft_update</code> (redraft loop)</li>
+<li>→ on resolve → <code>suggest_remediation</code> → <code>dry_run_simulate</code> → <code>interrupt_for_remediation_review</code></li>
+<li>→ approve: <code>generate_postmortem</code> → <code>interrupt_for_postmortem_review</code></li>
+<li>→ approve: <code>cost_report</code> → END</li>
+<li>→ reject: <code>generate_postmortem</code> (revise loop)</li>
+</ul>
+</li>
+<li>[x] LangGraph checkpointer (SQLite) for multi-session persistence</li>
+<li>[x] <code>build_graph(config) -&gt; compiled_graph</code></li>
+<li>[x] Conditional edges for: resolved check, approval/reject routing, severity-conditional postmortem sections</li>
+<li>[x] Create <code>src/incident_commander/output/markdown_writer.py</code>:</li>
+<li>[x] <code>MarkdownOutputWriter</code> — writes all output files to directory per SPEC §13.5:<ul>
+<li>incident-summary.md, timeline.md, stakeholder-updates.md, comms-blocks.md</li>
+<li>remediation.md, postmortem.md, cost-report.md</li>
+<li>llm-calls.jsonl, session.json, meta.json</li>
+</ul>
+</li>
+<li>[x] <code>write_all(result) -&gt; list[Path]</code> — writes all files, returns paths</li>
+<li>[x] Creates output directory if not exists</li>
+<li>[x] Handle: write permission error (raise with path), disk full (raise with message)</li>
+<li>[x] Create <code>src/incident_commander/output/formatters.py</code>:</li>
+<li>[x] <code>format_summary_md(result)</code> — incident summary table (ID, service, severity, start, resolved, MTTR, deploy correlation, cost, models, session ID) + key events list + output links</li>
+<li>[x] <code>format_timeline_md(timeline)</code> — chronological table (Time, Source, Event, Trust, Deploy correlation) + deploy correlations section</li>
+<li>[x] <code>format_updates_md(updates)</code> — each update: Update #N, Impact, Root cause, Action, Next update</li>
+<li>[x] <code>format_remediation_md(suggestions)</code> — each suggestion: Action, Citation, Confidence, Dry-run outcome, Similar incidents</li>
+<li>[x] <code>format_postmortem_md(postmortem)</code> — COE format with <code>[AI-GENERATED — review carefully]</code> labels on AI sections, <code>[From session data]</code> on non-AI sections, AI Section Labels summary table</li>
+<li>[x] <code>format_cost_md(cost_report)</code> — summary table (totals) + per-node breakdown table</li>
+<li>[x] Handle: None postmortem (skip file), empty timeline (write "No timeline events"), empty updates (write "No stakeholder updates drafted")</li>
+<li>[x] Create <code>src/incident_commander/output/comms_blocks.py</code>:</li>
+<li>[x] <code>format_comms_blocks_md(result)</code> — pasteable comms blocks:<ul>
+<li>Incident notes block (for PagerDuty/ticket): timeline summary + remediation summary</li>
+<li>Stakeholder comms block (for Slack/email): consequence-first format</li>
+</ul>
+</li>
+<li>[x] Each block separated by <code>---</code> with clear header</li>
+<li>[x] Each block is copy-paste ready</li>
+<li>[x] Handle: no updates yet (write "No updates drafted yet")</li>
+<li>[x] Create <code>src/incident_commander/cli.py</code>:</li>
+<li>[x] <code>incident-commander simulate --service &lt;name&gt; --severity &lt;SEV1|SEV2|SEV3&gt; [--scenario &lt;name&gt;] [--seed &lt;int&gt;] [--output-dir &lt;path&gt;] [--auto-approve]</code></li>
+<li>[x] <code>incident-commander run --alert &lt;file&gt; --logs &lt;dir&gt; [--messages &lt;file&gt;] [--github &lt;file&gt;] [--output-dir &lt;path&gt;] [--auto-approve]</code></li>
+<li>[x] <code>incident-commander run --input-dir &lt;path&gt; [--output-dir &lt;path&gt;] [--auto-approve]</code></li>
+<li>[x] <code>incident-commander timeline --thread &lt;thread_id&gt;</code> — display timeline for a session</li>
+<li>[x] <code>incident-commander postmortem --thread &lt;thread_id&gt;</code> — generate postmortem from session</li>
+<li>[x] <code>incident-commander export-schemas --output-dir &lt;path&gt;</code> — export all JSON Schemas</li>
+<li>[x] <code>incident-commander validate --alert &lt;file&gt;</code> — validate input file against schema</li>
+<li>[x] <code>--auto-approve</code> flag — skip all interrupts (for CI/pipelines/testing)</li>
+<li>[x] Foreground CLI session with interactive prompts at interrupt points (y/n for approve/reject)</li>
+<li>[x] Handle: invalid args (show usage), file not found (show error), graph error (show error with session ID for recovery)</li>
+<li>[x] Create <code>src/incident_commander/api.py</code>:</li>
+<li>[x] <code>run_incident(alert, logs, messages, github, runbooks, manual_events, config, output_dir, auto_approve, thread_id) -&gt; IncidentResult</code></li>
+<li>[x] <code>run_simulation(service, severity, scenario, seed, config, output_dir, auto_approve) -&gt; IncidentResult</code></li>
+<li>[x] Accepts Alert objects, dicts, or file paths for all inputs (via normalizer)</li>
+<li>[x] Returns <code>IncidentResult</code> with all outputs</li>
+<li>[x] Writes markdown output if <code>output_dir</code> is set (via MarkdownOutputWriter)</li>
+<li>[x] Handle: invalid alert type (raise TypeError), graph execution error (raise with session ID)</li>
+<li>[x] Create <code>src/incident_commander/__init__.py</code>:</li>
+<li>[x] Re-export all public API per SPEC §21 (all models, functions, SCENARIOS, SCHEMAS, export_schemas, validate_input)</li>
+<li>[x] <code>__version__ = "0.1.0"</code></li>
+<li>[x] <code>__all__</code> list</li>
+<li>[x] Write integration tests (all with mock LLM — no real LLM calls):</li>
+<li>[x] <code>tests/integration/test_full_graph.py</code> (8 tests):<ul>
+<li>[x] Full graph runs on SEV1 simulated alert → all nodes execute → state transitions correct</li>
+<li>[x] Full graph runs on SEV2 simulated alert → severity-conditional sections differ</li>
+<li>[x] Full graph runs on SEV3 simulated alert → severity-conditional sections differ</li>
+<li>[x] State after build_timeline has timeline events</li>
+<li>[x] State after correlate_deploys has deploy correlations (for scenarios with PRs)</li>
+<li>[x] State after retrieve_runbooks has retrieved runbooks</li>
+<li>[x] State after draft_update has current_update_draft</li>
+<li>[x] State after generate_postmortem has postmortem</li>
+</ul>
+</li>
+<li>[x] <code>tests/integration/test_comms.py</code> (18 tests):<ul>
+<li>[x] Stakeholder update interrupt: approve → produce_output called, update added to list</li>
+<li>[x] Stakeholder update interrupt: reject → redraft, new draft generated</li>
+<li>[x] Remediation review interrupt: approve → postmortem generation starts</li>
+<li>[x] Remediation review interrupt: reject → back to suggest_remediation</li>
+<li>[x] Postmortem review interrupt: approve → cost_report + END</li>
+<li>[x] Postmortem review interrupt: reject → regenerate postmortem</li>
+</ul>
+</li>
+<li>[x] <code>tests/integration/test_remediation.py</code> (12 tests):<ul>
+<li>[x] Suggestion generated with citation field populated</li>
+<li>[x] Confidence score present (0.0–1.0)</li>
+<li>[x] Dry-run outcome is a text string (not code execution)</li>
+<li>[x] Confidence &lt; threshold → suggestion suppressed, "low confidence" logged</li>
+<li>[x] Missing citation → suggestion rejected, "missing citation" logged</li>
+<li>[x] No similar incidents → suggestion says "no precedent"</li>
+</ul>
+</li>
+<li>[x] <code>tests/integration/test_postmortem.py</code> (11 tests):<ul>
+<li>[x] COE postmortem draft generated with Summary section</li>
+<li>[x] Timeline section present, marked as NOT AI-generated (from session data)</li>
+<li>[x] Root Cause Analysis section present, marked as AI-generated</li>
+<li>[x] Systemic Contributing Factors section present, blameless framing (no individual names)</li>
+<li>[x] Action Items present with suggested owners and priority</li>
+<li>[x] SEV1: Customer Impact section present</li>
+<li>[x] SEV1: Regulatory/Compliance Impact section present</li>
+<li>[x] SEV2: Customer Impact present, Regulatory NOT present</li>
+<li>[x] SEV3: Customer Impact NOT present, Regulatory NOT present</li>
+<li>[x] AI Section Labels table present in markdown output</li>
+</ul>
+</li>
+<li>[x] <code>tests/integration/test_api.py</code> (8 tests):<ul>
+<li>[x] <code>run_incident(alert=Alert(...), auto_approve=True)</code> → returns IncidentResult</li>
+<li>[x] <code>run_incident(alert={"severity": "SEV1", ...}, auto_approve=True)</code> → accepts dict</li>
+<li>[x] <code>run_incident(alert="alert.json", auto_approve=True)</code> → accepts file path</li>
+<li>[x] <code>run_simulation("payment-service", "SEV1", auto_approve=True)</code> → returns IncidentResult</li>
+<li>[x] <code>run_simulation("svc", "SEV1", scenario="db-connection-pool", auto_approve=True)</code> → uses scenario</li>
+<li>[x] <code>run_incident</code> with output_dir → markdown files written</li>
+<li>[x] <code>run_incident</code> with thread_id → resumes existing session</li>
+<li>[x] Invalid alert type → raises TypeError</li>
+</ul>
+</li>
+<li>[x] <code>tests/integration/test_cost.py</code> (5 tests):<ul>
+<li>[x] Cost report: total_tokens = sum of all per-node tokens</li>
+<li>[x] Cost report: total_estimated_cost_usd = sum of per-node costs</li>
+<li>[x] Cost report: models_used lists all models called</li>
+<li>[x] Local model (Ollama) → cost = $0.00</li>
+<li>[x] Zero LLM calls → CostReport with zeros</li>
+</ul>
+</li>
+</ul>
+<h4 id="glm-52-review-per-sprint-gate-passed">▶ GLM 5.2 Review (per-sprint gate) — ✅ Passed</h4>
+<ul>
+<li>[x] <strong>Code review</strong> — Review all S5 modules with GLM 5.2</li>
+<li>[x] <code>nodes/stakeholder.py</code>: consequence-first format correct, confidence threshold enforced, pasteable comms blocks produced</li>
+<li>[x] <code>nodes/remediation.py</code>: citations mandatory (reject if missing), confidence threshold enforced, dry-run is text prediction only (no code exec)</li>
+<li>[x] <code>nodes/postmortem.py</code>: severity-conditional sections correct (SEV1=8, SEV2=6, SEV3=5), blameless rules enforced, AI labels applied</li>
+<li>[x] <code>graph.py</code>: all 14 nodes wired correctly, conditional edges logical, checkpointer integration works</li>
+<li>[x] <code>cli.py</code>: all 7 commands work, --auto-approve skips interrupts, interactive prompts at interrupt points</li>
+<li>[x] <code>api.py</code>: run_incident/run_simulation accept all input forms, return IncidentResult, write output if output_dir set</li>
+<li>[x] <code>output/</code>: all 10 files written, formatters produce correct markdown, comms blocks pasteable</li>
+<li>[x] <strong>Test review</strong> — Review all 58 integration tests with GLM 5.2</li>
+<li>[x] Full graph: all 8 scenarios, interrupts fire correctly, auto-approve bypasses all interrupts</li>
+<li>[x] Comms: confidence threshold, malformed LLM response, empty timeline</li>
+<li>[x] Remediation: citation enforcement, confidence threshold, no-similar-incidents, dry-run</li>
+<li>[x] Postmortem: all 3 severities produce correct section counts, blameless rules, empty timeline</li>
+<li>[x] API: all input types, graph execution, output writing</li>
+<li>[x] Cost: per-node tracking, aggregate report, zero-cost for local models</li>
+<li>[x] <strong>Lint cleanup</strong> — <code>ruff check src/ tests/</code> returns 0</li>
+<li>[x] <strong>Typecheck</strong> — <code>mypy --strict src/</code> returns 0</li>
+<li>[x] <strong>Comments</strong> — All public classes/functions have docstrings; graph wiring has inline comments explaining flow; safety guardrails have highlighted comments</li>
+<li>[x] <strong>Test comments</strong> — Each test <code>def test_*</code> has a one-line docstring</li>
+</ul>
+<h4 id="checkpoint-s5-all-passed">▶ Checkpoint S5 — ✅ All passed</h4>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>How to verify</th>
+<th>Pass criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Full graph runs</td>
+<td><code>incident-commander simulate --service payment-service --severity SEV1 --auto-approve</code></td>
+<td>✅ Completes all nodes, no errors</td>
+</tr>
+<tr>
+<td>All 8 scenarios work</td>
+<td><code>for s in SCENARIOS: incident-commander simulate --scenario $s --auto-approve</code></td>
+<td>✅ All 8 complete</td>
+</tr>
+<tr>
+<td>SEV1 vs SEV3 postmortem</td>
+<td>Compare postmortem.md from SEV1 vs SEV3 simulation</td>
+<td>✅ SEV1 has Customer Impact + Regulatory; SEV3 doesn't</td>
+</tr>
+<tr>
+<td>Stakeholder update drafted</td>
+<td>Check state.current_update_draft after draft_update_node</td>
+<td>✅ Has impact, root_cause_hypothesis, action, next_update_time</td>
+</tr>
+<tr>
+<td>Pasteable comms blocks</td>
+<td>Check comms-blocks.md output</td>
+<td>✅ Has incident notes block + stakeholder comms block with <code>---</code> separator</td>
+</tr>
+<tr>
+<td>Commander approval works</td>
+<td>Integration test: interrupt → approve</td>
+<td>✅ produce_output called, update added to list</td>
+</tr>
+<tr>
+<td>Commander reject works</td>
+<td>Integration test: interrupt → reject</td>
+<td>✅ Redraft loop, new draft generated</td>
+</tr>
+<tr>
+<td>Remediation with citation</td>
+<td>Check remediation_suggestions[0].citation</td>
+<td>✅ Non-empty string starting with "Source:"</td>
+</tr>
+<tr>
+<td>Confidence threshold</td>
+<td>Mock LLM returns confidence=0.5, threshold=0.7</td>
+<td>✅ Suggestion suppressed, "low confidence" in logs</td>
+</tr>
+<tr>
+<td>Missing citation</td>
+<td>Mock LLM returns no citation</td>
+<td>✅ Suggestion rejected, "missing citation" in logs</td>
+</tr>
+<tr>
+<td>Dry-run is text</td>
+<td>Check remediation_suggestions[0].dry_run_outcome</td>
+<td>✅ String, not code execution</td>
+</tr>
+<tr>
+<td>Postmortem COE format</td>
+<td>Check postmortem.md</td>
+<td>✅ Has Summary, Timeline, RCA, Systemic Factors, Action Items</td>
+</tr>
+<tr>
+<td>AI section labels</td>
+<td>Check postmortem.md</td>
+<td>✅ AI sections have <code>[AI-GENERATED — review carefully]</code></td>
+</tr>
+<tr>
+<td>Blameless framing</td>
+<td>Check systemic_contributing_factors</td>
+<td>✅ No individual names, focuses on processes</td>
+</tr>
+<tr>
+<td>Action items have owners</td>
+<td>Check action_items[0].suggested_owner</td>
+<td>✅ Non-empty string</td>
+</tr>
+<tr>
+<td>Cost report accurate</td>
+<td>Check cost_report: total_tokens = sum of per-node</td>
+<td>✅ Math correct</td>
+</tr>
+<tr>
+<td>LLM calls logged</td>
+<td>Read llm-calls.jsonl</td>
+<td>✅ One line per call, all fields populated</td>
+</tr>
+<tr>
+<td>Local model cost</td>
+<td>Cost report with Ollama model</td>
+<td>✅ $0.00</td>
+</tr>
+<tr>
+<td>CLI: simulate</td>
+<td><code>incident-commander simulate --service test --severity SEV3 --auto-approve</code></td>
+<td>✅ Completes, output written</td>
+</tr>
+<tr>
+<td>CLI: run --input-dir</td>
+<td><code>incident-commander run --input-dir ./tests/fixtures/incident-2026-001/ --auto-approve</code></td>
+<td>✅ Completes</td>
+</tr>
+<tr>
+<td>CLI: export-schemas</td>
+<td><code>incident-commander export-schemas --output-dir ./schemas/</code></td>
+<td>✅ 16 files created</td>
+</tr>
+<tr>
+<td>CLI: validate</td>
+<td><code>incident-commander validate --alert ./tests/fixtures/alert.json</code></td>
+<td>✅ Passes</td>
+</tr>
+<tr>
+<td>Python API: run_incident</td>
+<td><code>run_incident(alert=Alert(...), auto_approve=True)</code></td>
+<td>✅ Returns IncidentResult</td>
+</tr>
+<tr>
+<td>Python API: run_simulation</td>
+<td><code>run_simulation("svc", "SEV1", auto_approve=True)</code></td>
+<td>✅ Returns IncidentResult</td>
+</tr>
+<tr>
+<td>Output dir: 10 files</td>
+<td><code>ls output/</code></td>
+<td>✅ incident-summary.md, timeline.md, stakeholder-updates.md, comms-blocks.md, remediation.md, postmortem.md, cost-report.md, llm-calls.jsonl, session.json, meta.json</td>
+</tr>
+<tr>
+<td>Auto-approve</td>
+<td><code>--auto-approve</code> flag</td>
+<td>✅ No interrupts, completes end-to-end</td>
+</tr>
+<tr>
+<td>Integration tests pass</td>
+<td><code>pytest tests/integration/ -v</code></td>
+<td>✅ 58 passed</td>
+</tr>
+<tr>
+<td>ruff clean</td>
+<td><code>ruff check</code></td>
+<td>✅ 0 errors</td>
+</tr>
+<tr>
+<td>mypy clean</td>
+<td><code>mypy --strict src/</code></td>
+<td>✅ 0 errors (36 source files)</td>
+</tr>
+<tr>
+<td>pip-audit clean</td>
+<td><code>pip-audit</code></td>
+<td>✅ 0 vulnerabilities</td>
+</tr>
+<tr>
+<td>Coverage ≥80%</td>
+<td><code>pytest --cov=incident_commander --cov-fail-under=80</code></td>
+<td>✅ ≥80%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="phase-3-ship-s6-s7">Phase 3: Ship (S6-S7)</h2>
+<blockquote>
+<p><strong>Goal:</strong> E2E tests, test coverage closure, field testing, README polished, all docs written.
+<strong>Estimated time:</strong> 1.5 days</p>
+</blockquote>
+<h3 id="s6-e2e-tests-test-coverage-field-testing-readme-s5-6">S6: E2E Tests + Test Coverage + Field Testing + README ⚡ S5 <a href="https://github.com/deghosal-2026/ai-incident-commander/issues/6">#6</a></h3>
+<p><strong>🤖 LLM strategy:</strong> Local model for test scaffolding; DeepSeek V4 Flash for field testing</p>
+<blockquote>
+<p><strong>Key constraint:</strong> Docker not needed — <code>pip install</code> CLI tool. Focus on quality validation instead.</p>
+</blockquote>
+<hr />
+<h4 id="phase-a-e2e-tests-mock-llm-done">Phase A: E2E Tests (mock LLM) — ✅ DONE</h4>
+<blockquote>
+<p><strong>Completed:</strong> 2026-07-13. 58 E2E tests across 6 files. ruff=0, mypy=0.</p>
+</blockquote>
+<ul>
+<li>[x] Write <code>tests/e2e/test_e2e_simulated_incident.py</code> (14 tests):</li>
+<li>[x] SEV1 simulation → full graph → verify timeline built with ≥5 events</li>
+<li>[x] SEV1 simulation → verify stakeholder updates drafted (≥1 update)</li>
+<li>[x] SEV1 simulation → verify comms blocks produced (incident notes + stakeholder comms)</li>
+<li>[x] SEV1 simulation → verify postmortem generated with all COE sections</li>
+<li>[x] SEV1 simulation → verify cost report written with per-node breakdown</li>
+<li>[x] SEV2 simulation → verify Customer Impact present, Regulatory NOT present</li>
+<li>[x] SEV3 simulation → verify Customer Impact NOT present, Regulatory NOT present</li>
+<li>[x] All 8 scenarios run end-to-end without errors</li>
+<li>[x] Scenario with deploy correlation → timeline shows deploy_correlation=True</li>
+<li>[x] Scenario without deploy correlation → no deploy correlations in state</li>
+<li>[x] Stakeholder update interrupt: approve → update added to list</li>
+<li>[x] Stakeholder update interrupt: reject → redraft</li>
+<li>[x] Remediation review interrupt: approve → postmortem starts</li>
+<li>[x] Postmortem review interrupt: approve → cost report + END</li>
+<li>[x] Auto-approve mode → no interrupts, completes end-to-end</li>
+<li>[x] Source citations present in all remediation suggestions</li>
+<li>[x] AI section labels present in postmortem markdown</li>
+<li>[x] Blameless framing: no individual names in systemic factors</li>
+<li>[x] Output directory: all 10 files created with correct content</li>
+<li>
+<p>[x] LLM calls JSONL: one line per call, all fields populated</p>
+</li>
+<li>
+<p>[x] Write <code>tests/e2e/test_cli.py</code> (12 tests):</p>
+</li>
+<li>[x] <code>simulate --service payment-service --severity SEV1 --auto-approve</code> → completes</li>
+<li>[x] <code>simulate --scenario db-connection-pool --auto-approve</code> → completes</li>
+<li>[x] <code>simulate --output-dir</code> → writes files</li>
+<li>[x] <code>run --input-dir &lt;fixture&gt;</code> → completes</li>
+<li>[x] <code>run --alert --logs --auto-approve</code> → completes</li>
+<li>[x] <code>run --output-dir</code> → writes files</li>
+<li>[x] <code>run</code> with non-existent input dir → error</li>
+<li>[x] <code>validate --alert alert.json</code> → passes</li>
+<li>[x] <code>validate --alert bad_alert.json</code> → fails</li>
+<li>[x] <code>export-schemas --output-dir</code> → creates files</li>
+<li>[x] <code>--help</code> → shows all commands</li>
+<li>
+<p>[x] Missing --alert + --input-dir → error</p>
+</li>
+<li>
+<p>[x] Write <code>tests/e2e/test_input_dir.py</code> (7 tests):</p>
+</li>
+<li>[x] Full input directory → all fields loaded</li>
+<li>[x] Minimal input dir (meta + alert) → empty optionals</li>
+<li>[x] Input dir with notes.md → manual events</li>
+<li>[x] Input dir with runbooks/ → runbooks indexed</li>
+<li>[x] Missing input directory → FileNotFoundError</li>
+<li>[x] Malformed alert.json → JSONDecodeError</li>
+<li>
+<p>[x] Run via API from input dir → IncidentResult</p>
+</li>
+<li>
+<p>[x] Write <code>tests/e2e/test_output_dir.py</code> (10 tests):</p>
+</li>
+<li>[x] All 10 output files created</li>
+<li>[x] incident-summary.md has content</li>
+<li>[x] timeline.md has events</li>
+<li>[x] stakeholder-updates.md present</li>
+<li>[x] comms-blocks.md pasteable</li>
+<li>[x] postmortem.md has AI labels</li>
+<li>[x] cost-report.md has numbers</li>
+<li>[x] llm-calls.jsonl valid JSONL</li>
+<li>[x] session.json valid JSON</li>
+<li>
+<p>[x] meta.json has metadata</p>
+</li>
+<li>
+<p>[x] Write <code>tests/e2e/test_auto_approve.py</code> (6 tests):</p>
+</li>
+<li>[x] Auto-approve completes end-to-end</li>
+<li>[x] All 3 interrupt points skipped (stakeholder, remediation, postmortem)</li>
+<li>[x] Outputs produced without interaction</li>
+<li>[x] Session marked auto_approved=True in meta.json</li>
+<li>[x] Works with run_incident API</li>
+<li>
+<p>[x] Works with simulate command</p>
+</li>
+<li>
+<p>[x] Write <code>tests/e2e/test_cost_tracking.py</code> (7 tests):</p>
+</li>
+<li>[x] Cost report: total_tokens summed correctly</li>
+<li>[x] Cost report: total_estimated_cost_usd summed</li>
+<li>[x] Cost report: models_used lists all models</li>
+<li>[x] LLM calls logged to JSONL with all fields</li>
+<li>[x] Local model (Ollama) → cost = $0.00</li>
+<li>[x] Zero LLM calls → CostReport with zeros</li>
+<li>[x] Full graph integration → cost report populated</li>
+</ul>
+<hr />
+<h4 id="phase-b-test-coverage-closure-field-testing">Phase B: Test Coverage Closure + Field Testing</h4>
+<blockquote>
+<p><strong>B1 (coverage closure):</strong> ✅ DONE — 2026-07-13. 200+ tests added across 29 files, closing all 97 gaps (22 HIGH, 35 MEDIUM, 40 LOW).
+<strong>B2 (field testing):</strong> Planned — download real incident data, run through tool, compare generated postmortem against published COE.</p>
+</blockquote>
+<hr />
+<h5 id="b1-test-coverage-gap-closure-done">B1: Test Coverage Gap Closure — ✅ DONE</h5>
+<blockquote>
+<p>521 passed, 2 xfailed (both expected — JSON output not implemented, deploy_correlation_window config not wired). ruff=0. Coverage ≥80%.</p>
+</blockquote>
+<p><strong>Unit tests — new files (6 files, 65 tests):</strong></p>
+<ul>
+<li>[x] Create <code>tests/unit/test_cadence.py</code> (10 tests):</li>
+<li>[x] SEV1/2/3 cadences (5/15/30 min), fallback chains (last_update_time, now), unknown severity → 30, init_config, custom cadence dict</li>
+<li>[x] Create <code>tests/unit/test_graph.py</code> (8 tests):</li>
+<li>[x] <code>_is_resolved</code> (true→remediate, false→continue), all 3 approval routers (approved→true, rejected→false)</li>
+<li>[x] Create <code>tests/unit/test_formatters.py</code> (25 tests):</li>
+<li>[x] All 6 formatters: full/None/empty inputs, SEV1/SEV2/SEV3 variants, <code>_section_md</code> None</li>
+<li>[x] Create <code>tests/unit/test_output_writer.py</code> (3 tests):</li>
+<li>[x] <code>write_all</code> creates 10 files, OSError on read-only dir</li>
+<li>[x] Create <code>tests/unit/test_stakeholder.py</code> (6 tests):</li>
+<li>[x] <code>_build_prompt</code> with deploy/runbook context, <code>_parse_response</code> empty/valid responses</li>
+<li>[x] Create <code>tests/unit/test_postmortem_unit.py</code> (14 tests):</li>
+<li>[x] <code>_parse_postmortem_response</code> section heuristic (prose vs headers), action item parsing (pipe/comma variants), MTTR, SEV1/SEV2/SEV3 prompts, blameless rules</li>
+</ul>
+<p><strong>Unit tests — added to existing (13 files, ~120 tests):</strong></p>
+<ul>
+<li>[x] Add to <code>tests/unit/test_persistence.py</code>:</li>
+<li>[x] <code>_SessionCheckpointer</code> (missing→{}, set→get, isolation, file path), <code>get_checkpointer</code>, <code>save_session</code> OSError, <code>load_session</code> corrupt JSON, concurrent sessions, <code>load_session</code> OSError</li>
+<li>[x] Add to <code>tests/unit/test_llm_router.py</code>:</li>
+<li>[x] <code>get_llm_router</code> before init→RuntimeError, LLMObserver disk failure (warning, no crash), custom model_pricing (empty→0, custom→200, unknown→0)</li>
+<li>[x] Add to <code>tests/unit/test_schema.py</code>:</li>
+<li>[x] Parametrized valid+invalid for all 16 schemas (12 previously untested uncovered)</li>
+<li>[x] Add to <code>tests/unit/test_deploy_correlation.py</code>:</li>
+<li>[x] Config window=10 with PR 20min before → xfail (config not wired — documented code bug)</li>
+<li>[x] Add to <code>tests/unit/test_models.py</code>:</li>
+<li>[x] LogEntry TRACE valid, GitHubPR base_branch default, IncidentMeta oncall_roster/tags defaults, LLMCall response_truncated default, SessionMeta defaults, IncidentResult.to_markdown branches</li>
+<li>[x] Add to <code>tests/unit/test_normalizer.py</code>:</li>
+<li>[x] normalize() public entry (dict keys, Alert instance), non-dict/list JSON→TypeError for all 4 normalizers, _read_json FileNotFoundError, _load_json_dir list/dict/nonexistent</li>
+<li>[x] Add to <code>tests/unit/test_log_parser.py</code>:</li>
+<li>[x] _parse_timestamp Unix epoch/slash-date/invalid, _parse_json_log malformed/mixed valid-invalid/source fallback, _parse_markdown_log language tag/multiple blocks</li>
+<li>[x] Add to <code>tests/unit/test_notes_parser.py</code>:</li>
+<li>[x] Invalid HH:MM/ISO→None, ISO with T/space separator, HH:MM→today at time</li>
+<li>[x] Add to <code>tests/unit/test_input_dir.py</code>:</li>
+<li>[x] Malformed optional JSON (messages.json, runbook.json)→JSONDecodeError with path, _load_required_json non-dict→TypeError, runbook single vs array</li>
+<li>[x] Add to <code>tests/unit/test_rag.py</code>:</li>
+<li>[x] _keyword_overlap hyphen normalization (fix: source code bug — token split), _service_match wildcard, retriever error→[], _build_result Runbook/dict</li>
+<li>[x] Add to <code>tests/unit/test_rerank.py</code>:</li>
+<li>[x] _score_evidence individual factors (service+3, keyword+2×N, deploy+1, all three→8), deploy keyword collection</li>
+<li>[x] Add to <code>tests/unit/test_simulation.py</code>:</li>
+<li>[x] ScenarioConfig invalid severity→ValidationError, valid→passes</li>
+<li>[x] Add to <code>tests/unit/test_config.py</code>:</li>
+<li>[x] qdrant_url/github_token None, qdrant_collection="runbooks", tilde expansion (session_dir, log_dir), LLMConfig custom URLs</li>
+</ul>
+<p><strong>New unit files (2):</strong></p>
+<ul>
+<li>[x] Create <code>tests/unit/test_remediation.py</code> (5 tests):</li>
+<li>[x] _build_remediation_prompt with deploy correlations, _build_dry_run_prompt with None, _get_threshold both branches, similar_incidents None→[] cleanup</li>
+<li>[x] Create <code>tests/unit/test_comms_blocks.py</code> (3 tests):</li>
+<li>[x] format_comms_blocks_md with deploy correlation, remediation, no updates</li>
+</ul>
+<p><strong>Integration tests — added to existing (4 files, 9 tests):</strong></p>
+<ul>
+<li>[x] Add to <code>tests/integration/test_comms.py</code>:</li>
+<li>[x] LLM failure in draft_update_node → fallback impact, no crash</li>
+<li>[x] Add to <code>tests/integration/test_remediation.py</code>:</li>
+<li>[x] LLM failure in suggest_remediation_node → fallback action/confidence, no crash</li>
+<li>[x] LLM failure in dry_run_simulate_node → fallback outcome, no crash</li>
+<li>[x] Add to <code>tests/integration/test_postmortem.py</code>:</li>
+<li>[x] LLM failure in generate_postmortem_node → "insufficient data" fallback, no crash</li>
+<li>[x] SEV2 postmortem sections (customer_impact present, regulatory absent, comm_log absent)</li>
+<li>[x] Add to <code>tests/integration/test_api.py</code>:</li>
+<li>[x] run_incident with thread_id (resume preservation), manual_events, runbooks parameter, output_format="json" (xfail — not implemented), custom LLMConfig</li>
+</ul>
+<p><strong>E2E tests — added to existing (1 file, 10 tests):</strong></p>
+<ul>
+<li>[x] Add to <code>tests/e2e/test_cli.py</code>:</li>
+<li>[x] CLI timeline command (with session, nonexistent thread), CLI postmortem command (with session, nonexistent thread), --version, --seed reproducibility, --messages flag, --github flag, missing --alert+--input-dir error, malformed JSON validation</li>
+</ul>
+<p><strong>Source code fix:</strong></p>
+<ul>
+<li>[x] Fix <code>_keyword_overlap</code> in <code>src/incident_commander/nodes/rag.py</code> — split normalized hyphen tokens so individual query tokens match compound keywords (e.g. "high" + "cpu" matches "high-cpu")</li>
+</ul>
+<p><strong>Documentation:</strong></p>
+<ul>
+<li>[x] Write <code>docs/test-gaps.md</code> — full specification of all 97 gaps with file paths, acceptance criteria, and severity (since deleted — merged into WBS)</li>
+</ul>
+<hr />
+<h5 id="b2-field-testing-with-real-incidents-done">B2: Field Testing with Real Incidents — ✅ DONE</h5>
+<blockquote>
+<p><strong>Completed:</strong> 2026-07-14. 15 incidents tested with DeepSeek V4 Flash.
+<strong>Infrastructure:</strong> 124 fixtures from 4 data sources, automated converter, batch runner with resume,
+8-criteria test suite, report generator.</p>
+<p><strong>Key findings:</strong> 61/100 checks passed (61%). Tool consistently passes blameless framing (100%),
+graceful degradation (100%), no hallucination (100%), cost tracking (100%). Fails on RCA accuracy
+(0.07–0.67 sim, needs ≥0.70), timeline completeness (0%), action item relevance (0%),
+citation integrity (0%). See <code>docs/field-test-results.md</code> for full report.
+<strong>Recommendations for v0.2.0+:</strong> See <code>docs/v0.2.0-recommendations.md</code> for prioritized backlog
+(P0: citation prompt fix, threshold tuning, test design changes — target 85% pass rate).</p>
+</blockquote>
+<ul>
+<li>[x] <strong>Build test infrastructure:</strong></li>
+<li>[x] Write <code>scripts/convert_incidents.py</code> — converts 4 datasets (OpenRCA2, opensre, IntelligentDDS, blog)</li>
+<li>[x] Create 124 fixtures under <code>tests/fixtures/real-data/</code> (50 OpenRCA2, 19 opensre, 50 IntelligentDDS, 5 blog)</li>
+<li>[x] Write <code>tests/real_data/__init__.py</code> — fixture loader, embedding helper (sentence-transformers), MLX config</li>
+<li>[x] Write <code>tests/real_data/test_real_incidents.py</code> — 8 criteria parametrized over all incidents, marked <code>@pytest.mark.real_data</code></li>
+<li>[x] Write <code>scripts/run_field_tests.py</code> — batch runner with resume, 1 LLM run per incident</li>
+<li>[x] Write <code>scripts/generate_field_test_report.py</code> — produces <code>docs/field-test-results.md</code></li>
+<li>[x] Add <code>pyarrow</code> to dev dependencies</li>
+<li>[x] Add real LLM HTTP client to <code>LLMRouter.generate()</code> (was stub returning empty responses)</li>
+<li>[x] Fix postmortem parser to handle markdown-formatted LLM section headers</li>
+<li>[x] Save raw LLM responses in <code>llm-calls.jsonl</code> in output dir</li>
+<li>[x] <strong>Run field tests (15 incidents):</strong></li>
+<li>[x] 5 blog postmortems (Cloudflare, GitLab, GitHub, AWS)</li>
+<li>[x] 10 IntelligentDDS AWS postmortems</li>
+<li>[x] LLM: <code>deepseek-v4-flash</code> via OpenCode Zen API ($0.14/$0.28 per 1M tokens)</li>
+<li>[x] Results: <code>docs/field-test-results.md</code></li>
+<li>[x] Generated output files saved per incident: postmortem.md, timeline.md, cost-report.md, etc.</li>
+<li>[x] <strong>Key findings documented:</strong></li>
+<li>[x] Blameless framing: 100% pass — LLM never blames individuals</li>
+<li>[x] Graceful degradation: 100% pass — tool handles missing logs without crashing</li>
+<li>[x] No hallucination: 100% pass — all events traceable to input keywords</li>
+<li>[x] RCA accuracy: 0.07–0.67 sim (varies by incident complexity)</li>
+<li>[x] Citation integrity: 0% pass — prompt needs "Source:" prefix enforcement</li>
+<li>[x] Recommendations for v0.2.0: fix citation prompt, test with larger LLM</li>
+</ul>
+<hr />
+<h4 id="phase-c-readme-done">Phase C: README — ✅ DONE</h4>
+<blockquote>
+<p><strong>Completed:</strong> 2026-07-14. Full rewrite to reflect v0.1.0 CLI tool (removed Slack/PagerDuty/Docker references).</p>
+</blockquote>
+<ul>
+<li>[x] Update <code>README.md</code>:</li>
+<li>[x] Add badges: CI status, license (MIT), Python version, PyPI version</li>
+<li>[x] Add quickstart: <code>pip install ai-incident-commander</code> → <code>incident-commander simulate --service payment-service --severity SEV1</code> → see output (zero config, zero credentials)</li>
+<li>[x] Add architecture diagram (ASCII)</li>
+<li>[x] Link to docs/PRD.md, docs/SPEC.md, docs/wbs.md</li>
+<li>[x] Add configuration section (env vars explained — LLM_MODEL, LLM_BASE_URL, etc.)</li>
+<li>[x] Add Python API section (code example: <code>from incident_commander import run_simulation</code>)</li>
+<li>[x] Add input directory section (directory structure + file formats)</li>
+<li>[x] Add output directory section (10 output files explained)</li>
+<li>[x] Add simulation section (8 scenarios listed)</li>
+<li>[x] Add safety section (interrupt points, confidence threshold, dry-run explanation)</li>
+</ul>
+<hr />
+<h4 id="phase-e-quality-verification">Phase E: Quality Verification</h4>
+<ul>
+<li>[ ] Run full test suite: <code>pytest tests/ -v --cov=incident_commander --cov-fail-under=80</code></li>
+<li>[ ] Run <code>ruff check src/ tests/</code></li>
+<li>[ ] Run <code>mypy --strict src/</code></li>
+<li>[ ] Run <code>pip-audit</code></li>
+<li>[ ] Run <code>pip-licenses</code></li>
+</ul>
+<h4 id="glm-52-review-per-sprint-gate_4">▶ GLM 5.2 Review (per-sprint gate)</h4>
+<ul>
+<li>[ ] <strong>Code review</strong> — Review all S6 artifacts with GLM 5.2</li>
+<li>[ ] <code>tests/e2e/</code>: all 8 scenarios tested end-to-end with mock LLM</li>
+<li>[ ] <code>tests/real_data/</code>: 9 configs (A-I) tested, preset rules module works</li>
+<li>[ ] <code>docs/field-test-summary.md</code>: results documented, regressions closed</li>
+<li>[ ] <code>README.md</code>: badges, quickstart, architecture diagram, Python API, safety, all sections complete</li>
+<li>[ ] <strong>Test review</strong> — Review E2E and real-data tests with GLM 5.2</li>
+<li>[ ] E2E: every scenario produces 10 output files, interrupts can be approved/rejected, --auto-approve works</li>
+<li>[ ] Real-data: all 9 configs produce valid output, comparison report generated, rules impact documented</li>
+<li>[ ] Fixtures: valid JSON, consistent with SPEC data models</li>
+<li>[ ] <strong>Lint cleanup</strong> — <code>ruff check src/ tests/</code> returns 0</li>
+<li>[ ] <strong>Typecheck</strong> — <code>mypy --strict src/</code> returns 0</li>
+<li>[ ] <strong>Comments</strong> — E2E tests have scenario-level docstrings; real-data tests document which public postmortem is used</li>
+<li>[ ] <strong>Test comments</strong> — Each test <code>def test_*</code> has a one-line docstring</li>
+</ul>
+<h4 id="checkpoint-s6">▶ Checkpoint S6</h4>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>How to verify</th>
+<th>Pass criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E2E: all 8 scenarios</td>
+<td><code>pytest tests/e2e/ -k scenario</code></td>
+<td>All 8 pass</td>
+</tr>
+<tr>
+<td>E2E: interrupts</td>
+<td><code>pytest tests/e2e/ -k interrupt</code></td>
+<td>All interrupt tests pass</td>
+</tr>
+<tr>
+<td>E2E: auto-approve</td>
+<td><code>pytest tests/e2e/ -k auto_approve</code></td>
+<td>Completes without interaction</td>
+</tr>
+<tr>
+<td>E2E: output files</td>
+<td><code>pytest tests/e2e/ -k output</code></td>
+<td>All 10 files created</td>
+</tr>
+<tr>
+<td>Real-data: 9 configs</td>
+<td><code>pytest tests/real_data/ -m real_data</code></td>
+<td>All 9 configs run, report generated</td>
+</tr>
+<tr>
+<td>Comparison report</td>
+<td>Check report output</td>
+<td>Has root cause accuracy, action item overlap, cost per config</td>
+</tr>
+<tr>
+<td>Field test pass rate</td>
+<td>Count Pass across 5 scenarios × 10 criteria</td>
+<td>≥45/50 (90%)</td>
+</tr>
+<tr>
+<td>Root cause accuracy</td>
+<td>Compare generated RCA with known root cause</td>
+<td>≥70% overlap per rubric C.1</td>
+</tr>
+<tr>
+<td>Timeline completeness</td>
+<td>Compare generated timeline with ground truth</td>
+<td>≥90% events present, 100% chronological</td>
+</tr>
+<tr>
+<td>Blameless verification</td>
+<td>Regex on generated text</td>
+<td>0 instances of individual blame</td>
+</tr>
+<tr>
+<td>Citation check</td>
+<td>Run with mock + real LLM</td>
+<td>100% non-fallback suggestions have "Source:"</td>
+</tr>
+<tr>
+<td>Confidence calibration</td>
+<td>N=20 trials per config</td>
+<td>Mean correct-confidence ≥ mean incorrect + 0.1</td>
+</tr>
+<tr>
+<td>Cost predictability</td>
+<td>5× runs of same scenario</td>
+<td>Std-dev/mean ≤ 0.20</td>
+</tr>
+<tr>
+<td>Comms usefulness</td>
+<td>2+ reviewers score</td>
+<td>≥80% "usable as-is"</td>
+</tr>
+<tr>
+<td>No hallucination</td>
+<td>Spot-check timeline + metrics</td>
+<td>0 fabricated events/names/metrics</td>
+</tr>
+<tr>
+<td>Graceful degradation</td>
+<td>Incomplete input</td>
+<td>Exit code 0, warnings in output</td>
+</tr>
+<tr>
+<td>README quickstart</td>
+<td>Copy-paste quickstart into fresh terminal</td>
+<td>Works end-to-end</td>
+</tr>
+<tr>
+<td>README badges</td>
+<td>View README on GitHub</td>
+<td>CI, MIT, Python, PyPI badges render</td>
+</tr>
+<tr>
+<td>README architecture</td>
+<td>View README</td>
+<td>Diagram present and readable</td>
+</tr>
+<tr>
+<td>Full test suite</td>
+<td><code>pytest --cov=incident_commander --cov-fail-under=80</code></td>
+<td>≥80% coverage, all green</td>
+</tr>
+<tr>
+<td>ruff clean</td>
+<td><code>ruff check</code></td>
+<td>0 errors</td>
+</tr>
+<tr>
+<td>mypy clean</td>
+<td><code>mypy --strict src/</code></td>
+<td>0 errors</td>
+</tr>
+<tr>
+<td>pip-audit clean</td>
+<td><code>pip-audit</code></td>
+<td>0 vulnerabilities</td>
+</tr>
+<tr>
+<td>pip-licenses clean</td>
+<td><code>pip-licenses</code></td>
+<td>All compatible with MIT</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="s7-documentation-s6-7-done">S7: Documentation ⚡ S6 <a href="https://github.com/deghosal-2026/ai-incident-commander/issues/7">#7</a> — ✅ DONE</h3>
+<blockquote>
+<p><strong>Completed:</strong> 2026-07-14. All 8 doc files written from source code.</p>
+</blockquote>
+<p><strong>🤖 LLM strategy:</strong> GLM 5.2 for prose; local model for API reference generation</p>
+<h4 id="tasks_5">Tasks</h4>
+<ul>
+<li>[x] Write <code>docs/architecture.md</code>:</li>
+<li>[x] Detailed architecture description, data flow diagram</li>
+<li>[x] State transitions (IncidentState lifecycle)</li>
+<li>[x] LangGraph graph visualization (ASCII)</li>
+<li>[x] Node descriptions with inputs/outputs</li>
+<li>[x] LLM router data flow</li>
+<li>[x] Cost tracking data flow</li>
+<li>[x] Write <code>docs/safety-guardrails.md</code>:</li>
+<li>[x] All safety constraints (human approval, confidence threshold, source citations)</li>
+<li>[x] Interrupt points (3: update, remediation, postmortem) with what happens at each</li>
+<li>[x] Confidence threshold explanation (default 0.7, configurable)</li>
+<li>[x] Dry-run explanation (LLM simulation, NOT code execution)</li>
+<li>[x] AI section labeling explanation</li>
+<li>[x] Blameless postmortem rules</li>
+<li>[x] No execution capability — architecture has no execution nodes</li>
+<li>[x] Write <code>docs/llm-strategy.md</code>:</li>
+<li>[x] Local + cloud LLM mix (Ollama default, OpenAI/Anthropic optional)</li>
+<li>[x] Model routing: analysis → local, comms → local or cloud, postmortem → local or cloud</li>
+<li>[x] Cost tracking per model (local = free, cloud = per-token pricing)</li>
+<li>[x] Cost optimization tips (use local for analysis, cloud for postmortem quality)</li>
+<li>[x] Escalation strategy (start local, escalate to cloud for complex incidents)</li>
+<li>[x] Write <code>docs/simulation-guide.md</code>:</li>
+<li>[x] How to run simulated incidents (CLI + Python API)</li>
+<li>[x] All 8 scenarios described with: service, severity, symptoms, expected deploy correlation, expected runbook matches</li>
+<li>[x] How to create custom scenarios</li>
+<li>[x] Seed reproducibility</li>
+<li>[x] Auto-approve mode for testing</li>
+<li>[x] Write <code>docs/input-format.md</code>:</li>
+<li>[x] Input directory structure (tree diagram)</li>
+<li>[x] meta.json format with example</li>
+<li>[x] alert.json format with example (PD-CEF mapping noted)</li>
+<li>[x] messages.json format with example</li>
+<li>[x] github.json format with example</li>
+<li>[x] Log file formats (.log, .json, .md) with examples</li>
+<li>[x] notes.md format with example</li>
+<li>[x] runbooks/ directory format</li>
+<li>[x] CLI flags mode (individual files)</li>
+<li>[x] Python API mode (programmatic)</li>
+<li>[x] JSON Schema validation (<code>incident-commander validate</code>)</li>
+<li>[x] Write <code>docs/output-format.md</code>:</li>
+<li>[x] Output directory structure (tree diagram)</li>
+<li>[x] Each of 10 output files explained with example content</li>
+<li>[x] Comms blocks format (pasteable into Slack/PagerDuty/email)</li>
+<li>[x] session.json format</li>
+<li>[x] meta.json format</li>
+<li>[x] llm-calls.jsonl format</li>
+<li>[x] Write <code>docs/coe-format.md</code>:</li>
+<li>[x] COE (Correction of Errors) format overview</li>
+<li>[x] Severity-conditional sections table (SEV1 vs SEV2 vs SEV3)</li>
+<li>[x] AI section labeling convention</li>
+<li>[x] Blameless rules (from COE format research)</li>
+<li>[x] Sources analyzed (Amazon, Google SRE, Cloudflare, GitLab, GitHub)</li>
+<li>[x] Example COE postmortem</li>
+<li>[x] Write <code>docs/api-reference.md</code>:</li>
+<li>[x] <code>run_incident()</code> — full signature, parameters, return type, example</li>
+<li>[x] <code>run_simulation()</code> — full signature, parameters, return type, example</li>
+<li>[x] All Pydantic models (Alert, TimelineEvent, IncidentState, etc.) — fields, types, defaults</li>
+<li>[x] <code>Config</code> / <code>LLMConfig</code> — all fields, defaults</li>
+<li>[x] <code>SCENARIOS</code> dict — all 8 scenario names</li>
+<li>[x] <code>SCHEMAS</code> registry — all 16 schema names</li>
+<li>[x] <code>export_schemas()</code> / <code>validate_input()</code> — signatures and examples</li>
+<li>[x] <code>IncidentResult</code> — fields, <code>to_markdown()</code>, <code>to_json()</code></li>
+<li>[x] Verify all docs cross-reference correctly (no broken links)</li>
+<li>[x] Verify docs match code implementation</li>
+</ul>
+<h4 id="testing_2">Testing</h4>
+<ul>
+<li>[ ] All 8 doc files exist: <code>ls docs/architecture.md docs/safety-guardrails.md docs/llm-strategy.md docs/simulation-guide.md docs/input-format.md docs/output-format.md docs/coe-format.md docs/api-reference.md</code></li>
+<li>[ ] No broken internal links: all <code>docs/</code> references in each file resolve to actual files</li>
+<li>[ ] Docs match code: architecture.md matches actual <code>graph.py</code> node names and edges</li>
+<li>[ ] API reference: all models in <code>__init__.py</code> <code>__all__</code> are documented</li>
+<li>[ ] No vault/local paths: <code>grep -r "/Users/\|vault\|2nd-brain\|obsidian" docs/</code> returns 0 hits</li>
+<li>[ ] No TODO/FIXME in docs: <code>grep -r "TODO\|FIXME" docs/*.md</code> returns 0 hits (except intentional examples)</li>
+</ul>
+<h4 id="glm-52-review-per-sprint-gate_5">▶ GLM 5.2 Review (per-sprint gate)</h4>
+<ul>
+<li>[ ] <strong>Code review</strong> — Review all 8 doc files with GLM 5.2</li>
+<li>[ ] <code>architecture.md</code>: graph diagram matches <code>graph.py</code>, node descriptions accurate, state transitions correct</li>
+<li>[ ] <code>safety-guardrails.md</code>: all 7 guardrails documented, interrupt points explained, dry-run mechanism clear</li>
+<li>[ ] <code>llm-strategy.md</code>: routing logic correct, cost estimates accurate, escalation strategy documented</li>
+<li>[ ] <code>simulation-guide.md</code>: all 8 scenarios described, seed reproducibility explained, custom scenario creation documented</li>
+<li>[ ] <code>input-format.md</code>: all 3 ingestion channels documented with examples, tree diagrams correct</li>
+<li>[ ] <code>output-format.md</code>: all 10 output files documented with example content, comms blocks explained</li>
+<li>[ ] <code>coe-format.md</code>: severity-conditional sections table correct, blameless rules documented, sources cited</li>
+<li>[ ] <code>api-reference.md</code>: all public functions documented, all model fields listed, examples runnable</li>
+<li>[ ] <strong>Test review</strong> — Verify all doc claims against code with GLM 5.2</li>
+<li>[ ] Every import in <code>api-reference.md</code> resolves in code</li>
+<li>[ ] Every CLI command in docs matches <code>cli.py</code> <code>--help</code> output</li>
+<li>[ ] Every workflow example in docs is copy-paste runnable</li>
+<li>[ ] <strong>Comments</strong> — Docs are self-documenting; no additional inline comments needed beyond docstrings already in code</li>
+<li>[ ] <strong>Final lint</strong> — <code>ruff check</code>, <code>mypy --strict</code>, <code>pip-audit</code>, <code>pip-licenses</code> all 100% clean</li>
+</ul>
+<h4 id="checkpoint-s7">▶ Checkpoint S7</h4>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>How to verify</th>
+<th>Pass criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All docs exist</td>
+<td><code>ls docs/*.md</code></td>
+<td>8 doc files + PRD + SPEC + WBS = 11 total</td>
+</tr>
+<tr>
+<td>architecture.md</td>
+<td>Has data flow diagram, state transitions, node descriptions</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>safety-guardrails.md</td>
+<td>Has all interrupt points, confidence threshold, dry-run explanation</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>llm-strategy.md</td>
+<td>Has model routing, cost tracking, escalation strategy</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>simulation-guide.md</td>
+<td>Has all 8 scenarios described</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>input-format.md</td>
+<td>Has directory structure, all JSON formats, PD-CEF mapping</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>output-format.md</td>
+<td>Has all 10 output files explained</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>coe-format.md</td>
+<td>Has severity-conditional sections, AI labeling, blameless rules</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>api-reference.md</td>
+<td>Has all public API documented with examples</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>No broken links</td>
+<td>All <code>docs/</code> references resolve</td>
+<td>0 broken links</td>
+</tr>
+<tr>
+<td>Docs match code</td>
+<td>Architecture matches graph.py, models match Pydantic definitions</td>
+<td>Consistent</td>
+</tr>
+<tr>
+<td>JSON Schemas accurate</td>
+<td>Exported schemas match Pydantic model definitions</td>
+<td>Consistent</td>
+</tr>
+<tr>
+<td>No internal refs</td>
+<td><code>grep -r "/Users/\|vault\|2nd-brain" docs/</code></td>
+<td>0 hits</td>
+</tr>
+<tr>
+<td>No TODO in docs</td>
+<td><code>grep -r "TODO\|FIXME" docs/*.md</code></td>
+<td>0 hits (except examples)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="phase-4-go-public-m1-m10">Phase 4: Go Public (M1-M10)</h2>
+<blockquote>
+<p><strong>Goal:</strong> Repo is ready to flip from Private → Public and publish to PyPI.
+<strong>Estimated time:</strong> 3 days
+<strong>Gate:</strong> All of Phase 1-3 checkpoints passed
+<strong>This is the most critical phase — be extremely diligent. Once public, git history is forever.</strong></p>
+</blockquote>
+<h3 id="m2-community-health-files-s1-s7-9">M2: Community Health Files ⚡ S1-S7 <a href="https://github.com/deghosal-2026/ai-incident-commander/issues/9">#9</a></h3>
+<hr />
+<h3 id="m2-community-health-files-m1-9">M2: Community Health Files ⚡ M1 <a href="https://github.com/deghosal-2026/ai-incident-commander/issues/9">#9</a></h3>
+<h4 id="tasks_6">Tasks</h4>
+<ul>
+<li>[ ] Create <code>CONTRIBUTING.md</code>:</li>
+<li>[ ] Fork, clone, setup dev env (<code>pip install -e ".[dev]"</code>)</li>
+<li>[ ] Run tests (<code>pytest</code>, <code>ruff</code>, <code>mypy</code>, <code>pip-audit</code>, <code>pip-licenses</code>)</li>
+<li>[ ] Code standards (ruff, mypy strict, 80% coverage)</li>
+<li>[ ] Project structure overview (all modules and their purposes)</li>
+<li>[ ] How to add a new simulation scenario (step-by-step with example)</li>
+<li>[ ] How to add a new LangGraph node (step-by-step with example)</li>
+<li>[ ] How to add a new input format (step-by-step with example)</li>
+<li>[ ] How to add a new output format (step-by-step with example)</li>
+<li>[ ] How to run real-data tests (with <code>@pytest.mark.real_data</code>)</li>
+<li>[ ] Issue and PR guidelines (use templates, label appropriately)</li>
+<li>[ ] Point to good first issues for new contributors</li>
+<li>[ ] Create <code>CODE_OF_CONDUCT.md</code> — Contributor Covenant v2.1 (standard template from https://www.contributor-covenant.org/)</li>
+<li>[ ] Create <code>SECURITY.md</code>:</li>
+<li>[ ] How to report vulnerabilities privately (email or GitHub security advisories)</li>
+<li>[ ] Response timeline (acknowledge within 48h, fix within 30 days)</li>
+<li>[ ] What NOT to do (don't open public issues for security bugs)</li>
+<li>[ ] PGP key or security contact email</li>
+<li>[ ] Create <code>.github/</code> directory</li>
+</ul>
+<h4 id="checkpoint-m2">▶ Checkpoint M2</h4>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>How to verify</th>
+<th>Pass criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CONTRIBUTING.md exists</td>
+<td><code>cat CONTRIBUTING.md</code></td>
+<td>Complete with dev setup, test running, PR process, scenario/node/format adding guides</td>
+</tr>
+<tr>
+<td>CONTRIBUTING.md has all guides</td>
+<td>Check for: scenario, node, input format, output format sections</td>
+<td>All 4 guides present</td>
+</tr>
+<tr>
+<td>CODE_OF_CONDUCT.md exists</td>
+<td><code>cat CODE_OF_CONDUCT.md</code></td>
+<td>Contributor Covenant v2.1</td>
+</tr>
+<tr>
+<td>SECURITY.md exists</td>
+<td><code>cat SECURITY.md</code></td>
+<td>Private reporting instructions, response timeline</td>
+</tr>
+<tr>
+<td>.github/ exists</td>
+<td><code>ls .github/</code></td>
+<td>Directory created</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="m3-issue-pr-templates-m2-10">M3: Issue &amp; PR Templates ⚡ M2 <a href="https://github.com/deghosal-2026/ai-incident-commander/issues/10">#10</a></h3>
+<h4 id="tasks_7">Tasks</h4>
+<ul>
+<li>[ ] Create <code>.github/ISSUE_TEMPLATE/bug_report.md</code>:</li>
+<li>Fields: incident-commander version, Python version, OS, framework (LangGraph/LangChain), severity, steps to reproduce, expected vs actual, logs, environment, simulation JSON (if applicable)</li>
+<li>[ ] Create <code>.github/ISSUE_TEMPLATE/feature_request.md</code>:</li>
+<li>Fields: problem statement, proposed solution, alternatives considered, use case, mockup/example</li>
+<li>[ ] Create <code>.github/ISSUE_TEMPLATE/incident-simulation.md</code>:</li>
+<li>Fields: scenario description, service, severity, expected behavior, actual behavior, simulation JSON attached, output files attached</li>
+<li>[ ] Create <code>.github/ISSUE_TEMPLATE/config.yml</code>:</li>
+<li>Blank issue opt-out (<code>blank_issues_enabled: false</code>)</li>
+<li>[ ] Create <code>.github/PULL_REQUEST_TEMPLATE.md</code>:</li>
+<li>Fields: description, related issue, checklist:<ul>
+<li>[ ] Tests added</li>
+<li>[ ] Docs updated</li>
+<li>[ ] <code>ruff check</code> passes</li>
+<li>[ ] <code>mypy --strict</code> passes</li>
+<li>[ ] Coverage maintained (≥80%)</li>
+<li>[ ] Safety guardrails preserved (interrupt points, confidence threshold)</li>
+<li>[ ] AI section labels present in postmortem output</li>
+<li>[ ] No secrets/local paths in diff</li>
+</ul>
+</li>
+<li>[ ] Test each template by creating a test issue</li>
+</ul>
+<h4 id="checkpoint-m3">▶ Checkpoint M3</h4>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>How to verify</th>
+<th>Pass criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bug report template</td>
+<td>Create issue → select bug_report</td>
+<td>Opens with structured form</td>
+</tr>
+<tr>
+<td>Feature request template</td>
+<td>Create issue → select feature_request</td>
+<td>Opens with structured form</td>
+</tr>
+<tr>
+<td>Incident simulation template</td>
+<td>Create issue → select incident-simulation</td>
+<td>Opens with structured form</td>
+</tr>
+<tr>
+<td>PR template</td>
+<td>Create PR</td>
+<td>Auto-fills with checklist</td>
+</tr>
+<tr>
+<td>Config.yml</td>
+<td><code>cat .github/ISSUE_TEMPLATE/config.yml</code></td>
+<td>blank_issues_enabled: false</td>
+</tr>
+<tr>
+<td>Templates tested</td>
+<td>Create test issues for each</td>
+<td>All render correctly</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="m4-cicd-verification-s1-11">M4: CI/CD Verification ⚡ S1 <a href="https://github.com/deghosal-2026/ai-incident-commander/issues/11">#11</a></h3>
+<h4 id="tasks_8">Tasks</h4>
+<ul>
+<li>[ ] Verify CI workflow is running and passing (from S1):</li>
+<li>[ ] <code>ruff check</code> — 0 errors</li>
+<li>[ ] <code>mypy --strict</code> — 0 errors</li>
+<li>[ ] <code>pytest --cov</code> — all tests pass, ≥80% coverage</li>
+<li>[ ] <code>pip-audit</code> — 0 vulnerabilities</li>
+<li>[ ] <code>pip-licenses</code> — all licenses compatible with MIT</li>
+<li>[ ] Matrix: Python 3.11, 3.12 × ubuntu-latest</li>
+<li>[ ] Verify security workflow is running:</li>
+<li>[ ] gitleaks scans on PRs — 0 findings</li>
+<li>[ ] Verify publish workflow exists (from S1):</li>
+<li>[ ] <code>.github/workflows/publish.yml</code> exists</li>
+<li>[ ] Tag-triggered (on <code>v*.*.*</code> tag push)</li>
+<li>[ ] Uses PyPI trusted publishing (OIDC)</li>
+<li>[ ] Add status badges to <code>README.md</code>:</li>
+<li>[ ] CI status badge: <code>[![CI](https://github.com/deghosal-2026/ai-incident-commander/actions/workflows/ci.yml/badge.svg)]</code></li>
+<li>[ ] License badge (MIT): <code>[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]</code></li>
+<li>[ ] Python version badge: <code>[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)]</code></li>
+<li>[ ] PyPI badge: <code>[![PyPI](https://img.shields.io/pypi/v/ai-incident-commander.svg)]</code></li>
+<li>[ ] Verify <code>docker build</code> works in CI (optional: add Docker build job to ci.yml)</li>
+<li>[ ] Run full test suite one more time: <code>pytest --cov=incident_commander --cov-fail-under=80</code></li>
+</ul>
+<h4 id="checkpoint-m4">▶ Checkpoint M4</h4>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>How to verify</th>
+<th>Pass criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CI green on main</td>
+<td>Check GitHub Actions tab</td>
+<td>All matrix jobs pass</td>
+</tr>
+<tr>
+<td>ruff in CI</td>
+<td>Check CI output</td>
+<td>0 errors</td>
+</tr>
+<tr>
+<td>mypy in CI</td>
+<td>Check CI output</td>
+<td>0 errors</td>
+</tr>
+<tr>
+<td>pytest in CI</td>
+<td>Check CI output</td>
+<td>All pass, ≥80% coverage</td>
+</tr>
+<tr>
+<td>pip-audit in CI</td>
+<td>Check CI output</td>
+<td>0 vulnerabilities</td>
+</tr>
+<tr>
+<td>pip-licenses in CI</td>
+<td>Check CI output</td>
+<td>All MIT-compatible</td>
+</tr>
+<tr>
+<td>Security scan green</td>
+<td>Check security workflow</td>
+<td>gitleaks 0 findings</td>
+</tr>
+<tr>
+<td>Publish workflow exists</td>
+<td><code>cat .github/workflows/publish.yml</code></td>
+<td>Tag-triggered, trusted publishing</td>
+</tr>
+<tr>
+<td>Badges in README</td>
+<td>View README on GitHub</td>
+<td>CI, MIT, Python, PyPI badges render</td>
+</tr>
+<tr>
+<td>Full test suite</td>
+<td><code>pytest --cov=incident_commander --cov-fail-under=80</code></td>
+<td>All green, ≥80%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="m5-pypi-publishing-testpypi-validation-s1-m4-12">M5: PyPI Publishing &amp; TestPyPI Validation ⚡ S1, M4 <a href="https://github.com/deghosal-2026/ai-incident-commander/issues/12">#12</a></h3>
+<h4 id="tasks_9">Tasks</h4>
+<ul>
+<li>[ ] Build the package:</li>
+<li>[ ] <code>python -m build</code> → produces <code>dist/ai_incident_commander-0.1.0.tar.gz</code> + <code>dist/ai_incident_commander-0.1.0-py3-none-any.whl</code></li>
+<li>[ ] <code>twine check dist/*</code> → passes</li>
+<li>[ ] Verify <code>pyproject.toml</code> is complete:</li>
+<li>[ ] All classifiers present (Development Status, Python versions, License, Topic, OS, Typing)</li>
+<li>[ ] Project URLs (Homepage, Repository, Issues, Documentation, Changelog)</li>
+<li>[ ] All extras: rag, cloud-llm, all, dev</li>
+<li>[ ] Entry point: <code>incident-commander = "incident_commander.cli:main"</code></li>
+<li>[ ] Upload to TestPyPI:</li>
+<li>[ ] <code>twine upload --repository testpypi dist/*</code></li>
+<li>[ ] Verify upload succeeds</li>
+<li>[ ] Test clean install from TestPyPI in fresh venv:</li>
+<li>[ ] <code>pip install --extra-index-url https://pypi.org/simple/ ai-incident-commander</code> → installs successfully</li>
+<li>[ ] <code>pip install ai-incident-commander[rag]</code> → Qdrant extra installs</li>
+<li>[ ] <code>pip install ai-incident-commander[cloud-llm]</code> → OpenAI/Anthropic extras install</li>
+<li>[ ] <code>pip install ai-incident-commander[all]</code> → all extras install</li>
+<li>[ ] <code>incident-commander --help</code> → CLI works</li>
+<li>[ ] <code>incident-commander simulate --service test --severity SEV3 --auto-approve</code> → simulation works</li>
+<li>[ ] <code>from incident_commander import run_simulation</code> → Python API works</li>
+<li>[ ] <code>python -c "import incident_commander; print(incident_commander.__version__)"</code> → prints 0.1.0</li>
+<li>[ ] Set up PyPI trusted publishing (OIDC):</li>
+<li>[ ] Configure PyPI project with GitHub OIDC (no API token needed)</li>
+<li>[ ] Reference: https://docs.pypi.org/trusted-publishers/</li>
+<li>[ ] Create release notes (optional — can be in CHANGELOG.md):</li>
+<li>[ ] Version: 0.1.0</li>
+<li>[ ] Overview paragraph</li>
+<li>[ ] Feature highlights</li>
+<li>[ ] Known limitations</li>
+<li>[ ] Installation instructions</li>
+</ul>
+<h4 id="checkpoint-m5">▶ Checkpoint M5</h4>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>How to verify</th>
+<th>Pass criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Build succeeds</td>
+<td><code>python -m build</code></td>
+<td>Produces .tar.gz + .whl in dist/</td>
+</tr>
+<tr>
+<td>Twine check passes</td>
+<td><code>twine check dist/*</code></td>
+<td>PASSED</td>
+</tr>
+<tr>
+<td>TestPyPI upload</td>
+<td><code>twine upload --repository testpypi dist/*</code></td>
+<td>Upload succeeds</td>
+</tr>
+<tr>
+<td>Clean core install</td>
+<td>Fresh venv: <code>pip install ai-incident-commander</code> from TestPyPI</td>
+<td>Installs, imports work</td>
+</tr>
+<tr>
+<td>Extras install</td>
+<td><code>pip install ai-incident-commander[rag]</code> + <code>[cloud-llm]</code> + <code>[all]</code></td>
+<td>All extras install correctly</td>
+</tr>
+<tr>
+<td>CLI works after install</td>
+<td><code>incident-commander --help</code></td>
+<td>Shows usage</td>
+</tr>
+<tr>
+<td>Simulation works after install</td>
+<td><code>incident-commander simulate --service test --severity SEV3 --auto-approve</code></td>
+<td>Completes</td>
+</tr>
+<tr>
+<td>Python API works after install</td>
+<td><code>from incident_commander import run_simulation</code></td>
+<td>Import succeeds</td>
+</tr>
+<tr>
+<td>Version correct</td>
+<td><code>python -c "import incident_commander; print(incident_commander.__version__)"</code></td>
+<td>Prints 0.1.0</td>
+</tr>
+<tr>
+<td>Trusted publishing configured</td>
+<td>Check PyPI project settings</td>
+<td>OIDC configured, no API token</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="m6-changelog-versioning-s1-13">M6: Changelog &amp; Versioning ⚡ S1 <a href="https://github.com/deghosal-2026/ai-incident-commander/issues/13">#13</a></h3>
+<h4 id="tasks_10">Tasks</h4>
+<ul>
+<li>[ ] Create <code>CHANGELOG.md</code> following <a href="https://keepachangelog.com/">Keep a Changelog</a> format:</li>
+<li>[ ] <code>## [Unreleased]</code> section</li>
+<li>[ ] <code>## [0.1.0] - 2026-07-XX</code> section with all v0.1.0 features:<ul>
+<li>Added: Incident simulation (8 pre-built scenarios)</li>
+<li>Added: Timeline construction (multi-source, trust hierarchy)</li>
+<li>Added: GitHub deploy correlation (30-min window, strong/weak)</li>
+<li>Added: Stakeholder communication (consequence-first, pasteable comms blocks)</li>
+<li>Added: Remediation suggestion + dry-run simulation (LLM-predicted, not executed)</li>
+<li>Added: COE-format postmortem (blameless, AI-labeled, severity-conditional sections)</li>
+<li>Added: RAG runbook retrieval (in-memory + Qdrant)</li>
+<li>Added: Cost tracking + LLM observability per node (JSONL log)</li>
+<li>Added: Session persistence (SQLite checkpointer)</li>
+<li>Added: Three ingestion channels (CLI flags, input directory, Python API)</li>
+<li>Added: Markdown output directory (10 files)</li>
+<li>Added: JSON Schema definitions (16 schemas, PD-CEF aligned)</li>
+<li>Added: Auto-approve mode for CI/pipelines</li>
+<li>Added: CLI (simulate, run, timeline, postmortem, export-schemas, validate)</li>
+<li>Added: Python API (run_incident, run_simulation)</li>
+</ul>
+</li>
+<li>[ ] Verify <code>__version__ = "0.1.0"</code> in <code>__init__.py</code></li>
+<li>[ ] Document tagging process: <code>git tag v0.X.Y</code> in CONTRIBUTING.md or RELEASE.md</li>
+</ul>
+<h4 id="checkpoint-m6">▶ Checkpoint M6</h4>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>How to verify</th>
+<th>Pass criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CHANGELOG.md exists</td>
+<td><code>cat CHANGELOG.md</code></td>
+<td>Keep a Changelog format</td>
+</tr>
+<tr>
+<td>v0.1.0 entry complete</td>
+<td>Check v0.1.0 section</td>
+<td>All 15 features listed</td>
+</tr>
+<tr>
+<td><strong>version</strong> set</td>
+<td><code>python -c "import incident_commander; print(incident_commander.__version__)"</code></td>
+<td>Prints 0.1.0</td>
+</tr>
+<tr>
+<td>Tag process documented</td>
+<td>Check CONTRIBUTING.md or RELEASE.md</td>
+<td>Process described</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="m7-branch-protection-repository-settings-m4-14">M7: Branch Protection &amp; Repository Settings ⚡ M4 <a href="https://github.com/deghosal-2026/ai-incident-commander/issues/14">#14</a></h3>
+<h4 id="tasks_11">Tasks</h4>
+<ul>
+<li>[ ] Enable branch protection on <code>main</code>:</li>
+<li>[ ] Require pull request reviews (at least 1)</li>
+<li>[ ] Require status checks to pass before merging (CI: ruff, mypy, pytest, pip-audit, pip-licenses)</li>
+<li>[ ] Require up-to-date branches</li>
+<li>[ ] Do not allow bypassing (except admins)</li>
+<li>[ ] Enable GitHub Discussions tab</li>
+<li>[ ] Set repository topics: <code>python</code>, <code>incident-management</code>, <code>ai-agents</code>, <code>langgraph</code>, <code>langchain</code>, <code>sre</code>, <code>oncall</code>, <code>postmortem</code>, <code>coe</code>, <code>open-source</code></li>
+<li>[ ] Set repository description: "AI incident commander for war rooms, timelines, and postmortems — LangGraph-powered, local-LLM default"</li>
+<li>[ ] Set repository homepage (if applicable)</li>
+</ul>
+<h4 id="checkpoint-m7">▶ Checkpoint M7</h4>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>How to verify</th>
+<th>Pass criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Branch protection on</td>
+<td><code>gh api repos/deghosal-2026/ai-incident-commander/branches/main/protection</code></td>
+<td>Shows rules (PR review, status checks)</td>
+</tr>
+<tr>
+<td>Status checks required</td>
+<td>Check branch protection config</td>
+<td>ruff, mypy, pytest, pip-audit all required</td>
+</tr>
+<tr>
+<td>Discussions enabled</td>
+<td>Discussions tab visible on repo</td>
+<td>Tab present</td>
+</tr>
+<tr>
+<td>Topics set</td>
+<td><code>gh repo view --json topics</code></td>
+<td>All 10 topics present</td>
+</tr>
+<tr>
+<td>Description set</td>
+<td><code>gh repo view --json description</code></td>
+<td>Description present</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="m8-good-first-issues-m2-s7-15">M8: Good First Issues ⚡ M2, S7 <a href="https://github.com/deghosal-2026/ai-incident-commander/issues/15">#15</a></h3>
+<h4 id="tasks_12">Tasks</h4>
+<ul>
+<li>[ ] Create 3-5 good first issues:</li>
+<li>[ ] Label each with <code>good first issue</code></li>
+<li>[ ] Write clear, self-contained descriptions with: problem, expected outcome, how to start, which files to look at</li>
+<li>[ ] Ideas:<ul>
+<li>[ ] Add a new simulation scenario (e.g., <code>dns-failure</code>, <code>disk-full</code>, <code>cpu-throttling</code>)</li>
+<li>[ ] Add a new log parser format (e.g., JSON structured logs, syslog format)</li>
+<li>[ ] Improve a docstring (pick any model or node)</li>
+<li>[ ] Add JSON Schema for a new input type (e.g., metrics data)</li>
+<li>[ ] Write a test for an edge case (e.g., empty timeline, single-event timeline)</li>
+<li>[ ] Add a CLI output filter flag (e.g., <code>--severity SEV1</code> to filter timeline)</li>
+</ul>
+</li>
+<li>[ ] Verify CONTRIBUTING.md points to good first issues</li>
+<li>[ ] Set up a Discussions category for contributor Q&amp;A</li>
+</ul>
+<h4 id="checkpoint-m8">▶ Checkpoint M8</h4>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>How to verify</th>
+<th>Pass criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3+ good first issues</td>
+<td><code>gh issue list --label "good first issue"</code></td>
+<td>Shows 3+</td>
+</tr>
+<tr>
+<td>Issues are clear</td>
+<td>Review each issue</td>
+<td>Each has: problem, expected outcome, how to start, files to look at</td>
+</tr>
+<tr>
+<td>CONTRIBUTING points to them</td>
+<td>Check CONTRIBUTING.md</td>
+<td>Section links to good first issues filter</td>
+</tr>
+<tr>
+<td>Discussions category</td>
+<td>Check Discussions tab</td>
+<td>Q&amp;A category exists</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="m9-delete-internal-issues-m1-m8-16">M9: Delete Internal Issues ⚡ M1-M8 <a href="https://github.com/deghosal-2026/ai-incident-commander/issues/16">#16</a></h3>
+<blockquote>
+<p>All tracking issues created during development may contain internal references (vault paths, local paths, internal context). Delete them before going public to scrub history.</p>
+</blockquote>
+<h4 id="tasks_13">Tasks</h4>
+<ul>
+<li>[ ] Review all GitHub issues for internal references:</li>
+<li><code>gh issue list --state all --limit 100</code> → review each issue body</li>
+<li>Check for: vault paths, local paths, internal project names, real names, real incident IDs</li>
+<li>[ ] Delete all development tracking issues (S1-S7, M1-M8 and any sub-issues):</li>
+<li>These issues contain WBS content that may reference internal planning</li>
+<li><code>gh issue delete &lt;number&gt; --yes</code> for each</li>
+<li>[ ] Keep only: good first issues, community-facing issues</li>
+<li>[ ] Verify no issue bodies contain vault/local/internal references:</li>
+<li>Review all remaining issues one final time</li>
+<li>[ ] Check issue comments too: <code>gh issue view &lt;number&gt; --comments</code> for each remaining issue</li>
+</ul>
+<h4 id="checkpoint-m9">▶ Checkpoint M9</h4>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>How to verify</th>
+<th>Pass criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Development issues deleted</td>
+<td><code>gh issue list --state all</code></td>
+<td>Only good first issues + community issues remain</td>
+</tr>
+<tr>
+<td>No internal references</td>
+<td>Review all remaining issue bodies + comments</td>
+<td>No vault paths, local paths, or internal context</td>
+</tr>
+<tr>
+<td>Good first issues remain</td>
+<td><code>gh issue list --label "good first issue"</code></td>
+<td>3-5 present</td>
+</tr>
+<tr>
+<td>Issue comments clean</td>
+<td>Review comments on remaining issues</td>
+<td>No internal references</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="m1-security-history-scrub-s1-s7-8">M1: Security &amp; History Scrub ⚡ S1-S7 <a href="https://github.com/deghosal-2026/ai-incident-commander/issues/8">#8</a></h3>
+<blockquote>
+<p><strong>This is the single most important milestone before going public.</strong>
+<strong>Any leaked secret, vault path, or internal reference in git history is permanent.</strong>
+<strong>Be paranoid. Check everything. Then check again.</strong></p>
+</blockquote>
+<h4 id="tasks_14">Tasks</h4>
+<ul>
+<li>[ ] Scan entire git history for secrets:</li>
+<li><code>git log --all -p | grep -i "secret\|token\|api_key\|password\|credential\|apikey\|api-key"</code></li>
+<li>Check for real API keys (not placeholder values in .env.example)</li>
+<li>Check for Slack tokens (xoxb-), PagerDuty keys, GitHub tokens (ghp_), OpenAI keys (sk-), Anthropic keys</li>
+<li>[ ] Check for vault/Obsidian/2nd-brain references in ALL files (not just source):</li>
+<li><code>grep -ri "vault\|2nd-brain\|obsidian\|my-2nd\|my_2nd" .</code> (excluding .git/)</li>
+<li>Check docs, comments, docstrings, test fixtures, config files</li>
+<li>[ ] Check for local paths in ALL files:</li>
+<li><code>grep -r "/Users/\|/home/\|deghosal\|/Desktop/" .</code> (excluding .git/)</li>
+<li>Check source, docs, tests, configs, .env.example</li>
+<li>[ ] Check for internal project references:</li>
+<li><code>grep -ri "incidentgpt\|incident.gpt\|project.10\|project_10" .</code> (excluding .git/)</li>
+<li>[ ] Check code comments and docstrings for internal references:</li>
+<li><code>grep -rn "# TODO:.*internal\|# FIXME:.*vault\|# NOTE:.*deghosal" src/ tests/</code></li>
+<li>[ ] Check test fixtures for real incident data:</li>
+<li>Review all files in <code>tests/fixtures/</code> — ensure no real company names, real incident IDs, real user names</li>
+<li>[ ] Check all commit messages:</li>
+<li><code>git log --all --grep="vault\|/Users/\|deghosal\|2nd-brain\|obsidian\|incidentgpt"</code></li>
+<li>Rewrite commit messages if any found (using <code>git rebase -i</code> or <code>git filter-branch</code>)</li>
+<li>[ ] If any secrets/paths/refs found in git history:</li>
+<li>Use <code>bfg-repo-cleaner</code> or <code>git filter-branch</code> to scrub history</li>
+<li>Force push scrubbed history</li>
+<li>Verify scrub worked: re-run all grep commands</li>
+<li>[ ] Verify <code>.gitignore</code> covers all sensitive patterns:</li>
+<li><code>.env</code>, <code>*.db</code>, <code>*.sqlite</code>, <code>~/.incident-commander/</code>, <code>output/</code>, <code>schemas/</code>, <code>__pycache__/</code></li>
+<li>No real secrets can ever be committed</li>
+<li>[ ] Confirm no hardcoded model API keys, endpoints, or internal hostnames in source:</li>
+<li><code>grep -rn "sk-\|xoxb-\|ghp_\|hooks.slack.com\|api.pagerduty.com" src/</code></li>
+<li>[ ] Verify <code>.env.example</code> has only placeholder values:</li>
+<li>No real URLs, no real tokens, no real usernames</li>
+<li>[ ] Check all GitHub issue bodies and comments for internal references:</li>
+<li><code>gh issue list --state all --limit 100</code> → review each issue body</li>
+<li>Edit or delete any with vault/local/internal references</li>
+<li>[ ] Run <code>gitleaks</code> across full git history:</li>
+<li><code>gitleaks detect --source . --verbose</code></li>
+<li>Zero findings required</li>
+<li>[ ] Run <code>pip-audit</code> on final dependency tree:</li>
+<li><code>pip-audit</code> — zero known vulnerabilities</li>
+<li>[ ] Run <code>pip-licenses</code> on final dependency tree:</li>
+<li><code>pip-licenses</code> — all licenses compatible with MIT (no GPL, AGPL, etc.)</li>
+</ul>
+<h4 id="checkpoint-m1">▶ Checkpoint M1</h4>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>How to verify</th>
+<th>Pass criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zero secrets in git history</td>
+<td><code>git log --all -p \| grep -i "secret\|token\|api_key\|password\|credential"</code></td>
+<td>No real values (only placeholders in .env.example)</td>
+</tr>
+<tr>
+<td>Zero Slack/PagerDuty/GitHub tokens</td>
+<td><code>git log --all -p \| grep -i "xoxb-\|ghp_\|hooks.slack.com\|api.pagerduty.com"</code></td>
+<td>0 hits</td>
+</tr>
+<tr>
+<td>Zero OpenAI/Anthropic keys</td>
+<td><code>git log --all -p \| grep -i "sk-\|claude-"</code></td>
+<td>0 hits (excluding test fixtures with fake keys)</td>
+</tr>
+<tr>
+<td>Zero vault references</td>
+<td><code>grep -ri "vault\|2nd-brain\|obsidian\|my-2nd" .</code></td>
+<td>0 hits (excluding .git/)</td>
+</tr>
+<tr>
+<td>Zero local paths</td>
+<td><code>grep -r "/Users/\|/home/\|deghosal\|/Desktop/" .</code></td>
+<td>0 hits (excluding .git/)</td>
+</tr>
+<tr>
+<td>Zero internal project refs</td>
+<td><code>grep -ri "incidentgpt\|project.10\|project_10" .</code></td>
+<td>0 hits (excluding .git/)</td>
+</tr>
+<tr>
+<td>Zero internal refs in comments</td>
+<td><code>grep -rn "# TODO:.*internal\|# FIXME:.*vault\|# NOTE:.*deghosal" src/ tests/</code></td>
+<td>0 hits</td>
+</tr>
+<tr>
+<td>Test fixtures clean</td>
+<td>Manual review of <code>tests/fixtures/</code></td>
+<td>No real company names, incident IDs, or user names</td>
+</tr>
+<tr>
+<td>Commit messages clean</td>
+<td><code>git log --all --grep="vault\|/Users/\|deghosal\|2nd-brain"</code></td>
+<td>0 hits</td>
+</tr>
+<tr>
+<td>.env.example safe</td>
+<td><code>cat .env.example</code></td>
+<td>Placeholder values only</td>
+</tr>
+<tr>
+<td>.gitignore complete</td>
+<td><code>git check-ignore .env *.db *.sqlite</code></td>
+<td>All sensitive patterns ignored</td>
+</tr>
+<tr>
+<td>No hardcoded keys in source</td>
+<td><code>grep -rn "sk-\|xoxb-\|ghp_\|hooks.slack.com\|api.pagerduty.com" src/</code></td>
+<td>0 hits</td>
+</tr>
+<tr>
+<td>GitHub issues clean</td>
+<td>Review all issue bodies</td>
+<td>No vault/local/internal references</td>
+</tr>
+<tr>
+<td>gitleaks clean</td>
+<td><code>gitleaks detect --source . --verbose</code></td>
+<td>0 findings</td>
+</tr>
+<tr>
+<td>pip-audit clean</td>
+<td><code>pip-audit</code></td>
+<td>0 vulnerabilities</td>
+</tr>
+<tr>
+<td>pip-licenses clean</td>
+<td><code>pip-licenses</code></td>
+<td>All compatible with MIT</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="m10-final-sweep-go-public-s1-s7-m2-m9-m1-17">M10: Final Sweep &amp; Go Public ⚡ S1-S7, M2-M9, M1 <a href="https://github.com/deghosal-2026/ai-incident-commander/issues/17">#17</a></h3>
+<blockquote>
+<p><strong>This is the last checkpoint before the repo goes public.</strong>
+<strong>Everything must be green. No exceptions.</strong></p>
+</blockquote>
+<h4 id="tasks_15">Tasks</h4>
+<ul>
+<li>[ ] Verify all M1-M9 items complete:</li>
+<li>M1: Security scrub — all checks pass</li>
+<li>M2: Community health files — all present</li>
+<li>M3: Issue &amp; PR templates — all present and tested</li>
+<li>M4: CI/CD — all green, badges render</li>
+<li>M5: PyPI — TestPyPI validated, trusted publishing configured</li>
+<li>M6: Changelog — complete with all features</li>
+<li>M7: Branch protection — enabled</li>
+<li>M8: Good first issues — 3+ created</li>
+<li>M9: Internal issues — deleted</li>
+<li>[ ] Final review of README:</li>
+<li>Does it tell the story? (problem → solution → quickstart → features → docs)</li>
+<li>Is quickstart copy-pasteable? (test in fresh terminal)</li>
+<li>Are all links valid? (click every link)</li>
+<li>Are badges rendering? (view on GitHub)</li>
+<li>[ ] Final review of git log:</li>
+<li><code>git log --oneline -20</code> — review last 20 commits</li>
+<li>Squash WIP commits if needed (clean history)</li>
+<li>Ensure no commit message contains internal references</li>
+<li>[ ] Test <code>pip install -e .</code> and run quickstart end-to-end:</li>
+<li>Fresh venv → <code>pip install -e .</code> → <code>incident-commander simulate --service payment-service --severity SEV1 --auto-approve</code> → see output</li>
+<li>[ ] Test <code>pip install ai-incident-commander</code> from TestPyPI and run quickstart:</li>
+<li>Fresh venv → <code>pip install --extra-index-url https://pypi.org/simple/ ai-incident-commander</code> → <code>incident-commander simulate ...</code> → see output</li>
+<li>[ ] Run full test suite: <code>pytest --cov=incident_commander --cov-fail-under=80</code></li>
+<li>[ ] Run quality bar:</li>
+<li><code>ruff check</code> → 0 errors</li>
+<li><code>mypy --strict src/</code> → 0 errors</li>
+<li><code>pip-audit</code> → 0 vulnerabilities</li>
+<li><code>pip-licenses</code> → all MIT-compatible</li>
+<li>[ ] Verify all docs are complete:</li>
+<li>PRD.md, SPEC.md, WBS.md (this file)</li>
+<li>architecture.md, safety-guardrails.md, llm-strategy.md, simulation-guide.md</li>
+<li>input-format.md, output-format.md, coe-format.md, api-reference.md</li>
+<li>CONTRIBUTING.md, CODE_OF_CONDUCT.md, SECURITY.md, CHANGELOG.md</li>
+<li>[ ] Verify Docker build + run:</li>
+<li><code>docker build -t ai-incident-commander .</code> → succeeds</li>
+<li><code>docker run ai-incident-commander simulate --service test --severity SEV3 --auto-approve</code> → works</li>
+<li>[ ] Verify PyPI package builds: <code>python -m build</code> → produces wheel + sdist</li>
+<li>[ ] Final security scan: <code>gitleaks detect --source . --verbose</code> → 0 findings</li>
+<li>[ ] Final grep for internal references:</li>
+<li><code>grep -r "/Users/\|vault\|2nd-brain\|obsidian\|deghosal\|incidentgpt" .</code> (excluding .git/) → 0 hits</li>
+<li>[ ] Draft blog post or announcement (optional)</li>
+<li>[ ] <strong>Tag first release:</strong></li>
+<li><code>git tag v0.1.0 &amp;&amp; git push --tags</code></li>
+<li>This triggers the publish workflow → publishes to real PyPI</li>
+<li>[ ] Verify PyPI publish succeeded:</li>
+<li><code>pip install ai-incident-commander</code> from real PyPI → works</li>
+<li>[ ] <strong>Flip repo visibility: Private → Public</strong></li>
+<li><code>gh repo edit deghosal-2026/ai-incident-commander --visibility public</code></li>
+<li>[ ] Verify repo is accessible publicly:</li>
+<li>Open https://github.com/deghosal-2026/ai-incident-commander in incognito window</li>
+<li>[ ] Post to communities (at least 2):</li>
+<li>r/Python, r/devops, r/sre, LangGraph Discord, HN (optional)</li>
+<li>[ ] Tweet/LinkedIn post with link + tagline</li>
+</ul>
+<h4 id="checkpoint-m10-go-live">▶ Checkpoint M10 — GO LIVE</h4>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>How to verify</th>
+<th>Pass criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All M1-M9 passed</td>
+<td>Review all checkpoint tables</td>
+<td>All green</td>
+</tr>
+<tr>
+<td>README tells the story</td>
+<td>Read README top-to-bottom</td>
+<td>Problem → solution → quickstart → features → docs</td>
+</tr>
+<tr>
+<td>Quickstart works</td>
+<td>Copy-paste in fresh terminal</td>
+<td>Works end-to-end</td>
+</tr>
+<tr>
+<td>All links valid</td>
+<td>Click every link in README</td>
+<td>No 404s</td>
+</tr>
+<tr>
+<td>Badges render</td>
+<td>View README on GitHub</td>
+<td>CI, MIT, Python, PyPI badges visible</td>
+</tr>
+<tr>
+<td>Git log clean</td>
+<td><code>git log --oneline -20</code></td>
+<td>No WIP commits, no internal refs in messages</td>
+</tr>
+<tr>
+<td>Fresh install works</td>
+<td><code>pip install -e .</code> in fresh venv → run quickstart</td>
+<td>Works</td>
+</tr>
+<tr>
+<td>TestPyPI install works</td>
+<td><code>pip install</code> from TestPyPI → run quickstart</td>
+<td>Works</td>
+</tr>
+<tr>
+<td>Full test suite green</td>
+<td><code>pytest --cov=incident_commander --cov-fail-under=80</code></td>
+<td>≥80% coverage, all pass</td>
+</tr>
+<tr>
+<td>ruff clean</td>
+<td><code>ruff check</code></td>
+<td>0 errors</td>
+</tr>
+<tr>
+<td>mypy clean</td>
+<td><code>mypy --strict src/</code></td>
+<td>0 errors</td>
+</tr>
+<tr>
+<td>pip-audit clean</td>
+<td><code>pip-audit</code></td>
+<td>0 vulnerabilities</td>
+</tr>
+<tr>
+<td>pip-licenses clean</td>
+<td><code>pip-licenses</code></td>
+<td>All MIT-compatible</td>
+</tr>
+<tr>
+<td>All docs complete</td>
+<td><code>ls docs/*.md</code> + <code>ls *.md</code></td>
+<td>11 docs + 4 community files = 15 total</td>
+</tr>
+<tr>
+<td>Docker works</td>
+<td><code>docker build</code> + <code>docker run</code></td>
+<td>Both succeed</td>
+</tr>
+<tr>
+<td>Package builds</td>
+<td><code>python -m build</code></td>
+<td>.tar.gz + .whl produced</td>
+</tr>
+<tr>
+<td>gitleaks clean</td>
+<td><code>gitleaks detect --source . --verbose</code></td>
+<td>0 findings</td>
+</tr>
+<tr>
+<td>Final grep clean</td>
+<td><code>grep -r "/Users/\|vault\|2nd-brain\|obsidian\|deghosal\|incidentgpt" .</code></td>
+<td>0 hits (excluding .git/)</td>
+</tr>
+<tr>
+<td><strong>Release tagged</strong></td>
+<td><code>git tag</code></td>
+<td>v0.1.0 present</td>
+</tr>
+<tr>
+<td><strong>PyPI published</strong></td>
+<td><code>pip install ai-incident-commander</code> from real PyPI</td>
+<td>Works</td>
+</tr>
+<tr>
+<td><strong>Repo is public</strong></td>
+<td><code>gh repo view --json visibility</code></td>
+<td>Shows "PUBLIC"</td>
+</tr>
+<tr>
+<td><strong>Repo accessible</strong></td>
+<td>Open URL in incognito</td>
+<td>Page loads, README visible</td>
+</tr>
+<tr>
+<td><strong>Community notified</strong></td>
+<td>Check posts</td>
+<td>Posted to at least 2 communities</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="dependency-graph">Dependency Graph</h2>
+<pre><code>S1 (scaffold)
+  ├── S2 (PRD + SPEC)
+  │     └── S3 (simulation + timeline + deploy correlation + schemas)
+  │           └── S4 (data ingestion + RAG + cost tracking + persistence)
+  │                 └── S5 (comms + remediation + postmortem + graph + CLI + API)
+  │                       └── S6 (Docker + E2E + real-data tests + README)
+  │                             └── S7 (documentation)
+  │
+  └── M1-M10 (go public) ← needs S1-S7
+        M1 (scrub) → M2 (community) → M3 (templates)
+        M4 (CI) → M5 (PyPI/TestPyPI) → M6 (changelog)
+        M7 (branch protection) → M8 (good first issues)
+        M9 (delete internal issues) → M10 (final sweep + go live)
+</code></pre>
+<hr />
+<h2 id="summary">Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Milestones</th>
+<th>Days</th>
+<th>Gate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1: Foundation</td>
+<td>S1</td>
+<td>0.5</td>
+<td>Package builds, CI green, pip-audit clean</td>
+</tr>
+<tr>
+<td>2: Implementation</td>
+<td>S2, S3, S4, S5</td>
+<td>5</td>
+<td>Full graph runs end-to-end with all features</td>
+</tr>
+<tr>
+<td>3: Ship</td>
+<td>S6, S7</td>
+<td>1.5</td>
+<td>Dockerized, E2E + real-data tests, all docs written</td>
+</tr>
+<tr>
+<td>4: Go Public</td>
+<td>M1-M10</td>
+<td>3</td>
+<td>Repo is public, PyPI published, community notified</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>17 milestones</strong></td>
+<td><strong>~10 days</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Critical path:</strong> S1 → S2 → S3 → S4 → S5 → S6 → S7 → M1 → M5 → M10
+<strong>Parallelizable:</strong> M2-M4 (after M1), M6-M9 (after respective deps), M5 (after M4)</p>
+</blockquote></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

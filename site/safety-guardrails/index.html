@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Safety Guardrails - ai-incident-commander</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">ai-incident-commander</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../architecture/" class="nav-link">Architecture</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../api-reference/" class="nav-link">API Reference</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../input-format/" class="nav-link">Input Format</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../output-format/" class="nav-link">Output Format</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../simulation-guide/" class="nav-link">Simulation Guide</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">Safety Guardrails</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../field-test-results/" class="nav-link">Field Test Results</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../PRD/" class="nav-link">PRD</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../SPEC/" class="nav-link">SPEC</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../wbs/" class="nav-link">WBS</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../simulation-guide/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../field-test-results/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#safety-guardrails" class="nav-link">Safety Guardrails</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#safety-constraints-summary" class="nav-link">Safety Constraints Summary</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#1-human-in-the-loop-interrupt-gates" class="nav-link">1. Human-in-the-Loop Interrupt Gates</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-confidence-threshold" class="nav-link">2. Confidence Threshold</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3-dry-run-explanation-llm-simulation-not-code-execution" class="nav-link">3. Dry-Run Explanation — LLM Simulation, NOT Code Execution</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4-ai-section-labeling-convention" class="nav-link">4. AI Section Labeling Convention</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5-blameless-postmortem-rules" class="nav-link">5. Blameless Postmortem Rules</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6-no-execution-capability" class="nav-link">6. No Execution Capability</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7-simulate-mode-as-the-safe-default" class="nav-link">7. Simulate Mode as the Safe Default</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="safety-guardrails">Safety Guardrails</h1>
+<p>ai-incident-commander is designed as an <strong>advisory</strong> system — it drafts,
+suggests, and simulates, but never executes. This document catalogs every
+safety constraint enforced in the codebase, the three human-in-the-loop
+interrupt gates, and the architectural guarantee that the system has no
+execution capability.</p>
+<p>All references below cite the exact source locations for verification.</p>
+<hr />
+<h2 id="safety-constraints-summary">Safety Constraints Summary</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Guardrail</th>
+<th>Enforced in</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Human approval required for stakeholder updates</td>
+<td><code>stakeholder.py:168</code></td>
+<td><code>interrupt_for_approval</code> gate</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Human approval required for remediation</td>
+<td><code>remediation.py:220</code></td>
+<td><code>interrupt_for_remediation_review</code> gate</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Human approval required for postmortem</td>
+<td><code>postmortem.py:245</code></td>
+<td><code>interrupt_for_postmortem_review</code> gate</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Remediation citations mandatory</td>
+<td><code>remediation.py:106</code></td>
+<td>Reject suggestions lacking a citation</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Confidence threshold suppresses low-confidence suggestions</td>
+<td><code>remediation.py:140</code></td>
+<td>Configurable threshold, default 0.7</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Dry-run is text prediction, NOT code execution</td>
+<td><code>remediation.py:183,197</code></td>
+<td>LLM prompt only; no execution path</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Blameless postmortem rules</td>
+<td><code>postmortem.py:50</code></td>
+<td>Enforced in the LLM prompt</td>
+</tr>
+<tr>
+<td>8</td>
+<td>AI-generated sections labelled</td>
+<td><code>formatters.py:127</code></td>
+<td><code>ai_generated</code> flag + markdown tags</td>
+</tr>
+<tr>
+<td>9</td>
+<td>No execution nodes in the graph</td>
+<td><code>graph.py</code> (architecture)</td>
+<td>No node touches production systems</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Simulate mode is the safe default</td>
+<td><code>config.py:39</code>, <code>state.py:256</code></td>
+<td><code>mode</code> defaults to <code>"simulate"</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-human-in-the-loop-interrupt-gates">1. Human-in-the-Loop Interrupt Gates</h2>
+<p>The graph pauses at three points for human review. In <strong>simulate mode</strong>, all
+three gates auto-approve (the system runs end-to-end without pausing). In
+<strong>run mode</strong>, each gate pauses via the LangGraph interrupt mechanism and
+requires a human to approve or reject before the graph resumes.</p>
+<h3 id="interrupt-point-1-stakeholder-update-review">Interrupt Point 1: Stakeholder Update Review</h3>
+<ul>
+<li><strong>Node:</strong> <code>interrupt_for_approval</code> (<code>stakeholder.py:168</code>)</li>
+<li><strong>Preceded by:</strong> <code>draft_update_node</code> — generates a consequence-first update</li>
+<li><strong>Followed by (approved):</strong> <code>produce_output_node</code> — finalizes and sends the update</li>
+<li><strong>Followed by (rejected):</strong> loops back to <code>draft_update_node</code> for redrafting</li>
+</ul>
+<p><strong>What happens here:</strong>
+The LLM has drafted a stakeholder update in consequence-first format
+(IMPACT / ROOT_CAUSE / ACTION / CONFIDENCE). Before this draft reaches
+stakeholders, a human reviews it for:
+- Factual accuracy of the impact assessment
+- Appropriateness of the root-cause hypothesis
+- Correctness of the stated action</p>
+<p>The draft is stored in <code>state.current_update_draft</code> and <strong>not</strong> marked as
+approved. Only after the human sets <code>update_approved = True</code> does
+<code>produce_output_node</code> append the draft to <code>state.stakeholder_updates</code> (the
+sent list) and update <code>last_update_time</code>.</p>
+<p>If rejected, the graph loops back to <code>draft_update_node</code> to generate a new
+draft with the same context.</p>
+<h3 id="interrupt-point-2-remediation-review">Interrupt Point 2: Remediation Review</h3>
+<ul>
+<li><strong>Node:</strong> <code>interrupt_for_remediation_review</code> (<code>remediation.py:220</code>)</li>
+<li><strong>Preceded by:</strong> <code>suggest_remediation_node</code> → <code>dry_run_simulate_node</code></li>
+<li><strong>Followed by (approved):</strong> <code>generate_postmortem_node</code></li>
+<li><strong>Followed by (rejected):</strong> loops back to <code>suggest_remediation_node</code></li>
+</ul>
+<p><strong>What happens here:</strong>
+The LLM has proposed ONE remediation action with a source citation, a
+confidence score, and a dry-run outcome prediction. A human reviews:
+- Whether the suggested action is safe and appropriate
+- Whether the citation (runbook or past incident) is valid and relevant
+- Whether the dry-run outcome prediction makes sense
+- Whether the confidence level justifies actioning the suggestion</p>
+<p>On approval, the suggestion is appended to
+<code>state.remediation_suggestions</code> and <code>remediation_approved</code> is set to <code>True</code>.
+On rejection, the graph loops back to generate a new suggestion.</p>
+<h3 id="interrupt-point-3-postmortem-review">Interrupt Point 3: Postmortem Review</h3>
+<ul>
+<li><strong>Node:</strong> <code>interrupt_for_postmortem_review</code> (<code>postmortem.py:245</code>)</li>
+<li><strong>Preceded by:</strong> <code>generate_postmortem_node</code></li>
+<li><strong>Followed by (approved):</strong> <code>cost_report_node</code> → <code>END</code></li>
+<li><strong>Followed by (rejected):</strong> loops back to <code>generate_postmortem_node</code></li>
+</ul>
+<p><strong>What happens here:</strong>
+The LLM has generated a COE-format postmortem with blameless framing and
+AI-section labels. A human reviews:
+- Blameless compliance (no individual names in root cause or systemic factors)
+- Factual accuracy of the timeline and root cause analysis
+- Completeness and appropriateness of action items
+- Correctness of severity-conditional sections</p>
+<p>On approval, <code>postmortem_approved</code> is set to <code>True</code> and the graph proceeds to
+cost aggregation and termination. On rejection, the graph loops back to
+regenerate the postmortem with adjustments.</p>
+<hr />
+<h2 id="2-confidence-threshold">2. Confidence Threshold</h2>
+<h3 id="default-and-configuration">Default and configuration</h3>
+<ul>
+<li><strong>Default value:</strong> <code>0.7</code> (70% confidence)</li>
+<li><strong>Configured via:</strong> <code>Config.confidence_threshold</code> (<code>config.py:54</code>)</li>
+<li><strong>Range:</strong> <code>0.0</code> to <code>1.0</code> (validated by Pydantic <code>Field(ge=0.0, le=1.0)</code>)</li>
+<li><strong>Read by:</strong> <code>_get_threshold()</code> in <code>remediation.py:36</code></li>
+</ul>
+<pre><code class="language-python"># config.py
+confidence_threshold: float = Field(default=0.7, ge=0.0, le=1.0)
+
+# remediation.py
+def _get_threshold() -&gt; float:
+    if _config is not None:
+        return _config.confidence_threshold
+    return 0.7  # Conservative default if config not initialized
+</code></pre>
+<h3 id="how-it-works">How it works</h3>
+<p>In <code>suggest_remediation_node</code> (<code>remediation.py:140</code>), after the LLM returns a
+remediation suggestion, the node checks whether the suggestion's confidence
+meets the threshold:</p>
+<ul>
+<li>If <code>confidence &gt;= threshold</code>: the suggestion is surfaced to the human
+  reviewer.</li>
+<li>If <code>confidence &lt; threshold</code>: the suggestion is <strong>suppressed</strong> and replaced
+  with <code>"No suggestion — confidence below threshold"</code>. The original confidence
+  value is preserved in the suppressed <code>RemediationSuggestion</code> for auditability.</li>
+</ul>
+<p>This guardrail ensures low-probability remediation actions never waste the
+incident commander's time or cause harm. The threshold check is skipped only
+when the suggestion was already rejected for a missing citation (since a
+rejected suggestion has <code>citation=""</code> and is not actionable regardless).</p>
+<h3 id="tuning">Tuning</h3>
+<p>To make the system more conservative (surface fewer suggestions), raise the
+threshold:</p>
+<pre><code class="language-python">from incident_commander.config import Config
+
+config = Config(confidence_threshold=0.85)  # only show 85%+ confidence
+</code></pre>
+<p>To make it more permissive, lower it:</p>
+<pre><code class="language-python">config = Config(confidence_threshold=0.5)  # show 50%+ confidence
+</code></pre>
+<p>Setting it to <code>0.0</code> disables suppression entirely (all cited suggestions are
+surfaced). Setting it to <code>1.0</code> requires perfect confidence (effectively
+suppresses everything unless the LLM reports 1.0).</p>
+<hr />
+<h2 id="3-dry-run-explanation-llm-simulation-not-code-execution">3. Dry-Run Explanation — LLM Simulation, NOT Code Execution</h2>
+<h3 id="what-dry-run-is">What dry-run is</h3>
+<p><code>dry_run_simulate_node</code> (<code>remediation.py:197</code>) asks the LLM to <strong>predict in
+text</strong> what would happen if the proposed remediation action were taken. The
+prompt instructs the LLM to produce a brief prediction, for example:</p>
+<blockquote>
+<p>"payment success rate should return to &gt;99% within 2 minutes of rollback"</p>
+</blockquote>
+<p>The prediction is stored in <code>current_remediation.dry_run_outcome</code> and shown
+to the human reviewer at the remediation review gate.</p>
+<h3 id="what-dry-run-is-not">What dry-run is NOT</h3>
+<p>The dry-run is <strong>text prediction only</strong>. The architecture has:</p>
+<ul>
+<li><strong>No shell execution</strong> — the LLM never runs commands</li>
+<li><strong>No API calls</strong> — no HTTP requests are made to production systems</li>
+<li><strong>No code execution</strong> — no scripts are invoked</li>
+<li><strong>No state mutation</strong> — no configuration, infrastructure, or services are
+  touched</li>
+</ul>
+<p>This is enforced architecturally: <code>dry_run_simulate_node</code> calls
+<code>router.generate(prompt, task="analysis")</code>, which performs a single HTTP POST
+to an OpenAI-compatible LLM endpoint and returns text. There is no code path
+from this node to any production system.</p>
+<p>The prompt explicitly frames the task as prediction:</p>
+<pre><code>You are an incident simulator. Predict the expected outcome of a
+remediation action.
+...
+Format your response as a brief prediction of what would happen if this
+action is taken.
+</code></pre>
+<hr />
+<h2 id="4-ai-section-labeling-convention">4. AI Section Labeling Convention</h2>
+<h3 id="provenance-tracking">Provenance tracking</h3>
+<p>Every <code>PostmortemSection</code> and <code>ActionItem</code> carries an <code>ai_generated</code> boolean
+flag (<code>state.py:130</code>, <code>state.py:139</code>):</p>
+<ul>
+<li><code>ai_generated=True</code> — the LLM authored this content</li>
+<li><code>ai_generated=False</code> — a human authored/edited it, or it was reconstructed
+  from structured session data</li>
+</ul>
+<h3 id="how-sections-are-labelled">How sections are labelled</h3>
+<p>In <code>generate_postmortem_node</code> (<code>postmortem.py:155-174</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th><code>ai_generated</code></th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Summary</td>
+<td><code>True</code></td>
+<td>LLM-authored</td>
+</tr>
+<tr>
+<td>Customer Impact</td>
+<td><code>True</code></td>
+<td>LLM-authored</td>
+</tr>
+<tr>
+<td>Timeline</td>
+<td><code>False</code></td>
+<td>Reconstructed from structured state data, not LLM hallucination</td>
+</tr>
+<tr>
+<td>Root Cause Analysis</td>
+<td><code>True</code></td>
+<td>LLM-authored</td>
+</tr>
+<tr>
+<td>Systemic Contributing Factors</td>
+<td><code>True</code></td>
+<td>LLM-authored</td>
+</tr>
+<tr>
+<td>Action Items</td>
+<td><code>True</code> (per item)</td>
+<td>LLM-authored</td>
+</tr>
+<tr>
+<td>Stakeholder Communication Log</td>
+<td><code>False</code></td>
+<td>From structured session data</td>
+</tr>
+<tr>
+<td>Regulatory/Compliance Impact</td>
+<td><code>True</code></td>
+<td>LLM-authored</td>
+</tr>
+</tbody>
+</table>
+<h3 id="markdown-rendering">Markdown rendering</h3>
+<p>In <code>formatters.py:121-138</code>, the <code>_section_md()</code> function appends a provenance
+tag to each section header:</p>
+<ul>
+<li>AI-authored sections: <code>*[AI-GENERATED — review carefully]*</code></li>
+<li>Session-data sections: <code>*[From session data]*</code></li>
+</ul>
+<p>Action items are individually tagged with <code>*[AI-generated]*</code>.</p>
+<h3 id="ai-section-labels-summary-table">AI Section Labels summary table</h3>
+<p>The formatted postmortem ends with a provenance summary table
+(<code>formatters.py:194-218</code>):</p>
+<pre><code>### AI Section Labels
+| Section | Source |
+|---------|--------|
+| Summary | AI-generated |
+| Timeline | Session data |
+| Root Cause Analysis | AI-generated |
+| Systemic Factors | AI-generated |
+...
+</code></pre>
+<p>This ensures a human reviewer can immediately see which sections require
+scrutiny (AI-generated) versus which are grounded in verifiable session data.</p>
+<hr />
+<h2 id="5-blameless-postmortem-rules">5. Blameless Postmortem Rules</h2>
+<p>Blameless rules are enforced <strong>in the LLM prompt</strong> in
+<code>_build_postmortem_prompt()</code> (<code>postmortem.py:57-60</code>):</p>
+<pre><code>BLAMELESS RULES (SAFETY GUARDRAIL):
+- Focus on what failed, not who failed.
+- Systemic Contributing Factors must focus on processes, not people.
+- Do not include individual names in root cause or systemic factors.
+</code></pre>
+<h3 id="what-this-means">What this means</h3>
+<ol>
+<li><strong>What failed, not who failed</strong> — The postmortem must describe the
+   technical or process failure, not attribute blame to a person.</li>
+<li><strong>Systemic factors focus on processes</strong> — The "Systemic Contributing
+   Factors" section must address broken processes, missing safeguards, or
+   tooling gaps — not individual mistakes.</li>
+<li><strong>No individual names in root cause or systemic factors</strong> — The LLM is
+   explicitly instructed to omit personal names from these sections.</li>
+</ol>
+<h3 id="enforcement">Enforcement</h3>
+<p>These rules are enforced via prompt engineering, not post-hoc filtering. The
+LLM is instructed at generation time to follow blameless framing. The
+<code>interrupt_for_postmortem_review</code> gate provides a second layer of defense:
+a human reviewer can reject the postmortem if blameless compliance is
+violated, causing the graph to regenerate it.</p>
+<h3 id="action-items-with-suggested-owners">Action items with suggested owners</h3>
+<p>Action items do include a <code>suggested_owner</code> field (<code>state.py:137</code>), but this
+is a <strong>team or role recommendation</strong> (e.g. "Payments Team", "SRE"), not an
+individual blame attribution. The prompt asks for "suggested owner" in the
+context of corrective action assignment, not fault assignment.</p>
+<hr />
+<h2 id="6-no-execution-capability">6. No Execution Capability</h2>
+<h3 id="architectural-guarantee">Architectural guarantee</h3>
+<p>The ai-incident-commander graph contains <strong>no execution nodes</strong>. The 14
+nodes in the graph perform only these operations:</p>
+<ol>
+<li><strong>Data fusion</strong> — merge input sources into a timeline (<code>build_timeline</code>,
+   <code>correlate_deploys</code>)</li>
+<li><strong>Retrieval</strong> — fetch and rerank runbooks/evidence (<code>retrieve_runbooks</code>,
+   <code>rerank_evidence</code>)</li>
+<li><strong>LLM generation</strong> — draft text via LLM calls (<code>draft_update</code>,
+   <code>suggest_remediation</code>, <code>dry_run_simulate</code>, <code>generate_postmortem</code>)</li>
+<li><strong>Human gates</strong> — pause for approval (<code>interrupt_for_approval</code>,
+   <code>interrupt_for_remediation_review</code>, <code>interrupt_for_postmortem_review</code>)</li>
+<li><strong>State finalization</strong> — move drafts to sent lists (<code>produce_output</code>)</li>
+<li><strong>Cost aggregation</strong> — sum token costs (<code>cost_report</code>)</li>
+</ol>
+<h3 id="what-the-system-cannot-do">What the system cannot do</h3>
+<ul>
+<li><strong>Cannot run shell commands</strong> — no node invokes <code>subprocess</code>, <code>os.system</code>,
+  or any command runner</li>
+<li><strong>Cannot make production API calls</strong> — the only outbound HTTP is to the LLM
+  endpoint (OpenAI-compatible), and optionally to Qdrant/GitHub for read-only
+  retrieval</li>
+<li><strong>Cannot modify infrastructure</strong> — no Terraform, Kubernetes, or cloud SDK
+  calls</li>
+<li><strong>Cannot deploy or rollback</strong> — remediation suggestions are text proposals
+  that a human must action manually</li>
+<li><strong>Cannot send stakeholder updates</strong> — drafts are produced; a human approves
+  and sends them through external channels</li>
+</ul>
+<h3 id="the-dry-run-boundary">The dry-run boundary</h3>
+<p>The closest the system comes to "action" is <code>dry_run_simulate_node</code>, which
+produces a <strong>text prediction</strong> of an action's outcome. This is explicitly a
+prompt to the LLM asking "what would happen if..." — it never performs the
+action. See §3 above.</p>
+<hr />
+<h2 id="7-simulate-mode-as-the-safe-default">7. Simulate Mode as the Safe Default</h2>
+<p><code>Config.mode</code> defaults to <code>"simulate"</code> (<code>config.py:39</code>) and <code>IncidentState.mode</code>
+defaults to <code>"simulate"</code> (<code>state.py:256</code>). This means:</p>
+<ul>
+<li>All three interrupt gates auto-approve without pausing</li>
+<li>The incident is marked resolved after the first stakeholder update
+  (<code>produce_output_node</code>, <code>stakeholder.py:162</code>)</li>
+<li>The graph runs end-to-end without human intervention</li>
+</ul>
+<p>This is the safe default for demos, testing, and CI. To require human
+approval at every gate, set <code>mode="run"</code>:</p>
+<pre><code class="language-python">config = Config(mode=&quot;run&quot;)
+</code></pre>
+<p>or via the CLI:</p>
+<pre><code class="language-bash">incident-commander simulate --severity SEV1   # defaults to run mode (no --auto-approve)
+</code></pre>
+<p>The <code>--auto-approve</code> CLI flag sets <code>mode="simulate"</code> to bypass gates for
+testing.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

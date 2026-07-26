@@ -1,0 +1,14 @@
+site_name: ai-incident-commander
+site_description: AI incident commander — war rooms, timelines, remediations, and postmortems
+nav:
+  - Home: index.md
+  - Architecture: architecture.md
+  - API Reference: api-reference.md
+  - Input Format: input-format.md
+  - Output Format: output-format.md
+  - Simulation Guide: simulation-guide.md
+  - Safety Guardrails: safety-guardrails.md
+  - Field Test Results: field-test-results.md
+  - PRD: PRD.md
+  - SPEC: SPEC.md
+  - WBS: wbs.md

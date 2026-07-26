@@ -1,0 +1,2420 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>API Reference - ai-incident-commander</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">ai-incident-commander</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../architecture/" class="nav-link">Architecture</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">API Reference</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../input-format/" class="nav-link">Input Format</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../output-format/" class="nav-link">Output Format</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../simulation-guide/" class="nav-link">Simulation Guide</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../safety-guardrails/" class="nav-link">Safety Guardrails</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../field-test-results/" class="nav-link">Field Test Results</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../PRD/" class="nav-link">PRD</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../SPEC/" class="nav-link">SPEC</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../wbs/" class="nav-link">WBS</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../architecture/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../input-format/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#api-reference" class="nav-link">API Reference</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#run_incident" class="nav-link">run_incident()</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#run_simulation" class="nav-link">run_simulation()</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#pydantic-models" class="nav-link">Pydantic Models</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#incidentresult" class="nav-link">IncidentResult</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#config-llmconfig" class="nav-link">Config / LLMConfig</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#scenarios" class="nav-link">SCENARIOS</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#schemas" class="nav-link">SCHEMAS</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#export_schemas" class="nav-link">export_schemas()</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#validate_input" class="nav-link">validate_input()</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#public-exports" class="nav-link">Public Exports</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="api-reference">API Reference</h1>
+<p>Complete reference for the ai-incident-commander Python API, Pydantic models,
+configuration, schema registry, and simulation scenarios.</p>
+<p>All public symbols are importable directly from the top-level package:</p>
+<pre><code class="language-python">import incident_commander as ic
+</code></pre>
+<hr />
+<h2 id="run_incident"><code>run_incident()</code></h2>
+<p>Execute the full incident-response graph against real input data.</p>
+<pre><code class="language-python">from incident_commander import run_incident
+</code></pre>
+<h3 id="signature">Signature</h3>
+<pre><code class="language-python">def run_incident(
+    alert: object,
+    logs: object = None,
+    messages: object = None,
+    github: object = None,
+    runbooks: object = None,
+    manual_events: object = None,
+    config: Config | None = None,
+    output_dir: str | None = None,
+    auto_approve: bool = False,
+    thread_id: str | None = None,
+) -&gt; IncidentResult
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>alert</code></td>
+<td><code>Alert \| dict \| str \| Path</code></td>
+<td>—</td>
+<td>Triggering alert (model, dict, or file path) — <strong>required</strong></td>
+</tr>
+<tr>
+<td><code>logs</code></td>
+<td><code>list \| str \| Path \| None</code></td>
+<td><code>None</code></td>
+<td>Log entries (list of models/dicts, or directory/file path)</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>list \| str \| Path \| None</code></td>
+<td><code>None</code></td>
+<td>Chat messages (list of models/dicts, or file path)</td>
+</tr>
+<tr>
+<td><code>github</code></td>
+<td><code>list \| str \| Path \| None</code></td>
+<td><code>None</code></td>
+<td>GitHub PRs (list of models/dicts, or file path)</td>
+</tr>
+<tr>
+<td><code>runbooks</code></td>
+<td><code>list \| None</code></td>
+<td><code>None</code></td>
+<td>Runbooks (list of model instances or dicts)</td>
+</tr>
+<tr>
+<td><code>manual_events</code></td>
+<td><code>list[TimelineEvent] \| None</code></td>
+<td><code>None</code></td>
+<td>Human-supplied timeline events</td>
+</tr>
+<tr>
+<td><code>config</code></td>
+<td><code>Config \| None</code></td>
+<td><code>None</code></td>
+<td>Configuration object (defaults to <code>Config()</code>)</td>
+</tr>
+<tr>
+<td><code>output_dir</code></td>
+<td><code>str \| None</code></td>
+<td><code>None</code></td>
+<td>Output directory; if set, writes all 10 output files</td>
+</tr>
+<tr>
+<td><code>auto_approve</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>Skip all approval gates (sets mode to <code>"simulate"</code>)</td>
+</tr>
+<tr>
+<td><code>thread_id</code></td>
+<td><code>str \| None</code></td>
+<td><code>None</code></td>
+<td>Session thread ID (auto-generated if not provided)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type">Return type</h3>
+<p><code>IncidentResult</code> — the full session output (see <a href="#incidentresult">IncidentResult</a>).</p>
+<h3 id="example">Example</h3>
+<pre><code class="language-python">from incident_commander import run_incident
+
+result = run_incident(
+    alert={
+        &quot;severity&quot;: &quot;SEV1&quot;,
+        &quot;service&quot;: &quot;payment-service&quot;,
+        &quot;summary&quot;: &quot;Payment success rate dropped below 50%&quot;,
+        &quot;source&quot;: &quot;datadog-monitor&quot;,
+        &quot;timestamp&quot;: &quot;2026-07-13T14:05:00&quot;,
+    },
+    logs=&quot;path/to/logs/&quot;,
+    messages=&quot;path/to/messages.json&quot;,
+    github=&quot;path/to/github.json&quot;,
+    output_dir=&quot;./output&quot;,
+    auto_approve=True,
+)
+
+print(f&quot;Thread: {result.thread_id}&quot;)
+print(f&quot;Timeline events: {len(result.timeline)}&quot;)
+print(f&quot;Updates: {len(result.stakeholder_updates)}&quot;)
+</code></pre>
+<hr />
+<h2 id="run_simulation"><code>run_simulation()</code></h2>
+<p>Run a bundled simulation scenario through the graph for demos and testing. No
+real input data required.</p>
+<pre><code class="language-python">from incident_commander import run_simulation
+</code></pre>
+<h3 id="signature_1">Signature</h3>
+<pre><code class="language-python">def run_simulation(
+    service: str = &quot;payment-service&quot;,
+    severity: str = &quot;SEV1&quot;,
+    scenario: str | None = None,
+    seed: int = 42,
+    config: Config | None = None,
+    output_dir: str | None = None,
+    auto_approve: bool = False,
+) -&gt; IncidentResult
+</code></pre>
+<h3 id="parameters_1">Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>service</code></td>
+<td><code>str</code></td>
+<td><code>"payment-service"</code></td>
+<td>Service name (used when <code>scenario</code> is <code>None</code>)</td>
+</tr>
+<tr>
+<td><code>severity</code></td>
+<td><code>str</code></td>
+<td><code>"SEV1"</code></td>
+<td>Severity (used when <code>scenario</code> is <code>None</code>)</td>
+</tr>
+<tr>
+<td><code>scenario</code></td>
+<td><code>str \| None</code></td>
+<td><code>None</code></td>
+<td>Named scenario from <code>SCENARIOS</code> (overrides service/sev)</td>
+</tr>
+<tr>
+<td><code>seed</code></td>
+<td><code>int</code></td>
+<td><code>42</code></td>
+<td>Random seed for reproducibility</td>
+</tr>
+<tr>
+<td><code>config</code></td>
+<td><code>Config \| None</code></td>
+<td><code>None</code></td>
+<td>Configuration object</td>
+</tr>
+<tr>
+<td><code>output_dir</code></td>
+<td><code>str \| None</code></td>
+<td><code>None</code></td>
+<td>Output directory; if set, writes all 10 output files</td>
+</tr>
+<tr>
+<td><code>auto_approve</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>Skip all approval gates</td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type_1">Return type</h3>
+<p><code>IncidentResult</code></p>
+<h3 id="example_1">Example</h3>
+<pre><code class="language-python">from incident_commander import run_simulation
+
+# Named scenario
+result = run_simulation(
+    scenario=&quot;db-connection-pool&quot;,
+    output_dir=&quot;./output&quot;,
+    auto_approve=True,
+)
+
+# Procedural generation
+result = run_simulation(
+    service=&quot;api-gateway&quot;,
+    severity=&quot;SEV2&quot;,
+    seed=123,
+    output_dir=&quot;./output&quot;,
+)
+</code></pre>
+<hr />
+<h2 id="pydantic-models">Pydantic Models</h2>
+<h3 id="alert"><code>Alert</code></h3>
+<p>The triggering alert for an incident session.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>severity</code></td>
+<td><code>Literal["SEV1", "SEV2", "SEV3"]</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Alert severity</td>
+</tr>
+<tr>
+<td><code>service</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Affected service</td>
+</tr>
+<tr>
+<td><code>summary</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Short alert summary</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td><code>str</code></td>
+<td>No</td>
+<td><code>"manual"</code></td>
+<td>Originating system</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>datetime</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Alert trigger time</td>
+</tr>
+<tr>
+<td><code>incident_id</code></td>
+<td><code>str</code></td>
+<td>No</td>
+<td><code>""</code></td>
+<td>Incident ID</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>dict[str, Any]</code></td>
+<td>No</td>
+<td><code>{}</code></td>
+<td>Original payload for traceability</td>
+</tr>
+</tbody>
+</table>
+<h3 id="chatmessage"><code>ChatMessage</code></h3>
+<p>A chat message from Slack, Teams, or other chat export.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>datetime</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Message timestamp</td>
+</tr>
+<tr>
+<td><code>author</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Message author</td>
+</tr>
+<tr>
+<td><code>text</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Message content</td>
+</tr>
+<tr>
+<td><code>channel</code></td>
+<td><code>str</code></td>
+<td>No</td>
+<td><code>""</code></td>
+<td>Channel name</td>
+</tr>
+<tr>
+<td><code>thread_ts</code></td>
+<td><code>str \| None</code></td>
+<td>No</td>
+<td><code>null</code></td>
+<td>Slack thread timestamp for reply grouping</td>
+</tr>
+</tbody>
+</table>
+<h3 id="logentry"><code>LogEntry</code></h3>
+<p>A single parsed log entry from application or infrastructure logs.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>datetime</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Log entry timestamp</td>
+</tr>
+<tr>
+<td><code>level</code></td>
+<td><code>Literal["DEBUG","INFO","WARN","ERROR","FATAL","TRACE"]</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Log severity level</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Log message</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td><code>str</code></td>
+<td>No</td>
+<td><code>""</code></td>
+<td>Entry origin</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>dict[str, Any]</code></td>
+<td>No</td>
+<td><code>{}</code></td>
+<td>Structured fields (e.g. <code>trace_id</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="githubpr"><code>GitHubPR</code></h3>
+<p>A GitHub pull request used for deploy correlation analysis.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>number</code></td>
+<td><code>int</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>PR number</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>PR title</td>
+</tr>
+<tr>
+<td><code>author</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>PR author</td>
+</tr>
+<tr>
+<td><code>merge_time</code></td>
+<td><code>datetime</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Merge timestamp</td>
+</tr>
+<tr>
+<td><code>files_changed</code></td>
+<td><code>list[str]</code></td>
+<td>No</td>
+<td><code>[]</code></td>
+<td>File paths modified</td>
+</tr>
+<tr>
+<td><code>labels</code></td>
+<td><code>list[str]</code></td>
+<td>No</td>
+<td><code>[]</code></td>
+<td>GitHub labels</td>
+</tr>
+<tr>
+<td><code>base_branch</code></td>
+<td><code>str</code></td>
+<td>No</td>
+<td><code>"main"</code></td>
+<td>Target branch</td>
+</tr>
+</tbody>
+</table>
+<h3 id="runbook"><code>Runbook</code></h3>
+<p>A runbook for incident response, indexed by keywords for RAG retrieval.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>str</code></td>
+<td>No</td>
+<td><code>""</code></td>
+<td>Unique runbook identifier</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Runbook title</td>
+</tr>
+<tr>
+<td><code>path</code></td>
+<td><code>str</code></td>
+<td>No</td>
+<td><code>""</code></td>
+<td>File path or URL</td>
+</tr>
+<tr>
+<td><code>content</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Runbook content</td>
+</tr>
+<tr>
+<td><code>keywords</code></td>
+<td><code>list[str]</code></td>
+<td>No</td>
+<td><code>[]</code></td>
+<td>Keywords for RAG indexing</td>
+</tr>
+<tr>
+<td><code>service</code></td>
+<td><code>str</code></td>
+<td>No</td>
+<td><code>""</code></td>
+<td>Service this applies to (empty = all)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="incidentmeta"><code>IncidentMeta</code></h3>
+<p>Incident metadata from <code>meta.json</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>incident_id</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Unique incident identifier</td>
+</tr>
+<tr>
+<td><code>service</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Affected service</td>
+</tr>
+<tr>
+<td><code>severity</code></td>
+<td><code>Literal["SEV1", "SEV2", "SEV3"]</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Incident severity</td>
+</tr>
+<tr>
+<td><code>start_time</code></td>
+<td><code>datetime</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Incident start timestamp</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>str</code></td>
+<td>No</td>
+<td><code>""</code></td>
+<td>Free-form description</td>
+</tr>
+<tr>
+<td><code>commander</code></td>
+<td><code>str</code></td>
+<td>No</td>
+<td><code>""</code></td>
+<td>Person leading the response</td>
+</tr>
+<tr>
+<td><code>oncall_roster</code></td>
+<td><code>list[str]</code></td>
+<td>No</td>
+<td><code>[]</code></td>
+<td>Engineers on call</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td><code>list[str]</code></td>
+<td>No</td>
+<td><code>[]</code></td>
+<td>Free-form labels</td>
+</tr>
+</tbody>
+</table>
+<h3 id="incidentinput"><code>IncidentInput</code></h3>
+<p>Aggregate input for <code>run_incident()</code> — all data channels in one object. Only
+<code>alert</code> is required.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema_version</code></td>
+<td><code>str</code></td>
+<td><code>"0.1.0"</code></td>
+<td>Input format version</td>
+</tr>
+<tr>
+<td><code>alert</code></td>
+<td><code>Alert</code></td>
+<td>—</td>
+<td>Triggering alert (<strong>required</strong>)</td>
+</tr>
+<tr>
+<td><code>logs</code></td>
+<td><code>list[LogEntry]</code></td>
+<td><code>[]</code></td>
+<td>Log entries</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>list[ChatMessage]</code></td>
+<td><code>[]</code></td>
+<td>Chat history</td>
+</tr>
+<tr>
+<td><code>github</code></td>
+<td><code>list[GitHubPR]</code></td>
+<td><code>[]</code></td>
+<td>Recently merged PRs</td>
+</tr>
+<tr>
+<td><code>runbooks</code></td>
+<td><code>list[Runbook]</code></td>
+<td><code>[]</code></td>
+<td>Runbooks for RAG</td>
+</tr>
+<tr>
+<td><code>manual_events</code></td>
+<td><code>list[TimelineEvent]</code></td>
+<td><code>[]</code></td>
+<td>Human-supplied events</td>
+</tr>
+<tr>
+<td><code>meta</code></td>
+<td><code>IncidentMeta \| None</code></td>
+<td><code>null</code></td>
+<td>Optional metadata from meta.json</td>
+</tr>
+</tbody>
+</table>
+<h3 id="timelineevent"><code>TimelineEvent</code></h3>
+<p>A single event in the incident timeline.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>datetime</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Event timestamp</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td><code>Literal["alert","chat","log","github","manual"]</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Originating channel</td>
+</tr>
+<tr>
+<td><code>event_type</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Free-form label</td>
+</tr>
+<tr>
+<td><code>content</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Event content</td>
+</tr>
+<tr>
+<td><code>trust_level</code></td>
+<td><code>Literal["high","medium","low"]</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>high=verifiable, low=hearsay/inferred</td>
+</tr>
+<tr>
+<td><code>deploy_correlation</code></td>
+<td><code>bool</code></td>
+<td>No</td>
+<td><code>False</code></td>
+<td>True if suspected deploy trigger</td>
+</tr>
+</tbody>
+</table>
+<h3 id="deploycorrelation"><code>DeployCorrelation</code></h3>
+<p>A GitHub PR/commit correlated with the incident via time proximity.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pr_number</code></td>
+<td><code>int</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>PR number</td>
+</tr>
+<tr>
+<td><code>pr_title</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>PR title</td>
+</tr>
+<tr>
+<td><code>author</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>PR author</td>
+</tr>
+<tr>
+<td><code>merge_time</code></td>
+<td><code>datetime</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Merge timestamp</td>
+</tr>
+<tr>
+<td><code>files_changed</code></td>
+<td><code>list[str]</code></td>
+<td>No</td>
+<td><code>[]</code></td>
+<td>Files modified</td>
+</tr>
+<tr>
+<td><code>minutes_before_alert</code></td>
+<td><code>int</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Minutes between merge and alert (positive)</td>
+</tr>
+<tr>
+<td><code>correlation_strength</code></td>
+<td><code>Literal["strong","weak"]</code></td>
+<td>No</td>
+<td><code>"strong"</code></td>
+<td>Correlation strength</td>
+</tr>
+</tbody>
+</table>
+<h3 id="stakeholderupdate"><code>StakeholderUpdate</code></h3>
+<p>A drafted stakeholder update in consequence-first format.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>update_number</code></td>
+<td><code>int</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Sequential, starting at 1</td>
+</tr>
+<tr>
+<td><code>impact</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>What's broken and who is affected</td>
+</tr>
+<tr>
+<td><code>root_cause_hypothesis</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Best-guess root cause</td>
+</tr>
+<tr>
+<td><code>action</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>What the IC is doing about it</td>
+</tr>
+<tr>
+<td><code>next_update_time</code></td>
+<td><code>datetime</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>When the next update is due</td>
+</tr>
+<tr>
+<td><code>confidence</code></td>
+<td><code>float</code></td>
+<td>No</td>
+<td><code>1.0</code></td>
+<td>0-1 confidence in hypothesis</td>
+</tr>
+<tr>
+<td><code>approved</code></td>
+<td><code>bool</code></td>
+<td>No</td>
+<td><code>False</code></td>
+<td>Gated by approval interrupt</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>datetime</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Update timestamp</td>
+</tr>
+</tbody>
+</table>
+<h3 id="remediationsuggestion"><code>RemediationSuggestion</code></h3>
+<p>A remediation suggestion with citation and dry-run outcome.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>action</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Remediation action</td>
+</tr>
+<tr>
+<td><code>citation</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Runbook or incident reference</td>
+</tr>
+<tr>
+<td><code>confidence</code></td>
+<td><code>float</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Confidence score</td>
+</tr>
+<tr>
+<td><code>dry_run_outcome</code></td>
+<td><code>str</code></td>
+<td>No</td>
+<td><code>""</code></td>
+<td>Result of simulating the fix</td>
+</tr>
+<tr>
+<td><code>similar_incidents</code></td>
+<td><code>list[str]</code></td>
+<td>No</td>
+<td><code>[]</code></td>
+<td>Historical incident IDs</td>
+</tr>
+<tr>
+<td><code>approved</code></td>
+<td><code>bool</code></td>
+<td>No</td>
+<td><code>False</code></td>
+<td>Approval status</td>
+</tr>
+</tbody>
+</table>
+<h3 id="postmortemsection"><code>PostmortemSection</code></h3>
+<p>A single section of the COE-format postmortem.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Section title</td>
+</tr>
+<tr>
+<td><code>content</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Section body text</td>
+</tr>
+<tr>
+<td><code>ai_generated</code></td>
+<td><code>bool</code></td>
+<td>No</td>
+<td><code>True</code></td>
+<td><code>False</code> when human-authored</td>
+</tr>
+</tbody>
+</table>
+<h3 id="actionitem"><code>ActionItem</code></h3>
+<p>A corrective action from the postmortem.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>description</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>What needs to be done</td>
+</tr>
+<tr>
+<td><code>suggested_owner</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Recommended team or person</td>
+</tr>
+<tr>
+<td><code>priority</code></td>
+<td><code>Literal["P0","P1","P2"]</code></td>
+<td>No</td>
+<td><code>"P1"</code></td>
+<td>Urgency level</td>
+</tr>
+<tr>
+<td><code>ai_generated</code></td>
+<td><code>bool</code></td>
+<td>No</td>
+<td><code>True</code></td>
+<td><code>False</code> when human-authored</td>
+</tr>
+</tbody>
+</table>
+<h3 id="postmortem"><code>Postmortem</code></h3>
+<p>Amazon COE-format postmortem. See <a href="../coe-format/"><code>coe-format.md</code></a> for the full
+specification.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>incident_id</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Incident identifier</td>
+</tr>
+<tr>
+<td><code>incident_date</code></td>
+<td><code>datetime</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Alert timestamp</td>
+</tr>
+<tr>
+<td><code>severity</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Incident severity</td>
+</tr>
+<tr>
+<td><code>service</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Affected service</td>
+</tr>
+<tr>
+<td><code>summary</code></td>
+<td><code>PostmortemSection</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Summary section</td>
+</tr>
+<tr>
+<td><code>timeline</code></td>
+<td><code>PostmortemSection</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Timeline section</td>
+</tr>
+<tr>
+<td><code>root_cause_analysis</code></td>
+<td><code>PostmortemSection</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>RCA section</td>
+</tr>
+<tr>
+<td><code>systemic_contributing_factors</code></td>
+<td><code>PostmortemSection</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Systemic factors section</td>
+</tr>
+<tr>
+<td><code>action_items</code></td>
+<td><code>list[ActionItem]</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Corrective actions</td>
+</tr>
+<tr>
+<td><code>customer_impact</code></td>
+<td><code>PostmortemSection \| null</code></td>
+<td>No</td>
+<td><code>null</code></td>
+<td>SEV1/SEV2 only</td>
+</tr>
+<tr>
+<td><code>stakeholder_communication_log</code></td>
+<td><code>PostmortemSection \| null</code></td>
+<td>No</td>
+<td><code>null</code></td>
+<td>SEV1 only</td>
+</tr>
+<tr>
+<td><code>regulatory_compliance_impact</code></td>
+<td><code>PostmortemSection \| null</code></td>
+<td>No</td>
+<td><code>null</code></td>
+<td>SEV1 only</td>
+</tr>
+<tr>
+<td><code>resolved_at</code></td>
+<td><code>datetime \| null</code></td>
+<td>No</td>
+<td><code>null</code></td>
+<td>Last timeline event timestamp (proxy)</td>
+</tr>
+<tr>
+<td><code>mttr_minutes</code></td>
+<td><code>int \| null</code></td>
+<td>No</td>
+<td><code>null</code></td>
+<td>Minutes from alert to resolution</td>
+</tr>
+<tr>
+<td><code>approved</code></td>
+<td><code>bool</code></td>
+<td>No</td>
+<td><code>False</code></td>
+<td>Human review gate</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nodecost"><code>NodeCost</code></h3>
+<p>Cost breakdown for a single agent node (one LLM call).</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>node_name</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Graph node that made the call</td>
+</tr>
+<tr>
+<td><code>llm_model</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Model ID</td>
+</tr>
+<tr>
+<td><code>input_tokens</code></td>
+<td><code>int</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Prompt token count</td>
+</tr>
+<tr>
+<td><code>output_tokens</code></td>
+<td><code>int</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Completion token count</td>
+</tr>
+<tr>
+<td><code>total_tokens</code></td>
+<td><code>int</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Sum of input + output</td>
+</tr>
+<tr>
+<td><code>estimated_cost_usd</code></td>
+<td><code>float</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Estimated cost from pricing lookup</td>
+</tr>
+<tr>
+<td><code>latency_ms</code></td>
+<td><code>int</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Wall-clock round-trip time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="costreport"><code>CostReport</code></h3>
+<p>Aggregate cost report for an entire incident session.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>session_id</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Session ID</td>
+</tr>
+<tr>
+<td><code>total_input_tokens</code></td>
+<td><code>int</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Total input tokens</td>
+</tr>
+<tr>
+<td><code>total_output_tokens</code></td>
+<td><code>int</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Total output tokens</td>
+</tr>
+<tr>
+<td><code>total_tokens</code></td>
+<td><code>int</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Total tokens</td>
+</tr>
+<tr>
+<td><code>total_estimated_cost_usd</code></td>
+<td><code>float</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Total estimated cost</td>
+</tr>
+<tr>
+<td><code>per_node</code></td>
+<td><code>list[NodeCost]</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Breakdown by individual LLM calls</td>
+</tr>
+<tr>
+<td><code>models_used</code></td>
+<td><code>list[str]</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Distinct model IDs invoked</td>
+</tr>
+</tbody>
+</table>
+<h3 id="incidentstate"><code>IncidentState</code></h3>
+<p>Full state schema for the incident commander LangGraph. This is the single
+state object threaded through every graph node. Every field has a sensible
+default so <code>IncidentState()</code> is valid at any point in the graph lifecycle.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>alert</code></td>
+<td><code>Alert \| None</code></td>
+<td><code>null</code></td>
+<td>Triggering alert</td>
+</tr>
+<tr>
+<td><code>severity</code></td>
+<td><code>Literal["SEV1","SEV2","SEV3"]</code></td>
+<td><code>"SEV3"</code></td>
+<td>Mirrored from alert for routing</td>
+</tr>
+<tr>
+<td><code>service</code></td>
+<td><code>str</code></td>
+<td><code>""</code></td>
+<td>Mirrored from alert</td>
+</tr>
+<tr>
+<td><code>incident_id</code></td>
+<td><code>str</code></td>
+<td><code>""</code></td>
+<td>Mirrored from alert/meta</td>
+</tr>
+<tr>
+<td><code>input_logs</code></td>
+<td><code>list[LogEntry]</code></td>
+<td><code>[]</code></td>
+<td>Input log entries</td>
+</tr>
+<tr>
+<td><code>input_messages</code></td>
+<td><code>list[ChatMessage]</code></td>
+<td><code>[]</code></td>
+<td>Input chat history</td>
+</tr>
+<tr>
+<td><code>input_prs</code></td>
+<td><code>list[GitHubPR]</code></td>
+<td><code>[]</code></td>
+<td>Input merged PRs</td>
+</tr>
+<tr>
+<td><code>input_manual_events</code></td>
+<td><code>list[TimelineEvent]</code></td>
+<td><code>[]</code></td>
+<td>Human-added events</td>
+</tr>
+<tr>
+<td><code>timeline</code></td>
+<td><code>list[TimelineEvent]</code></td>
+<td><code>[]</code></td>
+<td>Merged chronological events</td>
+</tr>
+<tr>
+<td><code>deploy_correlations</code></td>
+<td><code>list[DeployCorrelation]</code></td>
+<td><code>[]</code></td>
+<td>Correlated PRs</td>
+</tr>
+<tr>
+<td><code>retrieved_runbooks</code></td>
+<td><code>list[dict]</code></td>
+<td><code>[]</code></td>
+<td>Matched runbooks</td>
+</tr>
+<tr>
+<td><code>retrieved_incidents</code></td>
+<td><code>list[dict]</code></td>
+<td><code>[]</code></td>
+<td>Past incidents</td>
+</tr>
+<tr>
+<td><code>reranked_evidence</code></td>
+<td><code>list[dict]</code></td>
+<td><code>[]</code></td>
+<td>Post-rerank top-k</td>
+</tr>
+<tr>
+<td><code>stakeholder_updates</code></td>
+<td><code>list[StakeholderUpdate]</code></td>
+<td><code>[]</code></td>
+<td>Sent/approved updates</td>
+</tr>
+<tr>
+<td><code>current_update_draft</code></td>
+<td><code>StakeholderUpdate \| None</code></td>
+<td><code>null</code></td>
+<td>Pending draft</td>
+</tr>
+<tr>
+<td><code>update_approved</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>Comms gate flag</td>
+</tr>
+<tr>
+<td><code>remediation_suggestions</code></td>
+<td><code>list[RemediationSuggestion]</code></td>
+<td><code>[]</code></td>
+<td>Remediation suggestions</td>
+</tr>
+<tr>
+<td><code>current_remediation</code></td>
+<td><code>RemediationSuggestion \| None</code></td>
+<td><code>null</code></td>
+<td>Pending suggestion</td>
+</tr>
+<tr>
+<td><code>remediation_approved</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>Remediation gate flag</td>
+</tr>
+<tr>
+<td><code>postmortem</code></td>
+<td><code>Postmortem \| None</code></td>
+<td><code>null</code></td>
+<td>Generated postmortem</td>
+</tr>
+<tr>
+<td><code>postmortem_approved</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>Postmortem gate flag</td>
+</tr>
+<tr>
+<td><code>cost_report</code></td>
+<td><code>CostReport \| None</code></td>
+<td><code>null</code></td>
+<td>Cost report</td>
+</tr>
+<tr>
+<td><code>thread_id</code></td>
+<td><code>str</code></td>
+<td><code>""</code></td>
+<td>LangGraph checkpoint key</td>
+</tr>
+<tr>
+<td><code>mode</code></td>
+<td><code>Literal["simulate","run"]</code></td>
+<td><code>"simulate"</code></td>
+<td>Session mode</td>
+</tr>
+<tr>
+<td><code>resolved</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>Set True when incident is over</td>
+</tr>
+<tr>
+<td><code>last_update_time</code></td>
+<td><code>datetime \| None</code></td>
+<td><code>null</code></td>
+<td>Most recent sent update</td>
+</tr>
+<tr>
+<td><code>next_update_time</code></td>
+<td><code>datetime \| None</code></td>
+<td><code>null</code></td>
+<td>Set by cadence timer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sessionmeta"><code>SessionMeta</code></h3>
+<p>Session metadata written to the output directory.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>thread_id</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Session directory name</td>
+</tr>
+<tr>
+<td><code>models_used</code></td>
+<td><code>list[str]</code></td>
+<td>No</td>
+<td><code>[]</code></td>
+<td>Distinct LLM models invoked</td>
+</tr>
+<tr>
+<td><code>total_cost_usd</code></td>
+<td><code>float</code></td>
+<td>No</td>
+<td><code>0.0</code></td>
+<td>Aggregated cost</td>
+</tr>
+<tr>
+<td><code>total_tokens</code></td>
+<td><code>int</code></td>
+<td>No</td>
+<td><code>0</code></td>
+<td>Total tokens</td>
+</tr>
+<tr>
+<td><code>started_at</code></td>
+<td><code>datetime \| None</code></td>
+<td>No</td>
+<td><code>null</code></td>
+<td>Wall-clock session start</td>
+</tr>
+<tr>
+<td><code>ended_at</code></td>
+<td><code>datetime \| None</code></td>
+<td>No</td>
+<td><code>null</code></td>
+<td>Wall-clock session end</td>
+</tr>
+<tr>
+<td><code>mode</code></td>
+<td><code>Literal["simulate","run"]</code></td>
+<td>No</td>
+<td><code>"simulate"</code></td>
+<td>Session mode</td>
+</tr>
+<tr>
+<td><code>auto_approved</code></td>
+<td><code>bool</code></td>
+<td>No</td>
+<td><code>False</code></td>
+<td>True if auto-approved</td>
+</tr>
+</tbody>
+</table>
+<h3 id="llmcall"><code>LLMCall</code></h3>
+<p>A single LLM API call record.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>call_id</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Unique call identifier</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>datetime</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>When the call was made</td>
+</tr>
+<tr>
+<td><code>node_name</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Graph node that made the call</td>
+</tr>
+<tr>
+<td><code>model</code></td>
+<td><code>str</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Model ID</td>
+</tr>
+<tr>
+<td><code>input_tokens</code></td>
+<td><code>int</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Prompt token count</td>
+</tr>
+<tr>
+<td><code>output_tokens</code></td>
+<td><code>int</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Completion token count</td>
+</tr>
+<tr>
+<td><code>total_tokens</code></td>
+<td><code>int</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Sum of input + output</td>
+</tr>
+<tr>
+<td><code>estimated_cost_usd</code></td>
+<td><code>float</code></td>
+<td>No</td>
+<td><code>0.0</code></td>
+<td>Estimated cost from pricing lookup</td>
+</tr>
+<tr>
+<td><code>latency_ms</code></td>
+<td><code>int</code></td>
+<td>Yes</td>
+<td>—</td>
+<td>Wall-clock round-trip time</td>
+</tr>
+<tr>
+<td><code>prompt_hash</code></td>
+<td><code>str</code></td>
+<td>No</td>
+<td><code>""</code></td>
+<td>SHA-256 of rendered prompt</td>
+</tr>
+<tr>
+<td><code>response_truncated</code></td>
+<td><code>bool</code></td>
+<td>No</td>
+<td><code>False</code></td>
+<td>True if hit max_tokens</td>
+</tr>
+<tr>
+<td><code>error</code></td>
+<td><code>str \| null</code></td>
+<td>No</td>
+<td><code>null</code></td>
+<td>Populated on API failure</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="incidentresult"><code>IncidentResult</code></h2>
+<p>The output of an incident session — the serialization boundary between
+in-memory graph state and on-disk output.</p>
+<h3 id="fields">Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>thread_id</code></td>
+<td><code>str</code></td>
+<td>—</td>
+<td>Session thread ID</td>
+</tr>
+<tr>
+<td><code>timeline</code></td>
+<td><code>list[TimelineEvent]</code></td>
+<td><code>[]</code></td>
+<td>Merged chronological events</td>
+</tr>
+<tr>
+<td><code>stakeholder_updates</code></td>
+<td><code>list[StakeholderUpdate]</code></td>
+<td><code>[]</code></td>
+<td>Drafted/approved updates</td>
+</tr>
+<tr>
+<td><code>remediation_suggestions</code></td>
+<td><code>list[RemediationSuggestion]</code></td>
+<td><code>[]</code></td>
+<td>Remediation suggestions</td>
+</tr>
+<tr>
+<td><code>deploy_correlations</code></td>
+<td><code>list[DeployCorrelation]</code></td>
+<td><code>[]</code></td>
+<td>Correlated PRs</td>
+</tr>
+<tr>
+<td><code>postmortem</code></td>
+<td><code>Postmortem \| None</code></td>
+<td><code>null</code></td>
+<td>COE-format postmortem</td>
+</tr>
+<tr>
+<td><code>cost_report</code></td>
+<td><code>CostReport \| None</code></td>
+<td><code>null</code></td>
+<td>Aggregate cost report</td>
+</tr>
+<tr>
+<td><code>session_dir</code></td>
+<td><code>str</code></td>
+<td><code>""</code></td>
+<td>Output directory path</td>
+</tr>
+</tbody>
+</table>
+<h3 id="to_markdown"><code>to_markdown()</code></h3>
+<pre><code class="language-python">def to_markdown(self) -&gt; dict[str, str]
+</code></pre>
+<p>Convert all output to a dict of filename → markdown content. Produces 7
+markdown files (the remaining 3 — <code>llm-calls.jsonl</code>, <code>session.json</code>,
+<code>meta.json</code> — are written separately by <code>MarkdownOutputWriter</code>).</p>
+<pre><code class="language-python">result = run_simulation(output_dir=None)
+files = result.to_markdown()
+# files == {
+#     &quot;incident-summary.md&quot;: &quot;# Incident Summary: ...\n&quot;,
+#     &quot;timeline.md&quot;: &quot;- [timestamp] [source] content\n...&quot;,
+#     &quot;stakeholder-updates.md&quot;: &quot;## Update 1\n...&quot;,
+#     &quot;comms-blocks.md&quot;: &quot;# Communication Blocks\n...&quot;,
+#     &quot;remediation.md&quot;: &quot;## Action\n...&quot;,
+#     &quot;postmortem.md&quot;: &quot;# Postmortem: ...\n&quot;,
+#     &quot;cost-report.md&quot;: &quot;# Cost Report: $...\n&quot;,
+# }
+</code></pre>
+<h3 id="to_json"><code>to_json()</code></h3>
+<pre><code class="language-python">def to_json(self) -&gt; dict[str, Any]
+</code></pre>
+<p>Export as a JSON-serializable dict for programmatic consumption. Returns the
+full Pydantic serialization including nested models.</p>
+<pre><code class="language-python">result = run_simulation(output_dir=None)
+data = result.to_json()
+# data == { &quot;thread_id&quot;: &quot;...&quot;, &quot;timeline&quot;: [...], ... }
+import json
+json_str = json.dumps(data, indent=2, default=str)
+</code></pre>
+<hr />
+<h2 id="config-llmconfig"><code>Config</code> / <code>LLMConfig</code></h2>
+<h3 id="config"><code>Config</code></h3>
+<p>Top-level configuration for an incident session.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mode</code></td>
+<td><code>Literal["simulate","run"]</code></td>
+<td><code>"simulate"</code></td>
+<td><code>"simulate"</code> auto-approves; <code>"run"</code> requires gates</td>
+</tr>
+<tr>
+<td><code>llm</code></td>
+<td><code>LLMConfig</code></td>
+<td><code>LLMConfig()</code></td>
+<td>LLM routing configuration</td>
+</tr>
+<tr>
+<td><code>cadence</code></td>
+<td><code>dict[str, int]</code></td>
+<td><code>{"SEV1":5,"SEV2":15,"SEV3":30}</code></td>
+<td>Minutes between stakeholder updates by severity</td>
+</tr>
+<tr>
+<td><code>confidence_threshold</code></td>
+<td><code>float</code></td>
+<td><code>0.7</code></td>
+<td>Min RAG confidence to surface without review (0-1)</td>
+</tr>
+<tr>
+<td><code>deploy_correlation_window_minutes</code></td>
+<td><code>int</code></td>
+<td><code>30</code></td>
+<td>Look-back window for PR-to-alert correlation (min)</td>
+</tr>
+<tr>
+<td><code>qdrant_url</code></td>
+<td><code>str \| None</code></td>
+<td><code>null</code></td>
+<td>Qdrant URL for RAG (<code>None</code> disables RAG)</td>
+</tr>
+<tr>
+<td><code>qdrant_collection</code></td>
+<td><code>str</code></td>
+<td><code>"runbooks"</code></td>
+<td>Qdrant collection name</td>
+</tr>
+<tr>
+<td><code>github_token</code></td>
+<td><code>str \| None</code></td>
+<td><code>null</code></td>
+<td>GitHub PAT (<code>None</code> = unauthenticated, rate-limited)</td>
+</tr>
+<tr>
+<td><code>session_dir</code></td>
+<td><code>str</code></td>
+<td><code>"~/.incident-commander/sessions"</code></td>
+<td>Session storage directory</td>
+</tr>
+<tr>
+<td><code>log_dir</code></td>
+<td><code>str</code></td>
+<td><code>"~/.incident-commander/logs"</code></td>
+<td>Log directory</td>
+</tr>
+<tr>
+<td><code>output_format</code></td>
+<td><code>Literal["markdown","json"]</code></td>
+<td><code>"markdown"</code></td>
+<td>Output format</td>
+</tr>
+</tbody>
+</table>
+<h3 id="llmconfig"><code>LLMConfig</code></h3>
+<p>LLM routing configuration with per-task model overrides.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>analysis_model</code></td>
+<td><code>str</code></td>
+<td><code>"ollama/qwen2.5-coder:7b"</code></td>
+<td>Primary model for root-cause analysis</td>
+</tr>
+<tr>
+<td><code>analysis_base_url</code></td>
+<td><code>str</code></td>
+<td><code>"http://localhost:11434/v1"</code></td>
+<td>Ollama OpenAI-compatible endpoint</td>
+</tr>
+<tr>
+<td><code>comms_model</code></td>
+<td><code>str \| None</code></td>
+<td><code>null</code></td>
+<td>Override for comms (falls back to analysis)</td>
+</tr>
+<tr>
+<td><code>comms_base_url</code></td>
+<td><code>str \| None</code></td>
+<td><code>null</code></td>
+<td>Override for comms base URL</td>
+</tr>
+<tr>
+<td><code>postmortem_model</code></td>
+<td><code>str \| None</code></td>
+<td><code>null</code></td>
+<td>Override for postmortem</td>
+</tr>
+<tr>
+<td><code>postmortem_base_url</code></td>
+<td><code>str \| None</code></td>
+<td><code>null</code></td>
+<td>Override for postmortem base URL</td>
+</tr>
+<tr>
+<td><code>model_pricing</code></td>
+<td><code>dict[str, dict[str, float]]</code></td>
+<td><em>(see below)</em></td>
+<td>Per-1M-token USD pricing</td>
+</tr>
+</tbody>
+</table>
+<p>Default <code>model_pricing</code>:</p>
+<pre><code class="language-python">{
+    &quot;ollama/qwen2.5-coder:7b&quot;: {&quot;input&quot;: 0.0, &quot;output&quot;: 0.0},
+    &quot;gpt-4o-mini&quot;: {&quot;input&quot;: 0.15, &quot;output&quot;: 0.60},
+    &quot;gpt-4o&quot;: {&quot;input&quot;: 2.50, &quot;output&quot;: 10.00},
+    &quot;claude-3-5-sonnet&quot;: {&quot;input&quot;: 3.00, &quot;output&quot;: 15.00},
+}
+</code></pre>
+<p>Unknown models default to free (<code>0.0</code>).</p>
+<h3 id="example_2">Example</h3>
+<pre><code class="language-python">from incident_commander import Config, LLMConfig
+
+config = Config(
+    mode=&quot;run&quot;,
+    llm=LLMConfig(
+        analysis_model=&quot;gpt-4o&quot;,
+        comms_model=&quot;gpt-4o-mini&quot;,
+        postmortem_model=&quot;gpt-4o&quot;,
+    ),
+    confidence_threshold=0.8,
+    deploy_correlation_window_minutes=60,
+)
+</code></pre>
+<hr />
+<h2 id="scenarios"><code>SCENARIOS</code></h2>
+<p>A dict of 8 pre-built simulation scenarios for demos and CI testing. Each
+scenario is a <code>ScenarioConfig</code> with deterministic parameters.</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Severity</th>
+<th>Service</th>
+<th>Root Cause</th>
+<th>Deploy Correlated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>db-connection-pool</code></td>
+<td>SEV1</td>
+<td>payment-service</td>
+<td>db_connection_pool_exhaustion</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>bad-deploy</code></td>
+<td>SEV2</td>
+<td>api-gateway</td>
+<td>misconfigured_route</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>memory-leak</code></td>
+<td>SEV2</td>
+<td>auth-service</td>
+<td>memory_leak</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>cert-expiry</code></td>
+<td>SEV1</td>
+<td>api-gateway</td>
+<td>cert_expired</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>dependency-outage</code></td>
+<td>SEV1</td>
+<td>payment-service</td>
+<td>third_party_down</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>config-drift</code></td>
+<td>SEV3</td>
+<td>web-frontend</td>
+<td>stale_config</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>cache-invalidation</code></td>
+<td>SEV2</td>
+<td>product-catalog</td>
+<td>stale_cache</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>rate-limit-hit</code></td>
+<td>SEV3</td>
+<td>search-service</td>
+<td>rate_limit_exceeded</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<h3 id="usage">Usage</h3>
+<pre><code class="language-python">from incident_commander import SCENARIOS, load_scenario
+
+# List all scenario names
+print(list(SCENARIOS.keys()))
+
+# Load a scenario's generated input
+incident_input = load_scenario(&quot;db-connection-pool&quot;, seed=42)
+
+# Run via run_simulation
+result = run_simulation(scenario=&quot;bad-deploy&quot;, output_dir=&quot;./output&quot;)
+</code></pre>
+<hr />
+<h2 id="schemas"><code>SCHEMAS</code></h2>
+<p>A registry mapping 16 kebab-case schema names to Pydantic model classes. Drives
+both JSON Schema export and runtime validation.</p>
+<table>
+<thead>
+<tr>
+<th>Schema name</th>
+<th>Pydantic model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>alert</code></td>
+<td><code>Alert</code></td>
+</tr>
+<tr>
+<td><code>chat-message</code></td>
+<td><code>ChatMessage</code></td>
+</tr>
+<tr>
+<td><code>log-entry</code></td>
+<td><code>LogEntry</code></td>
+</tr>
+<tr>
+<td><code>github-pr</code></td>
+<td><code>GitHubPR</code></td>
+</tr>
+<tr>
+<td><code>runbook</code></td>
+<td><code>Runbook</code></td>
+</tr>
+<tr>
+<td><code>incident-meta</code></td>
+<td><code>IncidentMeta</code></td>
+</tr>
+<tr>
+<td><code>incident-input</code></td>
+<td><code>IncidentInput</code></td>
+</tr>
+<tr>
+<td><code>incident-result</code></td>
+<td><code>IncidentResult</code></td>
+</tr>
+<tr>
+<td><code>timeline-event</code></td>
+<td><code>TimelineEvent</code></td>
+</tr>
+<tr>
+<td><code>deploy-correlation</code></td>
+<td><code>DeployCorrelation</code></td>
+</tr>
+<tr>
+<td><code>stakeholder-update</code></td>
+<td><code>StakeholderUpdate</code></td>
+</tr>
+<tr>
+<td><code>remediation-suggestion</code></td>
+<td><code>RemediationSuggestion</code></td>
+</tr>
+<tr>
+<td><code>postmortem</code></td>
+<td><code>Postmortem</code></td>
+</tr>
+<tr>
+<td><code>cost-report</code></td>
+<td><code>CostReport</code></td>
+</tr>
+<tr>
+<td><code>session-meta</code></td>
+<td><code>SessionMeta</code></td>
+</tr>
+<tr>
+<td><code>llm-call</code></td>
+<td><code>LLMCall</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="export_schemas"><code>export_schemas()</code></h2>
+<p>Export all 16 JSON Schemas to individual files in an output directory.</p>
+<pre><code class="language-python">def export_schemas(output_dir: str | Path) -&gt; list[Path]
+</code></pre>
+<p>Each schema file includes <code>$id</code> (<code>https://schemas.incident-commander.dev/&lt;name&gt;.json</code>)
+and <code>$schema</code> (<code>https://json-schema.org/draft/2020-12/schema</code>) headers.</p>
+<h3 id="example_3">Example</h3>
+<pre><code class="language-python">from incident_commander import export_schemas
+
+paths = export_schemas(&quot;./schemas&quot;)
+print(f&quot;Exported {len(paths)} schemas&quot;)
+# Exported 16 schemas
+</code></pre>
+<p>CLI equivalent:</p>
+<pre><code class="language-bash">incident-commander export-schemas --output-dir ./schemas
+</code></pre>
+<hr />
+<h2 id="validate_input"><code>validate_input()</code></h2>
+<p>Validate a dict against a named schema.</p>
+<pre><code class="language-python">def validate_input(data: dict[str, Any], schema_name: str) -&gt; bool
+</code></pre>
+<p>Returns <code>True</code> if valid, raises <code>pydantic.ValidationError</code> if invalid. Raises
+<code>KeyError</code> if <code>schema_name</code> is not in <code>SCHEMAS</code>.</p>
+<h3 id="example_4">Example</h3>
+<pre><code class="language-python">from incident_commander import validate_input
+
+# Validate an alert
+is_valid = validate_input(
+    {
+        &quot;severity&quot;: &quot;SEV1&quot;,
+        &quot;service&quot;: &quot;payment-service&quot;,
+        &quot;summary&quot;: &quot;Payment failures&quot;,
+        &quot;timestamp&quot;: &quot;2026-07-13T14:05:00&quot;,
+    },
+    schema_name=&quot;alert&quot;,
+)
+# Returns True
+
+# Validate a log entry
+is_valid = validate_input(
+    {
+        &quot;timestamp&quot;: &quot;2026-07-13T14:05:00&quot;,
+        &quot;level&quot;: &quot;ERROR&quot;,
+        &quot;message&quot;: &quot;Connection pool exhausted&quot;,
+    },
+    schema_name=&quot;log-entry&quot;,
+)
+# Returns True
+
+# Invalid input raises ValidationError
+# validate_input({&quot;severity&quot;: &quot;SEV9&quot;}, schema_name=&quot;alert&quot;)  # raises
+</code></pre>
+<p>CLI equivalent (alerts only):</p>
+<pre><code class="language-bash">incident-commander validate --alert path/to/alert.json
+</code></pre>
+<hr />
+<h2 id="public-exports">Public Exports</h2>
+<p>All symbols available from <code>incident_commander</code> (the package <code>__all__</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>run_incident</code></td>
+<td>function</td>
+</tr>
+<tr>
+<td><code>run_simulation</code></td>
+<td>function</td>
+</tr>
+<tr>
+<td><code>build_graph</code></td>
+<td>function</td>
+</tr>
+<tr>
+<td><code>Config</code></td>
+<td>Pydantic model</td>
+</tr>
+<tr>
+<td><code>LLMConfig</code></td>
+<td>Pydantic model</td>
+</tr>
+<tr>
+<td><code>IncidentState</code></td>
+<td>Pydantic model</td>
+</tr>
+<tr>
+<td><code>IncidentInput</code></td>
+<td>Pydantic model</td>
+</tr>
+<tr>
+<td><code>IncidentResult</code></td>
+<td>Pydantic model</td>
+</tr>
+<tr>
+<td><code>IncidentMeta</code></td>
+<td>Pydantic model</td>
+</tr>
+<tr>
+<td><code>Alert</code></td>
+<td>Pydantic model</td>
+</tr>
+<tr>
+<td><code>ChatMessage</code></td>
+<td>Pydantic model</td>
+</tr>
+<tr>
+<td><code>LogEntry</code></td>
+<td>Pydantic model</td>
+</tr>
+<tr>
+<td><code>GitHubPR</code></td>
+<td>Pydantic model</td>
+</tr>
+<tr>
+<td><code>TimelineEvent</code></td>
+<td>Pydantic model</td>
+</tr>
+<tr>
+<td><code>DeployCorrelation</code></td>
+<td>Pydantic model</td>
+</tr>
+<tr>
+<td><code>StakeholderUpdate</code></td>
+<td>Pydantic model</td>
+</tr>
+<tr>
+<td><code>RemediationSuggestion</code></td>
+<td>Pydantic model</td>
+</tr>
+<tr>
+<td><code>Postmortem</code></td>
+<td>Pydantic model</td>
+</tr>
+<tr>
+<td><code>PostmortemSection</code></td>
+<td>Pydantic model</td>
+</tr>
+<tr>
+<td><code>ActionItem</code></td>
+<td>Pydantic model</td>
+</tr>
+<tr>
+<td><code>CostReport</code></td>
+<td>Pydantic model</td>
+</tr>
+<tr>
+<td><code>NodeCost</code></td>
+<td>Pydantic model</td>
+</tr>
+<tr>
+<td><code>LLMCall</code></td>
+<td>Pydantic model</td>
+</tr>
+<tr>
+<td><code>SessionMeta</code></td>
+<td>Pydantic model</td>
+</tr>
+<tr>
+<td><code>Runbook</code></td>
+<td>Pydantic model</td>
+</tr>
+<tr>
+<td><code>InMemoryRetriever</code></td>
+<td>class</td>
+</tr>
+<tr>
+<td><code>SCENARIOS</code></td>
+<td><code>dict[str, ScenarioConfig]</code></td>
+</tr>
+<tr>
+<td><code>SCHEMAS</code></td>
+<td><code>dict[str, type[BaseModel]]</code></td>
+</tr>
+<tr>
+<td><code>load_scenario</code></td>
+<td>function</td>
+</tr>
+<tr>
+<td><code>export_schemas</code></td>
+<td>function</td>
+</tr>
+<tr>
+<td><code>validate_input</code></td>
+<td>function</td>
+</tr>
+<tr>
+<td><code>IncidentSimulator</code></td>
+<td>class</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-python">from incident_commander import (
+    run_incident, run_simulation, build_graph,
+    Config, LLMConfig,
+    IncidentState, IncidentInput, IncidentResult, IncidentMeta,
+    Alert, ChatMessage, LogEntry, GitHubPR, TimelineEvent,
+    DeployCorrelation, StakeholderUpdate, RemediationSuggestion,
+    Postmortem, PostmortemSection, ActionItem,
+    CostReport, NodeCost, LLMCall, SessionMeta, Runbook,
+    InMemoryRetriever,
+    SCENARIOS, SCHEMAS, load_scenario, export_schemas, validate_input,
+    IncidentSimulator,
+)
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Output Format - ai-incident-commander</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">ai-incident-commander</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../architecture/" class="nav-link">Architecture</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../api-reference/" class="nav-link">API Reference</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../input-format/" class="nav-link">Input Format</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">Output Format</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../simulation-guide/" class="nav-link">Simulation Guide</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../safety-guardrails/" class="nav-link">Safety Guardrails</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../field-test-results/" class="nav-link">Field Test Results</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../PRD/" class="nav-link">PRD</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../SPEC/" class="nav-link">SPEC</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../wbs/" class="nav-link">WBS</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../input-format/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../simulation-guide/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#output-format" class="nav-link">Output Format</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#output-directory-structure" class="nav-link">Output Directory Structure</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#incident-summarymd" class="nav-link">incident-summary.md</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#timelinemd" class="nav-link">timeline.md</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#stakeholder-updatesmd" class="nav-link">stakeholder-updates.md</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#comms-blocksmd" class="nav-link">comms-blocks.md</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#remediationmd" class="nav-link">remediation.md</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#postmortemmd" class="nav-link">postmortem.md</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#cost-reportmd" class="nav-link">cost-report.md</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#llm-callsjsonl" class="nav-link">llm-calls.jsonl</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#sessionjson" class="nav-link">session.json</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#metajson" class="nav-link">meta.json</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="output-format">Output Format</h1>
+<p>After an incident session completes, <code>MarkdownOutputWriter</code> writes 10 files to
+the output directory. Seven are Markdown documents, two are JSON snapshots, and
+one is a JSONL log of every LLM call made during the session.</p>
+<hr />
+<h2 id="output-directory-structure">Output Directory Structure</h2>
+<pre><code>output/
+├── incident-summary.md      # one-page incident overview
+├── timeline.md              # chronological event table
+├── stakeholder-updates.md   # consequence-first updates
+├── comms-blocks.md          # pasteable Slack/email blocks
+├── remediation.md           # remediation suggestions with citations
+├── postmortem.md            # COE-format postmortem
+├── cost-report.md           # token usage and cost breakdown
+├── llm-calls.jsonl          # per-call LLM audit log (JSON Lines)
+├── session.json             # full IncidentResult snapshot
+└── meta.json                # output metadata (thread ID, version, timestamp)
+</code></pre>
+<p>All files are written by <code>MarkdownOutputWriter.write_all()</code>, which creates the
+output directory (with parents) if it doesn't exist.</p>
+<hr />
+<h2 id="incident-summarymd">incident-summary.md</h2>
+<p>A one-page overview with key metadata, cost, deploy correlation, and a summary
+of stakeholder updates.</p>
+<h3 id="example">Example</h3>
+<pre><code class="language-markdown"># Incident Summary
+
+- **Incident ID:** INC-2026-001
+- **Service:** payment-service
+- **Severity:** SEV1
+- **Resolved:** Yes
+- **MTTR:** 45 min
+- **Total Cost:** $0.0234
+- **Models Used:** ollama/qwen2.5-coder:7b, gpt-4o-mini
+- **Deploy Correlation:** PR #4521 (strong)
+- **Session:** thread-abc-123
+
+## Key Events
+- **Update 1:** Payment success rate dropped below 50%, affecting all checkout flows
+- **Update 2:** Root cause identified as DB connection pool exhaustion
+- **Update 3:** Rollback deployed, error rate recovering
+</code></pre>
+<hr />
+<h2 id="timelinemd">timeline.md</h2>
+<p>A chronological table of all merged timeline events from every source (alert,
+chat, log, github, manual). Each row includes a deploy-correlation marker.</p>
+<h3 id="example_1">Example</h3>
+<pre><code class="language-markdown"># Timeline
+
+| Time | Source | Event | Trust | Deploy Correlation |
+|------|--------|-------|-------|--------------------|
+| 2026-07-13T14:05:00 | alert | Payment success rate dropped below 50% | high |  |
+| 2026-07-13T14:05:00 | log | Connection pool exhausted | high |  |
+| 2026-07-13T14:06:00 | chat | Seeing a huge spike in payment errors | medium |  |
+| 2026-07-13T13:45:00 | github | PR #4521 merged: Increase DB connection pool size | high | Yes |
+| 2026-07-13T14:10:00 | manual | IC declared | low |  |
+| 2026-07-13T14:20:00 | manual | Rollback started | low |  |
+</code></pre>
+<p>If no timeline events were recorded, the file contains:</p>
+<pre><code class="language-markdown"># Timeline
+
+No timeline events recorded.
+</code></pre>
+<hr />
+<h2 id="stakeholder-updatesmd">stakeholder-updates.md</h2>
+<p>Stakeholder updates in consequence-first format. Each update includes impact,
+root cause hypothesis, action taken, next update time, and confidence score.
+Approved updates are marked.</p>
+<h3 id="example_2">Example</h3>
+<pre><code class="language-markdown"># Stakeholder Updates
+
+## Update 1
+- **Impact:** Payment success rate dropped below 50%, affecting all checkout flows globally
+- **Root Cause:** Suspected DB connection pool exhaustion following recent deploy
+- **Action:** Investigating connection pool metrics and preparing rollback
+- **Next Update:** 2026-07-13T14:10:00
+- **Confidence:** 0.65
+- **Status:** Approved
+
+## Update 2
+- **Impact:** Payments still failing; error rate at 52%
+- **Root Cause:** Confirmed DB connection pool exhaustion from PR #4521
+- **Action:** Initiating rollback of PR #4521
+- **Next Update:** 2026-07-13T14:15:00
+- **Confidence:** 0.85
+</code></pre>
+<hr />
+<h2 id="comms-blocksmd">comms-blocks.md</h2>
+<p>Copy-paste-ready communication blocks formatted for Slack and email. Includes an
+incident notes block (for PagerDuty/tickets), a timeline summary (last 5
+events), remediation summary, and a block per stakeholder update.</p>
+<h3 id="example_3">Example</h3>
+<pre><code class="language-markdown"># Communication Blocks
+
+---
+
+## Incident Notes (for PagerDuty/ticket)
+
+**Incident:** thread-abc-123
+**Deploy Correlation:** PR #4521 (strong)
+**Total Cost:** $0.0234
+
+**Timeline:**
+- [2026-07-13T14:05:00] Payment success rate dropped below 50%
+- [2026-07-13T14:05:00] Connection pool exhausted
+- [2026-07-13T14:06:00] Seeing a huge spike in payment errors
+- [2026-07-13T14:10:00] IC declared
+- [2026-07-13T14:20:00] Rollback started [DEPLOY]
+
+**Remediation:**
+- Rollback PR #4521 to previous version (confidence: 0.92)
+- Increase DB connection pool size to 50 (confidence: 0.80)
+
+---
+
+### Stakeholder Update #1
+**Impact:** Payment success rate dropped below 50%, affecting all checkout flows globally
+**Root Cause Hypothesis:** Suspected DB connection pool exhaustion following recent deploy
+**Action Taken:** Investigating connection pool metrics and preparing rollback
+**Next Update:** 2026-07-13T14:10:00
+**Confidence:** 65%
+
+---
+
+### Stakeholder Update #2
+**Impact:** Payments still failing; error rate at 52%
+**Root Cause Hypothesis:** Confirmed DB connection pool exhaustion from PR #4521
+**Action Taken:** Initiating rollback of PR #4521
+**Next Update:** 2026-07-13T14:15:00
+**Confidence:** 85%
+
+---
+
+*Generated by ai-incident-commander v0.1.0*
+</code></pre>
+<p>Only the last 5 timeline events are included in comms blocks for brevity. The
+<code>---</code> separators make multi-update output scannable and pasteable into separate
+Slack messages or email threads.</p>
+<hr />
+<h2 id="remediationmd">remediation.md</h2>
+<p>Remediation suggestions with citations, confidence scores, dry-run outcomes,
+similar incident references, and approval status.</p>
+<h3 id="example_4">Example</h3>
+<pre><code class="language-markdown"># Remediation
+
+## Rollback PR #4521 to previous version
+- **Citation:** rb-001: DB Connection Pool Exhaustion runbook
+- **Confidence:** 0.92
+- **Expected Outcome:** Error rate should return to baseline within 2 minutes of rollback
+- **Similar Incidents:** INC-2025-088, INC-2025-112
+- **Approved:** Yes
+
+## Increase DB connection pool size to 50
+- **Citation:** rb-002: Connection Pool Tuning guide
+- **Confidence:** 0.80
+- **Approved:** No
+</code></pre>
+<p>If no suggestions were generated:</p>
+<pre><code class="language-markdown"># Remediation
+
+No remediation suggestions.
+</code></pre>
+<hr />
+<h2 id="postmortemmd">postmortem.md</h2>
+<p>A COE-format (Correction of Errors) postmortem with AI section labels. See
+<a href="../coe-format/"><code>coe-format.md</code></a> for the full format specification.</p>
+<h3 id="example-excerpt">Example (excerpt)</h3>
+<pre><code class="language-markdown"># Postmortem: INC-2026-001
+- **Service:** payment-service
+- **Severity:** SEV1
+- **Date:** 2026-07-13T14:05:00
+
+## Summary *[AI-GENERATED — review carefully]*
+At 14:05 UTC, the payment-service began experiencing connection pool
+exhaustion, causing payment success rates to drop below 50%...
+
+## Customer Impact *[AI-GENERATED — review carefully]*
+Approximately 12,000 checkout attempts failed during the 45-minute
+incident window, affecting all global regions...
+
+## Timeline *[From session data]*
+- [2026-07-13T13:45:00] PR #4521 merged: Increase DB connection pool size
+- [2026-07-13T14:05:00] Alert triggered: payment success rate &lt; 50%
+...
+
+## Root Cause Analysis *[AI-GENERATED — review carefully]*
+PR #4521 reduced the DB connection pool size from 50 to 10...
+
+## Systemic Contributing Factors *[AI-GENERATED — review carefully]*
+- No staged rollout for configuration changes to critical services
+- Connection pool size changes were not covered by automated tests
+...
+
+## Action Items
+- **Add integration test for pool size changes** — owner: Platform Team, priority: P0 *[AI-generated]*
+- **Require staged rollout for config changes** — owner: SRE Team, priority: P1 *[AI-generated]*
+
+## Stakeholder Communication Log *[From session data]*
+- Update 1 sent at 14:06 — impact: payment failures
+- Update 2 sent at 14:12 — impact: root cause identified
+...
+
+## Regulatory/Compliance Impact *[AI-GENERATED — review carefully]*
+PCI-DSS compliance was not directly affected, but 12,000 failed
+transactions may require customer notification per section 12.10...
+
+- **MTTR:** 45 minutes
+
+---
+
+### AI Section Labels
+| Section | Source |
+|---------|--------|
+| Summary | AI-generated |
+| Timeline | Session data |
+| Root Cause Analysis | AI-generated |
+| Systemic Factors | AI-generated |
+| Customer Impact | AI-generated |
+| Stakeholder Comm Log | Session data |
+| Regulatory Impact | AI-generated |
+</code></pre>
+<hr />
+<h2 id="cost-reportmd">cost-report.md</h2>
+<p>Aggregate token usage and cost breakdown with a per-node table showing each
+LLM call's model, token counts, cost, and latency.</p>
+<h3 id="example_5">Example</h3>
+<pre><code class="language-markdown"># Cost Report
+
+### Summary
+- **Total Input Tokens:** 45,230
+- **Total Output Tokens:** 12,180
+- **Total Tokens:** 57,410
+- **Total Estimated Cost:** $0.023400
+- **Models Used:** ollama/qwen2.5-coder:7b, gpt-4o-mini
+
+### Per-Node Breakdown
+| Node | Model | Input | Output | Total | Cost (USD) | Latency (ms) |
+|------|-------|-------|--------|-------|------------|--------------|
+| analyze_root_cause | ollama/qwen2.5-coder:7b | 8,200 | 3,100 | 11,300 | $0.000000 | 1,450 |
+| draft_stakeholder_update | gpt-4o-mini | 5,400 | 1,800 | 7,200 | $0.001950 | 820 |
+| generate_postmortem | gpt-4o-mini | 12,000 | 4,200 | 16,200 | $0.004380 | 1,100 |
+| retrieve_runbooks | ollama/qwen2.5-coder:7b | 3,500 | 800 | 4,300 | $0.000000 | 320 |
+| rank_remediations | ollama/qwen2.5-coder:7b | 1,600 | 280 | 1,880 | $0.000000 | 210 |
+</code></pre>
+<p>If no cost data is available:</p>
+<pre><code class="language-markdown"># Cost Report
+
+No cost data available.
+</code></pre>
+<hr />
+<h2 id="llm-callsjsonl">llm-calls.jsonl</h2>
+<p>A JSON Lines audit log of every LLM API call made during the session. Each line
+is a complete JSON object matching the <code>LLMCall</code> schema. This file is the
+machine-readable companion to the human-readable <code>cost-report.md</code>.</p>
+<h3 id="llmcall-fields"><code>LLMCall</code> fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>call_id</code></td>
+<td><code>str</code></td>
+<td>—</td>
+<td>Unique call identifier</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>datetime</code></td>
+<td>—</td>
+<td>When the call was made</td>
+</tr>
+<tr>
+<td><code>node_name</code></td>
+<td><code>str</code></td>
+<td>—</td>
+<td>Graph node that made the call</td>
+</tr>
+<tr>
+<td><code>model</code></td>
+<td><code>str</code></td>
+<td>—</td>
+<td>Model ID (e.g. <code>"gpt-4o-mini"</code>)</td>
+</tr>
+<tr>
+<td><code>input_tokens</code></td>
+<td><code>int</code></td>
+<td>—</td>
+<td>Prompt token count</td>
+</tr>
+<tr>
+<td><code>output_tokens</code></td>
+<td><code>int</code></td>
+<td>—</td>
+<td>Completion token count</td>
+</tr>
+<tr>
+<td><code>total_tokens</code></td>
+<td><code>int</code></td>
+<td>—</td>
+<td>Sum of input + output</td>
+</tr>
+<tr>
+<td><code>estimated_cost_usd</code></td>
+<td><code>float</code></td>
+<td><code>0.0</code></td>
+<td>Estimated cost from model pricing lookup</td>
+</tr>
+<tr>
+<td><code>latency_ms</code></td>
+<td><code>int</code></td>
+<td>—</td>
+<td>Wall-clock round-trip time</td>
+</tr>
+<tr>
+<td><code>prompt_hash</code></td>
+<td><code>str</code></td>
+<td><code>""</code></td>
+<td>SHA-256 of the rendered prompt (for dedup/debugging)</td>
+</tr>
+<tr>
+<td><code>response_truncated</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>True if response hit max_tokens limit</td>
+</tr>
+<tr>
+<td><code>error</code></td>
+<td><code>str \| null</code></td>
+<td><code>null</code></td>
+<td>Populated when the API call failed</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-one-line-per-call-formatted-for-readability">Example (one line per call, formatted for readability)</h3>
+<pre><code class="language-jsonl">{&quot;call_id&quot;: &quot;call-001&quot;, &quot;timestamp&quot;: &quot;2026-07-13T14:05:02&quot;, &quot;node_name&quot;: &quot;analyze_root_cause&quot;, &quot;model&quot;: &quot;ollama/qwen2.5-coder:7b&quot;, &quot;input_tokens&quot;: 8200, &quot;output_tokens&quot;: 3100, &quot;total_tokens&quot;: 11300, &quot;estimated_cost_usd&quot;: 0.0, &quot;latency_ms&quot;: 1450, &quot;prompt_hash&quot;: &quot;a1b2c3...&quot;, &quot;response_truncated&quot;: false, &quot;error&quot;: null}
+{&quot;call_id&quot;: &quot;call-002&quot;, &quot;timestamp&quot;: &quot;2026-07-13T14:07:15&quot;, &quot;node_name&quot;: &quot;draft_stakeholder_update&quot;, &quot;model&quot;: &quot;gpt-4o-mini&quot;, &quot;input_tokens&quot;: 5400, &quot;output_tokens&quot;: 1800, &quot;total_tokens&quot;: 7200, &quot;estimated_cost_usd&quot;: 0.00195, &quot;latency_ms&quot;: 820, &quot;prompt_hash&quot;: &quot;d4e5f6...&quot;, &quot;response_truncated&quot;: false, &quot;error&quot;: null}
+</code></pre>
+<hr />
+<h2 id="sessionjson">session.json</h2>
+<p>A full JSON snapshot of the <code>IncidentResult</code> — the serialization boundary
+between the in-memory graph state and the on-disk output. Contains all timeline
+events, stakeholder updates, remediation suggestions, deploy correlations,
+postmortem, and cost report.</p>
+<h3 id="incidentresult-fields"><code>IncidentResult</code> fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>thread_id</code></td>
+<td><code>str</code></td>
+<td>—</td>
+<td>LangGraph thread / session ID</td>
+</tr>
+<tr>
+<td><code>timeline</code></td>
+<td><code>list[TimelineEvent]</code></td>
+<td><code>[]</code></td>
+<td>Merged chronological events</td>
+</tr>
+<tr>
+<td><code>stakeholder_updates</code></td>
+<td><code>list[StakeholderUpdate]</code></td>
+<td><code>[]</code></td>
+<td>Drafted/approved updates</td>
+</tr>
+<tr>
+<td><code>remediation_suggestions</code></td>
+<td><code>list[RemediationSuggestion]</code></td>
+<td><code>[]</code></td>
+<td>Remediation suggestions</td>
+</tr>
+<tr>
+<td><code>deploy_correlations</code></td>
+<td><code>list[DeployCorrelation]</code></td>
+<td><code>[]</code></td>
+<td>Correlated PRs/commits</td>
+</tr>
+<tr>
+<td><code>postmortem</code></td>
+<td><code>Postmortem \| null</code></td>
+<td><code>null</code></td>
+<td>COE-format postmortem</td>
+</tr>
+<tr>
+<td><code>cost_report</code></td>
+<td><code>CostReport \| null</code></td>
+<td><code>null</code></td>
+<td>Aggregate cost report</td>
+</tr>
+<tr>
+<td><code>session_dir</code></td>
+<td><code>str</code></td>
+<td><code>""</code></td>
+<td>Output directory path</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-truncated">Example (truncated)</h3>
+<pre><code class="language-json">{
+  &quot;thread_id&quot;: &quot;thread-abc-123&quot;,
+  &quot;timeline&quot;: [
+    {
+      &quot;timestamp&quot;: &quot;2026-07-13T14:05:00&quot;,
+      &quot;source&quot;: &quot;alert&quot;,
+      &quot;event_type&quot;: &quot;alert-triggered&quot;,
+      &quot;content&quot;: &quot;Payment success rate dropped below 50%&quot;,
+      &quot;trust_level&quot;: &quot;high&quot;,
+      &quot;deploy_correlation&quot;: false
+    }
+  ],
+  &quot;stakeholder_updates&quot;: [
+    {
+      &quot;update_number&quot;: 1,
+      &quot;impact&quot;: &quot;Payment success rate dropped below 50%&quot;,
+      &quot;root_cause_hypothesis&quot;: &quot;Suspected DB connection pool exhaustion&quot;,
+      &quot;action&quot;: &quot;Investigating connection pool metrics&quot;,
+      &quot;next_update_time&quot;: &quot;2026-07-13T14:10:00&quot;,
+      &quot;confidence&quot;: 0.65,
+      &quot;approved&quot;: true,
+      &quot;timestamp&quot;: &quot;2026-07-13T14:06:00&quot;
+    }
+  ],
+  &quot;remediation_suggestions&quot;: [
+    {
+      &quot;action&quot;: &quot;Rollback PR #4521&quot;,
+      &quot;citation&quot;: &quot;rb-001: DB Connection Pool Exhaustion&quot;,
+      &quot;confidence&quot;: 0.92,
+      &quot;dry_run_outcome&quot;: &quot;Error rate should return to baseline&quot;,
+      &quot;similar_incidents&quot;: [&quot;INC-2025-088&quot;],
+      &quot;approved&quot;: true
+    }
+  ],
+  &quot;deploy_correlations&quot;: [
+    {
+      &quot;pr_number&quot;: 4521,
+      &quot;pr_title&quot;: &quot;Increase DB connection pool size&quot;,
+      &quot;author&quot;: &quot;carol&quot;,
+      &quot;merge_time&quot;: &quot;2026-07-13T13:45:00&quot;,
+      &quot;files_changed&quot;: [&quot;config/db-pool.yaml&quot;],
+      &quot;minutes_before_alert&quot;: 20,
+      &quot;correlation_strength&quot;: &quot;strong&quot;
+    }
+  ],
+  &quot;postmortem&quot;: null,
+  &quot;cost_report&quot;: null,
+  &quot;session_dir&quot;: &quot;./output&quot;
+}
+</code></pre>
+<hr />
+<h2 id="metajson">meta.json</h2>
+<p>Output metadata recording the thread ID, generation timestamp, and software
+version. This is the smallest output file and serves as a manifest for the
+output directory.</p>
+<h3 id="fields">Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>thread_id</code></td>
+<td><code>str</code></td>
+<td>Session thread ID</td>
+</tr>
+<tr>
+<td><code>generated_at</code></td>
+<td><code>str</code></td>
+<td>ISO 8601 timestamp of output generation</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td><code>str</code></td>
+<td>ai-incident-commander version (<code>"0.1.0"</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example_6">Example</h3>
+<pre><code class="language-json">{
+  &quot;thread_id&quot;: &quot;thread-abc-123&quot;,
+  &quot;generated_at&quot;: &quot;2026-07-13T14:50:00&quot;,
+  &quot;version&quot;: &quot;0.1.0&quot;
+}
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

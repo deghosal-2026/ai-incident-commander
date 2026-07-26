@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Real-Data Test Plan — Phase B2 - ai-incident-commander</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">ai-incident-commander</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../architecture/" class="nav-link">Architecture</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../api-reference/" class="nav-link">API Reference</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../input-format/" class="nav-link">Input Format</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../output-format/" class="nav-link">Output Format</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../simulation-guide/" class="nav-link">Simulation Guide</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../safety-guardrails/" class="nav-link">Safety Guardrails</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../field-test-results/" class="nav-link">Field Test Results</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../PRD/" class="nav-link">PRD</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../SPEC/" class="nav-link">SPEC</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../wbs/" class="nav-link">WBS</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#real-data-test-plan-phase-b2" class="nav-link">Real-Data Test Plan — Phase B2</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1-data-sources" class="nav-link">1. Data Sources</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-automated-fixture-converter" class="nav-link">2. Automated Fixture Converter</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3-models-fully-local" class="nav-link">3. Models — Fully Local</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4-test-criteria-8-criteria" class="nav-link">4. Test Criteria (8 Criteria)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5-fixture-format" class="nav-link">5. Fixture Format</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6-test-code-structure" class="nav-link">6. Test Code Structure</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7-results-document" class="nav-link">7. Results Document</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8-how-to-run" class="nav-link">8. How to Run</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#9-cost-estimate" class="nav-link">9. Cost Estimate</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#10-implementation-plan" class="nav-link">10. Implementation Plan</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#11-available-mlx-models" class="nav-link">11. Available MLX Models</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="real-data-test-plan-phase-b2">Real-Data Test Plan — Phase B2</h1>
+<blockquote>
+<p><strong>Goal:</strong> Validate ai-incident-commander against 100 real-world incidents from public datasets, comparing generated postmortems against known ground truth.</p>
+<p><strong>Scope:</strong> 100 incidents from 4 public data sources. Fully local — MLX LLM + in-process sentence-transformers embeddings. $0 API cost. Semantic similarity for RCA accuracy. Automated fixture conversion.</p>
+<p><strong>Owner:</strong> Engineering
+<strong>Status:</strong> Planned</p>
+</blockquote>
+<hr />
+<h2 id="1-data-sources">1. Data Sources</h2>
+<p>Four public datasets provide the incident corpus. An automated converter transforms each into our fixture format.</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Count Available</th>
+<th>Has Raw Telemetry?</th>
+<th>Has Ground Truth RCA?</th>
+<th>Has Postmortem?</th>
+<th>Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>OpenRCA2 v1-500</strong> (<a href="https://huggingface.co/datasets/lincyaw/openrca2-v1-500">HuggingFace</a>)</td>
+<td>500</td>
+<td>✅ Logs, metrics, traces (parquet)</td>
+<td>✅ injection.json + causal_graph.json</td>
+<td>❌</td>
+<td>Parquet + JSON</td>
+</tr>
+<tr>
+<td><strong>opensre-incident-trajectories</strong> (<a href="https://huggingface.co/datasets/quantranger/opensre-incident-trajectories">HuggingFace</a>)</td>
+<td>114 real + 83 synthetic</td>
+<td>❌ Reconstructed</td>
+<td>✅ answer field</td>
+<td>✅ source_url to real postmortem</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td><strong>IntelligentDDS</strong> (<a href="https://github.com/IntelligentDDS/Post-mortems-Analysis">GitHub</a>)</td>
+<td>354 structured</td>
+<td>❌ Narrative</td>
+<td>✅ Structured fields</td>
+<td>✅ Full text</td>
+<td>Markdown</td>
+</tr>
+<tr>
+<td><strong>Public blog postmortems</strong> (Cloudflare, AWS, GitHub, etc.)</td>
+<td>20 hand-picked</td>
+<td>❌ Narrative</td>
+<td>✅ From postmortem</td>
+<td>✅ Full text</td>
+<td>HTML/Markdown</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Target:</strong> 100 incidents total, sampled across all 4 sources:
+- 50 from OpenRCA2 (raw telemetry — strongest signal)
+- 30 from opensre-trajectories (real company postmortems)
+- 15 from IntelligentDDS (structured cloud postmortems)
+- 5 hand-built from public blog postmortems (Cloudflare, GitLab, GitHub, AWS, Discord)</p>
+<p>This gives coverage across 10+ companies and 4+ data source types.</p>
+<hr />
+<h2 id="2-automated-fixture-converter">2. Automated Fixture Converter</h2>
+<p>A Python script (<code>scripts/convert_incidents.py</code>) transforms each dataset into our fixture format.</p>
+<h3 id="openrca2-converter">OpenRCA2 Converter</h3>
+<p>Raw dataset: <code>data/raw/openrca2/</code> (download from HuggingFace, see README)</p>
+<pre><code>OpenRCA2 case/
+├── injection.json        →  ground_truth.json (root_cause, key_terms)
+├── causal_graph.json     →  ground_truth.json (causal chain)
+├── abnormal_logs.parquet →  logs.json (LogEntry format)
+├── abnormal_metrics.parquet → (metadata for alert.json)
+└── env.json              →  meta.json (service, namespace)
+</code></pre>
+<p>Output per incident:</p>
+<pre><code>tests/fixtures/real-data/openrca-&lt;case_name&gt;/
+├── meta.json          # incident_id, service, severity, start_time
+├── alert.json         # Reconstructed from injection metadata
+├── logs.json          # Converted from abnormal_logs.parquet
+├── ground_truth.json  # Root cause, causal graph, expected timeline
+└── README.md          # Source attribution
+</code></pre>
+<h3 id="opensre-trajectories-converter">opensre-trajectories Converter</h3>
+<p>Raw dataset: <code>data/raw/opensre/</code> (checked into repo, 1.1MB)</p>
+<pre><code>opensre trajectory JSON
+├── scenario_id        →  incident slug
+├── source_company     →  meta.json company field
+├── source_url         →  README.md link
+├── answer             →  ground_truth.json root_cause
+├── trap_actions       →  ground_truth.json trap_actions
+└── tool transcripts   →  logs.json (simulated from tool calls)
+</code></pre>
+<h3 id="intelligentdds-converter">IntelligentDDS Converter</h3>
+<p>Raw dataset: <code>data/raw/intelligentdds/</code> (checked into repo, 276MB)</p>
+<pre><code>IntelligentDDS structured postmortem
+├── summary            →  ground_truth.json root_cause
+├── timeline           →  ground_truth.json timeline_events
+├── action_items       →  ground_truth.json action_items
+└── impact             →  ground_truth.json impact
+</code></pre>
+<h3 id="blog-postmortem-converter-semi-automated">Blog Postmortem Converter (semi-automated)</h3>
+<p>Source postmortems: <code>data/raw/blog/</code> (hand-curated HTML/markdown files)</p>
+<p>For the 5 hand-picked blog postmortems, a helper script extracts the timeline table from the HTML and generates a scaffold. A human reviews and finalizes.</p>
+<hr />
+<h2 id="3-models-fully-local">3. Models — Fully Local</h2>
+<p>All inference runs locally on Apple Silicon via MLX. <strong>Zero API cost. Zero keys.</strong></p>
+<h3 id="analysis-llm-postmortem-generation">Analysis LLM (postmortem generation)</h3>
+<ul>
+<li><strong>Primary:</strong> <code>mlx-community/Qwen3.6-35B-A3B-4bit</code> — MoE, 3B active, ~20GB RAM</li>
+<li><strong>Lower RAM:</strong> <code>mlx-community/Qwen3.5-9B-4bit</code> — ~6GB RAM</li>
+<li><strong>Highest quality:</strong> <code>mlx-community/Qwen3.5-27B-Claude-4.6-Opus-Distilled-MLX-4bit</code> — ~16GB RAM</li>
+</ul>
+<h3 id="embedding-model-rca-semantic-similarity">Embedding Model (RCA semantic similarity)</h3>
+<ul>
+<li><strong>Model:</strong> <code>sentence-transformers/all-MiniLM-L6-v2</code> — in-process, ~80MB, no server</li>
+</ul>
+<h3 id="architecture">Architecture</h3>
+<pre><code>┌──────────────────────────────────────────────┐
+│  Mac (Apple Silicon)                          │
+│                                               │
+│  ┌─────────────┐  ┌────────────────────┐     │
+│  │ MLX LLM     │  │ sentence-transform │     │
+│  │ Qwen3.6-35B │  │ all-MiniLM-L6-v2   │     │
+│  │ (server)    │  │ (in-process)       │     │
+│  └──────┬──────┘  └────────┬───────────┘     │
+│         └────────┬─────────┘                  │
+│                  │                            │
+│         ┌────────▼────────┐                   │
+│         │ pytest real_data│                   │
+│         │ (100 incidents) │                   │
+│         └─────────────────┘                   │
+└──────────────────────────────────────────────┘
+</code></pre>
+<p>One MLX server for LLM. Embeddings run in-process.</p>
+<hr />
+<h2 id="4-test-criteria-8-criteria">4. Test Criteria (8 Criteria)</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Criterion</th>
+<th>Measurement</th>
+<th>Pass Threshold</th>
+<th>Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Root Cause Accuracy</strong></td>
+<td>Cosine similarity between generated RCA embedding and ground truth RCA embedding</td>
+<td>≥0.70</td>
+<td><code>sentence-transformers/all-MiniLM-L6-v2</code> in-process, cosine sim</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Timeline Completeness</strong></td>
+<td>% of ground truth timeline events present in generated timeline</td>
+<td>≥90%</td>
+<td>Fuzzy string match at 0.80 similarity threshold</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Action Item Relevance</strong></td>
+<td>% of generated action items matching real action items</td>
+<td>≥50%</td>
+<td>Embedding cosine sim per pair, best-match assignment, threshold 0.65</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Blameless Framing</strong></td>
+<td>Regex matches for blame language in AI sections</td>
+<td>0 hits</td>
+<td>Regex: <code>(engineer\|developer\|blame\|fault of\|negligence\|careless\|mistake by)\b</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Citation Integrity</strong></td>
+<td>Remediation suggestions with <code>citation</code> starting "Source:"</td>
+<td>100%</td>
+<td>Check all <code>RemediationSuggestion</code> objects</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Cost Predictibility</strong></td>
+<td>Std-dev / mean of total cost across 3 runs</td>
+<td>≤0.20</td>
+<td>Run same incident 3×, compute coefficient of variation</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Graceful Degradation</strong></td>
+<td>Incomplete input (missing logs or messages)</td>
+<td>Exit code 0, warnings, no crash</td>
+<td>Feed partial data, check exit code + stderr</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>No Hallucination</strong></td>
+<td>Generated events not traceable to input data</td>
+<td>0 fabricated items</td>
+<td><strong>Heuristic:</strong> for each generated timeline event, check if at least one keyword from the event appears in the input logs/messages/alert. Events with zero keyword overlap are flagged as potential hallucinations</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-fixture-format">5. Fixture Format</h2>
+<pre><code>tests/fixtures/real-data/
+├── openrca-train-ticket-db-pool-exhaustion/
+│   ├── README.md           # Source: OpenRCA2, case name, HuggingFace URL
+│   ├── meta.json           # incident_id, service, severity, start_time
+│   ├── alert.json          # Reconstructed alert
+│   ├── logs.json           # Converted from parquet
+│   ├── ground_truth.json   # Known RCA, timeline, action items
+│   └── source_type         # &quot;openrca2&quot; | &quot;opensre&quot; | &quot;intelligentdds&quot; | &quot;blog&quot;
+├── opensre-slack-tgw-fd-exhaustion/
+│   └── ...
+├── intelligentdds-aws-s3-2017/
+│   └── ...
+└── blog-cloudflare-dns-2025/
+    └── ...
+</code></pre>
+<h3 id="ground_truthjson-schema">ground_truth.json Schema</h3>
+<pre><code class="language-json">{
+  &quot;schema_version&quot;: &quot;1.0&quot;,
+  &quot;incident_id&quot;: &quot;openrca-train-ticket-db-pool-exhaustion&quot;,
+  &quot;source_type&quot;: &quot;openrca2&quot;,
+  &quot;source_url&quot;: &quot;https://huggingface.co/datasets/lincyaw/openrca2-v1-500&quot;,
+  &quot;company&quot;: &quot;OpenRCA2 (train-ticket)&quot;,
+  &quot;root_cause&quot;: &quot;Database connection pool exhaustion due to connection leak in cart service&quot;,
+  &quot;root_cause_key_terms&quot;: [&quot;connection pool&quot;, &quot;exhaustion&quot;, &quot;leak&quot;, &quot;cart service&quot;],
+  &quot;timeline_events&quot;: [
+    {&quot;time&quot;: &quot;2026-01-15T14:00:00Z&quot;, &quot;event&quot;: &quot;Connection pool reached max capacity&quot;},
+    {&quot;time&quot;: &quot;2026-01-15T14:05:00Z&quot;, &quot;event&quot;: &quot;Cart service started timing out&quot;}
+  ],
+  &quot;action_items&quot;: [
+    &quot;Fix connection leak in cart service checkout flow&quot;,
+    &quot;Add connection pool monitoring alerting at 80% utilization&quot;
+  ],
+  &quot;impact&quot;: &quot;Cart service unavailable for 15 minutes&quot;,
+  &quot;severity&quot;: &quot;SEV1&quot;,
+  &quot;service&quot;: &quot;cart-service&quot;
+}
+</code></pre>
+<hr />
+<h2 id="6-test-code-structure">6. Test Code Structure</h2>
+<pre><code class="language-python"># tests/real_data/conftest.py
+&quot;&quot;&quot;Shared fixtures and helpers for real-data tests.&quot;&quot;&quot;
+
+import json
+import pytest
+from pathlib import Path
+from sentence_transformers import SentenceTransformer, util
+
+FIXTURE_DIR = Path(&quot;tests/fixtures/real-data&quot;)
+
+# Load embedding model once (in-process, no server needed)
+_embedding_model: SentenceTransformer | None = None
+
+
+def get_embedding_model() -&gt; SentenceTransformer:
+    global _embedding_model
+    if _embedding_model is None:
+        _embedding_model = SentenceTransformer(&quot;all-MiniLM-L6-v2&quot;)
+    return _embedding_model
+
+
+def load_incident_fixture(slug: str) -&gt; dict:
+    &quot;&quot;&quot;Load all fixture files for an incident.&quot;&quot;&quot;
+    d = FIXTURE_DIR / slug
+    return {
+        &quot;meta&quot;: json.loads((d / &quot;meta.json&quot;).read_text()),
+        &quot;alert&quot;: json.loads((d / &quot;alert.json&quot;).read_text()),
+        &quot;logs&quot;: json.loads((d / &quot;logs.json&quot;).read_text()) if (d / &quot;logs.json&quot;).exists() else [],
+        &quot;ground_truth&quot;: json.loads((d / &quot;ground_truth.json&quot;).read_text()),
+    }
+
+
+def embed(text: str) -&gt; list[float]:
+    &quot;&quot;&quot;Get embedding from in-process sentence-transformers model.&quot;&quot;&quot;
+    return get_embedding_model().encode(text).tolist()
+
+
+def cosine_sim(a: list[float], b: list[float]) -&gt; float:
+    &quot;&quot;&quot;Compute cosine similarity between two vectors.&quot;&quot;&quot;
+    import math
+    dot = sum(x * y for x, y in zip(a, b, strict=True))
+    na = math.sqrt(sum(x * x for x in a))
+    nb = math.sqrt(sum(y * y for y in b))
+    return dot / (na * nb) if na and nb else 0.0
+</code></pre>
+<pre><code class="language-python"># tests/real_data/test_real_incidents.py
+&quot;&quot;&quot;Real-data tests: feed real incident data through tool, compare with ground truth.&quot;&quot;&quot;
+
+import re
+import pytest
+from incident_commander.api import run_incident
+from tests.real_data.conftest import load_incident_fixture, embed, cosine_sim
+
+FIXTURE_DIR = Path(&quot;tests/fixtures/real-data&quot;)
+REAL_INCIDENTS = [d.name for d in FIXTURE_DIR.iterdir() if d.is_dir()]
+
+BLAME_REGEX = re.compile(r&quot;\b(engineer|developer|blame|fault of|negligence|careless|mistake by)\b&quot;, re.I)
+
+
+@pytest.mark.real_data
+@pytest.mark.parametrize(&quot;incident_slug&quot;, REAL_INCIDENTS)
+class TestRealIncidents:
+
+    def test_root_cause_accuracy(self, incident_slug):
+        fixture = load_incident_fixture(incident_slug)
+        result = run_incident(
+            alert=fixture[&quot;alert&quot;],
+            logs=fixture[&quot;logs&quot;],
+            auto_approve=True,
+        )
+        rca_emb = embed(result.postmortem.rca.content)
+        truth_emb = embed(fixture[&quot;ground_truth&quot;][&quot;root_cause&quot;])
+        assert cosine_sim(rca_emb, truth_emb) &gt;= 0.70
+
+    def test_timeline_completeness(self, incident_slug): ...
+    def test_action_item_relevance(self, incident_slug): ...
+    def test_blameless_framing(self, incident_slug):
+        fixture = load_incident_fixture(incident_slug)
+        result = run_incident(alert=fixture[&quot;alert&quot;], logs=fixture[&quot;logs&quot;], auto_approve=True)
+        ai_sections = [s.content for s in result.postmortem.sections if s.ai_generated]
+        for section in ai_sections:
+            assert not BLAME_REGEX.search(section)
+
+    def test_citation_integrity(self, incident_slug): ...
+    def test_cost_predictability(self, incident_slug): ...
+    def test_graceful_degradation(self, incident_slug): ...
+    def test_no_hallucination(self, incident_slug): ...
+</code></pre>
+<hr />
+<h2 id="7-results-document">7. Results Document</h2>
+<p>After running, results are written to <code>docs/field-test-results.md</code>:</p>
+<pre><code class="language-markdown"># Field Test Results
+
+&gt; Generated: YYYY-MM-DD
+&gt; LLM: mlx-community/Qwen3.6-35B-A3B-4bit (local, MLX)
+&gt; Embeddings: sentence-transformers/all-MiniLM-L6-v2 (in-process)
+&gt; Cost: $0.00 (fully local)
+
+| Incident | Source | RCA Sim | Timeline | Actions | Blameless | Citation | Cost CV | Degrade | No Hall | Overall |
+|---|---|---|---|---|---|---|---|---|---|---|
+| openrca-db-pool | openrca2 | 0.82 ✅ | 5/5 ✅ | 3/4 ✅ | 0 ✅ | 100% ✅ | 0.12 ✅ | ✅ | ✅ | 8/8 |
+| opensre-slack-tgw | opensre | 0.65 ❌ | 4/5 ✅ | 2/4 ✅ | 0 ✅ | 100% ✅ | 0.18 ✅ | ✅ | ❌ | 6/8 |
+
+**Overall pass rate:** X/800 checks (X%)
+**By source:** OpenRCA2 X%, opensre X%, IntelligentDDS X%, blog X%
+**Known limitations:** ...
+**Recommendations for v0.2.0:** ...
+</code></pre>
+<hr />
+<h2 id="8-how-to-run">8. How to Run</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<pre><code class="language-bash"># mlx-lm, sentence-transformers, transformers already installed
+# Install pyarrow for parquet reading (OpenRCA2 datasets)
+pip install pyarrow
+
+# Models are already downloaded in ~/.cache/huggingface/hub/
+# all-MiniLM-L6-v2 auto-downloads on first run (~80MB)
+</code></pre>
+<h3 id="start-local-llm-server">Start local LLM server</h3>
+<pre><code class="language-bash"># Only ONE server needed — MLX LLM for postmortem generation
+mlx_lm.server --model mlx-community/Qwen3.6-35B-A3B-4bit --port 8080
+</code></pre>
+<h3 id="configure-and-run">Configure and run</h3>
+<pre><code class="language-bash"># Point tool at local MLX LLM
+export LLM_MODEL=qwen3.6-35b-a3b
+export LLM_BASE_URL=http://localhost:8080/v1
+
+# Convert datasets to fixtures (one-time)
+python scripts/convert_incidents.py --source openrca2 --count 50
+python scripts/convert_incidents.py --source opensre --count 30
+python scripts/convert_incidents.py --source intelligentdds --count 15
+python scripts/convert_incidents.py --source blog --count 5
+
+# Run all real-data tests (takes ~2-3 hours for 100 incidents on MLX)
+pytest tests/real_data/ -m real_data -v
+
+# Run a single incident
+pytest tests/real_data/ -m real_data -k &quot;openrca-db-pool&quot;
+
+# Run only OpenRCA2 incidents
+pytest tests/real_data/ -m real_data -k &quot;openrca&quot;
+
+# Generate results report
+python scripts/generate_field_test_report.py --output docs/field-test-results.md
+</code></pre>
+<h3 id="lower-ram-alternative">Lower-RAM alternative</h3>
+<p>If 35B is too heavy, use the 9B model:</p>
+<pre><code class="language-bash">mlx_lm.server --model mlx-community/Qwen3.5-9B-4bit --port 8080
+export LLM_MODEL=qwen3.5-9b
+</code></pre>
+<hr />
+<h2 id="9-cost-estimate">9. Cost Estimate</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LLM inference (local MLX)</td>
+<td>$0.00</td>
+</tr>
+<tr>
+<td>Embedding inference (in-process sentence-transformers)</td>
+<td>$0.00</td>
+</tr>
+<tr>
+<td>HuggingFace dataset download</td>
+<td>$0.00</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>$0.00</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="10-implementation-plan">10. Implementation Plan</h2>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Task</th>
+<th>Effort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Write <code>scripts/convert_incidents.py</code> — OpenRCA2 converter (parquet → JSON)</td>
+<td>4h</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Add opensre-trajectories converter</td>
+<td>2h</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Add IntelligentDDS converter</td>
+<td>2h</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Hand-build 5 blog postmortem fixtures</td>
+<td>3h</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Write <code>tests/real_data/conftest.py</code> — fixture loader, MLX embedding helper</td>
+<td>2h</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Write <code>tests/real_data/test_real_incidents.py</code> — 8 criteria tests</td>
+<td>4h</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Write <code>scripts/generate_field_test_report.py</code></td>
+<td>2h</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Start MLX servers, run tests, generate results</td>
+<td>3h</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Add <code>pyarrow</code> to dev deps (mlx-lm already installed)</td>
+<td>0.5h</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>~22h</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="11-available-mlx-models">11. Available MLX Models</h2>
+<p>Already downloaded on this machine (<code>~/.cache/huggingface/hub/</code>):</p>
+<h3 id="llms-for-postmortem-generation">LLMs (for postmortem generation)</h3>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Active Params</th>
+<th>RAM</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Qwen3.6-35B-A3B-4bit</strong></td>
+<td>3B (MoE)</td>
+<td>~20GB</td>
+<td><strong>Recommended</strong> — best quality/speed ratio</td>
+</tr>
+<tr>
+<td>Qwen3.5-27B-Claude-4.6-Opus-Distilled-MLX-4bit</td>
+<td>27B</td>
+<td>~16GB</td>
+<td>Highest prose quality (Claude-distilled)</td>
+</tr>
+<tr>
+<td>Qwen3.6-27B-4bit</td>
+<td>27B</td>
+<td>~16GB</td>
+<td>Strong reasoning</td>
+</tr>
+<tr>
+<td>Qwen3.5-9B-4bit</td>
+<td>9B</td>
+<td>~6GB</td>
+<td>Lower RAM, good quality</td>
+</tr>
+<tr>
+<td>Qwen3-8B-4bit</td>
+<td>8B</td>
+<td>~6GB</td>
+<td>Solid all-rounder</td>
+</tr>
+</tbody>
+</table>
+<h3 id="embedding-model-for-rca-similarity">Embedding Model (for RCA similarity)</h3>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>RAM</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Qwen3-Embedding-4B-4bit-DWQ</strong></td>
+<td>~3GB</td>
+<td><strong>Recommended</strong> — native Qwen embeddings</td>
+</tr>
+</tbody>
+</table>
+<h3 id="coder-models-not-recommended-for-postmortem-prose">Coder Models (not recommended for postmortem prose)</h3>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>RAM</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qwen3-Coder-30B-A3B-Instruct-4bit</td>
+<td>~18GB</td>
+<td>Code-focused, weaker prose</td>
+</tr>
+<tr>
+<td>Qwen2.5-Coder-14B-Instruct-4bit</td>
+<td>~10GB</td>
+<td>Current default, code-focused</td>
+</tr>
+<tr>
+<td>Qwen2.5.1-Coder-7B-Instruct-4bit</td>
+<td>~5GB</td>
+<td>Current default, code-focused</td>
+</tr>
+</tbody>
+</table></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
