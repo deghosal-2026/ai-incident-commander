@@ -54,9 +54,16 @@ src/incident_commander/
 
 ## Code Standards
 
-- **Python:** 3.11+
-- **ruff:** All checks pass (`ruff check src/ tests/`)
-- **mypy:** `--strict` passes (`mypy --strict src/`)
+All contributions must follow these coding standards:
+
+- **Python:** [PEP 8](https://peps.python.org/pep-0008/) via Ruff with the ruleset in [`pyproject.toml`](pyproject.toml). Line length 100. 3.11+.
+- **Type safety:** mypy `--strict` passes on all source code.
+- **Commit messages:** [Conventional Commits](https://www.conventionalcommits.org/) (`feat:`, `fix:`, `docs:`, `test:`).
+
+```bash
+ruff check src/ tests/
+mypy --strict src/
+```
 - **Coverage:** ≥80% (`pytest --cov=incident_commander --cov-fail-under=80`)
 
 All public functions need docstrings. Tests should use descriptive names (`test_<unit>_<scenario>`) with one-line docstrings.
