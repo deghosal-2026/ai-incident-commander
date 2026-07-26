@@ -1,12 +1,12 @@
 # ai-incident-commander
 
-> CLI tool for incident response: ingest alerts and logs, build timelines, suggest remediation, and auto-generate COE-format postmortems. All powered by local or cloud LLMs. Zero config, zero credentials to start.
-
 [![CI](https://github.com/deghosal-2026/ai-incident-commander/actions/workflows/ci.yml/badge.svg)](https://github.com/deghosal-2026/ai-incident-commander/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![PyPI](https://img.shields.io/pypi/v/ai-incident-commander.svg)](https://pypi.org/project/ai-incident-commander/)
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/13798/badge)](https://www.bestpractices.dev/projects/13798)
+
+> CLI tool for incident response: ingest alerts and logs, build timelines, suggest remediation, and auto-generate COE-format postmortems. All powered by local or cloud LLMs. Zero config, zero credentials to start.
 
 ---
 
